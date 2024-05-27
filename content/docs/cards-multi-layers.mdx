@@ -1,0 +1,72 @@
+---
+title: Multilayers Cards
+description: Multilayers Cards variants
+---
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+import {MultilayerCardV_1 , MultilayerCardV_2} from "@/src/components/cards/multi-layers";
+import { Separator } from "@/src/components/separator";
+
+## Variant 1 (rotated)
+  
+<Tabs items={['Preview', 'React']}>
+  <Tab value="Preview">
+    <MultilayerCardV_1/>
+  </Tab>
+  <Tab value="React">
+  ```jsx
+const MultilayerCardV_1 = () => {
+  return (
+    <div className="mx-auto max-w-lg py-14">
+      <div className="relative w-full">
+        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-lime-800" />
+        <CardBody className="px-6 py-4 relative mx-auto rounded-lg shadow-lg dark:bg-zinc-900/90 backdrop-blur-lg" />
+      </div>
+    </div>
+  );
+};
+```
+</Tab>
+</Tabs>
+<Separator />
+
+## Variant 2 (stacked)
+  
+<Tabs items={['Preview', 'React']}>
+  <Tab value="Preview">
+    <MultilayerCardV_2/>
+  </Tab>
+  <Tab value="React">
+  ```jsx
+const MultilayerCardV_2 = () => {
+
+  return (
+    <div className="mx-auto max-w-lg py-14">
+      <div className="relative w-[26rem] h-60">
+        <div
+          className="dark:bg-zinc-950 bg-white absolute size-full rounded-3xl border border-neutral-200 dark:border-zinc-800 scale-[0.95] -top-6"
+          style={{
+            transformOrigin: "top center",
+          }}
+        ></div>
+        <div
+          className="dark:bg-zinc-950 bg-white absolute size-full rounded-3xl border border-neutral-200 dark:border-zinc-800 scale-[0.97] -top-3"
+          style={{
+            transformOrigin: "top center",
+          }}
+        ></div>
+        <div
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.04]"
+          style={{
+            transformOrigin: "top center",
+          }}
+        >
+          <CardBody className="p-3" />
+        </div>
+      </div>
+    </div>
+  );
+```
+</Tab>
+</Tabs>
+<Separator />
