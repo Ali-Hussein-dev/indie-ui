@@ -7,12 +7,12 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
     <DocsLayout
       tree={pageTree}
       nav={{
-        title: "Indie Components",
+        title: "Indie UI",
         githubUrl: "https://github.com/ali-hussein-dev",
       }}
       links={[
         {
-          url: "https://indie-starter.dev?ref=indie-components",
+          url: "https://indie-starter.dev?ref=indie-ui",
           text: "Indie Starter",
           external: true,
         },
@@ -20,5 +20,5 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
     >
       {children}
     </DocsLayout>
-  );
+  )
 }
