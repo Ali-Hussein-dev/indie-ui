@@ -1,13 +1,35 @@
 ---
-title: Hello World
-description: Your first document
+title: Quick Setup
+description: Learn how to get started with Indie UI
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+## Quick Setup
 
-## What is Next?
+To use Indie UI, you need to set up Tailwind CSS, clsx, and tailwind-merge for your project. Follow the instructions below to install these dependencies.
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+## Tailwind CSS
+
+Tailwind CSS is a utility-first CSS framework that is highly customizable and allows you to build modern websites without ever leaving your HTML.
+
+Learn how to setup tailwind CSS in your project by following the instructions in the [Tailwind documentation](https://tailwindcss.com/docs/installation).
+
+## Utility function
+
+To install Tailwind CSS, run the following command in your project directory:
+
+```bash
+pnpm add clsx tailwind-merge
+```
+
+Create a file `cn.ts`. This function is designed to work with Tailwind CSS and clsx to generate class strings.
+
+```ts
+
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+```
