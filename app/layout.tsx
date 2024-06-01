@@ -9,10 +9,10 @@ const inter = Inter({
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={"scroll-smooth antialiased " + inter.className}>
       <body>
         <RootProvider>{children}</RootProvider>
       </body>
     </html>
-  );
+  )
 }

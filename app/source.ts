@@ -10,7 +10,7 @@ export const { getPage, getPages, pageTree: originalTree } = loader({
 });
 
 export const pageTree: PageTree.Root = {
-  name: "Docs",
+  name: "Indie UI",
   children: [
     { type: "separator", name: "Cards" },
     { type: "page", name: "Simple", url: "/docs/cards-simple" },
