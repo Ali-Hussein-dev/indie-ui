@@ -87,7 +87,7 @@ export const Bento_4_v4 = () => {
             key={n}
             className={cn(
               "p-1 rounded-lg h-32",
-              i == 0 && "md:col-span-3 row-span-4 h-full",
+              i == 0 && "md:col-span-3 md:row-span-4 md:h-full",
               i == 1 && "md:col-start-4",
               i == 2 && "md:col-start-4",
               i == 3 && "md:col-start-4"

@@ -43,7 +43,7 @@ export const MultilayerCardV_1 = () => {
 export const MultilayerCardV_2 = () => {
   return (
     <div className="mx-auto max-w-lg py-14">
-      <div className="relative w-[26rem] h-60">
+      <div className="relative mx-auto max-w-[26rem] h-72 sm:h-60">
         <div
           className="dark:bg-zinc-900 bg-white absolute size-full rounded-3xl border border-neutral-200 dark:border-zinc-800 scale-y-[1.15] scale-x-90 -top-4"
           style={{
@@ -51,7 +51,7 @@ export const MultilayerCardV_2 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-zinc-800"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800"
           style={{
             transformOrigin: "top center",
           }}
@@ -60,14 +60,14 @@ export const MultilayerCardV_2 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 //======================================
 export const MultilayerCardV_3 = () => {
   return (
     <div className="mx-auto max-w-lg py-14">
-      <div className="relative w-[26rem] h-60">
+      <div className="relative mx-auto max-w-[26rem] h-72 sm:h-60">
         <div
           className="dark:bg-zinc-900/20 bg-white absolute size-full rounded-3xl border border-neutral-200 dark:border-zinc-800 scale-[0.95] -top-6"
           style={{
@@ -81,7 +81,7 @@ export const MultilayerCardV_3 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02]"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02]"
           style={{
             transformOrigin: "top center",
           }}
@@ -90,5 +90,5 @@ export const MultilayerCardV_3 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
