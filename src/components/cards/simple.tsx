@@ -16,7 +16,7 @@ const CardBody = ({ className = "p-4" }) => (
   </div>
 )
 //======================================
-export const SimpleCardV_1 = () => {
+export const SimpleCard_V1 = () => {
   const Ellipses = () => {
     const sharedClasses =
       "rounded-full outline outline-8 dark:outline-gray-950 sm:my-6 md:my-8 size-1 my-4 outline-gray-50 bg-green-400"
@@ -52,7 +52,7 @@ export const SimpleCardV_1 = () => {
   )
 }
 //======================================
-export const SimpleCardV_2 = () => {
+export const SimpleCard_V2 = () => {
   const Ellipses = () => {
     const sharedClasses =
       "rounded-full outline outline-8 dark:outline-gray-950 sm:my-6 md:my-8 size-1 my-4 outline-gray-50 bg-green-400"
@@ -89,7 +89,7 @@ export const SimpleCardV_2 = () => {
 }
 
 //======================================
-export const SimpleCardV_3 = () => {
+export const SimpleCard_V3 = () => {
   const Icon = ({ className, ...rest }: any) => {
     return (
       <svg
@@ -118,4 +118,14 @@ export const SimpleCardV_3 = () => {
       </div>
     </div>
   )
-};
+}
+//======================================Neubrutalism
+export const SimpleCard_V4 = () => {
+  return (
+    <div className="max-w-lg mx-auto py-4">
+      <div className="border-[0.5px] border-zinc-400 dark:border-white/70 relative shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.7)]">
+        <CardBody className="p-6" />
+      </div>
+    </div>
+  )
+}
