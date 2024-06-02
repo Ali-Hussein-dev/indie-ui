@@ -118,8 +118,4 @@ export const SimpleCardV_3 = () => {
       </div>
     </div>
   )
-}
-      </div>
-    </div>
-  );
 };
