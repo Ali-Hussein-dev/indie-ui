@@ -7,6 +7,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
     "framer-motion": "^11.2.6",
     "fumadocs-core": "^11.2.0",
     "fumadocs-mdx": "^8.2.22",
@@ -24,6 +26,7 @@
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
     "postcss": "^8.4.38",
+    "tailwind-custom-utilities": "^1.0.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"

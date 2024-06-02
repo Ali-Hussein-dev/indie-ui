@@ -12,5 +12,8 @@ export default {
   presets: [createPreset({
     preset: 'default',
   })],
+  plugins: [
+    require("tailwind-custom-utilities")
+  ]
 };
 

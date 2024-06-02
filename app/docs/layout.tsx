@@ -1,6 +1,7 @@
-import { pageTree } from "../source";
-import { DocsLayout } from "fumadocs-ui/layout";
-import type { ReactNode } from "react";
+import { configs } from "@/configs"
+import { pageTree } from "../source"
+import { DocsLayout } from "fumadocs-ui/layout"
+import type { ReactNode } from "react"
 
 export default function RootDocsLayout({ children }: { children: ReactNode }) {
   return (
@@ -8,11 +9,11 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
       tree={pageTree}
       nav={{
         title: "Indie UI",
-        githubUrl: "https://github.com/Ali-Hussein-dev/indie-ui",
+        githubUrl: configs.urls.github,
       }}
       links={[
         {
-          url: "https://indie-starter.dev?ref=indie-ui",
+          url: configs.urls.indiestarter,
           text: "Indie Starter",
           external: true,
         },
