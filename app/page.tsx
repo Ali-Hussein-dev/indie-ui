@@ -7,7 +7,7 @@ export default function HomePage() {
       <h1 className="text-xl sm:text-3xl md:text-4xl mb-3 font-semibold">
         Cool UI components for free <br />
       </h1>
-      <Link href="/docs" className="text-lg font-semibold">
+      <Link href="/docs" className="text-lg font-semibold w-fit mx-auto">
         Start Exploring
       </Link>
     </main>

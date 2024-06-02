@@ -11,7 +11,11 @@ export const metadata = generateSEOTags()
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={"scroll-smooth antialiased " + inter.className}>
+    <html
+      lang="en"
+      className={"scroll-smooth antialiased " + inter.className}
+      style={{ colorScheme: "dark" }}
+    >
       <body>
         <RootProvider>{children}</RootProvider>
       </body>
