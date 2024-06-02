@@ -1,6 +1,6 @@
 const Site_Name = "Indie UI";
 
-const siteUrl = "https://ui.indie-starte.dev";
+const siteUrl = "https://ui.indie-starter.dev";
 
 export const configs = {
     site: {
