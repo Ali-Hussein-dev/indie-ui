@@ -46,7 +46,7 @@ export const generateSEOTags = ({
     openGraph: {
       title: openGraph?.title ?? site.name,
       description: openGraph?.description ?? site.description,
-      url: openGraph?.url ?? site.siteUrl,
+      // url: openGraph?.url ?? site.siteUrl,
       siteName: openGraph?.title ?? site.name,
       // If you add an opengraph-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [
