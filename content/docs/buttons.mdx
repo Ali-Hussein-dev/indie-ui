@@ -10,6 +10,7 @@ import {
     Button_v2,
     Button_v3,
     Button_v4,
+    Button_v5,
 } from "@/src/components/buttons/buttons"
 
 
@@ -138,6 +139,46 @@ export const Button_v4 = () => {
     >
       <span className="absolute size-0 rounded-full bg-white dark:bg-black opacity-10 transition-all duration-300 ease-out group-hover:h-32 group-hover:w-32"></span>
       <span className="relative font-medium">Hover me</span>
+    </button>
+  )
+}
+```
+</Tab>
+</Tabs>
+
+## Variant 5
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+  <div className="flex-row-center pt-4">
+    <Button_v5 />
+  </div>
+  </Tab>
+  <Tab value="React">
+
+```jsx
+import { IoSend } from "react-icons/io5"
+import { cn } from "@/src/utils/cn"
+
+//======================================
+export const Button_v5 = () => {
+  return (
+    <button
+      className={cn(
+        "relative inline-flex items-center justify-center px-5 py-2 overflow-hidden font-medium transition duration-300 ease-out border  rounded shadow group",
+        // light mode
+        "border-zinc-300 text-zinc-800",
+        // dark mode
+        "dark:border-zinc-700 dark:text-zinc-100"
+      )}
+    >
+      <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-500 -translate-x-full group-hover:translate-x-0 ease-out bg-zinc-800 dark:bg-zinc-200">
+        <IoSend size="20" className="dark:text-zinc-800 text-zinc-100" />
+      </span>
+      <span className="absolute flex items-center justify-center w-full h-full text-zinc-800 dark:text-zinc-100 transition-all duration-300 transform group-hover:translate-x-full ease">
+        Hover me
+      </span>
+      <span className="relative invisible">Hover me</span>
     </button>
   )
 }

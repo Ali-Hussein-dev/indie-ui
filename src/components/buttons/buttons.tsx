@@ -1,5 +1,5 @@
 import { cn } from "@/src/utils/cn"
-
+import { IoSend } from "react-icons/io5"
 //======================================Neubrutalism
 export const Button_v1 = () => {
   return (
@@ -68,6 +68,29 @@ export const Button_v4 = () => {
     >
       <span className="absolute size-0 rounded-full bg-white dark:bg-black opacity-10 transition-all duration-300 ease-out group-hover:h-32 group-hover:w-32"></span>
       <span className="relative font-medium">Hover me</span>
+    </button>
+  )
+}
+
+//======================================
+export const Button_v5 = () => {
+  return (
+    <button
+      className={cn(
+        "relative inline-flex items-center justify-center px-5 py-2 overflow-hidden font-medium transition duration-300 ease-out border  rounded shadow group",
+        // light mode
+        "border-zinc-300 text-zinc-800",
+        // dark mode
+        "dark:border-zinc-700 dark:text-zinc-100"
+      )}
+    >
+      <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-500 -translate-x-full group-hover:translate-x-0 ease-out bg-zinc-800 dark:bg-zinc-200">
+        <IoSend size="20" className="dark:text-zinc-800 text-zinc-100" />
+      </span>
+      <span className="absolute flex items-center justify-center w-full h-full text-zinc-800 dark:text-zinc-100 transition-all duration-300 transform group-hover:translate-x-full ease">
+        Hover me
+      </span>
+      <span className="relative invisible">Hover me</span>
     </button>
   )
 }
