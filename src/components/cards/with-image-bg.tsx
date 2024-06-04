@@ -29,7 +29,7 @@ export const Card_with_image_bg_v1 = () => {
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
         />
         {/* overlay */}
-        <div className="absolute inset-0 from-black/90 via-black/60 to-black/5 bg-gradient-to-t backdrop-blur-sm transition-all duration-300"></div>
+        <div className="absolute inset-0 from-stone-900/90 via-stone-900/60 to-stone-900/5 bg-gradient-to-t backdrop-blur-[2px] transition-all duration-300"></div>
         <CardBody className="absolute inset-0 flex flex-col justify-end size-full" />
       </div>
     </div>
@@ -71,7 +71,7 @@ export const Card_with_image_bg_v3 = () => {
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
         />
         {/* overlay */}
-        <div className="absolute inset-0 from-zinc-900/95 via-zinc-900/80 to-zinc-900/35 bg-gradient-to-t"></div>
+        <div className="absolute inset-0 from-teal-900/90 to-red-900/35 bg-gradient-to-t backdrop-blur-[1px]"></div>
         <CardBody className="absolute inset-0 flex flex-col justify-end size-full" />
       </div>
     </div>
