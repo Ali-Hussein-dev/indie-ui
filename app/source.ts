@@ -19,9 +19,11 @@ export const pageTree: PageTree.Root = {
     { type: "separator", name: "Cards" },
     { type: "page", name: "Simple", url: "/docs/cards-simple" },
     { type: "page", name: "Multi layers", url: "/docs/cards-multi-layers" },
+    { type: "page", name: "With background", url: "/docs/cards-with-bg" },
 
     { type: "separator", name: "Buttons" },
-    { type: "page", name: "Buttons", url: "/docs/buttons" },
+    { type: "page", name: "Simple", url: "/docs/buttons" },
+    { type: "page", name: "Eye catching", url: "/docs/eye-catching-buttons" },
 
     // { type: "separator", name: "Shadows" },
     // { type: "page", name: "shadow variants", url: "/good-question" },
