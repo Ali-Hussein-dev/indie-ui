@@ -129,3 +129,25 @@ export const SimpleCard_V4 = () => {
     </div>
   )
 }
+
+//======================================
+export const SimpleCard_V5 = () => {
+  return (
+    <div className="max-w-lg mx-auto pt-4">
+      {/* inner card */}
+      <div className="border-[0.5px] border-zinc-300 rounded-sm p-2 dark:border-zinc-800">
+        <div
+          className={cn(
+            "border rounded-sm bg-gradient-to-br",
+            // light mode
+            " from-white to-zinc-200/60 border-zinc-300 shadow-[2px_0_8px_rgba(0,_0,_0,_0.15)]",
+            // dark mode
+            "dark:from-zinc-950 dark:to-zinc-900/60 dark:border-zinc-900/50 dark:shadow-inner"
+          )}
+        >
+          <CardBody />
+        </div>
+      </div>
+    </div>
+  )
+}
