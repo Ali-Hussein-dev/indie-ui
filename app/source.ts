@@ -40,5 +40,6 @@ export const pageTree: PageTree.Root = {
     // ...originalTree.children
 
      { type: "separator", name: "Loaders" },
+     { type: "page", name: "Skeleton", url: "/docs/skeleton" },
   ],
 };
