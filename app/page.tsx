@@ -5,10 +5,13 @@ import { FaGithub } from "react-icons/fa"
 export default function HomePage() {
   return (
     <main className="flex h-screen flex-col justify-center text-center">
-      <span className="mb-4 text-2xl font-bold">Indie UI</span>
-      <h1 className="text-xl sm:text-3xl md:text-4xl mb-6 font-semibold">
-        Cool UI components for free <br />
+      <span className="mb-5 text-2xl font-bold">Indie UI</span>
+      <h1 className="text-xl sm:text-3xl md:text-5xl mb-1 text-center font-bold">
+        UI components with variants
       </h1>
+      <p className="text-cneter mb-4">
+        Powered by <b>Tailwindcss</b>
+      </p>
       <div className="flex-row-center gap-4 mx-auto">
         <Button asChild>
           <Link href="/docs" className="text-lg font-semibold w-fit mx-auto">
