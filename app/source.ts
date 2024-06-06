@@ -38,5 +38,8 @@ export const pageTree: PageTree.Root = {
     // { type: "separator", name: "Hero" },
     // { type: "page", name: "Centeric", url: "/good-question" },
     // ...originalTree.children
+
+     { type: "separator", name: "Loaders" },
+     { type: "page", name: "Skeleton", url: "/docs/skeleton" },
   ],
 };
