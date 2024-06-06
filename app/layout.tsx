@@ -8,7 +8,9 @@ import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({
   subsets: ["latin"],
 })
-export const metadata = generateSEOTags()
+export const metadata = generateSEOTags({
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+})
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
