@@ -24,8 +24,8 @@ export const pageTree: PageTree.Root = {
     { type: "page", name: "Simple", url: "/docs/buttons" },
     { type: "page", name: "Eye catching", url: "/docs/eye-catching-buttons" },
 
-    // { type: "separator", name: "Shadows" },
-    // { type: "page", name: "shadow variants", url: "/good-question" },
+    { type: "separator", name: "Input Block" },
+    { type: "page", name: "Inputs", url: "/docs/inputs" },
 
     { type: "separator", name: "Layout" },
     { type: "page", name: "Bento Grid (4 cells)", url: "/docs/bento-4" },
