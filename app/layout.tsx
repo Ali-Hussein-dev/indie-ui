@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       className={"scroll-smooth antialiased " + inter.className}
       style={{ colorScheme: "dark" }}
     >
-      <body>
+      <body className="selection:bg-zinc-800 selection:text-zinc-100">
         <RootProvider>{children}</RootProvider>
         <Analytics />
       </body>
