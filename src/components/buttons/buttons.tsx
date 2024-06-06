@@ -94,3 +94,18 @@ export const Button_v5 = () => {
     </button>
   )
 }
+
+//======================================
+export const Button_v6 = () => {
+  return (
+    <div className="rounded-sm border dark:border-zinc-200 border-zinc-600 group">
+      <button
+        className={cn(
+          "px-5 py-2 scale-y-90 scale-x-95 group-hover:scale-100 group-hover:m-0 duration-300 font-semibold rounded-sm transition dark:bg-zinc-50 bg-zinc-950 text-zinc-100 dark:text-zinc-800",
+        )}
+      >
+        Hover me
+      </button>
+    </div>
+  )
+}

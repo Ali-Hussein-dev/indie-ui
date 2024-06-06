@@ -11,6 +11,7 @@ import {
     Button_v3,
     Button_v4,
     Button_v5,
+    Button_v6,
 } from "@/src/components/buttons/buttons"
 
 
@@ -156,7 +157,7 @@ export const Button_v4 = () => {
   </Tab>
   <Tab value="React">
 
-```jsx
+```jsx title="Button.tsx"
 import { IoSend } from "react-icons/io5"
 import { cn } from "@/src/utils/cn"
 
@@ -180,6 +181,37 @@ export const Button_v5 = () => {
       </span>
       <span className="relative invisible">Hover me</span>
     </button>
+  )
+}
+```
+</Tab>
+</Tabs>
+
+## Variant 6
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+  <div className="flex-row-center pt-4">
+    <Button_v6 />
+  </div>
+  </Tab>
+  <Tab value="React">
+
+```jsx title="Button.tsx"
+
+import { cn } from "@/src/utils/cn"
+//======================================
+export const Button_v6 = () => {
+  return (
+    <div className="rounded-sm border dark:border-zinc-200 border-zinc-600 group">
+      <button
+        className={cn(
+          "px-5 py-2 scale-y-90 scale-x-95 group-hover:scale-100 group-hover:m-0 duration-300 font-semibold rounded-sm transition dark:bg-zinc-50 bg-zinc-950 text-zinc-100 dark:text-zinc-800",
+        )}
+      >
+        Hover me
+      </button>
+    </div>
   )
 }
 ```
