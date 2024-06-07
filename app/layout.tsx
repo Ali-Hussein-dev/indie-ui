@@ -19,9 +19,16 @@ export default function Layout({ children }: { children: ReactNode }) {
       className={"scroll-smooth antialiased " + inter.className}
       style={{ colorScheme: "dark" }}
     >
+      <head>
+        <script
+          defer
+          src="https://eu.umami.is/script.js"
+          data-website-id="3877cb40-b9fe-4b1d-a8e1-2957dc18cf0a"
+          data-host-url="https://ui.indie-starter.dev"
+        ></script>
+      </head>
       <body className="selection:bg-zinc-800 selection:text-zinc-100">
         <RootProvider>{children}</RootProvider>
-        <Analytics />
       </body>
     </html>
   )
