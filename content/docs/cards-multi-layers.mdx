@@ -4,19 +4,19 @@ description: Multilayers Cards variants
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-
 import {
   MultilayerCardV_1,
   MultilayerCardV_2,
   MultilayerCardV_3,
 } from "@/src/components/cards/multi-layers";
-import { Separator } from "@/src/components/separator";
 
-## Variant 1 (rotated)
+## Variant 1
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
+  <div className="pt-4 mx-auto max-w-xl">
     <MultilayerCardV_1/>
+  </div>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -26,40 +26,41 @@ const cardContent = {
   description:
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
-const CardBody = ({className=""}) => (
+const CardBody = ({ className = "" }) => (
   <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
-);
+)
 //======================================
 export const MultilayerCardV_1 = () => {
   return (
-    <div className="mx-auto max-w-lg py-14">
+    <div className="py-14">
       <div className="relative w-full">
-        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-lime-800" />
+        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800" />
         <CardBody className="px-6 py-4 relative mx-auto rounded-lg shadow-lg dark:bg-zinc-900/90 backdrop-blur-lg" />
       </div>
     </div>
-  );
+  )
 };
 ```
 </Tab>
 </Tabs>
-<Separator />
 
-## Variant 2 (stacked 2)
+## Variant 2
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <MultilayerCardV_2/>
+    <div className="pt-4 mx-auto max-w-xl">
+      <MultilayerCardV_2/>
+  </div>
   </Tab>
   <Tab value="React">
-  ```jsx
+```jsx
 import { cn } from "@/src/utils/cn";
 
 const cardContent = {
@@ -67,21 +68,21 @@ const cardContent = {
   description:
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
-const CardBody = ({className=""}) => (
+const CardBody = ({ className = "" }) => (
   <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
-);
+)
 //======================================
 export const MultilayerCardV_2 = () => {
   return (
-    <div className="mx-auto max-w-lg py-14">
-      <div className="relative w-[26rem] h-60">
+    <div className="py-14">
+      <div className="relative mx-auto h-72 sm:h-48">
         <div
           className="dark:bg-zinc-900 bg-white absolute size-full rounded-3xl border border-neutral-200 dark:border-zinc-800 scale-y-[1.15] scale-x-90 -top-4"
           style={{
@@ -89,7 +90,7 @@ export const MultilayerCardV_2 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-zinc-800"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800"
           style={{
             transformOrigin: "top center",
           }}
@@ -98,19 +99,20 @@ export const MultilayerCardV_2 = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-````
+  )
+}
+```
 </Tab>
 </Tabs>
-<Separator />
 
-## Variant 3 (stacked 3)
+
+## Variant 3
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
+    <div className="pt-4 mx-auto max-w-xl">
     <MultilayerCardV_3/>
+  </div>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -121,21 +123,22 @@ const cardContent = {
   description:
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
-const CardBody = ({className=""}) => (
+const CardBody = ({ className = "" }) => (
   <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
-);
+)
 //======================================
 export const MultilayerCardV_3 = () => {
+
   return (
-    <div className="mx-auto max-w-lg py-14">
-      <div className="relative w-[26rem] h-60">
+    <div className="py-14">
+      <div className="relative mx-auto h-72 sm:h-48">
         <div
           className="dark:bg-zinc-900/20 bg-white absolute size-full rounded-3xl border border-neutral-200 dark:border-zinc-800 scale-[0.95] -top-6"
           style={{
@@ -149,7 +152,7 @@ export const MultilayerCardV_3 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02]"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02]"
           style={{
             transformOrigin: "top center",
           }}
@@ -158,9 +161,8 @@ export const MultilayerCardV_3 = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 ```
 </Tab>
 </Tabs>
-<Separator />

@@ -2,19 +2,23 @@
 title: Simple Cards
 description: Simple Cards variants
 ---
+
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 import {
   SimpleCard_V1,
   SimpleCard_V2,
   SimpleCard_V3,
   SimpleCard_V4,
-  SimpleCard_V5
+  SimpleCard_V5,
 } from "@/src/components/cards/simple"
 
 ## Variant 1
+
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
+  <div className="pt-4 mx-auto max-w-xl">
     <SimpleCard_V1/>
+  </div>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -26,11 +30,11 @@ const cardContent = {
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg font-bold mb-1 text-gray-900 dark:text-gray-100">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
@@ -62,7 +66,7 @@ export const SimpleCard_V1 = () => {
     </div>
   )
   return (
-    <div className="mx-auto w-fit max-w-lg">
+    <div className="">
       <Container>
         <div className="p-3 w-full center">
           <CardBody />
@@ -76,9 +80,12 @@ export const SimpleCard_V1 = () => {
 </Tabs>
 
 ## Variant 2
+
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <SimpleCard_V2/>
+    <div className="pt-4 mx-auto max-w-xl">
+      <SimpleCard_V2/>
+  </div>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -89,11 +96,11 @@ const cardContent = {
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg font-bold mb-1 text-gray-900 dark:text-gray-100">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
@@ -110,7 +117,7 @@ export const SimpleCard_V2 = () => {
     </div>
   )
   return (
-    <div className="mx-auto max-w-lg py-4">
+    <div>
       <Container>
         <div className="p-4 w-full center">
           <CardBody />
@@ -124,9 +131,12 @@ export const SimpleCard_V2 = () => {
 </Tabs>
 
 ## Variant 3
+
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <SimpleCard_V3/>
+    <div className="pt-4 mx-auto max-w-xl">
+      <SimpleCard_V3/>
+  </div>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -136,11 +146,11 @@ const cardContent = {
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg font-bold mb-1 text-gray-900 dark:text-gray-100">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
@@ -165,7 +175,7 @@ export const SimpleCard_V3 = () => {
     )
   }
   return (
-    <div className="max-w-lg mx-auto py-4">
+    <div>
       <div className="border border-dashed border-zinc-400 dark:border-zinc-700 relative">
         <Icon className="-top-3 -left-3" />
         <Icon className="-top-3 -right-3" />
@@ -181,9 +191,12 @@ export const SimpleCard_V3 = () => {
 </Tabs>
 
 ## Variant 4 Neubrutalism
+
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
+    <div className="pt-4 mx-auto max-w-xl">
     <SimpleCard_V4/>
+  </div>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -193,19 +206,19 @@ const cardContent = {
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg font-bold mb-1 text-gray-900 dark:text-gray-100">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
 )
-//======================================
+//======================================Neubrutalism
 export const SimpleCard_V4 = () => {
   return (
-    <div className="max-w-lg mx-auto py-4">
+    <div>
       <div className="border-[0.5px] border-zinc-400 dark:border-white/70 relative shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.7)]">
         <CardBody className="p-6" />
       </div>
@@ -217,9 +230,12 @@ export const SimpleCard_V4 = () => {
 </Tabs>
 
 ## Variant 5
+
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <SimpleCard_V5/>
+    <div className="pt-4 mx-auto max-w-xl">
+      <SimpleCard_V1/>
+  </div>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -229,20 +245,19 @@ const cardContent = {
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg mb-1 font-bold text-gray-900 dark:text-gray-100">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
 )
 //======================================
-//======================================
 export const SimpleCard_V5 = () => {
   return (
-    <div className="max-w-lg mx-auto pt-4">
+    <div>
       {/* inner card */}
       <div className="border-[0.5px] border-zinc-300 rounded-sm p-2 dark:border-zinc-800">
         <div
@@ -260,6 +275,7 @@ export const SimpleCard_V5 = () => {
     </div>
   )
 }
+
 ```
 </Tab>
 </Tabs>
