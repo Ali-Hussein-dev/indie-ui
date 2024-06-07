@@ -56,19 +56,18 @@ const rootVariants = cva(
 )
 
 type InputBlockProps = {
-  root: VariantProps<typeof rootVariants> & {
+  root?: VariantProps<typeof rootVariants> & {
     className?: string
   }
-  input: InputProps
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
-}
+} & InputProps
 
 const InputBlock = ({
   root: { size, variant, className } = { size: "default", variant: "default" },
-  input,
   leftIcon,
   rightIcon,
+  ...input
 }: InputBlockProps) => (
   <div className={cn(rootVariants({ variant, size, className }))}>
     {leftIcon && <span className="px-1">{leftIcon}</span>}
