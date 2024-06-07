@@ -6,11 +6,11 @@ const cardContent = {
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg font-bold mb-1 text-gray-900 dark:text-gray-100">
       {cardContent.title}
     </h3>
-    <p className="mt-2 text-gray-700 dark:text-gray-300">
+    <p className="text-gray-700 dark:text-gray-300">
       {cardContent.description}
     </p>
   </div>
@@ -42,7 +42,7 @@ export const SimpleCard_V1 = () => {
     </div>
   )
   return (
-    <div className="mx-auto w-fit max-w-lg">
+    <div className="">
       <Container>
         <div className="p-3 w-full center">
           <CardBody />
@@ -63,7 +63,7 @@ export const SimpleCard_V2 = () => {
     </div>
   )
   return (
-    <div className="mx-auto max-w-lg py-4">
+    <div>
       <Container>
         <div className="p-4 w-full center">
           <CardBody />
@@ -93,7 +93,7 @@ export const SimpleCard_V3 = () => {
     )
   }
   return (
-    <div className="max-w-lg mx-auto py-4">
+    <div>
       <div className="border border-dashed border-zinc-400 dark:border-zinc-700 relative">
         <Icon className="-top-3 -left-3" />
         <Icon className="-top-3 -right-3" />
@@ -107,7 +107,7 @@ export const SimpleCard_V3 = () => {
 //======================================Neubrutalism
 export const SimpleCard_V4 = () => {
   return (
-    <div className="max-w-lg mx-auto py-4">
+    <div>
       <div className="border-[0.5px] border-zinc-400 dark:border-white/70 relative shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.7)]">
         <CardBody className="p-6" />
       </div>
@@ -118,7 +118,7 @@ export const SimpleCard_V4 = () => {
 //======================================
 export const SimpleCard_V5 = () => {
   return (
-    <div className="max-w-lg mx-auto pt-4">
+    <div>
       {/* inner card */}
       <div className="border-[0.5px] border-zinc-300 rounded-sm p-2 dark:border-zinc-800">
         <div
