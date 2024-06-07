@@ -1,5 +1,5 @@
 import { configs } from "@/configs"
-import { Button } from "@/src/components/button"
+import { Button } from "@/src/components/buttons/button"
 import Link from "next/link"
 import { FaGithub } from "react-icons/fa"
 export default function HomePage() {
@@ -15,7 +15,7 @@ export default function HomePage() {
       <div className="flex-row-center gap-4 mx-auto">
         <Button asChild>
           <Link href="/docs" className="text-lg font-semibold w-fit mx-auto">
-            Start Exploring
+            Docs
           </Link>
         </Button>
         <Button asChild variant={"outline"}>
