@@ -89,8 +89,8 @@ export default function HomePage() {
           <div className="mx-auto pt-10 w-fit">
             <div className="grid grid-cols-2 gap-5 ">
               {variantsList.map((o) => (
-                <Button size="sm" variant={"outline"} asChild>
-                  <a key={o.href} href={o.href} className="text-xs">
+                <Button key={o.href} size="sm" variant={"outline"} asChild>
+                  <a href={o.href} className="text-xs">
                     {o.label}
                   </a>
                 </Button>
