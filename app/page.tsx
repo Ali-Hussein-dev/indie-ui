@@ -45,6 +45,18 @@ import {
 } from "@/src/components/layout/bento-5"
 
 import { InputBlock } from "@/src/components/inputs/inputs"
+const variantsList = [
+  { href: "#buttons", label: "Buttons" },
+  { href: "#inputs", label: "Inputs" },
+  { href: "#simple-cards", label: "Simple cards" },
+  {
+    href: "#cards-with-multi-layers",
+    label: "Cards with multi layers",
+  },
+  { href: "#cards-with-image-bg", label: "Cards with image BG" },
+  { href: "#bento-grids-4", label: "Bento with 4 cells" },
+  { href: "#bento-grids-5", label: "Bento with 5 cells" },
+]
 
 export default function HomePage() {
   return (
@@ -74,9 +86,23 @@ export default function HomePage() {
               </span>
             </Button>
           </div>
+          <div className="mx-auto pt-10 w-fit">
+            <div className="grid grid-cols-2 gap-5 ">
+              {variantsList.map((o) => (
+                <Button size="sm" variant={"outline"} asChild>
+                  <a key={o.href} href={o.href} className="text-xs">
+                    {o.label}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-      <div className="mx-auto divide-y space-y-8 max-w-6xl pb-14 px-2">
+      <div
+        id="buttons"
+        className="mx-auto divide-y space-y-8 max-w-6xl pb-14 px-2"
+      >
         <section className="max-w-xl mx-auto">
           <h2 className="text-xl mb-4 font-bold mt-10 text-left">
             Button variants
@@ -90,7 +116,7 @@ export default function HomePage() {
             <Button_v6>Hover me</Button_v6>
           </div>
         </section>
-        <section className="max-w-xl mx-auto">
+        <section id="inputs" className="max-w-xl mx-auto">
           <h2 className="text-xl mb-4 font-bold mt-10 text-left">
             Input variants
           </h2>
@@ -114,7 +140,7 @@ export default function HomePage() {
             />
           </div>
         </section>
-        <section className="pt-8">
+        <section id="simple-cards" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
             Simple card variants
           </h2>
@@ -126,7 +152,7 @@ export default function HomePage() {
             <SimpleCard_V5 />
           </div>
         </section>
-        <section className="pt-8">
+        <section id="cards-with-multi-layers" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
             Cards variants with multi layers
           </h2>
@@ -136,7 +162,7 @@ export default function HomePage() {
             <MultilayerCardV_3 />
           </div>
         </section>
-        <section className="pt-8">
+        <section id="cards-with-image-bg" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
             Card variants with image BG
           </h2>
@@ -147,7 +173,7 @@ export default function HomePage() {
             <Card_with_image_bg_v4 />
           </div>
         </section>
-        <section className="pt-8">
+        <section id="bento-grids-4" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
             Bento grids with 4 cells
           </h2>
@@ -161,7 +187,7 @@ export default function HomePage() {
             <Bento_4_v4 />
           </div>
         </section>
-        <section className="pt-8">
+        <section id="bento-grids-5" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
             Bento grids with 5 cells
           </h2>
