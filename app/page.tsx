@@ -79,7 +79,7 @@ export default function HomePage() {
       <div className="mx-auto divide-y space-y-8 max-w-6xl pb-14 px-2">
         <section className="max-w-xl mx-auto">
           <h2 className="text-xl mb-4 font-bold mt-10 text-left">
-            Button Variants
+            Button variants
           </h2>
           <div className="flex gap-2 sm:gap-4 flex-wrap">
             <Button_v1>Hover me</Button_v1>
@@ -92,7 +92,7 @@ export default function HomePage() {
         </section>
         <section className="max-w-xl mx-auto">
           <h2 className="text-xl mb-4 font-bold mt-10 text-left">
-            Input Variants
+            Input variants
           </h2>
           <div className="space-y-6 max-w-xl">
             <InputBlock placeholder="Input field (default)" />
@@ -116,7 +116,7 @@ export default function HomePage() {
         </section>
         <section className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
-            Simple Card Variants
+            Simple card variants
           </h2>
           <div className="max-w-2xl space-y-6 mx-auto">
             <SimpleCard_V1 />
@@ -128,7 +128,7 @@ export default function HomePage() {
         </section>
         <section className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
-            Cards Variants with multi layers
+            Cards variants with multi layers
           </h2>
           <div className="space-y-4 max-w-xl mx-auto">
             <MultilayerCardV_1 />
@@ -138,7 +138,7 @@ export default function HomePage() {
         </section>
         <section className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
-            Card Variants with image BG
+            Card variants with image BG
           </h2>
           <div className="max-w-2xl grid md:grid-cols-2 gap-4">
             <Card_with_image_bg_v1 />
