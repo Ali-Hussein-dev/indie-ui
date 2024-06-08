@@ -33,8 +33,8 @@ export const MultilayerCardV_1 = () => {
   return (
     <div className="py-14">
       <div className="relative w-full">
-        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800" />
-        <CardBody className="px-6 py-4 relative mx-auto rounded-lg shadow-lg dark:bg-zinc-900/90 backdrop-blur-lg" />
+        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800 py-10" />
+        <CardBody className="px-6 py-8 relative mx-auto rounded-lg shadow-lg dark:bg-zinc-900/90 backdrop-blur-lg" />
       </div>
     </div>
   )
@@ -51,7 +51,7 @@ export const MultilayerCardV_2 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 center"
           style={{
             transformOrigin: "top center",
           }}
@@ -81,7 +81,7 @@ export const MultilayerCardV_3 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02]"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02] center"
           style={{
             transformOrigin: "top center",
           }}
