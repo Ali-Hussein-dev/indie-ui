@@ -22,12 +22,27 @@ import {
   MultilayerCardV_2,
   MultilayerCardV_3,
 } from "@/src/components/cards/multi-layers"
+
 import {
   Card_with_image_bg_v1,
   Card_with_image_bg_v2,
   Card_with_image_bg_v3,
   Card_with_image_bg_v4,
 } from "@/src/components/cards/with-image-bg"
+
+import {
+  Bento_4_v1,
+  Bento_4_v2,
+  Bento_4_v3,
+  Bento_4_v4,
+} from "@/src/components/layout/bento-4"
+
+import {
+  Bento_5_v1,
+  Bento_5_v2,
+  Bento_5_v3,
+  Bento_5_v4,
+} from "@/src/components/layout/bento-5"
 
 import { InputBlock } from "@/src/components/inputs/inputs"
 
@@ -130,6 +145,35 @@ export default function HomePage() {
             <Card_with_image_bg_v2 />
             <Card_with_image_bg_v3 />
             <Card_with_image_bg_v4 />
+          </div>
+        </section>
+        <section className="pt-8">
+          <h2 className="text-xl mb-4 font-bold text-left">
+            Bento grids with 4 cells
+          </h2>
+          <div className="max-w-2xl grid gap-8 w-full">
+            <Bento_4_v1 />
+            <hr />
+            <Bento_4_v2 />
+            <hr />
+            <Bento_4_v3 />
+            <hr />
+            <Bento_4_v4 />
+          </div>
+        </section>
+        <section className="pt-8">
+          <h2 className="text-xl mb-4 font-bold text-left">
+            Bento grids with 5 cells
+          </h2>
+          <div className="max-w-2xl grid gap-12 w-full">
+            <Bento_5_v1 />
+            <hr />
+            <Bento_5_v2 />
+            <hr />
+            <Bento_5_v3 />
+            <hr />
+            <Bento_5_v4 />
+            <hr />
           </div>
         </section>
       </div>
