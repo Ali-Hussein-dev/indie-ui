@@ -1,6 +1,8 @@
 import { configs } from "@/configs"
-import { FaGithub } from "react-icons/fa"
+import { FaGithub, FaXTwitter } from "react-icons/fa6"
 import { ThemeToggle } from "./toggle-theme"
+import { FaDiscord } from "react-icons/fa"
+import { LogoLink } from "@/src/components/logo"
 
 export const Header = () => {
   return (
@@ -10,15 +12,25 @@ export const Header = () => {
       }
     >
       <nav className="mx-auto flex size-full max-w-container flex-row-start gap-6 border-b">
-        <span className="font-extrabold">Indie UI</span>
-        <div className="flex flex-1 flex-row items-center gap-2 justify-end">
+        <LogoLink />
+        <div className="flex flex-1 flex-row items-center gap-2 md:gap-3 justify-end">
           <ThemeToggle />
+          <a href={configs.urls.x} target="_blank" rel="noopener noreferrer">
+            <FaXTwitter />
+          </a>
+          <a
+            href={configs.urls.discord}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaDiscord />
+          </a>
           <a
             href={configs.urls.github}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub className="text-xl" />
+            <FaGithub />
           </a>
         </div>
       </nav>
