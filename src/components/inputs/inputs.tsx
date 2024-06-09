@@ -39,7 +39,7 @@ const rootVariants = cva(
         ghost:
           "bg-transparent dark:bg-transparent dark:text-zinc-100 focus-within:bg-zinc-100 dark:focus-within:bg-zinc-900",
         neubrutalism:
-          "border border-zinc-700 rounded-sm shadow-[2px_2px_0px_rgb(82,82,91)] dark:shadow-[2px_2px_0px_rgb(82,82,91)] focus-within:bg-yellow-50 dark:focus-within:bg-zinc-900/40",
+          "border border-zinc-700 rounded-sm shadow-[2px_2px_0px_rgb(82,82,91)] dark:shadow-[2px_2px_0px_rgb(113,113,122)] focus-within:bg-yellow-50 dark:focus-within:bg-zinc-900/40",
         // with floating label
       },
       size: {
