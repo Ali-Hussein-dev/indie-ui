@@ -6,12 +6,14 @@
 import { Button } from "@/src/components/buttons/button"
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 import { IoSend, IoArrowBack } from "react-icons/io5"
+import { LuMoon } from "react-icons/lu"
 
 ## Base Button
 
 This is a modified version of shadcn button component. It is the base button component that is be used to create different button variants.
 
 ## Variant Prop
+
 <div className="flex-row-start gap-3 flex-wrap">
   <Button>Default</Button>
   <Button variant="secondary">Secondary</Button>
@@ -23,13 +25,38 @@ This is a modified version of shadcn button component. It is the base button com
 
 ## Size Prop
 
+Use the `size` prop to create different button sizes
+
+
 <div className="flex-row-start gap-3 flex-wrap">
   <Button size="sm">Small</Button>
-  <Button >Default</Button>
+  <Button>Default</Button>
   <Button size="lg">Large</Button>
 </div>
 
-## Code 
+## Icon Button
+
+Use the `size="icon"` prop to create an icon button
+
+<div className="flex-row-start gap-3 flex-wrap">
+  <Button size="icon">
+    <LuMoon />
+  </Button>
+  <Button size="icon" variant="secondary">
+    <LuMoon />
+  </Button>
+  <Button size="icon" variant="outline">
+    <LuMoon />
+  </Button>
+  <Button size="icon" variant="ghost">
+    <LuMoon />
+  </Button>
+  <Button size="icon" variant="destructive">
+    <LuMoon />
+  </Button>
+</div>
+
+## Code
 
 Here is the code for the button component
 
