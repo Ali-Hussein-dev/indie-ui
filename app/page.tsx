@@ -63,11 +63,11 @@ const variantsList = [
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col justify-center text-center">
+    <main className="flex min-h-screen flex-col justify-center text-center overflow-hidden">
       <Header />
       <section className="mx-auto max-w-2xl h-screen center">
         <div>
-          <h1 className="text-xl sm:text-3xl md:text-5xl mb-2 text-center font-bold mt-8">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl mb-2 text-center font-bold mt-8">
             UI components with variants
           </h1>
           <p className="text-cneter mb-4">
@@ -75,10 +75,7 @@ export default function HomePage() {
           </p>
           <div className="flex-row-center gap-4 mx-auto max-w-fit pt-4">
             <Button asChild>
-              <Link
-                href="/docs"
-                className="text-lg font-semibold w-fit mx-auto"
-              >
+              <Link href="/docs" className="font-semibold w-fit mx-auto">
                 Docs
               </Link>
             </Button>
@@ -90,7 +87,7 @@ export default function HomePage() {
             </Button>
           </div>
           <div className="mx-auto pt-10 w-fit">
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 lg:gap-5 ">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 ">
               {variantsList.map((o) => (
                 <Button key={o.href} size="sm" variant={"outline"} asChild>
                   <a href={o.href} className="text-xs">
