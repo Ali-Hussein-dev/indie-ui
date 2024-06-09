@@ -3,6 +3,7 @@ import { FaGithub, FaXTwitter } from "react-icons/fa6"
 import { ThemeToggle } from "./toggle-theme"
 import { FaDiscord } from "react-icons/fa"
 import { LogoLink } from "@/src/components/logo"
+import Link from "next/link"
 
 export const Header = () => {
   return (
@@ -11,8 +12,11 @@ export const Header = () => {
         "sticky top-0 z-50 h-14 backdrop-blur dark:bg-zinc-950/60 bg-zinc-50/60"
       }
     >
-      <nav className="mx-auto flex size-full max-w-container flex-row-start gap-6 border-b px-1">
+      <nav className="mx-auto flex size-full max-w-container flex-row-start gap-4 border-b px-1">
         <LogoLink />
+        <Link href={configs.urls.indiestarter} className="font-bold">
+          Indie Starter
+        </Link>
         <div className="flex flex-1 flex-row items-center gap-3 md:gap-4 justify-end">
           <ThemeToggle />
           <a href={configs.urls.x} target="_blank" rel="noopener noreferrer">
