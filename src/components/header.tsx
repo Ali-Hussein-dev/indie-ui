@@ -8,12 +8,12 @@ export const Header = () => {
   return (
     <header
       className={
-        "sticky top-0 z-50 h-14 backdrop-blur dark:bg-zinc-950/30 bg-zinc-50/30"
+        "sticky top-0 z-50 h-14 backdrop-blur dark:bg-zinc-950/60 bg-zinc-50/60"
       }
     >
-      <nav className="mx-auto flex size-full max-w-container flex-row-start gap-6 border-b">
+      <nav className="mx-auto flex size-full max-w-container flex-row-start gap-6 border-b px-1">
         <LogoLink />
-        <div className="flex flex-1 flex-row items-center gap-2 md:gap-3 justify-end">
+        <div className="flex flex-1 flex-row items-center gap-3 md:gap-4 justify-end">
           <ThemeToggle />
           <a href={configs.urls.x} target="_blank" rel="noopener noreferrer">
             <FaXTwitter />
