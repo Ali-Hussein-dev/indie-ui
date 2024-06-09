@@ -11,6 +11,8 @@ export const configs = {
     },
     urls: {
         github: "https://github.com/Ali-Hussein-dev/indie-ui",
+        x: "https://x.com/alihussein_20",
+        discord: "https://discord.gg/gZMBUAvpBU",
         indiestarter: "https://indie-starter.dev?ref=indie-ui",
     }
 }

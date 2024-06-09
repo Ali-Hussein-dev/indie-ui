@@ -46,6 +46,7 @@ import {
 
 import { InputBlock } from "@/src/components/inputs/inputs"
 import { Header } from "@/src/components/header"
+import { Footer } from "@/src/components/footer"
 
 const variantsList = [
   { href: "#buttons", label: "Buttons" },
@@ -62,7 +63,7 @@ const variantsList = [
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col justify-center text-center pb-8">
+    <main className="flex min-h-screen flex-col justify-center text-center">
       <Header />
       <section className="mx-auto max-w-2xl h-screen center">
         <div>
@@ -205,6 +206,7 @@ export default function HomePage() {
           </div>
         </section>
       </div>
+      <Footer />
     </main>
   )
 }
