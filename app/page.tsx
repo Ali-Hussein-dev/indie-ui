@@ -108,7 +108,7 @@ export default function HomePage() {
             Button variants
           </h2>
           <div className="flex gap-2 sm:gap-4 flex-wrap">
-            <Button_v1>Hover me</Button_v1>
+            <Button_v1>Click me</Button_v1>
             <Button_v2>Hover me</Button_v2>
             <Button_v3>Hover me</Button_v3>
             <Button_v4>Hover me</Button_v4>
