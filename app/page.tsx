@@ -57,8 +57,8 @@ const variantsList = [
     label: "Cards with multi layers",
   },
   { href: "#cards-with-image-bg", label: "Cards with image BG" },
-  { href: "#bento-grids-4", label: "Bento with 4 cells" },
-  { href: "#bento-grids-5", label: "Bento with 5 cells" },
+  { href: "#bento-grids-4", label: "Bento grid with 4 cells" },
+  { href: "#bento-grids-5", label: "Bento grid with 5 cells" },
 ]
 
 export default function HomePage() {
@@ -175,7 +175,7 @@ export default function HomePage() {
         </section>
         <section id="bento-grids-4" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
-            Bento grids with 4 cells
+            Bento grid with 4 cells
           </h2>
           <div className="max-w-2xl grid gap-8 w-full">
             <Bento_4_v1 />
@@ -189,7 +189,7 @@ export default function HomePage() {
         </section>
         <section id="bento-grids-5" className="pt-8">
           <h2 className="text-xl mb-4 font-bold text-left">
-            Bento grids with 5 cells
+            Bento grid with 5 cells
           </h2>
           <div className="max-w-2xl grid gap-12 w-full">
             <Bento_5_v1 />
