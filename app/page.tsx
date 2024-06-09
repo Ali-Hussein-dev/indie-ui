@@ -45,6 +45,8 @@ import {
 } from "@/src/components/layout/bento-5"
 
 import { InputBlock } from "@/src/components/inputs/inputs"
+import { Header } from "@/src/components/header"
+
 const variantsList = [
   { href: "#buttons", label: "Buttons" },
   { href: "#inputs", label: "Inputs" },
@@ -61,9 +63,9 @@ const variantsList = [
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col justify-center text-center pb-8">
+      <Header />
       <section className="mx-auto max-w-2xl h-screen center">
         <div>
-          <span className="text-2xl font-bold">Indie UI</span>
           <h1 className="text-xl sm:text-3xl md:text-5xl mb-2 text-center font-bold mt-8">
             UI components with variants
           </h1>
