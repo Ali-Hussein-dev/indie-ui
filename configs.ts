@@ -14,5 +14,6 @@ export const configs = {
         x: "https://x.com/alihussein_20",
         discord: "https://discord.gg/gZMBUAvpBU",
         indiestarter: "https://indie-starter.dev?ref=indie-ui",
+        newsletter: "https://indiestarter.substack.com/",
     }
 }
