@@ -53,6 +53,7 @@ import {
 import { InputBlock } from "@/src/components/inputs/inputs"
 import { Header } from "@/src/components/header"
 import { Footer } from "@/src/components/footer"
+import { Newsletter } from "@/src/components/newsletter"
 
 const variantsList = [
   { href: "#buttons", label: "Buttons" },
@@ -80,7 +81,7 @@ export default function HomePage() {
           <p className="text-cneter mb-4">
             Powered by <b>Tailwindcss</b>
           </p>
-          <div className="flex-row-center gap-4 mx-auto max-w-fit pt-4">
+          <div className="flex-row-center gap-4 mx-auto max-w-fit py-4">
             <Button asChild>
               <Link href="/docs" className="font-semibold w-fit mx-auto">
                 Docs
@@ -225,6 +226,7 @@ export default function HomePage() {
           </div>
         </section>
       </div>
+      <Newsletter />
       <Footer />
     </main>
   )
