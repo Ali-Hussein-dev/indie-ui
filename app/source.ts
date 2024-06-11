@@ -31,6 +31,7 @@ export const pageTree: PageTree.Root = {
     { type: "separator", name: "Layout" },
     { type: "page", name: "Bento Grid (4 cells)", url: "/docs/bento-4" },
     { type: "page", name: "Bento Grid (5 cells)", url: "/docs/bento-5" },
+    { type: "page", name: "Bento Grid (6 cells)", url: "/docs/bento-6" },
     // { type: "page", name: "Bento Grid (4 cells)", url: "/good-question" },
     // { type: "page", name: "Bento Grid (6 cells)", url: "/good-question" },
     // { type: "page", name: "Bento Grid (7 cells)", url: "/good-question" },

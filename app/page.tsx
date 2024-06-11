@@ -43,6 +43,12 @@ import {
   Bento_5_v3,
   Bento_5_v4,
 } from "@/src/components/layout/bento-5"
+import {
+  Bento_6_v1,
+  Bento_6_v2,
+  Bento_6_v3,
+  Bento_6_v4,
+} from "@/src/components/layout/bento-6"
 
 import { InputBlock } from "@/src/components/inputs/inputs"
 import { Header } from "@/src/components/header"
@@ -59,6 +65,7 @@ const variantsList = [
   { href: "#cards-with-image-bg", label: "Cards with image BG" },
   { href: "#bento-grids-4", label: "Bento grid with 4 cells" },
   { href: "#bento-grids-5", label: "Bento grid with 5 cells" },
+  { href: "#bento-grids-6", label: "Bento grid with 6 cells" },
 ]
 
 export default function HomePage() {
@@ -199,6 +206,21 @@ export default function HomePage() {
             <Bento_5_v3 />
             <hr />
             <Bento_5_v4 />
+            <hr />
+          </div>
+        </section>
+        <section id="bento-grids-6" className="pt-8">
+          <h2 className="text-xl mb-4 font-bold text-left">
+            Bento grid with 6 cells
+          </h2>
+          <div className="max-w-2xl grid gap-12 w-full">
+            <Bento_6_v1 />
+            <hr />
+            <Bento_6_v2 />
+            <hr />
+            <Bento_6_v3 />
+            <hr />
+            <Bento_6_v4 />
             <hr />
           </div>
         </section>
