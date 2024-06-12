@@ -53,6 +53,7 @@ import { InputBlock } from "@/src/components/inputs/inputs"
 import { Header } from "@/src/components/header"
 import { Footer } from "@/src/components/footer"
 import { Newsletter } from "@/src/components/newsletter"
+import { LuArrowLeft, LuArrowRight } from "react-icons/lu"
 
 const content = {
   button: {
@@ -168,6 +169,12 @@ export default function HomePage() {
             <Button_v4>Hover me</Button_v4>
             <Button_v5>Hover me</Button_v5>
             <Button_v6>Hover me</Button_v6>
+            <Button rightIcon={<LuArrowRight />} variant="outline">
+              <span>Hover me</span>
+            </Button>
+            <Button leftIcon={<LuArrowLeft />} variant="outline">
+              <span>Hover me</span>
+            </Button>
           </div>
         </VariantsCard>
         <VariantsCard
