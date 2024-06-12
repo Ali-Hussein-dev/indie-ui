@@ -136,11 +136,8 @@ export default function HomePage() {
                 Docs
               </Link>
             </Button>
-            <Button asChild variant={"outline"}>
-              <span>
-                <FaGithub />
-                <Link href={configs.urls.github}>Star us on GitHub</Link>
-              </span>
+            <Button asChild variant={"outline"} leftIcon={<FaGithub />}>
+              <Link href={configs.urls.github}>Star us on GitHub</Link>
             </Button>
           </div>
           <div className="mx-auto pt-10 w-fit">
