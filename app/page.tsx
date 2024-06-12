@@ -1,7 +1,7 @@
 import { configs } from "@/configs"
 import { Button } from "@/src/components/buttons/button"
 import Link from "next/link"
-import { FaGithub } from "react-icons/fa"
+import { FaChevronRight, FaGithub } from "react-icons/fa"
 import {
   Button_v1,
   Button_v2,
@@ -49,26 +49,74 @@ import {
   Bento_6_v3,
   Bento_6_v4,
 } from "@/src/components/layout/bento-6"
-
 import { InputBlock } from "@/src/components/inputs/inputs"
 import { Header } from "@/src/components/header"
 import { Footer } from "@/src/components/footer"
 import { Newsletter } from "@/src/components/newsletter"
 
-const variantsList = [
-  { href: "#buttons", label: "Buttons" },
-  { href: "#inputs", label: "Inputs" },
-  { href: "#simple-cards", label: "Simple cards" },
-  {
-    href: "#cards-with-multi-layers",
-    label: "Cards with multi layers",
+const content = {
+  button: {
+    title: "Buttons variants",
+    id: "buttons",
+    docUrl: "/docs/buttons",
   },
-  { href: "#cards-with-image-bg", label: "Cards with image BG" },
-  { href: "#bento-grids-4", label: "Bento grid with 4 cells" },
-  { href: "#bento-grids-5", label: "Bento grid with 5 cells" },
-  { href: "#bento-grids-6", label: "Bento grid with 6 cells" },
-]
-
+  input: {
+    title: "Input variants",
+    id: "inputs",
+    docUrl: "/docs/inputs",
+  },
+  simpleCards: {
+    title: "Simple card variants",
+    id: "simple-cards",
+    docUrl: "/docs/cards-simple",
+  },
+  cardsWithMultiLayers: {
+    title: "Cards with multi layers",
+    id: "cards-with-multi-layers",
+    docUrl: "/docs/cards-multi-layers",
+  },
+  cardsWithImageBg: {
+    title: "Cards with image BG",
+    id: "cards-with-image-bg",
+    docUrl: "/docs/cards-with-image-bg",
+  },
+  bentoGrids4: {
+    title: "Bento grid with 4 cells",
+    id: "bento-grids-4",
+    docUrl: "/docs/bento-4",
+  },
+  bentoGrids5: {
+    title: "Bento grid with 5 cells",
+    id: "bento-grids-5",
+    docUrl: "/docs/bento-4",
+  },
+  bentoGrids6: {
+    title: "Bento grid with 6 cells",
+    id: "bento-grids-6",
+    docUrl: "/docs/bento-4",
+  },
+}
+const VariantsCard = ({
+  id,
+  title,
+  docUrl,
+  children,
+}: {
+  id: string
+  title: string
+  docUrl: string
+  children: React.ReactNode
+}) => (
+  <section id={id}>
+    <div className="flex-row-between mt-10 mb-4 gap-1 border-b py-1 rounded-sm">
+      <h3 className="text-xl font-bold text-left">{title}</h3>
+      <Link href={docUrl} className="flex-row-end gap-2">
+        Get code <FaChevronRight />
+      </Link>
+    </div>
+    <div className="w-full">{children}</div>
+  </section>
+)
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col justify-center text-center overflow-hidden">
@@ -96,10 +144,10 @@ export default function HomePage() {
           </div>
           <div className="mx-auto pt-10 w-fit">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 ">
-              {variantsList.map((o) => (
-                <Button key={o.href} size="sm" variant={"outline"} asChild>
-                  <a href={o.href} className="text-xs">
-                    {o.label}
+              {Object.values(content).map((o) => (
+                <Button key={o.id} size="sm" variant={"outline"} asChild>
+                  <a href={`#${o.id}`} className="text-xs">
+                    {o.title}
                   </a>
                 </Button>
               ))}
@@ -107,15 +155,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <div
-        id="buttons"
-        className="mx-auto divide-y space-y-8 max-w-6xl pb-14 px-2"
-      >
-        <section className="max-w-xl mx-auto">
-          <h2 className="text-xl mb-4 font-bold mt-10 text-left">
-            Button variants
-          </h2>
-          <div className="flex gap-2 sm:gap-4 flex-wrap">
+      <div className="mx-auto divide-y space-y-8 max-w-6xl pb-14 px-2">
+        <VariantsCard
+          id={content.button.id}
+          title={content.button.title}
+          docUrl={content.button.docUrl}
+        >
+          <div className="flex gap-2 sm:gap-5 flex-wrap max-w-2xl">
             <Button_v1>Click me</Button_v1>
             <Button_v2>Hover me</Button_v2>
             <Button_v3>Hover me</Button_v3>
@@ -123,12 +169,13 @@ export default function HomePage() {
             <Button_v5>Hover me</Button_v5>
             <Button_v6>Hover me</Button_v6>
           </div>
-        </section>
-        <section id="inputs" className="max-w-xl mx-auto">
-          <h2 className="text-xl mb-4 font-bold mt-10 text-left">
-            Input variants
-          </h2>
-          <div className="space-y-6 max-w-xl">
+        </VariantsCard>
+        <VariantsCard
+          id={content.input.id}
+          title={content.input.title}
+          docUrl={content.input.docUrl}
+        >
+          <div className="space-y-6 max-w-2xl">
             <InputBlock placeholder="Input field (default)" />
             <InputBlock
               placeholder="Input field (ghost)"
@@ -147,11 +194,12 @@ export default function HomePage() {
               root={{ variant: "filled" }}
             />
           </div>
-        </section>
-        <section id="simple-cards" className="pt-8">
-          <h2 className="text-xl mb-4 font-bold text-left">
-            Simple card variants
-          </h2>
+        </VariantsCard>
+        <VariantsCard
+          id={content.simpleCards.id}
+          title={content.simpleCards.title}
+          docUrl={content.simpleCards.docUrl}
+        >
           <div className="max-w-2xl space-y-6 mx-auto">
             <SimpleCard_V1 />
             <SimpleCard_V2 />
@@ -159,32 +207,35 @@ export default function HomePage() {
             <SimpleCard_V4 />
             <SimpleCard_V5 />
           </div>
-        </section>
-        <section id="cards-with-multi-layers" className="pt-8">
-          <h2 className="text-xl mb-4 font-bold text-left">
-            Cards variants with multi layers
-          </h2>
-          <div className="space-y-4 max-w-xl mx-auto">
+        </VariantsCard>
+        <VariantsCard
+          id={content.cardsWithMultiLayers.id}
+          title={content.cardsWithMultiLayers.title}
+          docUrl={content.cardsWithMultiLayers.docUrl}
+        >
+          <div className="max-w-xl mx-auto space-y-4">
             <MultilayerCardV_1 />
             <MultilayerCardV_2 />
             <MultilayerCardV_3 />
           </div>
-        </section>
-        <section id="cards-with-image-bg" className="pt-8">
-          <h2 className="text-xl mb-4 font-bold text-left">
-            Card variants with image BG
-          </h2>
+        </VariantsCard>
+        <VariantsCard
+          id={content.cardsWithImageBg.id}
+          title={content.cardsWithImageBg.title}
+          docUrl={content.cardsWithImageBg.docUrl}
+        >
           <div className="max-w-2xl grid md:grid-cols-2 gap-4">
             <Card_with_image_bg_v1 />
             <Card_with_image_bg_v2 />
             <Card_with_image_bg_v3 />
             <Card_with_image_bg_v4 />
           </div>
-        </section>
-        <section id="bento-grids-4" className="pt-8">
-          <h2 className="text-xl mb-4 font-bold text-left">
-            Bento grid with 4 cells
-          </h2>
+        </VariantsCard>
+        <VariantsCard
+          id={content.bentoGrids4.id}
+          title={content.bentoGrids4.title}
+          docUrl={content.bentoGrids4.docUrl}
+        >
           <div className="max-w-2xl grid gap-8 w-full">
             <Bento_4_v1 />
             <hr />
@@ -194,11 +245,12 @@ export default function HomePage() {
             <hr />
             <Bento_4_v4 />
           </div>
-        </section>
-        <section id="bento-grids-5" className="pt-8">
-          <h2 className="text-xl mb-4 font-bold text-left">
-            Bento grid with 5 cells
-          </h2>
+        </VariantsCard>
+        <VariantsCard
+          id={content.bentoGrids5.id}
+          title={content.bentoGrids5.title}
+          docUrl={content.bentoGrids5.docUrl}
+        >
           <div className="max-w-2xl grid gap-12 w-full">
             <Bento_5_v1 />
             <hr />
@@ -207,13 +259,13 @@ export default function HomePage() {
             <Bento_5_v3 />
             <hr />
             <Bento_5_v4 />
-            <hr />
           </div>
-        </section>
-        <section id="bento-grids-6" className="pt-8">
-          <h2 className="text-xl mb-4 font-bold text-left">
-            Bento grid with 6 cells
-          </h2>
+        </VariantsCard>
+        <VariantsCard
+          id={content.bentoGrids6.id}
+          title={content.bentoGrids6.title}
+          docUrl={content.bentoGrids6.docUrl}
+        >
           <div className="max-w-2xl grid gap-12 w-full">
             <Bento_6_v1 />
             <hr />
@@ -222,9 +274,8 @@ export default function HomePage() {
             <Bento_6_v3 />
             <hr />
             <Bento_6_v4 />
-            <hr />
           </div>
-        </section>
+        </VariantsCard>
       </div>
       <Newsletter />
       <Footer />
