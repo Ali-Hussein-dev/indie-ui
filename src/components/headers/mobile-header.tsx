@@ -17,7 +17,7 @@ export const MobileHeader = ({
   Logo: React.ReactNode
   AuthButton: React.ReactNode
 }) => {
-  const [isOpen, setIsOpen] = React.useState(true)
+  const [isOpen, setIsOpen] = React.useState(false)
   return (
     <div
       className={cn(
