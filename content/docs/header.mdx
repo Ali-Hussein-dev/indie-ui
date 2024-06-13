@@ -1,0 +1,261 @@
+---
+title: Headers
+description: Headers variants
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs"
+import { Header } from "@/src/components/headers/header"
+import { Button } from "@/src/components/buttons/button"
+import Link from "next/link"
+import { TypeTable } from "fumadocs-ui/components/type-table"
+
+## Header Props
+
+<TypeTable
+  type={{
+    variant: {
+      type: "default | centric",
+      description: "Change the variant of the header",
+      default: "default",
+    },
+    links: {
+      type: "{name: string, href: string} []",
+      description: "List of header links",
+      default: "",
+    },
+    icons: {
+      type: "{name: string, icon: ReactNode, href: string} []",
+      description: "List of header icons links",
+      default: "undefined",
+    },
+    Logo: { type: "ReactNode", description: "", default: "" },
+    AuthButton: { type: "ReactNode", description: "", default: "" },
+    sticky: { type: "Boolean", description: "", default: "undefined" },
+  }}
+/>
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview" className="pt-4 flex-row-center">
+  <Button asChild>
+    <Link href="/header-demo">Header preview</Link>
+  </Button>
+  </Tab>
+  <Tab value="React">
+
+```jsx title="usage.tsx"
+
+import { FaXTwitter } from "react-icons/fa6"
+import { FaGithub } from "react-icons/fa"
+import { LogoLink } from "@/src/components/logo"
+
+<Header
+  sticky
+  variant={variant}
+  Logo={<LogoLink />}
+  links={[
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+  ]}
+  icons={[
+  {
+    name: "Twitter",
+    icon: <FaXTwitter size="14" />,
+    href: "https://x.com",
+  },
+  {
+    name: "GitHub",
+    icon: <FaGithub size="14" />,
+    href: "https://github.com",
+  },
+  ]}
+  AuthButton={
+    <Button variant={"outline"} size="sm" className="px-4">
+      Sign in
+    </Button>
+  }
+/>
+```
+
+```jsx title="header.tsx"
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Button } from "../buttons/button"
+import { MobileHeader } from "./mobile-header"
+import { ThemeToggle } from "../toggle-theme"
+import { cn } from "@/src/utils/cn"
+
+const headerVariants = cva("mx-auto", {
+  variants: {
+    variant: {
+      default: "max-w-container",
+      centric:
+        "max-w-4xl rounded-full mt-2 border dark:bg-zinc-950/50 backdrop-blur shadow-lg bg-zinc-50 dark:border-zinc-900",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+})
+export type LinksList = { name: string; href: string }[]
+export type IconsList = { name: string; icon: React.ReactNode; href: string }[]
+
+export interface HeaderProps extends VariantProps<typeof headerVariants> {
+  sticky?: boolean
+  links: LinksList
+  /**
+   * Icon buttons
+   */
+  icons?: IconsList
+  Logo: React.ReactNode
+  AuthButton: React.ReactNode
+}
+const HeaderLink = (props: { href: string; name: string }) => {
+  return <a href={props.href}>{props.name}</a>
+}
+
+//======================================
+export const Header = ({
+  Logo,
+  links,
+  icons,
+  sticky,
+  variant,
+  AuthButton,
+}: HeaderProps) => {
+  return (
+    <header
+      className={cn(
+        "w-full",
+        sticky && "md:sticky top-3",
+        sticky && variant === "default" && "dark:bg-zinc-950/50 backdrop-blur"
+      )}
+    >
+      <div className={cn("hidden md:block", headerVariants({ variant }))}>
+        <div className="flex-row-start px-6 py-2 w-full gap-2">
+          {Logo}
+          <nav className="grow flex-row-end gap-3 lg:gap-8">
+            {links.map((link) => (
+              <HeaderLink key={link.href} href={link.href} name={link.name} />
+            ))}
+            {icons && (
+              <div className="flex-row-end gap-2 pl-3 lg:gap-3">
+                {icons.map((link) => (
+                  <Button
+                    asChild
+                    variant="ghost"
+                    key={link.href}
+                    size="icon"
+                    className="rounded-full size-6"
+                  >
+                    <a href={link.href}>{link.icon}</a>
+                  </Button>
+                ))}
+                <ThemeToggle />
+                {AuthButton}
+              </div>
+            )}
+          </nav>
+        </div>
+      </div>
+      <MobileHeader
+        AuthButton={AuthButton}
+        Logo={Logo}
+        links={links}
+        icons={icons}
+      />
+    </header>
+  )
+}
+
+```
+
+```jsx title="mobile-header.tsx"
+"use client"
+
+import { Button } from "../buttons/button"
+import { IconsList, LinksList } from "./header"
+import { CgClose, CgMenu } from "react-icons/cg"
+import * as React from "react"
+import { cn } from "@/src/utils/cn"
+
+export const MobileHeader = ({
+  links,
+  icons,
+  Logo,
+  AuthButton,
+}: {
+  links: LinksList
+  icons?: IconsList
+  Logo: React.ReactNode
+  AuthButton: React.ReactNode
+}) => {
+  const [isOpen, setIsOpen] = React.useState(true)
+  return (
+    <div
+      className={cn(
+        "md:hidden px-4 pt-2 border-b",
+        isOpen && "min-h-screen z-40 dark:bg-zinc-950 bg-white fixed size-full"
+      )}
+    >
+      <div className="flex-row-between pb-2">
+        {Logo}
+        <Button
+          onClick={() => setIsOpen(!isOpen)}
+          size="icon"
+          className="rounded-xl"
+          variant={"outline"}
+        >
+          {isOpen ? (
+            <CgClose />
+          ) : (
+            <CgMenu />
+          )}
+        </Button>
+      </div>
+
+      <nav
+        className={
+          isOpen ? "animate-popover-in flex flex-col gap-4 mb-5" : "hidden"
+        }
+      >
+        {links.map((link) => (
+          <Button
+            key={link.href}
+            asChild
+            variant={"outline"}
+            className="w-full rounded-xl justify-start"
+            size="lg"
+          >
+            <a href={link.href}>{link.name}</a>
+          </Button>
+        ))}
+
+        <div className="flex-row-end w-full gap-3 border-t pt-4 border-dashed">
+          {icons && (
+            <div className="flex-row-start grow gap-2">
+              {icons.map((icon) => (
+                <Button
+                  key={icon.name}
+                  size="icon"
+                  className="rounded-full"
+                  variant={"outline"}
+                  asChild
+                  onClick={() => setIsOpen(false)}
+                >
+                  <a href={icon.href}>{icon.icon}</a>
+                </Button>
+              ))}
+            </div>
+          )}
+          {AuthButton}
+        </div>
+      </nav>
+    </div>
+  )
+}
+
+```
+
+</Tab>
+</Tabs>

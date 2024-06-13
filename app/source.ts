@@ -28,6 +28,9 @@ export const pageTree: PageTree.Root = {
     { type: "separator", name: "Input Block" },
     { type: "page", name: "Inputs", url: "/docs/inputs" },
 
+    { type: "separator", name: "Header" },
+    { type: "page", name: "header", url: "/docs/header" },
+
     { type: "separator", name: "Layout" },
     { type: "page", name: "Bento Grid (4 cells)", url: "/docs/bento-4" },
     { type: "page", name: "Bento Grid (5 cells)", url: "/docs/bento-5" },
