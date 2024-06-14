@@ -206,7 +206,7 @@ export default function HomePage() {
             title={content.simpleCards.title}
             docUrl={content.simpleCards.docUrl}
           >
-            <div className="max-w-2xl space-y-6 mx-auto">
+            <div className="max-w-2xl space-y-10 md:space-y-16 pt-4 mx-auto">
               <SimpleCard_V1 />
               <SimpleCard_V2 />
               <SimpleCard_V3 />
