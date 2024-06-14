@@ -50,7 +50,7 @@ import {
   Bento_6_v4,
 } from "@/src/components/layout/bento-6"
 import { InputBlock } from "@/src/components/inputs/inputs"
-import { Header } from "@/src/components/header"
+import { Header } from "@/src/components/homepage/header"
 import { Footer } from "@/src/components/footer"
 import { Newsletter } from "@/src/components/newsletter"
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu"
@@ -120,7 +120,7 @@ const VariantsCard = ({
 )
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col justify-center text-center overflow-hidden">
+    <main className="min-h-screen text-center flex-col justify-center flex">
       <Header />
       <section className="mx-auto max-w-2xl h-screen center">
         <div>
