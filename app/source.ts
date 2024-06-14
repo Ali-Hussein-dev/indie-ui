@@ -12,9 +12,9 @@ export const { getPage, getPages, pageTree: originalTree } = loader({
 export const pageTree: PageTree.Root = {
   name: "Indie UI",
   children: [
-    { type: "separator", name: "Setup" },
-
-    { type: "page", name: "Quick Start", url: "/docs" },
+    { type: "separator", name: "Getting Started" },
+    { type: "page", name: "Setup", url: "/docs" },
+    { type: "page", name: "Changelog", url: "/docs/changelog" },
 
     { type: "separator", name: "Cards" },
     { type: "page", name: "Simple", url: "/docs/cards-simple" },
@@ -28,7 +28,7 @@ export const pageTree: PageTree.Root = {
     { type: "separator", name: "Input Block" },
     { type: "page", name: "Inputs", url: "/docs/inputs" },
 
-    { type: "separator", name: "Layout" },
+    { type: "separator", name: "Grid" },
     { type: "page", name: "Bento Grid (4 cells)", url: "/docs/bento-4" },
     { type: "page", name: "Bento Grid (5 cells)", url: "/docs/bento-5" },
     { type: "page", name: "Bento Grid (6 cells)", url: "/docs/bento-6" },

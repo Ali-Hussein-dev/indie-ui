@@ -33,7 +33,7 @@ export interface HeaderProps extends VariantProps<typeof headerVariants> {
 
 const HeaderLink = (props: { href: string; name: string }) => {
   return (
-    <Button asChild size="sm" variant="link">
+    <Button asChild size="sm" variant="link" className="px-2">
       <a href={props.href}>{props.name}</a>
     </Button>
   )
@@ -47,7 +47,10 @@ const iconsList = [
   { name: "github", href: configs.urls.github, icon: <FaGithub size="15" /> },
   { name: "x", href: configs.urls.x, icon: <FaXTwitter size="15" /> },
 ]
-const linksList = [{ href: configs.urls.indiestarter, label: "Indie Starter" }]
+const linksList = [
+  { href: configs.urls.indiestarter, label: "Indie Starter" },
+  { href: "/docs/changelog", label: "Changelog" },
+]
 
 //======================================
 export const Header = ({
@@ -65,7 +68,7 @@ export const Header = ({
       <div className={cn("hidden md:block", headerVariants({ variant }))}>
         <div className="flex-row-start px-6 py-3 w-full gap-2">
           {Logo}
-          <nav className="grow flex-row-end gap-3 lg:gap-8">
+          <nav className="grow flex-row-end gap-1">
             {links.map((link) => (
               <HeaderLink key={link.label} href={link.href} name={link.label} />
             ))}
