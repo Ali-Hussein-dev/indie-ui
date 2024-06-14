@@ -108,7 +108,7 @@ export const SimpleCard_V3 = () => {
 export const SimpleCard_V4 = () => {
   return (
     <div>
-      <div className="border-[0.5px] border-zinc-400 dark:border-white/70 relative shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.7)]">
+      <div className="border-[0.5px] rounded-sm border-zinc-400 dark:border-white/70 relative shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.7)]">
         <CardBody className="p-6" />
       </div>
     </div>
@@ -132,6 +132,17 @@ export const SimpleCard_V5 = () => {
         >
           <CardBody />
         </div>
+      </div>
+    </div>
+  )
+}
+
+//======================================3D
+export const SimpleCard_V6 = () => {
+  return (
+    <div>
+      <div className="border border-zinc-400 dark:border-zinc-700 relative shadow-[0px_5px_0px_0px_rgba(0,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,255,255,0.5)] rounded-xl dark:bg-zinc-900/50 bg-zinc-50">
+        <CardBody className="p-6" />
       </div>
     </div>
   )

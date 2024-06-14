@@ -10,6 +10,7 @@ import {
   SimpleCard_V3,
   SimpleCard_V4,
   SimpleCard_V5,
+  SimpleCard_V6,
 } from "@/src/components/cards/simple"
 
 ## Variant 1
@@ -234,7 +235,7 @@ export const SimpleCard_V4 = () => {
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
     <div className="pt-4 mx-auto max-w-xl">
-      <SimpleCard_V1/>
+      <SimpleCard_V5/>
   </div>
   </Tab>
   <Tab value="React">
@@ -271,6 +272,46 @@ export const SimpleCard_V5 = () => {
         >
           <CardBody />
         </div>
+      </div>
+    </div>
+  )
+}
+
+```
+</Tab>
+</Tabs>
+
+## Variant 6 3D
+
+<Tabs items={['Preview', 'React']}>
+  <Tab value="Preview">
+    <div className="pt-4 mx-auto max-w-xl">
+      <SimpleCard_V6/>
+  </div>
+  </Tab>
+  <Tab value="React">
+  ```jsx
+const cardContent = {
+  title: "Lorem ipsum dolor",
+  description:
+    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
+}
+const CardBody = ({ className = "p-4" }) => (
+  <div className={cn("text-left", className)}>
+    <h3 className="text-lg mb-1 font-bold text-gray-900 dark:text-gray-100">
+      {cardContent.title}
+    </h3>
+    <p className="text-gray-700 dark:text-gray-300">
+      {cardContent.description}
+    </p>
+  </div>
+)
+//======================================
+export const SimpleCard_V6 = () => {
+  return (
+    <div>
+      <div className="border border-zinc-400 dark:border-zinc-700 relative shadow-[0px_5px_0px_0px_rgba(0,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,255,255,0.5)] rounded-xl dark:bg-zinc-900/50 bg-zinc-50">
+        <CardBody className="p-6" />
       </div>
     </div>
   )
