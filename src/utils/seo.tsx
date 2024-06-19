@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { configs } from "../../configs"
+import { configs } from "@/configs"
 
 const { site } = configs
 

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { configs } from "../../configs"
+import { configs } from "@/configs"
 import { Button_v6 } from "./buttons/buttons"
 
 //======================================

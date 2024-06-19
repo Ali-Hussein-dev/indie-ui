@@ -4,7 +4,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { MobileHeader } from "./mobile-header"
 import { cn } from "@/lib/utils"
-import { configs } from "../../../configs"
+import { configs } from "@/configs"
 import { FaDiscord, FaGithub, FaXTwitter } from "react-icons/fa6"
 import { LogoLink } from "@/components/logo"
 

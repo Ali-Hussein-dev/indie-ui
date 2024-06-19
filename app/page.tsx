@@ -1,4 +1,4 @@
-import { configs } from "../configs"
+import { configs } from "@/configs"
 import { Button } from "@/components/buttons/button"
 import Link from "next/link"
 import { FaChevronRight, FaGithub } from "react-icons/fa"
