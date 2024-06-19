@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { Button } from "./buttons/button"
-import { configs } from "@/configs"
-import { Button_v6, Button_v4, Button_v5 } from "./buttons/buttons"
+import { configs } from "../../configs"
+import { Button_v6 } from "./buttons/buttons"
 
 //======================================
 export const Newsletter = () => {

@@ -1,12 +1,12 @@
 import { ThemeToggle } from "../toggle-theme"
-import { Button } from "@/src/components/buttons/button"
+import { Button } from "@/components/buttons/button"
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { MobileHeader } from "./mobile-header"
-import { cn } from "@/src/utils/cn"
-import { configs } from "@/configs"
+import { cn } from "@/lib/utils"
+import { configs } from "../../../configs"
 import { FaDiscord, FaGithub, FaXTwitter } from "react-icons/fa6"
-import { LogoLink } from "@/src/components/logo"
+import { LogoLink } from "@/components/logo"
 
 const headerVariants = cva("mx-auto", {
   variants: {

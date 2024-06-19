@@ -1,5 +1,5 @@
-import { configs } from "@/configs"
-import { Button } from "@/src/components/buttons/button"
+import { configs } from "../configs"
+import { Button } from "@/components/buttons/button"
 import Link from "next/link"
 import { FaChevronRight, FaGithub } from "react-icons/fa"
 import {
@@ -9,7 +9,7 @@ import {
   Button_v4,
   Button_v5,
   Button_v6,
-} from "@/src/components/buttons/buttons"
+} from "@/components/buttons/buttons"
 import {
   SimpleCard_V1,
   SimpleCard_V2,
@@ -17,43 +17,43 @@ import {
   SimpleCard_V4,
   SimpleCard_V5,
   SimpleCard_V6,
-} from "@/src/components/cards/simple"
+} from "@/components/cards/simple"
 import {
   MultilayerCardV_1,
   MultilayerCardV_2,
   MultilayerCardV_3,
-} from "@/src/components/cards/multi-layers"
+} from "@/components/cards/multi-layers"
 
 import {
   Card_with_image_bg_v1,
   Card_with_image_bg_v2,
   Card_with_image_bg_v3,
   Card_with_image_bg_v4,
-} from "@/src/components/cards/with-image-bg"
+} from "@/components/cards/with-image-bg"
 
 import {
   Bento_4_v1,
   Bento_4_v2,
   Bento_4_v3,
   Bento_4_v4,
-} from "@/src/components/layout/bento-4"
+} from "@/components/layout/bento-4"
 
 import {
   Bento_5_v1,
   Bento_5_v2,
   Bento_5_v3,
   Bento_5_v4,
-} from "@/src/components/layout/bento-5"
+} from "@/components/layout/bento-5"
 import {
   Bento_6_v1,
   Bento_6_v2,
   Bento_6_v3,
   Bento_6_v4,
-} from "@/src/components/layout/bento-6"
-import { InputBlock } from "@/src/components/inputs/inputs"
-import { Header } from "@/src/components/homepage/header"
-import { Footer } from "@/src/components/footer"
-import { Newsletter } from "@/src/components/newsletter"
+} from "@/components/layout/bento-6"
+import { InputBlock } from "@/components/inputs/inputs"
+import { Header } from "@/components/homepage/header"
+import { Footer } from "@/components/footer"
+import { Newsletter } from "@/components/newsletter"
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu"
 
 const content = {

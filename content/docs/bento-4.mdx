@@ -4,13 +4,13 @@ description: Bento Grid with 4 cells variations
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
-import { Separator } from "@/src/components/separator"
+import { Separator } from "@/components/separator"
 import {
   Bento_4_v1,
   Bento_4_v2,
   Bento_4_v3,
   Bento_4_v4,
-} from "@/src/components/layout/bento-4"
+} from "@/components/layout/bento-4"
 
 ## Variant 1
 
@@ -21,7 +21,7 @@ import {
   <Tab value="React">
 
 ```jsx
-import { cn } from "@/src/utils/cn"
+import { cn } from "@/lib/utils"
 
 export const Cell = ({ i = 0 }) => {
   return (
@@ -67,7 +67,7 @@ export const Bento_4_v1 = () => {
   </Tab>
   <Tab value="React">
   ```jsx
-    import { cn } from "@/src/utils/cn"
+    import { cn } from "@/lib/utils"
 
 export const Cell = ({ i = 0 }) => {
   return (
@@ -112,7 +112,7 @@ export const Bento_4_v2 = () => {
   </Tab>
   <Tab value="React">
   ```jsx 
-  import { cn } from "@/src/utils/cn"
+  import { cn } from "@/lib/utils"
 
 export const Cell = ({ i = 0 }) => {
 return (
@@ -159,7 +159,7 @@ export const Bento_4_v3 = () => {
 </Tab>
 <Tab value="React">
 ```jsx 
-import { cn } from "@/src/utils/cn"
+import { cn } from "@/lib/utils"
 
 export const Cell = ({ i = 0 }) => {
   return (
