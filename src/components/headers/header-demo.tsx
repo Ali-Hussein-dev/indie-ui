@@ -1,6 +1,6 @@
 import { FaXTwitter } from "react-icons/fa6"
 import { FaGithub } from "react-icons/fa"
-import { LogoLink } from "@/src/components/logo"
+import { LogoLink } from "@/components/logo"
 import { Header } from "./header"
 import { Button } from "../buttons/button"
 import Link from "next/link"

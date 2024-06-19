@@ -1,4 +1,4 @@
-import { cn } from "@/src/utils/cn"
+import { cn } from "@/lib/utils"
 
 const Cell = ({ i = 0 }) => {
   return (

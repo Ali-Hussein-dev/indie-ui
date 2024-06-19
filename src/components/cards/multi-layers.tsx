@@ -11,7 +11,7 @@
  *
  */
 
-import { cn } from "@/src/utils/cn";
+import { cn } from "@/lib/utils"
 
 const cardContent = {
   title: "Lorem ipsum dolor",

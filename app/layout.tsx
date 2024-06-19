@@ -1,4 +1,4 @@
-import { generateSEOTags } from "@/src/utils/seo"
+import { generateSEOTags } from "@/lib/seo"
 import "./global.css"
 import { RootProvider } from "fumadocs-ui/provider"
 import { Inter } from "next/font/google"
@@ -19,12 +19,12 @@ export default function Layout({ children }: { children: ReactNode }) {
       style={{ colorScheme: "dark" }}
     >
       <head>
-        <script
+        {/* <script
           defer
           src="https://eu.umami.is/script.js"
           data-website-id="3877cb40-b9fe-4b1d-a8e1-2957dc18cf0a"
           // data-host-url="https://ui.indie-starter.dev"
-        ></script>
+        ></script> */}
       </head>
       <body className="selection:bg-zinc-800 selection:text-zinc-100">
         <RootProvider>{children}</RootProvider>

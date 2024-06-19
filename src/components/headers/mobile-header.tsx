@@ -3,7 +3,7 @@
 import { Button } from "../buttons/button"
 import { CgClose, CgMenu } from "react-icons/cg"
 import * as React from "react"
-import { cn } from "@/src/utils/cn"
+import { cn } from "@/lib/utils"
 
 export const MobileHeader = ({
   Logo,

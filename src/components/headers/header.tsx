@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { MobileHeader } from "./mobile-header"
-import { cn } from "@/src/utils/cn"
+import { cn } from "@/lib/utils"
 
 const headerVariants = cva("mx-auto", {
   variants: {

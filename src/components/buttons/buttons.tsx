@@ -1,6 +1,6 @@
 import { IoSend } from "react-icons/io5"
-import { cn } from "@/src/utils/cn"
-import { Button } from "@/src/components/buttons/button"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/buttons/button"
 
 //======================================Neubrutalism
 export const Button_v1 = ({ children }: { children: React.ReactNode }) => {

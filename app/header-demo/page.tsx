@@ -1,6 +1,6 @@
 "use client"
-import { Button } from "@/src/components/buttons/button"
-import { HeaderDemo } from "@/src/components/headers/header-demo"
+import { Button } from "@/components/buttons/button"
+import { HeaderDemo } from "@/components/headers/header-demo"
 import * as React from "react"
 
 //======================================
