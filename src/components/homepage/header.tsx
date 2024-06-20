@@ -12,7 +12,7 @@ const headerVariants = cva("mx-auto", {
   variants: {
     variant: {
       default: "max-w-container",
-      centric:
+      centered:
         "max-w-5xl rounded-full mt-2 border dark:bg-zinc-950/50 backdrop-blur shadow-lg bg-zinc-50 dark:border-zinc-900",
     },
   },

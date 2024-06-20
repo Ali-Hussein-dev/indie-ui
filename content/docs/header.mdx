@@ -9,7 +9,7 @@ import Link from "next/link"
 import { Button } from "@/components/buttons/button"
 import { TypeTable } from "fumadocs-ui/components/type-table"
 
-The header component comes with two variants (wide and centric) that are very common in web applications. You can also customize weather the header should be sticky or not easily.
+The header component comes with two variants (wide and centered) that are very common in web applications. You can also customize weather the header should be sticky or not easily.
 
 You have full control over the items layout displayed on the mobile and desktop verisons of the header. Which makes it easy to customize the header to fit your needs.
 
@@ -54,7 +54,7 @@ const HeaderLink = (props: { href: string; name: string }) => {
 export const HeaderDemo = ({
   variant = "default",
 }: {
-  variant: "default" | "centric"
+  variant: "default" | "centered"
 }) => (
   <Header
     Logo={<LogoLink />}
@@ -113,7 +113,7 @@ const headerVariants = cva("mx-auto", {
   variants: {
     variant: {
       default: "max-w-7xl",
-      centric:
+      centered:
         "max-w-4xl rounded-full mt-2 border shadow-lg dark:border-zinc-900",
     },
   },
@@ -151,7 +151,7 @@ export const Header = ({
     <header
       className={cn(
         "w-full dark:bg-zinc-950/50 backdrop-blur bg-zinc-50",
-        sticky && variant == "centric" && "md:sticky top-3",
+        sticky && variant == "centered" && "md:sticky top-3",
         sticky && variant == "default" && "md:sticky top-0"
       )}
     >
@@ -233,9 +233,9 @@ export const MobileHeader = ({
 <TypeTable
   type={{
     variant: {
-      type: "default | centric",
+      type: "default | centered",
       description:
-        "The variant of the header component. The default variant is used for most pages, while the centric variant is used for pages with a centered layout.",
+        "The variant of the header component. The default variant is used for most pages, while the centered variant is used for pages with a centered layout.",
       default: "default",
     },
     sticky: {

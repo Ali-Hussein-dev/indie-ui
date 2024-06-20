@@ -30,7 +30,7 @@ export const HeaderDemo = ({
   variant = "default",
   sticky,
 }: {
-  variant: "default" | "centric"
+  variant: "default" | "centered"
   sticky: boolean
 }) => (
   <Header

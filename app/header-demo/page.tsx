@@ -5,7 +5,9 @@ import * as React from "react"
 
 //======================================
 const HeaderDemoPage = () => {
-  const [variant, setVariant] = React.useState<"default" | "centric">("default")
+  const [variant, setVariant] = React.useState<"default" | "centered">(
+    "default"
+  )
   const [isSticky, setIsSticky] = React.useState(false)
   return (
     <div className="relative">
@@ -19,10 +21,10 @@ const HeaderDemoPage = () => {
             default
           </Button>
           <Button
-            onClick={() => setVariant("centric")}
-            variant={variant == "centric" ? "default" : "outline"}
+            onClick={() => setVariant("centered")}
+            variant={variant == "centered" ? "default" : "outline"}
           >
-            centric
+            centered
           </Button>
           <Button
             onClick={() => setIsSticky(!isSticky)}

@@ -7,7 +7,7 @@ const headerVariants = cva("mx-auto", {
   variants: {
     variant: {
       default: "max-w-7xl",
-      centric:
+      centered:
         "max-w-4xl rounded-full mt-2 border shadow-lg dark:border-zinc-900",
     },
   },
@@ -45,7 +45,7 @@ export const Header = ({
     <header
       className={cn(
         "w-full dark:bg-zinc-950/50 backdrop-blur bg-zinc-50",
-        sticky && variant == "centric" && "sticky top-0 md:top-3",
+        sticky && variant == "centered" && "sticky top-0 md:top-3",
         sticky && variant == "default" && "sticky top-0"
       )}
     >
