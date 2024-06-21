@@ -113,14 +113,17 @@ const VariantsCard = ({
   docUrl: string
   children: React.ReactNode
 }) => (
-  <section id={id}>
-    <div className="flex-row-between mt-10 mb-4 gap-1 border-b py-1 rounded-sm">
+  <section
+    id={id}
+    className="border p-2 md:px-4 py-6 border-dashed rounded-lg shadow bg-white dark:bg-black"
+  >
+    <div className="flex-row-between mb-4 gap-1 border-b border-dashed py-1">
       <h3 className="text-xl font-bold text-left">{title}</h3>
       <Link href={docUrl} className="flex-row-end gap-2">
         Get code <FaChevronRight />
       </Link>
     </div>
-    <div className="w-full">{children}</div>
+    <div className="w-full pt-4">{children}</div>
   </section>
 )
 export default function HomePage() {
@@ -159,13 +162,13 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <div className="mx-auto divide-y space-y-8 max-w-6xl pb-14 px-2">
+        <div className="mx-auto space-y-8 max-w-6xl pb-10 px-2">
           <VariantsCard
             id={content.button.id}
             title={content.button.title}
             docUrl={content.button.docUrl}
           >
-            <div className="flex gap-2 sm:gap-5 flex-wrap max-w-2xl">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 max-w-2xl">
               <Button_v1>Click me</Button_v1>
               <Button_v2>Hover me</Button_v2>
               <Button_v3>Hover me</Button_v3>
@@ -178,7 +181,7 @@ export default function HomePage() {
               <Button leftIcon={<LuArrowLeft />} variant="outline">
                 <span>Hover me</span>
               </Button>
-              <Button_v7>Hover me</Button_v7>
+              <Button_v7 className="w-fit mx-auto">Hover me</Button_v7>
             </div>
           </VariantsCard>
           <VariantsCard
@@ -245,6 +248,7 @@ export default function HomePage() {
               <Card_with_image_bg_v6 />
             </div>
           </VariantsCard>
+          <Newsletter />
           <VariantsCard
             id={content.bentoGrids4.id}
             title={content.bentoGrids4.title}
@@ -291,7 +295,6 @@ export default function HomePage() {
             </div>
           </VariantsCard>
         </div>
-        <Newsletter />
       </div>
       <Footer />
     </main>
