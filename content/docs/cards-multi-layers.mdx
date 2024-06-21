@@ -21,11 +21,13 @@ import {
   <Tab value="React">
 ```jsx
 import { cn } from "@/lib/utils";
+
 const cardContent = {
   title: "Lorem ipsum dolor",
   description:
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
+
 const CardBody = ({ className = "" }) => (
   <div className={cn(className)}>
     <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
@@ -36,17 +38,25 @@ const CardBody = ({ className = "" }) => (
     </p>
   </div>
 )
+
+type CardProps = {
+  children?: React.ReactNode
+}
 //======================================
-export const MultilayerCardV_1 = () => {
+export const MultilayerCardV_1 = ({children}: CardProps) => {
   return (
     <div className="py-14">
       <div className="relative w-full">
-        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800" />
-        <CardBody className="px-6 py-4 relative mx-auto rounded-lg shadow-lg dark:bg-zinc-900/90 backdrop-blur-lg" />
+        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800 py-10" />
+        {children}
       </div>
     </div>
   )
-};
+}
+// usage
+<MultilayerCardV_1>
+  <CardBody className="px-6 py-8 relative mx-auto rounded-lg shadow dark:bg-zinc-900/90 backdrop-blur-lg" />
+</MultilayerCardV_1>
 ```
 </Tab>
 </Tabs>
@@ -79,7 +89,9 @@ const CardBody = ({ className = "" }) => (
   </div>
 )
 //======================================
-export const MultilayerCardV_2 = () => {
+export const MultilayerCardV_2 = ({
+  children
+}: CardProps) => {
   return (
     <div className="py-14">
       <div className="relative mx-auto h-72 sm:h-48">
@@ -90,12 +102,12 @@ export const MultilayerCardV_2 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 center"
           style={{
             transformOrigin: "top center",
           }}
         >
-          <CardBody className="p-3" />
+          {children}
         </div>
       </div>
     </div>
@@ -133,9 +145,11 @@ const CardBody = ({ className = "" }) => (
     </p>
   </div>
 )
+type CardProps = {
+  children?: React.ReactNode
+}
 //======================================
-export const MultilayerCardV_3 = () => {
-
+export const MultilayerCardV_3 = ({children}: CardProps) => {
   return (
     <div className="py-14">
       <div className="relative mx-auto h-72 sm:h-48">
@@ -152,17 +166,17 @@ export const MultilayerCardV_3 = () => {
           }}
         ></div>
         <div
-          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02]"
+          className="absolute dark:bg-zinc-950 bg-white size-full rounded-3xl p-2 md:p-4 shadow-xl border border-neutral-200 dark:border-zinc-800 shadow-black/[0.1] dark:shadow-white/[0.02] center"
           style={{
             transformOrigin: "top center",
           }}
         >
-          <CardBody className="p-3" />
+          {children}
         </div>
       </div>
     </div>
   )
-};
+}
 ```
 </Tab>
 </Tabs>

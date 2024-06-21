@@ -28,19 +28,30 @@ const CardBody = ({ className = "" }) => (
     </p>
   </div>
 )
+
+type CardProps = {
+  children?: React.ReactNode
+}
+
 //======================================
-export const MultilayerCardV_1 = () => {
+export const MultilayerCardV_1 = ({
+  children = (
+    <CardBody className="px-6 py-8 relative mx-auto rounded-lg shadow dark:bg-zinc-900/90 backdrop-blur-lg" />
+  ),
+}: CardProps) => {
   return (
     <div className="py-14">
       <div className="relative w-full">
         <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800 py-10" />
-        <CardBody className="px-6 py-8 relative mx-auto rounded-lg shadow-lg dark:bg-zinc-900/90 backdrop-blur-lg" />
+        {children}
       </div>
     </div>
   )
 }
 //======================================
-export const MultilayerCardV_2 = () => {
+export const MultilayerCardV_2 = ({
+  children = <CardBody className="p-3" />,
+}: CardProps) => {
   return (
     <div className="py-14">
       <div className="relative mx-auto h-72 sm:h-48">
@@ -56,7 +67,7 @@ export const MultilayerCardV_2 = () => {
             transformOrigin: "top center",
           }}
         >
-          <CardBody className="p-3" />
+          {children}
         </div>
       </div>
     </div>
@@ -64,7 +75,9 @@ export const MultilayerCardV_2 = () => {
 }
 
 //======================================
-export const MultilayerCardV_3 = () => {
+export const MultilayerCardV_3 = ({
+  children = <CardBody className="p-3" />,
+}: CardProps) => {
   return (
     <div className="py-14">
       <div className="relative mx-auto h-72 sm:h-48">
@@ -86,7 +99,7 @@ export const MultilayerCardV_3 = () => {
             transformOrigin: "top center",
           }}
         >
-          <CardBody className="p-3" />
+          {children}
         </div>
       </div>
     </div>
