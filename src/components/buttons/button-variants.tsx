@@ -1,32 +1,4 @@
----
-title: Buttons variants
-description: Buttons variants
----
-
-import { Tab, Tabs } from "fumadocs-ui/components/tabs"
-import {
-  Button_v1,
-  Button_v2,
-  Button_v3,
-  Button_v4,
-  Button_v5,
-  Button_v6,
-  Button_v7,
-} from "@/components/buttons/button-variants"
-import { Button } from "@/components/buttons/button"
-
-
-## Variant 1 neubrutalism
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v1>Click me </Button_v1>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
+import { IoSend } from "react-icons/io5"
 import { cn } from "@/lib/utils"
 import {
   Button,
@@ -55,31 +27,6 @@ export const Button_v1 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   )
 }
-```
-
-</Tab>
-</Tabs>
-
-## Variant 2 shine
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v2>Hover me </Button_v2>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
-import { cn } from "@/lib/utils"
-import {
-  Button,
-  type ButtonProps as BaseButtonProps,
-} from "@/components/buttons/button"
-
-type ButtonProps = {
-  children: React.ReactNode
-} & BaseButtonProps
 
 //======================================Shine
 export const Button_v2 = ({ children, ...rest }: ButtonProps) => {
@@ -102,31 +49,6 @@ export const Button_v2 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   )
 }
-```
-
-</Tab>
-</Tabs>
-
-## Variant 3
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v3>Hover me </Button_v3>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
-import { cn } from "@/lib/utils"
-import {
-  Button,
-  type ButtonProps as BaseButtonProps,
-} from "@/components/buttons/button"
-
-type ButtonProps = {
-  children: React.ReactNode
-} & BaseButtonProps
 
 //======================================
 export const Button_v3 = ({ children, ...rest }: ButtonProps) => {
@@ -147,33 +69,8 @@ export const Button_v3 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   )
 }
-```
 
-</Tab>
-</Tabs>
-
-## Variant 4
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v4>Hover me </Button_v4>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
-import { cn } from "@/lib/utils"
-import {
-  Button,
-  type ButtonProps as BaseButtonProps,
-} from "@/components/buttons/button"
-
-type ButtonProps = {
-  children: React.ReactNode
-} & BaseButtonProps
-
-//======================================3D
+//======================================
 export const Button_v4 = ({ children, ...rest }: ButtonProps) => {
   return (
     <Button
@@ -192,37 +89,11 @@ export const Button_v4 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   )
 }
-```
-</Tab>
-</Tabs>
-
-## Variant 5
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v5>Hover me </Button_v5>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
-
-import { IoSend } from "react-icons/io5"
-import { cn } from "@/lib/utils"
-import {
-  Button,
-  type ButtonProps as BaseButtonProps,
-} from "@/components/buttons/button"
-
-type ButtonProps = {
-  children: React.ReactNode
-} & BaseButtonProps
 
 //======================================
 export const Button_v5 = ({
   children,
-  Icon,
+  Icon = <IoSend size="20" />,
   ...rest
 }: ButtonProps & { Icon: React.ReactNode }) => {
   return (
@@ -247,31 +118,6 @@ export const Button_v5 = ({
     </Button>
   )
 }
-```
-
-</Tab>
-</Tabs>
-
-## Variant 6
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v6>Hover me </Button_v6>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
-import { cn } from "@/lib/utils"
-import {
-  Button,
-  type ButtonProps as BaseButtonProps,
-} from "@/components/buttons/button"
-
-type ButtonProps = {
-  children: React.ReactNode
-} & BaseButtonProps
 
 //======================================
 export const Button_v6 = ({ children, ...rest }: ButtonProps) => {
@@ -289,32 +135,6 @@ export const Button_v6 = ({ children, ...rest }: ButtonProps) => {
     </div>
   )
 }
-```
-
-</Tab>
-</Tabs>
-
-## Variant 7 Link
-
-<Tabs items={["Preview", "React"]}>
-  <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <Button_v7>Hover me </Button_v7>
-  </div>
-  </Tab>
-  <Tab value="React">
-
-```jsx title="Example.tsx"
-
-import { cn } from "@/lib/utils"
-import {
-  Button,
-  type ButtonProps as BaseButtonProps,
-} from "@/components/button"
-
-type ButtonProps = {
-  children: React.ReactNode
-} & BaseButtonProps
 
 //======================================
 export const Button_v7 = ({ children, ...rest }: ButtonProps) => {
@@ -332,7 +152,3 @@ export const Button_v7 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   )
 }
-```
-
-</Tab>
-</Tabs>

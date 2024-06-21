@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { configs } from "@/configs"
 import { FaDiscord, FaGithub, FaXTwitter } from "react-icons/fa6"
 import { LogoLink } from "@/components/logo"
+import { Button_v7 } from "@/components/buttons/button-variants"
 
 const headerVariants = cva("mx-auto", {
   variants: {
@@ -33,9 +34,9 @@ export interface HeaderProps extends VariantProps<typeof headerVariants> {
 
 const HeaderLink = (props: { href: string; name: string }) => {
   return (
-    <Button asChild size="sm" variant="link" className="px-2">
+    <Button_v7 asChild size="sm" variant="link" className="px-0">
       <a href={props.href}>{props.name}</a>
-    </Button>
+    </Button_v7>
   )
 }
 const iconsList = [
@@ -48,7 +49,10 @@ const iconsList = [
   { name: "x", href: configs.urls.x, icon: <FaXTwitter size="15" /> },
 ]
 const linksList = [
-  { href: configs.urls.indiestarter, label: "Indie Starter" },
+  {
+    href: configs.urls.prostarter,
+    label: "Indie Starter",
+  },
   { href: "/docs/changelog", label: "Changelog" },
 ]
 
@@ -68,7 +72,7 @@ export const Header = ({
       <div className={cn("hidden md:block", headerVariants({ variant }))}>
         <div className="flex-row-start px-6 py-3 w-full gap-2">
           {Logo}
-          <nav className="grow flex-row-end gap-1">
+          <nav className="grow flex-row-end gap-4">
             {links.map((link) => (
               <HeaderLink key={link.label} href={link.href} name={link.label} />
             ))}

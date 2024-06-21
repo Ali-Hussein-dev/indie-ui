@@ -10,7 +10,7 @@ import {
   Button_v5,
   Button_v6,
   Button_v7,
-} from "@/components/buttons/buttons"
+} from "@/components/buttons/button-variants"
 import {
   SimpleCard_V1,
   SimpleCard_V2,
@@ -56,10 +56,11 @@ import { Header } from "@/components/homepage/header"
 import { Footer } from "@/components/footer"
 import { Newsletter } from "@/components/newsletter"
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu"
+import { IoSend } from "react-icons/io5"
 
 const content = {
   button: {
-    title: "Buttons variants",
+    title: "Button variants",
     id: "buttons",
     docUrl: "/docs/buttons",
   },
@@ -79,7 +80,7 @@ const content = {
     docUrl: "/docs/cards-multi-layers",
   },
   cardsWithImageBg: {
-    title: "Cards with image BG",
+    title: "Cards with image",
     id: "cards-with-image-bg",
     docUrl: "/docs/cards-with-image-bg",
   },
@@ -167,7 +168,7 @@ export default function HomePage() {
               <Button_v2>Hover me</Button_v2>
               <Button_v3>Hover me</Button_v3>
               <Button_v4>Hover me</Button_v4>
-              <Button_v5>Hover me</Button_v5>
+              <Button_v5 Icon={<IoSend />}>Hover me</Button_v5>
               <Button_v6>Hover me</Button_v6>
               <Button rightIcon={<LuArrowRight />} variant="outline">
                 <span>Hover me</span>
