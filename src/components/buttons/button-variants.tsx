@@ -126,7 +126,7 @@ export const Button_v6 = ({ children, ...rest }: ButtonProps) => {
       <Button
         {...rest}
         className={cn(
-          "scale-y-90 scale-x-95 group-hover:scale-100 group-hover:m-0 duration-300 font-semibold rounded-sm transition dark:bg-zinc-50 bg-zinc-950 text-zinc-100 dark:text-zinc-800",
+          "scale-y-[.88] scale-x-[0.97] group-hover:scale-100 group-hover:m-0 duration-300 font-semibold rounded-sm transition dark:bg-zinc-50 bg-zinc-950 text-zinc-100 dark:text-zinc-800 w-full",
           rest.className
         )}
       >
