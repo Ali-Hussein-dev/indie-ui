@@ -9,6 +9,7 @@ import {
   Button_v4,
   Button_v5,
   Button_v6,
+  Button_v7,
 } from "@/components/buttons/buttons"
 import {
   SimpleCard_V1,
@@ -174,6 +175,7 @@ export default function HomePage() {
               <Button leftIcon={<LuArrowLeft />} variant="outline">
                 <span>Hover me</span>
               </Button>
+              <Button_v7>Hover me</Button_v7>
             </div>
           </VariantsCard>
           <VariantsCard
