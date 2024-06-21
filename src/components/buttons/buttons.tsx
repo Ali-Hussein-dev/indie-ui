@@ -101,7 +101,7 @@ export const Button_v5 = ({ children }: { children: React.ReactNode }) => {
 //======================================
 export const Button_v6 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="rounded-sm border dark:border-zinc-200 border-zinc-600 group">
+    <div className="rounded-sm duration-[700ms] ease-[cubic-bezier(0.55,0.20,0,1)] border dark:border-zinc-200 border-zinc-600 group">
       <Button
         className={cn(
           "scale-y-90 scale-x-95 group-hover:scale-100 group-hover:m-0 duration-300 font-semibold rounded-sm transition dark:bg-zinc-50 bg-zinc-950 text-zinc-100 dark:text-zinc-800"
