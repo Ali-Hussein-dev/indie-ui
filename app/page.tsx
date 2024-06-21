@@ -30,6 +30,8 @@ import {
   Card_with_image_bg_v2,
   Card_with_image_bg_v3,
   Card_with_image_bg_v4,
+  Card_with_image_bg_v5,
+  Card_with_image_bg_v6,
 } from "@/components/cards/with-image-bg"
 
 import {
@@ -239,6 +241,8 @@ export default function HomePage() {
               <Card_with_image_bg_v2 />
               <Card_with_image_bg_v3 />
               <Card_with_image_bg_v4 />
+              <Card_with_image_bg_v5 />
+              <Card_with_image_bg_v6 />
             </div>
           </VariantsCard>
           <VariantsCard

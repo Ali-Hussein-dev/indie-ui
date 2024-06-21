@@ -19,7 +19,7 @@ export const pageTree: PageTree.Root = {
     { type: "separator", name: "Cards" },
     { type: "page", name: "Simple", url: "/docs/cards-simple" },
     { type: "page", name: "Multi layers", url: "/docs/cards-multi-layers" },
-    { type: "page", name: "With image BG", url: "/docs/cards-with-image-bg" },
+    { type: "page", name: "With image", url: "/docs/cards-with-image-bg" },
 
     { type: "separator", name: "Buttons" },
     { type: "page", name: "Base", url: "/docs/base-button" },
