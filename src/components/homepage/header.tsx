@@ -50,7 +50,7 @@ const iconsList = [
 ]
 const linksList = [
   {
-    href: configs.urls.prostarter,
+    href: configs.urls.indiestarter,
     label: "Indie Starter",
   },
   { href: "/docs/changelog", label: "Changelog" },
