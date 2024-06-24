@@ -48,5 +48,6 @@ export const pageTree: PageTree.Root = {
 
      { type: "separator", name: "Loaders" },
      { type: "page", name: "Skeleton", url: "/docs/skeleton" },
+     { type: "page", name: "Dot Loaders", url: "/docs/dot-loaders" },
   ],
 };
