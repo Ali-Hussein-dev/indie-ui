@@ -18,12 +18,18 @@ const CardBody = ({ className = "" }) => (
     <h3 className="text-lg font-bold tracking-tighter mt-3 mb-1">
       {cardContent.title}
     </h3>
-    <p className=" text-sm">{cardContent.description}</p>
+    <p className="text-sm leading-5">{cardContent.description}</p>
   </div>
 )
-
+type CardProps = {
+  children?: React.ReactNode
+}
 //======================================
-export const Card_with_image_bg_v1 = () => {
+export const Card_with_image_v1 = ({
+  children = (
+    <CardBody className="absolute px-4 pb-4 inset-0 flex flex-col justify-end size-full" />
+  ),
+}: CardProps) => {
   return (
     <div className="rounded-2xl relative aspect-[4/3] overflow-hidden group">
       <Image
@@ -36,13 +42,17 @@ export const Card_with_image_bg_v1 = () => {
       />
       {/* overlay */}
       <div className="absolute inset-0 from-stone-900/90 via-stone-900/60 to-stone-900/5 bg-gradient-to-t backdrop-blur-[2px] transition-all duration-300"></div>
-      <CardBody className="absolute inset-0 flex flex-col justify-end size-full" />
+      {children}
     </div>
   )
 }
 
 //======================================
-export const Card_with_image_bg_v2 = () => {
+export const Card_with_image_v2 = ({
+  children = (
+    <CardBody className="absolute px-4 pb-4 inset-0 flex flex-col justify-end size-full " />
+  ),
+}: CardProps) => {
   return (
     <div className="rounded-2xl relative aspect-[4/3] overflow-hidden group">
       <Image
@@ -55,16 +65,20 @@ export const Card_with_image_bg_v2 = () => {
       />
       {/* overlay */}
       <div className="absolute inset-0 from-black/95 via-black/70 to-black/10 bg-gradient-to-t"></div>
-      <CardBody className="absolute inset-0 flex flex-col justify-end size-full " />
+      {children}
     </div>
   )
 }
 
 //======================================
-export const Card_with_image_bg_v3 = () => {
+export const Card_with_image_v3 = ({
+  children = (
+    <CardBody className="absolute inset-0 flex flex-col justify-end size-full px-3 pb-4" />
+  ),
+}: CardProps) => {
   return (
     <div className="from-red-700 to-green-400 bg-gradient-to-bl p-[2px] rounded-2xl">
-      <div className="rounded-2xl relative aspect-[4/3] max-w-xl overflow-hidden group">
+      <div className="rounded-2xl relative aspect-[4/3] overflow-hidden group">
         <Image
           fill
           src="/waterlemons.jpg"
@@ -75,14 +89,18 @@ export const Card_with_image_bg_v3 = () => {
         />
         {/* overlay */}
         <div className="absolute inset-0 from-teal-900/90 to-red-900/35 bg-gradient-to-t backdrop-blur-[1px]"></div>
-        <CardBody className="absolute inset-0 flex flex-col justify-end size-full" />
+        {children}
       </div>
     </div>
   )
 }
 
 //======================================
-export const Card_with_image_bg_v4 = () => {
+export const Card_with_image_v4 = ({
+  children = (
+    <CardBody className="sm:pb-2 bg-gray-600/35 rounded-2xl backdrop-blur-lg px-4 pb-4" />
+  ),
+}: CardProps) => {
   return (
     <div className="rounded-2xl relative aspect-[4/3] overflow-hidden group">
       <Image
@@ -95,20 +113,20 @@ export const Card_with_image_bg_v4 = () => {
       />
       {/* overlay */}
       <div className="flex flex-col justify-end h-full p-1 sm:p-2">
-        <CardBody className="sm:pb-2 bg-gray-600/35 rounded-2xl backdrop-blur-lg" />
+        {children}
       </div>
     </div>
   )
 }
 
 //======================================
-export const Card_with_image_bg_v5 = () => {
+export const Card_with_image_v5 = () => {
   return (
     <div className="rounded-xl dark:bg-zinc-950 bg-zinc-50 overflow-hidden p-2 border pb-3 ">
       <div className="relative aspect-video prose-img:m-0">
         <Image
           fill
-          className="rounded-xl shadow-[0px_0px_10px_#A1A1AA] dark:shadow-[0px_0px_7px_#52525B]"
+          className="rounded-xl shadow-[0px_0px_10px_#A1A1AA] dark:shadow-[0px_0px_12px_rgb(39,39,42,0.7)]"
           src="/lemons.jpeg"
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
@@ -126,7 +144,7 @@ export const Card_with_image_bg_v5 = () => {
 }
 
 //======================================
-export const Card_with_image_bg_v6 = () => {
+export const Card_with_image_v6 = () => {
   return (
     <div className="rounded-xl dark:bg-zinc-950 bg-zinc-50 overflow-hidden  pb-3 border border-lime-200 dark:border-lime-800">
       <div className="p-2 w-full bg-gradient-to-tr from-lime-300 to-lime-200 rounded-t-xl">

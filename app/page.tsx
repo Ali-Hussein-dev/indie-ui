@@ -27,12 +27,12 @@ import {
 } from "@/components/cards/multi-layers"
 
 import {
-  Card_with_image_bg_v1,
-  Card_with_image_bg_v2,
-  Card_with_image_bg_v3,
-  Card_with_image_bg_v4,
-  Card_with_image_bg_v5,
-  Card_with_image_bg_v6,
+  Card_with_image_v1,
+  Card_with_image_v2,
+  Card_with_image_v3,
+  Card_with_image_v4,
+  Card_with_image_v5,
+  Card_with_image_v6,
 } from "@/components/cards/with-image-bg"
 
 import {
@@ -242,12 +242,12 @@ export default function HomePage() {
             docUrl={content.cardsWithImageBg.docUrl}
           >
             <div className="max-w-2xl grid md:grid-cols-2 gap-4">
-              <Card_with_image_bg_v1 />
-              <Card_with_image_bg_v2 />
-              <Card_with_image_bg_v3 />
-              <Card_with_image_bg_v4 />
-              <Card_with_image_bg_v5 />
-              <Card_with_image_bg_v6 />
+              <Card_with_image_v1 />
+              <Card_with_image_v2 />
+              <Card_with_image_v3 />
+              <Card_with_image_v4 />
+              <Card_with_image_v5 />
+              <Card_with_image_v6 />
             </div>
           </VariantsCard>
           <Newsletter />
