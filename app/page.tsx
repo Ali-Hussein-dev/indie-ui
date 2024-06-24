@@ -23,6 +23,7 @@ import {
   MultilayerCardV_1,
   MultilayerCardV_2,
   MultilayerCardV_3,
+  MultilayerCardV_4,
 } from "@/components/cards/multi-layers"
 
 import {
@@ -232,6 +233,7 @@ export default function HomePage() {
               <MultilayerCardV_1 />
               <MultilayerCardV_2 />
               <MultilayerCardV_3 />
+              <MultilayerCardV_4 />
             </div>
           </VariantsCard>
           <VariantsCard
