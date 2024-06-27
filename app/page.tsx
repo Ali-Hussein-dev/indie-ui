@@ -241,7 +241,7 @@ export default function HomePage() {
             title={content.cardsWithImageBg.title}
             docUrl={content.cardsWithImageBg.docUrl}
           >
-            <div className="max-w-2xl grid md:grid-cols-2 gap-4">
+            <div className="max-w-2xl grid md:grid-cols-2 gap-y-8 md:gap-y-20 gap-4">
               <Card_with_image_v1 />
               <Card_with_image_v2 />
               <Card_with_image_v3 />

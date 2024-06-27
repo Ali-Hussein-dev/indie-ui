@@ -77,7 +77,7 @@ export const Card_with_image_v3 = ({
   ),
 }: CardProps) => {
   return (
-    <div className="from-red-700 to-green-400 bg-gradient-to-bl p-[2px] rounded-2xl">
+    <div className="from-red-700 to-teal-500 bg-gradient-to-bl p-0.5 rounded-2xl">
       <div className="rounded-2xl relative aspect-[4/3] overflow-hidden group">
         <Image
           fill
@@ -88,7 +88,7 @@ export const Card_with_image_v3 = ({
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
         />
         {/* overlay */}
-        <div className="absolute inset-0 from-teal-900/90 to-red-900/35 bg-gradient-to-t backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 from-teal-900/80 to-red-900/15 bg-gradient-to-t backdrop-blur-[1px]"></div>
         {children}
       </div>
     </div>
