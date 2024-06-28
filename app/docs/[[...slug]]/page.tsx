@@ -4,7 +4,7 @@ import { DocsPage, DocsBody } from "fumadocs-ui/page"
 import { notFound } from "next/navigation"
 import { CiEdit } from "react-icons/ci"
 import { Button } from "@/components/buttons/button"
-import { FaGithub } from "react-icons/fa"
+import { FaRegStar } from "react-icons/fa"
 export default async function Page({
   params,
 }: {
@@ -41,14 +41,14 @@ export default async function Page({
               <p className="text-center font-medium">
                 Support us with one click
               </p>
-              <Button asChild className="w-[88%]">
+              <Button asChild className="w-[88%]" variant="secondary">
                 <a
                   href="https://github.com/Ali-Hussein-dev/indie-ui"
                   data-umami-event="gh-star"
                   target="_blank"
                 >
-                  Star us on
-                  <FaGithub className="inline ml-2 size-5" />
+                  <FaRegStar className="inline mr-2 size-4" />
+                  Star
                 </a>
               </Button>
             </div>
