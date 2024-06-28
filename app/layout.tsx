@@ -21,9 +21,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       <head>
         <script
           defer
-          src="https://eu.umami.is/script.js"
-          data-website-id="3877cb40-b9fe-4b1d-a8e1-2957dc18cf0a"
-          // data-host-url="https://ui.indie-starter.dev"
+          src="https://aliytics.netlify.app/script.js"
+          data-website-id="47b996fd-088c-4d37-9ea2-b172bc689b61"
         ></script>
       </head>
       <body className="selection:bg-zinc-800 selection:text-zinc-100">
