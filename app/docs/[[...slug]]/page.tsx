@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { DocsPage, DocsBody } from "fumadocs-ui/page"
 import { notFound } from "next/navigation"
 import { CiEdit } from "react-icons/ci"
+import { Button } from "@/components/buttons/button"
+import { FaGithub } from "react-icons/fa"
 export default async function Page({
   params,
 }: {
@@ -21,16 +23,35 @@ export default async function Page({
       toc={page.data.exports.toc}
       tableOfContent={{
         footer: (
-          <div className="flex-row-start gap-2 dark:text-zinc-300">
-            <CiEdit />
-            <a
-              href={`https://github.com/Ali-Hussein-dev/indie-ui/blob/main/content${page.url}.mdx`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:font-semibold"
-            >
-              Edit this page
-            </a>
+          <div className="flex-col-start gap-2 dark:text-zinc-300">
+            <Button variant={"link"} asChild className="pl-1">
+              <span className="flex-row-start gap-2">
+                <CiEdit />
+                <a
+                  href={`https://github.com/Ali-Hussein-dev/indie-ui/blob/main/content${page.url}.mdx`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:font-semibold"
+                >
+                  Edit this page
+                </a>
+              </span>
+            </Button>
+            <div className="flex-col-center w-full gap-2 border rounded-lg px-2 py-3">
+              <p className="text-center font-medium">
+                Support us with one click
+              </p>
+              <Button asChild className="w-[88%]">
+                <a
+                  href="https://github.com/Ali-Hussein-dev/indie-ui"
+                  data-umami-event="gh-star"
+                  target="_blank"
+                >
+                  Star us on
+                  <FaGithub className="inline ml-2 size-5" />
+                </a>
+              </Button>
+            </div>
           </div>
         ),
       }}
