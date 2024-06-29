@@ -1,0 +1,42 @@
+{
+  "button": {
+    "title": "Button variants",
+    "id": "buttons",
+    "docUrl": "/docs/buttons"
+  },
+  "input": {
+    "title": "Input variants",
+    "id": "inputs",
+    "docUrl": "/docs/inputs"
+  },
+  "simpleCards": {
+    "title": "Simple card variants",
+    "id": "simple-cards",
+    "docUrl": "/docs/cards-simple"
+  },
+  "cardsWithMultiLayers": {
+    "title": "Card with multi layers",
+    "id": "cards-with-multi-layers",
+    "docUrl": "/docs/cards-multi-layers"
+  },
+  "cardsWithImageBg": {
+    "title": "Card with image",
+    "id": "cards-with-image-bg",
+    "docUrl": "/docs/cards-with-image-bg"
+  },
+  "bentoGrids4": {
+    "title": "Bento with 4 cells",
+    "id": "bento-grids-4",
+    "docUrl": "/docs/bento-4"
+  },
+  "bentoGrids5": {
+    "title": "Bento with 5 cells",
+    "id": "bento-grids-5",
+    "docUrl": "/docs/bento-4"
+  },
+  "bentoGrids6": {
+    "title": "Bento with 6 cells",
+    "id": "bento-grids-6",
+    "docUrl": "/docs/bento-4"
+  }
+}
