@@ -9,7 +9,7 @@ export const EyeCatchingButton_v1 = ({ ...props }: ButtonProps) => {
       <Button
         {...props}
         className={cn(
-          "h-10 px-8 rounded-full font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900",
+          "h-10 px-8 w-full rounded-full font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900",
           props.className
         )}
       />
