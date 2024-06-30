@@ -4,6 +4,11 @@
     "id": "buttons",
     "docUrl": "/docs/buttons"
   },
+  "eyeCatchingButton": {
+    "title": "Eye catching button",
+    "id": "eye-catching-buttons",
+    "docUrl": "/docs/eye-catching-buttons"
+  },
   "input": {
     "title": "Input variants",
     "id": "inputs",

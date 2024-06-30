@@ -11,6 +11,11 @@ import {
   Button_v7,
 } from "@/components/buttons/button-variants"
 import {
+  EyeCatchingButton_v1,
+  EyeCatchingButton_v2,
+  EyeCatchingButton_v3,
+} from "@/components/buttons/eye-catching-buttons"
+import {
   SimpleCard_V1,
   SimpleCard_V2,
   SimpleCard_V3,
@@ -110,6 +115,17 @@ export default function HomePage() {
                 <span>Hover me</span>
               </Button>
               <Button_v7 className="w-fit mx-auto">Hover me</Button_v7>
+            </div>
+          </VariantsCard>
+          <VariantsCard
+            id={components.eyeCatchingButton.id}
+            title={components.eyeCatchingButton.title}
+            docUrl={components.eyeCatchingButton.docUrl}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 max-w-2xl">
+              <EyeCatchingButton_v1>Shimmer effect</EyeCatchingButton_v1>
+              <EyeCatchingButton_v2>Shiny background</EyeCatchingButton_v2>
+              <EyeCatchingButton_v3>Shiny text</EyeCatchingButton_v3>
             </div>
           </VariantsCard>
           <VariantsCard
