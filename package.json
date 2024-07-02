@@ -1,5 +1,5 @@
 {
-  "name": "indie-components",
+  "name": "indie-ui",
   "version": "0.0.0",
   "scripts": {
     "build": "next build",
@@ -11,9 +11,9 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^11.2.6",
-    "fumadocs-core": "^11.2.0",
-    "fumadocs-mdx": "^8.2.22",
-    "fumadocs-ui": "^11.2.0",
+    "fumadocs-core": "^12.3.5",
+    "fumadocs-mdx": "^8.2.33",
+    "fumadocs-ui": "^12.3.5",
     "next": "^14.2.3",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",

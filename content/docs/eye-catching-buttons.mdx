@@ -7,7 +7,9 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 import {
   EyeCatchingButton_v1,
   EyeCatchingButton_v2,
-  EyeCatchingButton_v3
+  EyeCatchingButton_v3,
+  EyeCatchingButton_v4,
+  EyeCatchingButton_v5,
 } from "@/components/buttons/eye-catching-buttons"
 import { FaCode } from "react-icons/fa";
 
@@ -15,9 +17,12 @@ import { FaCode } from "react-icons/fa";
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <div className="flex-row-center pt-4 gap-2">
     <EyeCatchingButton_v1>
       Shimmer effect
+    </EyeCatchingButton_v1>
+    <EyeCatchingButton_v1 className="px-3 flex-row-center" size="icon">
+      <FaCode />
     </EyeCatchingButton_v1>
   </div>
   </Tab>
@@ -149,6 +154,93 @@ export const EyeCatchingButton_v3 = ({ ...props }: ButtonProps) => {
             "backgroundPosition": "-200% 0"
           }
         }
+      }
+    }
+  }
+}
+
+```
+
+</Tab>
+</Tabs>
+
+## Variant 4 - Animated border gradient
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+  <div className="flex-row-center pt-4">
+    <EyeCatchingButton_v4>
+      Animated border gradient
+    </EyeCatchingButton_v4>
+  </div>
+  </Tab>
+  <Tab value="React">
+
+```jsx
+//======================================
+export const EyeCatchingButton_v4 = ({ ...props }: ButtonProps) => {
+  return (
+    <div className="relative group rounded-xl inline-block p-[1.3px] overflow-hidden">
+      <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#FAFAFA_0%,#52525B_50%,#E4E4E7_100%)] bg-[conic-gradient(from_90deg_at_50%_50%,#52525B_0%,#D4D4D8_50%,#52525B_100%)] group-hover:animate-none" />
+      <Button
+        {...props}
+        className={cn(
+          "backdrop-blur-2xl rounded-xl dark:text-zinc-400 dark:bg-zinc-950 bg-white text-zinc-800 font-medium text-lg group-hover:scale-100",
+          props.className
+        )}
+      />
+    </div>
+  )
+}
+```
+
+</Tab>
+</Tabs>
+
+## Variant 5 - Animated text gradient
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+  <div className="flex-row-center pt-4">
+    <EyeCatchingButton_v5>
+      Animated text gradient
+    </EyeCatchingButton_v5>
+  </div>
+  </Tab>
+  <Tab value="React">
+
+```jsx
+//======================================
+export const EyeCatchingButton_v5 = ({ ...props }: ButtonProps) => {
+  return (
+    <Button
+      {...props}
+      variant="outline"
+      className={cn(
+        "bg-gradient-to-l text-transparent dark:text-transparent bg-clip-text animate-text-gradient font-bold dark:bg-zinc-50 bg-[length:300%] text-lg rounded-xl tracking-wide",
+        "from-zinc-500 via-zinc-950 to-zinc-600",
+        "dark:from-zinc-600 dark:via-zinc-100 dark:to-zinc-600",
+        props.className
+      )}
+    />
+  )
+}
+```
+
+```js title="tailwind.config.js"
+{
+  // ...rest of the config
+  theme:{
+    extends:{
+      "animation": {
+        "text-gradient": "text-gradient 6s ease infinite alternate",
+      },
+      "keyframes": {
+        "text-gradient": {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
       }
     }
   }

@@ -7,10 +7,8 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
       tree={pageTree}
-      nav={{
-        title: "Indie UI",
-        githubUrl: configs.urls.github,
-      }}
+      nav={{ title: "Indie UI" }}
+      githubUrl={configs.urls.github}
       links={[
         {
           url: configs.urls.indiestarter,

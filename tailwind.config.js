@@ -27,7 +27,8 @@ export default {
         'all-2xl': '0 0 25px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.2)',
       },
       "animation": {
-        "bg-shine": "bg-shine 2.2s linear infinite"
+        "bg-shine": "bg-shine 2.2s linear infinite",
+        "text-gradient": "text-gradient 6s ease infinite alternate"
       },
       "keyframes": {
         "bg-shine": {
@@ -37,8 +38,13 @@ export default {
           "to": {
             "backgroundPosition": "-200% 0"
           }
-        }
-      }
+        },
+        "text-gradient": {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+      },
     },
   }
 };

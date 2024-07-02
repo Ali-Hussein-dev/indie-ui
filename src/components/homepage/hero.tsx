@@ -12,11 +12,11 @@ export const Hero = () => {
       <Header />
       <div className="mx-auto max-w-2xl h-[95vh] center">
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl mb-3 text-center font-black text-balance leading-loose">
-            UI Components with Variants
+          <h1 className="text-3xl sm:text-4xl md:text-5xl mb-3 text-center font-black text-balance leading-loose lg:text-6xl">
+            Rich Styled UI
           </h1>
           <p className="text-center text-balance w-10/12 text-lg mb-4 dark:text-zinc-400 mx-auto">
-            Make your website beautiful with minimal effort
+            Make your website stand out with minimal effort
           </p>
           <div className="flex-row-center gap-4 mx-auto max-w-fit py-4">
             <Button asChild rightIcon={<FaArrowRight />}>
@@ -25,7 +25,7 @@ export const Hero = () => {
               </Link>
             </Button>
             <Button asChild variant={"outline"} leftIcon={<FaGithub />}>
-              <Link href={configs.urls.github}>Star us on GitHub</Link>
+              <Link href={configs.urls.github}>Star on GitHub</Link>
             </Button>
           </div>
           <div className="mx-auto pt-10 w-fit">
