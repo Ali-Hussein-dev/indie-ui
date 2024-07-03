@@ -1,6 +1,4 @@
 import { Button } from "@/components/buttons/button"
-import Link from "next/link"
-import { FaChevronRight } from "react-icons/fa"
 import {
   Button_v1,
   Button_v2,
@@ -65,31 +63,8 @@ import { LuArrowLeft, LuArrowRight } from "react-icons/lu"
 import { IoSend } from "react-icons/io5"
 import { Hero } from "@/components/homepage/hero"
 import components from "@/constants/components.json"
+import { VariantsCard } from "@/components/variants-card"
 
-const VariantsCard = ({
-  id,
-  title,
-  docUrl,
-  children,
-}: {
-  id: string
-  title: string
-  docUrl: string
-  children: React.ReactNode
-}) => (
-  <section
-    id={id}
-    className="border px-2 md:px-4 pb-6 pt-3 border-dashed rounded-lg shadow bg-white dark:bg-black"
-  >
-    <div className="flex-row-between mb-4 gap-1 border-b border-dashed py-1">
-      <h3 className="text-xl font-bold text-left">{title}</h3>
-      <Button asChild variant="ghost" size="sm" rightIcon={<FaChevronRight />}>
-        <Link href={docUrl}>Get code</Link>
-      </Button>
-    </div>
-    <div className="w-full pt-4">{children}</div>
-  </section>
-)
 export default function HomePage() {
   return (
     <main className="min-h-screen text-center">
