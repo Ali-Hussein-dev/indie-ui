@@ -6,7 +6,7 @@ export const configs = {
     site: {
         name: Site_Name,
         description:
-            "UI components with variants",
+            "Make your website stand out with minimal effort",
         siteUrl,
     },
     urls: {
