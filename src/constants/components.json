@@ -29,6 +29,11 @@
     "id": "cards-with-image-bg",
     "docUrl": "/docs/cards-with-image-bg"
   },
+  "textAnimation": {
+    "title": "Text animation",
+    "id": "text-animation",
+    "docUrl": "/docs/text-animation"
+  },
   "bentoGrids4": {
     "title": "Bento with 4 cells",
     "id": "bento-grids-4",

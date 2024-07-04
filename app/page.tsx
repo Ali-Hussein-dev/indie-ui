@@ -64,6 +64,7 @@ import { IoSend } from 'react-icons/io5';
 import { Hero } from '@/components/homepage/hero';
 import components from '@/constants/components.json';
 import { VariantsCard } from '@/components/variants-card';
+import { TextAnimationVariants } from '@/components/text/text-animation-variants';
 
 export default function HomePage() {
   return (
@@ -169,6 +170,7 @@ export default function HomePage() {
             </div>
           </VariantsCard>
           <Newsletter />
+          <TextAnimationVariants />
           <VariantsCard
             id={components.bentoGrids4.id}
             title={components.bentoGrids4.title}

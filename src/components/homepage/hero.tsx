@@ -12,10 +12,10 @@ export const Hero = () => {
       <Header />
       <div className="mx-auto max-w-2xl h-[95vh] center">
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl mb-3 text-center font-black text-balance leading-loose lg:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-balance leading-loose lg:text-6xl">
             Rich Styled UI
           </h1>
-          <p className="text-center text-balance w-10/12 text-lg mb-4 dark:text-zinc-400 mx-auto">
+          <p className="text-center text-pretty w-11/12 text-lg mb-4 dark:text-zinc-400 mx-auto">
             Make your website stand out with minimal effort
           </p>
           <div className="flex-row-center gap-4 mx-auto max-w-fit py-4">
@@ -31,7 +31,17 @@ export const Hero = () => {
           <div className="mx-auto pt-10 w-fit">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 ">
               {Object.values(components).map((o) => (
-                <Button key={o.id} size="sm" variant={'outline'} asChild>
+                <Button
+                  key={o.id}
+                  size="sm"
+                  variant={'outline'}
+                  asChild
+                  className={
+                    o.title.includes('Text animation')
+                      ? 'md:col-span-3 order-last col-span-2'
+                      : ''
+                  }
+                >
                   <a href={`#${o.id}`} className="text-xs">
                     {o.title}
                   </a>
