@@ -3,13 +3,13 @@ title: Bento Grid with 4 cells
 description: Bento Grid with 4 cells
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs"
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import {
   Bento_4_v1,
   Bento_4_v2,
   Bento_4_v3,
   Bento_4_v4,
-} from "@/components/layout/bento-4"
+} from '@/components/layout/bento-4';
 
 ## Variant 1
 
@@ -20,16 +20,16 @@ import {
   <Tab value="React">
 
 ```jsx
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 export const Cell = ({ i = 0 }) => {
   return (
     <div className="size-full rounded-lg center bg-zinc-200 dark:bg-zinc-900 text-xl">
       {i}
     </div>
-  )
-}
-const cells = [1, 2, 3, 4]
+  );
+};
+const cells = [1, 2, 3, 4];
 //======================================
 export const Bento_4_v1 = () => {
   return (
@@ -39,10 +39,10 @@ export const Bento_4_v1 = () => {
           <div
             key={n}
             className={cn(
-              "p-1 rounded-lg h-32",
-              i == 0 && "md:col-span-3",
-              i == 2 && "md:col-start-1",
-              i == 3 && "md:col-start-2 md:col-span-4"
+              'p-1 rounded-lg h-32',
+              i == 0 && 'md:col-span-3',
+              i == 2 && 'md:col-start-1',
+              i == 3 && 'md:col-start-2 md:col-span-4'
             )}
           >
             <Cell i={i + 1} />
@@ -50,8 +50,8 @@ export const Bento_4_v1 = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 ```
 
 </Tab>
@@ -72,9 +72,9 @@ export const Cell = ({ i = 0 }) => {
     <div className="size-full rounded-lg center bg-zinc-200 dark:bg-zinc-900 text-xl">
       {i}
     </div>
-  )
-}
-const cells = [1, 2, 3, 4]
+  );
+};
+const cells = [1, 2, 3, 4];
 //======================================
 export const Bento_4_v2 = () => {
   return (
@@ -84,9 +84,9 @@ export const Bento_4_v2 = () => {
           <div
             key={n}
             className={cn(
-              "p-1 rounded-lg h-32",
-              i == 0 && "md:col-span-3",
-              i > 1 && "md:col-span-2"
+              'p-1 rounded-lg h-32',
+              i == 0 && 'md:col-span-3',
+              i > 1 && 'md:col-span-2'
             )}
           >
             <Cell i={i + 1} />
@@ -94,10 +94,10 @@ export const Bento_4_v2 = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-```
+````
   </Tab>
 </Tabs>
 
@@ -108,7 +108,7 @@ export const Bento_4_v2 = () => {
     <Bento_4_v3 />
   </Tab>
   <Tab value="React">
-  ```jsx 
+  ```jsx
   import { cn } from "@/lib/utils"
 
 export const Cell = ({ i = 0 }) => {
@@ -142,10 +142,10 @@ export const Bento_4_v3 = () => {
     </div>
   )
 }
-```
+````
+
 </Tab>
 </Tabs>
-
 
 ## Variant 4
 
@@ -189,4 +189,3 @@ export const Bento_4_v4 = () => {
  ```
  </Tab>
 </Tabs>
-

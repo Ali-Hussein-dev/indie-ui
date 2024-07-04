@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { configs } from "@/configs"
-import { Button_v6 } from "@/components/buttons/button-variants"
-import { MultilayerCardV_2 } from "./cards/multi-layers"
+import Link from 'next/link';
+import { configs } from '@/configs';
+import { Button_v6 } from '@/components/buttons/button-variants';
+import { MultilayerCardV_2 } from './cards/multi-layers';
 
 //======================================
 export const Newsletter = () => {
@@ -15,10 +15,10 @@ export const Newsletter = () => {
           <div className="mx-auto w-fit">
             <Button_v6>
               <Link href={configs.urls.newsletter}>Subscribe</Link>
-            </Button_v6>{" "}
+            </Button_v6>{' '}
           </div>
         </div>
       </MultilayerCardV_2>
     </div>
-  )
-}
+  );
+};

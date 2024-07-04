@@ -3,36 +3,33 @@ title: Input block
 description: Input block variants
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs"
-import { IoSearchSharp } from "react-icons/io5"
-import { BiSolidSend } from "react-icons/bi"
-import { Input, InputBlock } from "@/components/inputs/inputs"
-import { TypeTable } from "fumadocs-ui/components/type-table"
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { IoSearchSharp } from 'react-icons/io5';
+import { BiSolidSend } from 'react-icons/bi';
+import { Input, InputBlock } from '@/components/inputs/inputs';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
 
 <a href="#installation-guide">Installation Guide</a>
 
 ## Default (outline)
 
-<Tabs items={["Preview"]}>
+<Tabs items={['Preview']}>
   <Tab value="Preview">
     <div className="py-4 mx-auto max-w-xl space-y-3">
-      <InputBlock placeholder="Input Small" root={{ size: "sm" }} />
-      <InputBlock  placeholder= "Input default"  />
-      <InputBlock
-         placeholder= "Input Large" 
-        root={{ size: "lg" }}
-      />
+      <InputBlock placeholder="Input Small" root={{ size: 'sm' }} />
+      <InputBlock placeholder="Input default" />
+      <InputBlock placeholder="Input Large" root={{ size: 'lg' }} />
       <br />
       <InputBlock
-         placeholder= "Input with left icon" 
+        placeholder="Input with left icon"
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right icon" 
+        placeholder="Input with right icon"
         rightIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right & left icons" 
+        placeholder="Input with right & left icons"
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
         rightIcon={<BiSolidSend className="text-zinc-600" />}
       />
@@ -42,35 +39,35 @@ import { TypeTable } from "fumadocs-ui/components/type-table"
 
 ## Neubrutalism
 
-<Tabs items={["Preview"]}>
+<Tabs items={['Preview']}>
   <Tab value="Preview">
     <div className="py-4 mx-auto max-w-xl space-y-3">
       <InputBlock
         placeholder="Input Small"
-        root={{ variant: "neubrutalism", size: "sm" }}
+        root={{ variant: 'neubrutalism', size: 'sm' }}
       />
       <InputBlock
         placeholder="Input default"
-        root={{ variant: "neubrutalism" }}
+        root={{ variant: 'neubrutalism' }}
       />
       <InputBlock
         placeholder="Input Large"
-        root={{ variant: "neubrutalism", size: "lg" }}
+        root={{ variant: 'neubrutalism', size: 'lg' }}
       />
       <br />
       <InputBlock
         placeholder="Input with left icon"
-        root={{ variant: "neubrutalism" }}
+        root={{ variant: 'neubrutalism' }}
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right icon" 
-        root={{ variant: "neubrutalism" }}
+        placeholder="Input with right icon"
+        root={{ variant: 'neubrutalism' }}
         rightIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right & left icons" 
-        root={{ variant: "neubrutalism" }}
+        placeholder="Input with right & left icons"
+        root={{ variant: 'neubrutalism' }}
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
         rightIcon={<BiSolidSend className="text-zinc-600" />}
       />
@@ -80,35 +77,32 @@ import { TypeTable } from "fumadocs-ui/components/type-table"
 
 ## Filled
 
-<Tabs items={["Preview"]}>
+<Tabs items={['Preview']}>
   <Tab value="Preview">
     <div className="py-4 mx-auto max-w-xl space-y-3">
       <InputBlock
-         placeholder= "Input Small" 
-        root={{ variant: "filled", size: "sm" }}
+        placeholder="Input Small"
+        root={{ variant: 'filled', size: 'sm' }}
       />
+      <InputBlock placeholder="Input default" root={{ variant: 'filled' }} />
       <InputBlock
-         placeholder= "Input default" 
-        root={{ variant: "filled" }}
-      />
-      <InputBlock
-         placeholder= "Input Large" 
-        root={{ variant: "filled", size: "lg" }}
+        placeholder="Input Large"
+        root={{ variant: 'filled', size: 'lg' }}
       />
       <br />
       <InputBlock
-         placeholder= "Input with left icon" 
-        root={{ variant: "filled" }}
+        placeholder="Input with left icon"
+        root={{ variant: 'filled' }}
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right icon" 
-        root={{ variant: "filled" }}
+        placeholder="Input with right icon"
+        root={{ variant: 'filled' }}
         rightIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right & left icons" 
-        root={{ variant: "filled" }}
+        placeholder="Input with right & left icons"
+        root={{ variant: 'filled' }}
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
         rightIcon={<BiSolidSend className="text-zinc-600" />}
       />
@@ -118,35 +112,35 @@ import { TypeTable } from "fumadocs-ui/components/type-table"
 
 ## Underlined
 
-<Tabs items={["Preview"]}>
+<Tabs items={['Preview']}>
   <Tab value="Preview">
     <div className="py-4 mx-auto max-w-xl space-y-3">
       <InputBlock
-         placeholder= "Input Small" 
-        root={{ variant: "underlined", size: "sm" }}
+        placeholder="Input Small"
+        root={{ variant: 'underlined', size: 'sm' }}
       />
       <InputBlock
-         placeholder= "Input default" 
-        root={{ variant: "underlined" }}
+        placeholder="Input default"
+        root={{ variant: 'underlined' }}
       />
       <InputBlock
-         placeholder= "Input Large" 
-        root={{ variant: "underlined", size: "lg" }}
+        placeholder="Input Large"
+        root={{ variant: 'underlined', size: 'lg' }}
       />
       <br />
       <InputBlock
-         placeholder= "Input with left icon" 
-        root={{ variant: "underlined" }}
+        placeholder="Input with left icon"
+        root={{ variant: 'underlined' }}
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right icon" 
-        root={{ variant: "underlined" }}
+        placeholder="Input with right icon"
+        root={{ variant: 'underlined' }}
         rightIcon={<IoSearchSharp className="text-zinc-500" />}
       />
       <InputBlock
-         placeholder= "Input with right & left icons" 
-        root={{ variant: "underlined" }}
+        placeholder="Input with right & left icons"
+        root={{ variant: 'underlined' }}
         leftIcon={<IoSearchSharp className="text-zinc-500" />}
         rightIcon={<BiSolidSend className="text-zinc-600" />}
       />
@@ -230,9 +224,9 @@ export const Form = () => (
 ```
 
 ```tsx title="Input.tsx"
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
@@ -243,60 +237,60 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          "size-full bg-transparent ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium dark:placeholder:text-zinc-600 placeholder:text-zinc-400 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none text-base",
+          'size-full bg-transparent ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium dark:placeholder:text-zinc-600 placeholder:text-zinc-400 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none text-base',
           className
         )}
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
+);
 
 const rootVariants = cva(
-  "py-1 px-2 flex rounded gap-1 items-center transition duration-200",
+  'py-1 px-2 flex rounded gap-1 items-center transition duration-200',
   {
     variants: {
       variant: {
         // outline
         default:
-          "border ring-zinc-800 ring-zinc-300 focus-within:ring-2 focus-within:ring-offset-2 dark:focus-within:ring-zinc-400 focus-within:ring-offset-white dark:focus-within:ring-offset-black focus-within:ring-zinc-600",
+          'border ring-zinc-800 ring-zinc-300 focus-within:ring-2 focus-within:ring-offset-2 dark:focus-within:ring-zinc-400 focus-within:ring-offset-white dark:focus-within:ring-offset-black focus-within:ring-zinc-600',
 
         underlined:
-          "border-b-[1px] dark:border-zinc-800 focus-within:border-b-2 dark:focus-within:border-zinc-400 focus-within:border-zinc-500 rounded-none px-0",
+          'border-b-[1px] dark:border-zinc-800 focus-within:border-b-2 dark:focus-within:border-zinc-400 focus-within:border-zinc-500 rounded-none px-0',
 
         filled:
-          "bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-100 focus-within:bg-zinc-200 dark:focus-within:bg-zinc-800",
+          'bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-100 focus-within:bg-zinc-200 dark:focus-within:bg-zinc-800',
 
         ghost:
-          "bg-transparent dark:bg-transparent dark:text-zinc-100 focus-within:bg-zinc-100 dark:focus-within:bg-zinc-900",
+          'bg-transparent dark:bg-transparent dark:text-zinc-100 focus-within:bg-zinc-100 dark:focus-within:bg-zinc-900',
         neubrutalism:
-          "border border-zinc-700 rounded-sm shadow-[2px_2px_0px_rgb(82,82,91)] dark:shadow-[2px_2px_0px_rgb(82,82,91)] focus-within:bg-yellow-50 dark:focus-within:bg-zinc-900/40",
+          'border border-zinc-700 rounded-sm shadow-[2px_2px_0px_rgb(82,82,91)] dark:shadow-[2px_2px_0px_rgb(82,82,91)] focus-within:bg-yellow-50 dark:focus-within:bg-zinc-900/40',
         // with floating label
       },
       size: {
-        sm: "h-8",
-        default: "h-10",
-        lg: "h-12",
+        sm: 'h-8',
+        default: 'h-10',
+        lg: 'h-12',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
   }
-)
+);
 
 type InputBlockProps = {
   root?: VariantProps<typeof rootVariants> & {
-    className?: string
-  }
-  leftIcon?: React.ReactNode
-  rightIcon?: React.ReactNode
-} & InputProps
+    className?: string;
+  };
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+} & InputProps;
 
 const InputBlock = ({
-  root: { size, variant, className } = { size: "default", variant: "default" },
+  root: { size, variant, className } = { size: 'default', variant: 'default' },
   leftIcon,
   rightIcon,
   ...input
@@ -306,13 +300,12 @@ const InputBlock = ({
     <Input {...input} />
     {rightIcon && <span className="px-1">{rightIcon}</span>}
   </div>
-)
+);
 
-export { Input, InputBlock }
+export { Input, InputBlock };
 
-Input.displayName = "Input"
-InputBlock.displayName = "InputBlock"
-
+Input.displayName = 'Input';
+InputBlock.displayName = 'InputBlock';
 ```
 
 </Tab>
@@ -323,24 +316,24 @@ InputBlock.displayName = "InputBlock"
 <TypeTable
   type={{
     variant: {
-      type: "default|filled|underlined|ghost|neubrutalism",
-      description: "change the input style",
-      default: "default",
+      type: 'default|filled|underlined|ghost|neubrutalism',
+      description: 'change the input style',
+      default: 'default',
     },
     size: {
-      type: "sm|default|lg",
-      description: "Change the size of the input block",
-      default: "default",
+      type: 'sm|default|lg',
+      description: 'Change the size of the input block',
+      default: 'default',
     },
     leftIcon: {
-      type: "React.ReactNode",
-      description: "Left icon",
-      default: "undefined",
+      type: 'React.ReactNode',
+      description: 'Left icon',
+      default: 'undefined',
     },
     rightIcon: {
-      type: "React.ReactNode",
-      description: "Right icon",
-      default: "undefined",
+      type: 'React.ReactNode',
+      description: 'Right icon',
+      default: 'undefined',
     },
   }}
 />

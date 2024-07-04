@@ -1,37 +1,37 @@
-import { FaXTwitter } from "react-icons/fa6"
-import { FaGithub } from "react-icons/fa"
-import { LogoLink } from "@/components/logo"
-import { Header } from "./header"
-import { Button } from "../buttons/button"
-import Link from "next/link"
-import { ThemeToggle } from "../toggle-theme"
+import { FaXTwitter } from 'react-icons/fa6';
+import { FaGithub } from 'react-icons/fa';
+import { LogoLink } from '@/components/logo';
+import { Header } from './header';
+import { Button } from '../buttons/button';
+import Link from 'next/link';
+import { ThemeToggle } from '../toggle-theme';
 
 const headerLinks = [
-  { name: "Features", href: "/header-demo/#features" },
-  { name: "Pricing", href: "/header-demo/#pricing" },
-  { name: "FAQs", href: "/header-demo/#faqs" },
-]
+  { name: 'Features', href: '/header-demo/#features' },
+  { name: 'Pricing', href: '/header-demo/#pricing' },
+  { name: 'FAQs', href: '/header-demo/#faqs' },
+];
 const icons = [
   {
-    name: "Twitter",
+    name: 'Twitter',
     icon: <FaXTwitter size="14" />,
-    href: "https://x.com",
+    href: 'https://x.com',
   },
   {
-    name: "GitHub",
+    name: 'GitHub',
     icon: <FaGithub size="14" />,
-    href: "https://github.com",
+    href: 'https://github.com',
   },
-]
+];
 const HeaderLink = (props: { href: string; name: string }) => {
-  return <Link href={props.href}>{props.name}</Link>
-}
+  return <Link href={props.href}>{props.name}</Link>;
+};
 export const HeaderDemo = ({
-  variant = "default",
+  variant = 'default',
   sticky,
 }: {
-  variant: "default" | "centered"
-  sticky: boolean
+  variant: 'default' | 'centered';
+  sticky: boolean;
 }) => (
   <Header
     Logo={<LogoLink />}
@@ -51,7 +51,7 @@ export const HeaderDemo = ({
           <Button
             key={link.href}
             asChild
-            variant={"outline"}
+            variant={'outline'}
             className="w-full rounded-xl justify-center"
             size="lg"
             onClick={() => setIsOpen(false)}
@@ -67,7 +67,7 @@ export const HeaderDemo = ({
                   key={icon.name}
                   size="icon"
                   className="rounded-full"
-                  variant={"outline"}
+                  variant={'outline'}
                   asChild
                   onClick={() => setIsOpen(false)}
                 >
@@ -80,4 +80,4 @@ export const HeaderDemo = ({
       </>
     )}
   />
-)
+);

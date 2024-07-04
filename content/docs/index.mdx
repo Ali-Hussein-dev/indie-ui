@@ -24,12 +24,10 @@ pnpm add clsx tailwind-merge
 Create a file `cn.ts`. This function is designed to work with Tailwind CSS and clsx to generate class strings.
 
 ```ts
-
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
-
 ```

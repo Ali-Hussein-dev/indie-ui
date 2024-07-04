@@ -1,4 +1,4 @@
-import { Button } from "@/components/buttons/button"
+import { Button } from '@/components/buttons/button';
 import {
   Button_v1,
   Button_v2,
@@ -7,12 +7,12 @@ import {
   Button_v5,
   Button_v6,
   Button_v7,
-} from "@/components/buttons/button-variants"
+} from '@/components/buttons/button-variants';
 import {
   EyeCatchingButton_v1,
   EyeCatchingButton_v2,
   EyeCatchingButton_v3,
-} from "@/components/buttons/eye-catching-buttons"
+} from '@/components/buttons/eye-catching-buttons';
 import {
   SimpleCard_V1,
   SimpleCard_V2,
@@ -20,13 +20,13 @@ import {
   SimpleCard_V4,
   SimpleCard_V5,
   SimpleCard_V6,
-} from "@/components/cards/simple"
+} from '@/components/cards/simple';
 import {
   MultilayerCardV_1,
   MultilayerCardV_2,
   MultilayerCardV_3,
   MultilayerCardV_4,
-} from "@/components/cards/multi-layers"
+} from '@/components/cards/multi-layers';
 
 import {
   Card_with_image_v1,
@@ -35,35 +35,35 @@ import {
   Card_with_image_v4,
   Card_with_image_v5,
   Card_with_image_v6,
-} from "@/components/cards/with-image-bg"
+} from '@/components/cards/with-image-bg';
 
 import {
   Bento_4_v1,
   Bento_4_v2,
   Bento_4_v3,
   Bento_4_v4,
-} from "@/components/layout/bento-4"
+} from '@/components/layout/bento-4';
 
 import {
   Bento_5_v1,
   Bento_5_v2,
   Bento_5_v3,
   Bento_5_v4,
-} from "@/components/layout/bento-5"
+} from '@/components/layout/bento-5';
 import {
   Bento_6_v1,
   Bento_6_v2,
   Bento_6_v3,
   Bento_6_v4,
-} from "@/components/layout/bento-6"
-import { InputBlock } from "@/components/inputs/inputs"
-import { Footer } from "@/components/footer"
-import { Newsletter } from "@/components/newsletter"
-import { LuArrowLeft, LuArrowRight } from "react-icons/lu"
-import { IoSend } from "react-icons/io5"
-import { Hero } from "@/components/homepage/hero"
-import components from "@/constants/components.json"
-import { VariantsCard } from "@/components/variants-card"
+} from '@/components/layout/bento-6';
+import { InputBlock } from '@/components/inputs/inputs';
+import { Footer } from '@/components/footer';
+import { Newsletter } from '@/components/newsletter';
+import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
+import { IoSend } from 'react-icons/io5';
+import { Hero } from '@/components/homepage/hero';
+import components from '@/constants/components.json';
+import { VariantsCard } from '@/components/variants-card';
 
 export default function HomePage() {
   return (
@@ -112,19 +112,19 @@ export default function HomePage() {
               <InputBlock placeholder="Input field (default)" />
               <InputBlock
                 placeholder="Input field (ghost)"
-                root={{ variant: "ghost" }}
+                root={{ variant: 'ghost' }}
               />
               <InputBlock
                 placeholder="Input field (underlined)"
-                root={{ variant: "underlined" }}
+                root={{ variant: 'underlined' }}
               />
               <InputBlock
                 placeholder="Input field (neubrutalism)"
-                root={{ variant: "neubrutalism" }}
+                root={{ variant: 'neubrutalism' }}
               />
               <InputBlock
                 placeholder="Input field (filled)"
-                root={{ variant: "filled" }}
+                root={{ variant: 'filled' }}
               />
             </div>
           </VariantsCard>
@@ -218,5 +218,5 @@ export default function HomePage() {
       </div>
       <Footer />
     </main>
-  )
+  );
 }

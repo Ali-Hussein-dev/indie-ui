@@ -1,17 +1,17 @@
-import { cn } from "@/lib/utils"
-import Image from "next/image"
-import { Button } from "@/components/buttons/button"
-import Link from "next/link"
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { Button } from '@/components/buttons/button';
+import Link from 'next/link';
 
 const cardContent = {
-  title: "Lorem ipsum dolor",
+  title: 'Lorem ipsum dolor',
   description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum!",
-}
-const CardBody = ({ className = "" }) => (
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum!',
+};
+const CardBody = ({ className = '' }) => (
   <div
     className={cn(
-      "px-2 text-gray-100 sm:px-4 py-0 sm:pb-3 text-left",
+      'px-2 text-gray-100 sm:px-4 py-0 sm:pb-3 text-left',
       className
     )}
   >
@@ -20,10 +20,10 @@ const CardBody = ({ className = "" }) => (
     </h3>
     <p className="text-sm leading-5">{cardContent.description}</p>
   </div>
-)
+);
 type CardProps = {
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 //======================================
 export const Card_with_image_v1 = ({
   children = (
@@ -44,8 +44,8 @@ export const Card_with_image_v1 = ({
       <div className="absolute inset-0 from-stone-900/90 via-stone-900/60 to-stone-900/5 bg-gradient-to-t backdrop-blur-[2px] transition-all duration-300"></div>
       {children}
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Card_with_image_v2 = ({
@@ -67,8 +67,8 @@ export const Card_with_image_v2 = ({
       <div className="absolute inset-0 from-black/95 via-black/70 to-black/10 bg-gradient-to-t"></div>
       {children}
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Card_with_image_v3 = ({
@@ -92,8 +92,8 @@ export const Card_with_image_v3 = ({
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Card_with_image_v4 = ({
@@ -116,8 +116,8 @@ export const Card_with_image_v4 = ({
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Card_with_image_v5 = () => {
@@ -140,8 +140,8 @@ export const Card_with_image_v5 = () => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Card_with_image_v6 = () => {
@@ -168,5 +168,5 @@ export const Card_with_image_v6 = () => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};

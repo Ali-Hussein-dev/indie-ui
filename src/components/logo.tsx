@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from 'next/link';
 
 //======================================
 export const LogoLink = () => {
@@ -6,5 +6,5 @@ export const LogoLink = () => {
     <Link href="/" className="font-extrabold">
       Indie UI
     </Link>
-  )
-}
+  );
+};

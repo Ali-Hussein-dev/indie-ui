@@ -1,13 +1,13 @@
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 export const Cell = ({ i = 0 }) => {
   return (
     <div className="size-full rounded-lg center bg-zinc-200 dark:bg-zinc-900 text-xl">
       {i}
     </div>
-  )
-}
-const cells = [1, 2, 3, 4, 5]
+  );
+};
+const cells = [1, 2, 3, 4, 5];
 //======================================
 export const Bento_5_v1 = () => {
   return (
@@ -17,11 +17,11 @@ export const Bento_5_v1 = () => {
           <div
             key={n}
             className={cn(
-              "p-1 rounded-lg h-32",
-              i == 0 && "md:col-start-1",
-              i == 1 && "md:col-span-2",
-              i == 2 && "md:col-start-4",
-              i > 2 && "md:col-span-2"
+              'p-1 rounded-lg h-32',
+              i == 0 && 'md:col-start-1',
+              i == 1 && 'md:col-span-2',
+              i == 2 && 'md:col-start-4',
+              i > 2 && 'md:col-span-2'
             )}
           >
             <Cell i={i + 1} />
@@ -29,8 +29,8 @@ export const Bento_5_v1 = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Bento_5_v2 = () => {
@@ -41,10 +41,10 @@ export const Bento_5_v2 = () => {
           <div
             key={n}
             className={cn(
-              "p-1 rounded-lg h-32",
-              i < 3 && "md:col-span-2",
-              i == 2 && "md:col-span-4",
-              i > 2 && "md:col-span-2"
+              'p-1 rounded-lg h-32',
+              i < 3 && 'md:col-span-2',
+              i == 2 && 'md:col-span-4',
+              i > 2 && 'md:col-span-2'
             )}
           >
             <Cell i={i + 1} />
@@ -52,8 +52,8 @@ export const Bento_5_v2 = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Bento_5_v3 = () => {
@@ -64,10 +64,10 @@ export const Bento_5_v3 = () => {
           <div
             key={n}
             className={cn(
-              "p-1 rounded-lg h-32",
-              i == 0 && "md:col-span-5",
-              i == 1 && "md:col-span-4",
-              i > 1 && "md:col-span-3"
+              'p-1 rounded-lg h-32',
+              i == 0 && 'md:col-span-5',
+              i == 1 && 'md:col-span-4',
+              i > 1 && 'md:col-span-3'
             )}
           >
             <Cell i={i + 1} />
@@ -75,8 +75,8 @@ export const Bento_5_v3 = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Bento_5_v4 = () => {
@@ -87,9 +87,9 @@ export const Bento_5_v4 = () => {
           <div
             key={n}
             className={cn(
-              "p-1 rounded-lg h-32",
-              i == 1 && "md:col-span-2 md:h-full md:row-span-2",
-              i == 4 && "md:col-start-4"
+              'p-1 rounded-lg h-32',
+              i == 1 && 'md:col-span-2 md:h-full md:row-span-2',
+              i == 4 && 'md:col-start-4'
             )}
           >
             <Cell i={i + 1} />
@@ -97,5 +97,5 @@ export const Bento_5_v4 = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

@@ -3,13 +3,13 @@ title: Multilayers Cards
 description: Multilayers Card variants
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import {
   MultilayerCardV_1,
   MultilayerCardV_2,
   MultilayerCardV_3,
   MultilayerCardV_4,
-} from "@/components/cards/multi-layers";
+} from '@/components/cards/multi-layers';
 
 ## Variant 1
 
@@ -24,38 +24,38 @@ import {
 import { cn } from "@/lib/utils";
 
 const cardContent = {
-  title: "Lorem ipsum dolor",
-  description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
+title: "Lorem ipsum dolor",
+description:
+"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
 
 const CardBody = ({ className = "" }) => (
-  <div className={cn(className)}>
-    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-      {cardContent.title}
-    </h3>
-    <p className="text-gray-700 dark:text-gray-400">
-      {cardContent.description}
-    </p>
-  </div>
-)
+
+{' '}
+<div className={cn(className)}>
+  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+    {cardContent.title}
+  </h3>
+  <p className="text-gray-700 dark:text-gray-400">{cardContent.description}</p>
+</div>)
 
 type CardProps = {
-  children?: React.ReactNode
+children?: React.ReactNode
 }
 //======================================
 export const MultilayerCardV_1 = ({children}: CardProps) => {
-  return (
-    <div className="py-14">
-      <div className="relative w-full">
-        <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800 py-10" />
-        {children}
-      </div>
-    </div>
-  )
+return (
+<div className="py-14">
+<div className="relative w-full">
+<div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800 py-10" />
+{children}
+</div>
+</div>
+)
 }
 // usage
 <MultilayerCardV_1>
+
   <CardBody className="px-6 py-10 relative mx-auto rounded-lg shadow dark:bg-zinc-900/90 backdrop-blur-xl" />
 </MultilayerCardV_1>
 ```
@@ -75,11 +75,12 @@ export const MultilayerCardV_1 = ({children}: CardProps) => {
 import { cn } from "@/lib/utils";
 
 const cardContent = {
-  title: "Lorem ipsum dolor",
-  description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
+title: "Lorem ipsum dolor",
+description:
+"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
 const CardBody = ({ className = "" }) => (
+
   <div className={cn(className)}>
     <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
       {cardContent.title}
@@ -118,7 +119,6 @@ export const MultilayerCardV_2 = ({
 </Tab>
 </Tabs>
 
-
 ## Variant 3
 
 <Tabs items={['Preview', 'React']}>
@@ -132,11 +132,12 @@ export const MultilayerCardV_2 = ({
 import { cn } from "@/lib/utils";
 
 const cardContent = {
-  title: "Lorem ipsum dolor",
-  description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
+title: "Lorem ipsum dolor",
+description:
+"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
 const CardBody = ({ className = "" }) => (
+
   <div className={cn(className)}>
     <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
       {cardContent.title}
@@ -189,11 +190,12 @@ export const MultilayerCardV_3 = ({children}: CardProps) => {
 import { cn } from "@/lib/utils";
 
 const cardContent = {
-  title: "Lorem ipsum dolor",
-  description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
+title: "Lorem ipsum dolor",
+description:
+"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 };
 const CardBody = ({ className = "" }) => (
+
   <div className={cn(className)}>
     <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
       {cardContent.title}

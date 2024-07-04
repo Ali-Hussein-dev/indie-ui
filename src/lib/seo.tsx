@@ -1,16 +1,16 @@
-import type { Metadata } from "next"
-import { configs } from "@/configs"
+import type { Metadata } from 'next';
+import { configs } from '@/configs';
 
-const { site } = configs
+const { site } = configs;
 
 const defaultkeywords = [
-  "Indie Starter",
-  "Typescript",
-  "Tailwind",
-  "Tailwindcss",
-  "Boilerplate",
-  "shadcn/ui",
-]
+  'Indie Starter',
+  'Typescript',
+  'Tailwind',
+  'Tailwindcss',
+  'Boilerplate',
+  'shadcn/ui',
+];
 
 /**
  * These are all the SEO tags you can add to your pages.
@@ -28,8 +28,8 @@ export const generateSEOTags = ({
   canonicalUrlRelative,
   extraTags,
 }: Metadata & {
-  canonicalUrlRelative?: string
-  extraTags?: Record<string, string>
+  canonicalUrlRelative?: string;
+  extraTags?: Record<string, string>;
 } = {}) => {
   return {
     // up to 50 characters (what does your app do for the user?)
@@ -56,8 +56,8 @@ export const generateSEOTags = ({
       //     height: 660,
       //   },
       // ],
-      locale: "en_US",
-      type: "website",
+      locale: 'en_US',
+      type: 'website',
     },
 
     twitter: {
@@ -65,8 +65,8 @@ export const generateSEOTags = ({
       description: openGraph?.description ?? site.description,
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [openGraph?.image || defaults.og.image],
-      card: "summary_large_image",
-      creator: "@alihussein_20",
+      card: 'summary_large_image',
+      creator: '@alihussein_20',
     },
 
     // If a canonical URL is given, we add it. The metadataBase will turn the relative URL into a fully qualified URL
@@ -76,8 +76,8 @@ export const generateSEOTags = ({
 
     // add extra tags here, you can pass them here
     ...extraTags,
-  }
-}
+  };
+};
 
 /**
  * @Resources
@@ -104,34 +104,34 @@ export const getSchemaTags = () => {
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
-          "@context": "http://schema.org",
-          "@type": "SoftwareApplication",
+          '@context': 'http://schema.org',
+          '@type': 'SoftwareApplication',
           name: site.name,
           description: site.description,
           image: `${site.siteUrl}/icon.png`,
           url: site.siteUrl,
           author: {
-            "@type": "Person",
-            name: "Ali Hussein",
+            '@type': 'Person',
+            name: 'Ali Hussein',
           },
-          datePublished: "2023-08-01",
-          applicationCategory: "EducationalApplication",
+          datePublished: '2023-08-01',
+          applicationCategory: 'EducationalApplication',
           aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            ratingCount: "12",
+            '@type': 'AggregateRating',
+            ratingValue: '4.8',
+            ratingCount: '12',
           },
           offers: [
             {
-              "@type": "Offer",
-              price: "9.00",
-              priceCurrency: "USD",
+              '@type': 'Offer',
+              price: '9.00',
+              priceCurrency: 'USD',
             },
           ],
         }),
       }}
     >
-      {" "}
+      {' '}
     </script>
-  )
-}
+  );
+};

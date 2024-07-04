@@ -1,9 +1,9 @@
-import Link from "next/link"
-import { Button } from "@/components/buttons/button"
-import { Header } from "@/components/homepage/header"
-import { configs } from "@/configs"
-import { FaArrowRight, FaGithub } from "react-icons/fa"
-import components from "@/constants/components.json"
+import Link from 'next/link';
+import { Button } from '@/components/buttons/button';
+import { Header } from '@/components/homepage/header';
+import { configs } from '@/configs';
+import { FaArrowRight, FaGithub } from 'react-icons/fa';
+import components from '@/constants/components.json';
 
 //======================================
 export const Hero = () => {
@@ -24,14 +24,14 @@ export const Hero = () => {
                 Docs
               </Link>
             </Button>
-            <Button asChild variant={"outline"} leftIcon={<FaGithub />}>
+            <Button asChild variant={'outline'} leftIcon={<FaGithub />}>
               <Link href={configs.urls.github}>Star on GitHub</Link>
             </Button>
           </div>
           <div className="mx-auto pt-10 w-fit">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 ">
               {Object.values(components).map((o) => (
-                <Button key={o.id} size="sm" variant={"outline"} asChild>
+                <Button key={o.id} size="sm" variant={'outline'} asChild>
                   <a href={`#${o.id}`} className="text-xs">
                     {o.title}
                   </a>
@@ -42,5 +42,5 @@ export const Hero = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

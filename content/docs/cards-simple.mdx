@@ -3,7 +3,7 @@ title: Simple Cards
 description: Simple Cards variants
 ---
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs"
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import {
   SimpleCard_V1,
   SimpleCard_V2,
@@ -11,7 +11,7 @@ import {
   SimpleCard_V4,
   SimpleCard_V5,
   SimpleCard_V6,
-} from "@/components/cards/simple"
+} from '@/components/cards/simple';
 
 ## Variant 1
 
@@ -26,11 +26,12 @@ import {
 import {cn} from "@/lib/utils"
 
 const cardContent = {
-  title: "Lorem ipsum dolor",
-  description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
+title: "Lorem ipsum dolor",
+description:
+"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum! Qui dicta debitis aliquid quo molestias explicabo iure!",
 }
 const CardBody = ({ className = "p-4" }) => (
+
   <div className={cn("text-left", className)}>
     <h3 className="text-lg font-bold mb-1 text-gray-900 dark:text-gray-100">
       {cardContent.title}
@@ -125,16 +126,18 @@ export const SimpleCard_V2 = () => {
       <Line className="w-px bg-gradient-to-t left-2 sm:left-4 md:left-6 h-full inset-y-0" />
       <div className="relative z-20 mx-auto py-8">{children}</div>
     </div>
-  )
-  return (
-      <Container>
-        <div className="p-4 w-full center">
-          <CardBody />
-        </div>
-      </Container>
-  )
+
+)
+return (
+<Container>
+<div className="p-4 w-full center">
+<CardBody />
+</div>
+</Container>
+)
 }
-```
+
+````
     </Tab>
 </Tabs>
 
@@ -194,7 +197,8 @@ export const SimpleCard_V3 = () => {
     </div>
   )
 }
-```
+````
+
 </Tab>
 </Tabs>
 
@@ -284,7 +288,7 @@ export const SimpleCard_V5 = () => {
   )
 }
 
-```
+````
 </Tab>
 </Tabs>
 
@@ -324,6 +328,7 @@ export const SimpleCard_V6 = () => {
   )
 }
 
-```
+````
+
 </Tab>
 </Tabs>

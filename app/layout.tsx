@@ -1,22 +1,22 @@
-import { generateSEOTags } from "@/lib/seo"
-import "./global.css"
-import { RootProvider } from "fumadocs-ui/provider"
-import { Inter } from "next/font/google"
-import type { ReactNode } from "react"
+import { generateSEOTags } from '@/lib/seo';
+import './global.css';
+import { RootProvider } from 'fumadocs-ui/provider';
+import { Inter } from 'next/font/google';
+import type { ReactNode } from 'react';
 
 const inter = Inter({
-  subsets: ["latin"],
-})
+  subsets: ['latin'],
+});
 export const metadata = generateSEOTags({
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
-})
+  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+});
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={"scroll-smooth antialiased " + inter.className}
-      style={{ colorScheme: "dark" }}
+      className={'scroll-smooth antialiased ' + inter.className}
+      style={{ colorScheme: 'dark' }}
     >
       <head>
         <script
@@ -29,5 +29,5 @@ export default function Layout({ children }: { children: ReactNode }) {
         <RootProvider>{children}</RootProvider>
       </body>
     </html>
-  )
+  );
 }

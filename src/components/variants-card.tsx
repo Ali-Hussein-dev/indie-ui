@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Button } from "./buttons/button"
-import { FaChevronRight } from "react-icons/fa"
+import Link from 'next/link';
+import { Button } from './buttons/button';
+import { FaChevronRight } from 'react-icons/fa';
 
 export const VariantsCard = ({
   id,
@@ -8,10 +8,10 @@ export const VariantsCard = ({
   docUrl,
   children,
 }: {
-  id: string
-  title: string
-  docUrl: string
-  children: React.ReactNode
+  id: string;
+  title: string;
+  docUrl: string;
+  children: React.ReactNode;
 }) => (
   <section
     id={id}
@@ -25,4 +25,4 @@ export const VariantsCard = ({
     </div>
     <div className="w-full pt-4">{children}</div>
   </section>
-)
+);

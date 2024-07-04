@@ -10,8 +10,8 @@ export const Skeleton_v1 = () => {
         <div className="h-4 w-[40%] rounded bg-zinc-200 dark:bg-zinc-800"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export const Skeleton_v2 = () => {
@@ -23,6 +23,5 @@ export const Skeleton_v2 = () => {
         <div className="h-4 w-[70%] rounded bg-zinc-200 dark:bg-zinc-800"></div>
       </div>
     </div>
-  )
-}
-
+  );
+};
