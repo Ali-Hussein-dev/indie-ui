@@ -1,22 +1,22 @@
-import { getPage, getPages } from "../../../app/source"
-import type { Metadata } from "next"
-import { DocsPage, DocsBody } from "fumadocs-ui/page"
-import { notFound } from "next/navigation"
-import { CiEdit } from "react-icons/ci"
-import { Button } from "@/components/buttons/button"
-import { FaRegStar } from "react-icons/fa"
+import { getPage, getPages } from '../../../app/source';
+import type { Metadata } from 'next';
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
+import { notFound } from 'next/navigation';
+import { CiEdit } from 'react-icons/ci';
+import { Button } from '@/components/buttons/button';
+import { FaRegStar } from 'react-icons/fa';
 export default async function Page({
   params,
 }: {
-  params: { slug?: string[] }
+  params: { slug?: string[] };
 }) {
-  const page = getPage(params.slug)
+  const page = getPage(params.slug);
 
   if (page == null) {
-    notFound()
+    notFound();
   }
 
-  const MDX = page.data.exports.default
+  const MDX = page.data.exports.default;
 
   return (
     <DocsPage
@@ -24,7 +24,7 @@ export default async function Page({
       tableOfContent={{
         footer: (
           <div className="flex-col-start gap-2 dark:text-zinc-300">
-            <Button variant={"link"} asChild className="pl-1">
+            <Button variant={'link'} asChild className="pl-1">
               <span className="flex-row-start gap-2">
                 <CiEdit />
                 <a
@@ -61,22 +61,22 @@ export default async function Page({
         <MDX />
       </DocsBody>
     </DocsPage>
-  )
+  );
 }
 
 export async function generateStaticParams() {
   return getPages().map((page) => ({
     slug: page.slugs,
-  }))
+  }));
 }
 
 export function generateMetadata({ params }: { params: { slug?: string[] } }) {
-  const page = getPage(params.slug)
+  const page = getPage(params.slug);
 
-  if (page == null) notFound()
+  if (page == null) notFound();
 
   return {
     title: page.data.title,
     description: page.data.description,
-  } satisfies Metadata
+  } satisfies Metadata;
 }
