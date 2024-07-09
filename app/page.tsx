@@ -65,6 +65,8 @@ import { Hero } from '@/components/homepage/hero';
 import components from '@/constants/components.json';
 import { VariantsCard } from '@/components/variants-card';
 import { TextAnimationVariants } from '@/components/text/text-animation-variants';
+import { Separator } from '@/components/separators/separator';
+import { FaPlus } from 'react-icons/fa6';
 
 export default function HomePage() {
   return (
@@ -170,6 +172,23 @@ export default function HomePage() {
             </div>
           </VariantsCard>
           <Newsletter />
+          <VariantsCard
+            id={components.separator.id}
+            title={components.separator.title}
+            docUrl={components.separator.docUrl}
+          >
+            <div className="flex-col-center gap-12 pt-4">
+              <Separator gradient />
+              <Separator />
+              <Separator label={<span className='px-2'>Section</span>} gradient />
+              <Separator label={<span className='px-2'>Section</span>} />
+              <Separator label={<div className='border px-4 py-1 rounded-full border-dashed'>Section</div>} gradient />
+              <Separator label={<div className='border px-4 py-1 rounded-full'>Section</div>} />
+              <Separator label={<div className='border px-12 py-2 rounded-full'>
+                <FaPlus />
+              </div>} gradient />
+            </div>
+          </VariantsCard>
           <TextAnimationVariants />
           <VariantsCard
             id={components.bentoGrids4.id}

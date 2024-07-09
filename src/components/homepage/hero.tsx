@@ -38,7 +38,7 @@ export const Hero = () => {
                   asChild
                   className={
                     o.title.includes('Text animation')
-                      ? 'md:col-span-3 order-last col-span-2'
+                      ? 'md:col-span-2 order-last col-span-2'
                       : ''
                   }
                 >

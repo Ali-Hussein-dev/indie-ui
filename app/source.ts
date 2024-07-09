@@ -30,29 +30,19 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Simple', url: '/docs/buttons' },
     { type: 'page', name: 'Eye catching', url: '/docs/eye-catching-buttons' },
 
-    { type: 'separator', name: 'Header' },
-    { type: 'page', name: 'Header', url: '/docs/header' },
-
-    { type: 'separator', name: 'Input Block' },
-    { type: 'page', name: 'Inputs', url: '/docs/inputs' },
-
-    { type: 'separator', name: 'Text' },
-    { type: 'page', name: 'Text animation', url: '/docs/text-animation' },
-
     { type: 'separator', name: 'Grid' },
     { type: 'page', name: 'Bento Grid (4 cells)', url: '/docs/bento-4' },
     { type: 'page', name: 'Bento Grid (5 cells)', url: '/docs/bento-5' },
     { type: 'page', name: 'Bento Grid (6 cells)', url: '/docs/bento-6' },
-    // { type: "page", name: "Bento Grid (4 cells)", url: "/good-question" },
-    // { type: "page", name: "Bento Grid (6 cells)", url: "/good-question" },
-    // { type: "page", name: "Bento Grid (7 cells)", url: "/good-question" },
-    // { type: "page", name: "Bento Grid (8 cells)", url: "/good-question" },
-
-    // { type: "separator", name: "Hero" },
-    // { type: "page", name: "Centeric", url: "/good-question" },
-    // ...originalTree.children
 
     { type: 'separator', name: 'Loaders' },
     { type: 'page', name: 'Skeleton', url: '/docs/skeleton' },
+
+    { type: 'separator', name: 'Other' },
+    { type: 'page', name: 'Header', url: '/docs/header' },
+    { type: 'page', name: 'Separator', url: '/docs/separator' },
+    { type: 'page', name: 'Inputs', url: '/docs/inputs' },
+    { type: 'page', name: 'Text animation', url: '/docs/text-animation' },
+
   ],
 };

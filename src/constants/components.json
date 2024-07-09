@@ -29,6 +29,11 @@
     "id": "cards-with-image-bg",
     "docUrl": "/docs/cards-with-image-bg"
   },
+  "separator": {
+    "title": "Separator",
+    "id": "separators",
+    "docUrl": "/docs/separator"
+  },
   "textAnimation": {
     "title": "Text animation",
     "id": "text-animation",
