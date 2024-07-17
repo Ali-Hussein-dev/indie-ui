@@ -20,7 +20,7 @@ export const Bento_4_v1 = () => {
               'p-1 rounded-lg h-32',
               i == 0 && 'md:col-span-3',
               i == 2 && 'md:col-start-1',
-              i == 3 && 'md:col-start-2 md:col-span-4'
+              i == 3 && 'md:col-start-2 md:col-span-3'
             )}
           >
             <Cell i={i + 1} />
