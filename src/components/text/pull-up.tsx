@@ -1,6 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import * as React from 'react';
 
 export function LettersPullUp({
   text,
@@ -21,15 +22,17 @@ export function LettersPullUp({
       },
     }),
   };
-
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <div className="flex justify-center">
       {splittedText.map((current, i) => (
         <motion.div
           key={i}
+          ref={ref}
           variants={pullupVariant}
           initial="initial"
-          animate="animate"
+          animate={isInView ? 'animate' : ''}
           custom={i}
           className={cn(
             'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
@@ -62,15 +65,17 @@ export function WordsPullUp({
       },
     }),
   };
-
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <div className="flex justify-center">
       {splittedText.map((current, i) => (
         <motion.div
           key={i}
+          ref={ref}
           variants={pullupVariant}
           initial="initial"
-          animate="animate"
+          animate={isInView ? 'animate' : ''}
           custom={i}
           className={cn(
             'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',

@@ -18,12 +18,12 @@ export function TextFade({
     hidden: { opacity: 0, y: direction === 'down' ? -18 : 18 },
   };
   const ref = React.useRef(null);
-  useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true });
   return (
     <motion.div
       ref={ref}
       initial="hidden"
-      animate="show"
+      animate={isInView ? 'show' : ''}
       variants={{
         hidden: {},
         show: {

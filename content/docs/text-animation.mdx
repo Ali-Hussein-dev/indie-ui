@@ -23,39 +23,39 @@ import { TypingEffect } from '@/components/text/typing-effect';
   </Tab>
   <Tab value="React">
 ```tsx title="gradual-spacing.tsx"
-"use client"
+'use client';
 
-import { AnimatePresence, motion, useInView } from "framer-motion"
-import * as React from "react"
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import * as React from 'react';
 
-export function GradualSpacing({ text = "Gradual Spacing" }: { text: string }) {
-  const ref = React.useRef(null)
-  useInView(ref, { once: true })
+export function GradualSpacing({ text = 'Gradual Spacing' }: { text: string }) {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <div className="flex space-x-1 justify-center">
       <AnimatePresence>
-        {text.split("").map((char, i) => (
+        {text.split('').map((char, i) => (
           <motion.p
+            ref={ref}
             key={i}
             initial={{ opacity: 0, x: -18 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
             exit="hidden"
-            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]"
           >
-            {char === " " ? <span>&nbsp;</span> : char}
+            {char === ' ' ? <span>&nbsp;</span> : char}
           </motion.p>
         ))}
       </AnimatePresence>
     </div>
-  )
+  );
 }
 ```
 ```tsx title="Usage.tsx"
 <GradualSpacing text="Gradual Spacing" />
 ```
-    </Tab>
+  </Tab>
 </Tabs>
 
 ## Typing Effect
@@ -116,55 +116,53 @@ const typingEffect = setInterval(() => {
   </Tab>
   <Tab value="React">
 ```tsx title="staggered-fade.tsx"
-"use client"
-import { cn } from "@/lib/utils"
-import { motion, useInView } from "framer-motion"
-import * as React from "react"
+'use client';
+import { cn } from '@/lib/utils';
+import { motion, useInView } from 'framer-motion';
+import * as React from 'react';
 
 type TextStaggeredFadeProps = {
-text: string
-className?: string
-}
+  text: string;
+  className?: string;
+};
 
 export const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({
   text,
-  className = "",
+  className = '',
 }) => {
+  const variants = {
+    hidden: { opacity: 0 },
+    show: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: { delay: i * 0.07 },
+    }),
+  };
 
-const variants = {
-  hidden: { opacity: 0 },
-  show: (i: number) => ({
-  y: 0,
-  opacity: 1,
-  transition: { delay: i \* 0.07 },
-  }),
-}
+  const letters = text.split('');
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-const letters = text.split("")
-const ref = React.useRef(null)
-useInView(ref, { once: true })
-
-return (
-
-<motion.h2
-  ref={ref}
-  initial="hidden"
-  animate="show"
-  variants={variants}
-  viewport={{ once: true }}
-  className={cn(
-    'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
-    className
-  )}
->
-  {letters.map((word, i) => (
-    <motion.span key={`${word}-${i}`} variants={wordVariants} custom={i}>
-      {word}
-    </motion.span>
-  ))}
-</motion.h2>
-) }
-
+  return (
+    <motion.h2
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? 'show' : ''}
+      variants={variants}
+      viewport={{ once: true }}
+      className={cn(
+        'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
+        className
+      )}
+    >
+      {letters.map((word, i) => (
+        <motion.span key={`${word}-${i}`} variants={variants} custom={i}>
+          {word}
+        </motion.span>
+      ))}
+    </motion.h2>
+  );
+};
 ```
 
 ```tsx title="Usage.tsx"
@@ -241,51 +239,54 @@ return (
     </AnimationContainer>
   </Tab>
   <Tab value="React">
-```tsx title="words-pull-up.tsx"
-"use client"
-import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+```tsx title="letters-pull-up.tsx"
+'use client';
+import { cn } from '@/lib/utils';
+import { motion, useInView } from 'framer-motion';
+import * as React from 'react';
+
 export function LettersPullUp({
   text,
-  className = "",
+  className = '',
 }: {
-  text: string
-  className?: string
+  text: string;
+  className?: string;
 }) {
-  const splittedText = text.split("")
+  const splittedText = text.split('');
 
-const pullupVariant = {
-initial: { y: 10, opacity: 0 },
-animate: (i: number) => ({
-y: 0,
-opacity: 1,
-transition: {
-delay: i \* 0.05,
-},
-}),
+  const pullupVariant = {
+    initial: { y: 10, opacity: 0 },
+    animate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.05,
+      },
+    }),
+  };
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+  return (
+    <div className="flex justify-center">
+      {splittedText.map((current, i) => (
+        <motion.div
+          key={i}
+          ref={ref}
+          variants={pullupVariant}
+          initial="initial"
+          animate={isInView ? 'animate' : ''}
+          custom={i}
+          className={cn(
+            'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
+            className
+          )}
+        >
+          {current == ' ' ? <span>&nbsp;</span> : current}
+        </motion.div>
+      ))}
+    </div>
+  );
 }
-
-return (
-
-<div className="flex justify-center">
-  {splittedText.map((current, i) => (
-    <motion.div
-      key={i}
-      variants={pullupVariant}
-      initial="initial"
-      animate="animate"
-      custom={i}
-      className={cn(
-        'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
-        className
-      )}
-    >
-      {current == ' ' ? <span>&nbsp;</span> : current}
-    </motion.div>
-  ))}
-</div>
-) }
-
 ```
 
 ```tsx title="Usage.tsx"
@@ -306,51 +307,53 @@ return (
   <Tab value="React">
 ```tsx title="words-pull-up.tsx"
 "use client"
-import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { cn } from '@/lib/utils';
+import { motion, useInView } from 'framer-motion';
+import * as React from 'react';
 
 export function WordsPullUp({
   text,
-  className = "",
+  className = '',
 }: {
-  text: string
-  className?: string
+  text: string;
+  className?: string;
 }) {
-  const splittedText = text.split(" ")
+  const splittedText = text.split(' ');
 
-const pullupVariant = {
-initial: { y: 20, opacity: 0 },
-animate: (i: any) => ({
-y: 0,
-opacity: 1,
-transition: {
-delay: i \* 0.1,
-},
-}),
+  const pullupVariant = {
+    initial: { y: 20, opacity: 0 },
+    animate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+      },
+    }),
+  };
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+  return (
+    <div className="flex justify-center">
+      {splittedText.map((current, i) => (
+        <motion.div
+          key={i}
+          ref={ref}
+          variants={pullupVariant}
+          initial="initial"
+          animate={isInView ? 'animate' : ''}
+          custom={i}
+          className={cn(
+            'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
+            'pr-2', // class to sperate words
+            className
+          )}
+        >
+          {current == '' ? <span>&nbsp;</span> : current}
+        </motion.div>
+      ))}
+    </div>
+  );
 }
-
-return (
-
-<div className="flex justify-center">
-  {splittedText.map((current, i) => (
-    <motion.div
-      key={i}
-      variants={pullupVariant}
-      initial="initial"
-      animate="animate"
-      custom={i}
-      className={cn(
-        'text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]',
-        'pr-2', // class to sperate words
-        className
-      )}
-    >
-      {current == '' ? <span>&nbsp;</span> : current}
-    </motion.div>
-  ))}
-</div>
-) }
-
 ```
 ```tsx title="Usage.tsx"
 <WordsPullUp text="Words Pull Up" />
@@ -369,26 +372,30 @@ return (
   </Tab>
   <Tab value="React">
 ```tsx title="Blur-in.tsx"
-"use client"
-import { motion } from "framer-motion"
+'use client';
+import { motion, useInView } from 'framer-motion';
+import * as React from 'react';
 
 export const BlurIn = ({ children }: { children: React.ReactNode }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <motion.h1
-      initial={{ filter: "blur(20px)", opacity: 0 }}
-      animate={{ filter: "blur(0px)", opacity: 1 }}
+      ref={ref}
+      initial={{ filter: 'blur(20px)', opacity: 0 }}
+      animate={isInView ? { filter: 'blur(0px)', opacity: 1 } : {}}
       transition={{ duration: 1.2 }}
       className="text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]"
     >
       {children}
     </motion.h1>
-  )
-}
+  );
+};
 ```
 ```tsx title="Usage.tsx"
 <BlurIn>Text Blur in</BlurIn>
 ```
-          </Tab>
+  </Tab>
 </Tabs>
 
 ## Fade up
@@ -432,12 +439,12 @@ export function TextFade({
     hidden: { opacity: 0, y: direction === 'down' ? -18 : 18 },
   };
   const ref = React.useRef(null);
-  useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true });
   return (
     <motion.div
       ref={ref}
       initial="hidden"
-      animate="show"
+      animate={isInView ? 'show' : ''}
       variants={{
         hidden: {},
         show: {
@@ -498,32 +505,32 @@ export function TextFade({
   </Tab>
   <Tab value="React">
 ```tsx title="TextFade.tsx"
-    "use client"
-import { motion, useInView } from "framer-motion"
-import * as React from "react"
+'use client';
+import { motion, useInView } from 'framer-motion';
+import * as React from 'react';
 
 export function TextFade({
   direction,
   children,
-  className = "",
-  staggerChildren = 0.10,
+  className = '',
+  staggerChildren = 0.1,
 }: {
-  direction: "up" | "down"
-  children: React.ReactNode
-  className?: string
-  staggerChildren?: number
+  direction: 'up' | 'down';
+  children: React.ReactNode;
+  className?: string;
+  staggerChildren?: number;
 }) {
   const FADE_DOWN = {
-    show: { opacity: 1, y: 0, transition: { type: "spring" } },
-    hidden: { opacity: 0, y: direction === "down" ? -18 : 18 },
-  }
-  const ref = React.useRef(null)
-  useInView(ref, { once: true })
+    show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+    hidden: { opacity: 0, y: direction === 'down' ? -18 : 18 },
+  };
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <motion.div
       ref={ref}
       initial="hidden"
-      animate="show"
+      animate={isInView ? 'show' : ''}
       variants={{
         hidden: {},
         show: {
@@ -542,9 +549,8 @@ export function TextFade({
         )
       )}
     </motion.div>
-  )
+  );
 }
-
 ```
 
 ```tsx title="Usage.tsx"
@@ -560,7 +566,5 @@ export function TextFade({
     </div>
 </TextFade>
 ```
-
-    </Tab>
-
+  </Tab>
 </Tabs>

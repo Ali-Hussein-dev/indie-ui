@@ -23,13 +23,13 @@ export const StaggeredFade: React.FC<TextStaggeredFadeProps> = ({
 
   const letters = text.split('');
   const ref = React.useRef(null);
-  useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.h2
       ref={ref}
       initial="hidden"
-      animate="show"
+      animate={isInView ? 'show' : ''}
       variants={variants}
       viewport={{ once: true }}
       className={cn(
