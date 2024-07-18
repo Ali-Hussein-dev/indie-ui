@@ -29,6 +29,11 @@
     "id": "cards-with-image-bg",
     "docUrl": "/docs/cards-with-image-bg"
   },
+  "cardsWithPattern": {
+    "title": "Card with pattern",
+    "id": "cards-with-pattern",
+    "docUrl": "/docs/cards-with-pattern"
+  },
   "separator": {
     "title": "Separator",
     "id": "separators",
