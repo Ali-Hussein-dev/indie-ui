@@ -67,7 +67,29 @@ import { VariantsCard } from '@/components/variants-card';
 import { TextAnimationVariants } from '@/components/text/text-animation-variants';
 import { Separator } from '@/components/separators/separator';
 import { FaPlus } from 'react-icons/fa6';
+import {
+  CardBody,
+  CardWithCircleEllipsis,
+  CardWithEllipsis,
+  CardWithGrid,
+  CardWithGridEllipsis,
+  CardWithLines,
+  CardWithNoise,
+  CardWithPlus,
+  CardWithSquareX,
+} from '@/components/cards/with-pattern';
+import * as React from 'react';
 
+const CardsWithPattern = [
+  CardWithEllipsis,
+  CardWithGridEllipsis,
+  CardWithCircleEllipsis,
+  CardWithLines,
+  CardWithPlus,
+  CardWithSquareX,
+  CardWithGrid,
+  CardWithNoise,
+];
 export default function HomePage() {
   return (
     <main className="min-h-screen text-center">
@@ -136,7 +158,7 @@ export default function HomePage() {
             title={components.simpleCards.title}
             docUrl={components.simpleCards.docUrl}
           >
-            <div className="max-w-2xl space-y-10 md:space-y-16 pt-4 mx-auto">
+            <div className="max-w-2xl space-y-10 md:space-y-12 pt-4 mx-auto">
               <SimpleCard_V1 />
               <SimpleCard_V2 />
               <SimpleCard_V3 />
@@ -173,6 +195,19 @@ export default function HomePage() {
           </VariantsCard>
           <Newsletter />
           <VariantsCard
+            id={components.cardsWithPattern.id}
+            title={components.cardsWithPattern.title}
+            docUrl={components.cardsWithPattern.docUrl}
+          >
+            <div className="grid gap-4 gap-y-8 max-w-2xl mx-auto md:grid-cols-2">
+              {CardsWithPattern.map((Card, i) => (
+                <Card key={i}>
+                  <CardBody />
+                </Card>
+              ))}
+            </div>
+          </VariantsCard>
+          <VariantsCard
             id={components.separator.id}
             title={components.separator.title}
             docUrl={components.separator.docUrl}
@@ -180,13 +215,32 @@ export default function HomePage() {
             <div className="flex-col-center gap-12 pt-4">
               <Separator gradient />
               <Separator />
-              <Separator label={<span className='px-2'>Section</span>} gradient />
-              <Separator label={<span className='px-2'>Section</span>} />
-              <Separator label={<div className='border px-4 py-1 rounded-full border-dashed'>Section</div>} gradient />
-              <Separator label={<div className='border px-4 py-1 rounded-full'>Section</div>} />
-              <Separator label={<div className='border px-12 py-2 rounded-full'>
-                <FaPlus />
-              </div>} gradient />
+              <Separator
+                label={<span className="px-2">Section</span>}
+                gradient
+              />
+              <Separator label={<span className="px-2">Section</span>} />
+              <Separator
+                label={
+                  <div className="border px-4 py-1 rounded-full border-dashed">
+                    Section
+                  </div>
+                }
+                gradient
+              />
+              <Separator
+                label={
+                  <div className="border px-4 py-1 rounded-full">Section</div>
+                }
+              />
+              <Separator
+                label={
+                  <div className="border px-12 py-2 rounded-full">
+                    <FaPlus />
+                  </div>
+                }
+                gradient
+              />
             </div>
           </VariantsCard>
           <TextAnimationVariants />
