@@ -35,7 +35,7 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.tsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
 
 const cardContent = {
@@ -85,7 +85,7 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.tsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
 const cardContent = {
   title: 'Lorem ipsum dolor',
@@ -126,7 +126,7 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.tsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
 const cardContent = {
   title: 'Lorem ipsum dolor',
@@ -169,8 +169,21 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.jsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
 //======================================
 export const CardWithLines = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -201,8 +214,21 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.jsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
 //======================================
 export const CardWithPlus = ({ children }: { children: React.ReactNode }) => {
   return (<div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950">
@@ -229,7 +255,7 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.tsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
 const cardContent = {
   title: 'Lorem ipsum dolor',
@@ -269,7 +295,7 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.jsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
 const cardContent = {
   title: 'Lorem ipsum dolor',
@@ -310,7 +336,7 @@ Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/
     </div>
 </Tab>
 <Tab value="React">
-```jsx	title="card.jsx"
+```tsx	title="card.tsx"
 import { cn } from '@/lib/utils';
 const cardContent = {
   title: 'Lorem ipsum dolor',
