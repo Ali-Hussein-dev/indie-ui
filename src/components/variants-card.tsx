@@ -15,7 +15,7 @@ export const VariantsCard = ({
 }) => (
   <section
     id={id}
-    className="border px-2 md:px-4 pb-6 pt-3 border-dashed rounded-lg shadow bg-white dark:bg-black"
+    className="border px-2 sm:px-4 md:px-8 pb-6 pt-3 border-dashed rounded-lg shadow bg-white dark:bg-black"
   >
     <div className="flex-row-between mb-4 gap-1 border-b border-dashed py-1">
       <h3 className="text-xl font-bold text-left">{title}</h3>

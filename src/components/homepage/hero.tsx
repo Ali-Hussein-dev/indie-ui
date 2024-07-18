@@ -35,13 +35,7 @@ export const Hero = () => {
                   key={o.id}
                   size="sm"
                   variant={'outline'}
-                  asChild
-                  className={
-                    o.title.includes('Text animation')
-                      ? 'md:col-span-2 order-last col-span-2'
-                      : ''
-                  }
-                >
+                  asChild>
                   <a href={`#${o.id}`} className="text-xs">
                     {o.title}
                   </a>
