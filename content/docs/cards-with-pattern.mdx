@@ -1,0 +1,340 @@
+---
+title: Cards with Pattern
+description: Collection of cards with patterns
+---
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import {
+  CardBody,
+  CardWithCircleEllipsis,
+  CardWithEllipsis,
+  CardWithGrid,
+  CardWithGridEllipsis,
+  CardWithLines,
+  CardWithPlus,
+  CardWithSquareX,
+  CardWithNoise,
+} from '@/components/cards/with-pattern';
+
+
+To use a custom SVG pattern in your project, you have two options:
+
+1. **Copy an Existing SVG**: Every has a link to the SVG pattern. You can copy the SVG pattern and use it in your project.
+
+2. **Generate a New SVG**: If you prefer a unique pattern or need a pattern, you can create your own SVG. I use [FFFUEL](https://www.fffuel.co/ooorganize/) to generate SVG patterns.
+
+## Variant 1 Ellipsis
+
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/ellipsis.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithEllipsis>
+            <CardBody />
+        </CardWithEllipsis>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.tsx"
+import { cn } from '@/lib/utils';
+
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
+//======================================
+export const CardWithEllipsis = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
+    <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-3">
+      <div className="size-full bg-repeat bg-[url(/svg/ellipsis.svg)] bg-[length:30px_30px]">
+        <div
+          className={
+            'size-full bg-gradient-to-tr from-zinc-950/90 via-zinc-950/40 to-zinc-950/10'
+          }
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+```
+</Tab>
+</Tabs>
+## Variant 2 Grid ellipsis
+
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/grid-ellipsis.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithGridEllipsis>
+            <CardBody />
+        </CardWithGridEllipsis>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.tsx"
+import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
+//======================================
+export const CardWithGridEllipsis = ({ children }: { children: React.ReactNode }) => (
+    <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-1">
+      <div className="size-full bg-repeat bg-[url(/svg/grid-ellipsis.svg)] bg-[length:25px_25px]">
+        <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/70 to-zinc-950">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+```
+</Tab>
+</Tabs>
+
+## Variant 3 Circle ellipsis
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/circle-ellipsis.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithCircleEllipsis>
+            <CardBody />
+        </CardWithCircleEllipsis>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.tsx"
+import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
+//======================================
+export const CardWithGridEllipsis = ({ children }: { children: React.ReactNode }) => (
+    <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950 p-1">
+      <div
+        className={`size-full bg-[url(/svg/circle-ellipsis.svg)] bg-repeat bg-[length:30px_30px]`}
+      >
+        <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+```
+</Tab>
+</Tabs>
+
+## Variant 4 Lines
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/lines.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithLines>
+            <CardBody />
+        </CardWithLines>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.jsx"
+import { cn } from '@/lib/utils';
+//======================================
+export const CardWithLines = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950 p-1">
+      <div
+        className={`size-full bg-[url(/svg/circle-ellipsis.svg)] bg-repeat bg-[length:30px_30px]`}
+      >
+        <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/10">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+```
+</Tab>
+</Tabs>
+
+## Variant 5 Pluses
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/plus.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithPlus>
+            <CardBody />
+        </CardWithPlus>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.jsx"
+import { cn } from '@/lib/utils';
+//======================================
+export const CardWithPlus = ({ children }: { children: React.ReactNode }) => {
+  return (<div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950">
+      <div className="size-full bg-[url(/svg/plus.svg)] bg-repeat bg-[length:65px_65px]">
+        <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/[0.93] to-zinc-950">
+          {children}
+        </div>
+      </div>
+    </div>);
+};
+```
+</Tab>
+</Tabs>
+
+## Variant 6 Square X
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/square-x.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithSquareX>
+            <CardBody />
+        </CardWithSquareX>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.tsx"
+import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
+//======================================
+export const CardWithSquareX = ({ children }: { children: React.ReactNode }) => (
+    <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950">
+      <div className="size-full bg-[url(/svg/square-x.svg)] bg-repeat bg-[length:95px_95px]">
+        <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/[0.93] to-zinc-950">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+```
+</Tab>
+</Tabs>
+## Variant 8 Grid
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/grid.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithGrid>
+            <CardBody />
+        </CardWithGrid>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.jsx"
+import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
+//======================================
+export const CardWithGrid = ({ children }) => (
+  <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950">
+    <div className="size-full bg-[url(/svg/grid.svg)] bg-repeat bg-[length:50px_50px]">
+      <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/[.85] to-zinc-950">
+        {children}
+      </div>
+    </div>
+  </div>
+);
+```
+</Tab>
+</Tabs>
+## Variant 7 Noise
+
+Copy [SVG pattern](https://github.com/Ali-Hussein-dev/indie-ui/tree/main/public/svg/noise.svg)
+
+<Tabs items={['Preview', 'React']}>
+<Tab value="preview">
+    <div className="pt-4 mx-auto max-w-xl">
+        <CardWithNoise>
+            <CardBody />
+        </CardWithNoise>
+    </div>
+</Tab>
+<Tab value="React">
+```jsx	title="card.jsx"
+import { cn } from '@/lib/utils';
+const cardContent = {
+  title: 'Lorem ipsum dolor',
+  description:
+    'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
+};
+export const CardBody = ({ className = '' }) => (
+  <div className={cn('text-left p-4 md:p-6', className)}>
+    <h3 className="text-lg font-bold mb-1 text-zinc-200">
+      {cardContent.title}
+    </h3>
+    <p className="text-wrap text-zinc-500 text-sm">{cardContent.description}</p>
+  </div>
+);
+//======================================
+export const CardWithNoise = ({ children }) => (
+  <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950">
+    <div
+      className={`size-full bg-[url(/svg/noise.svg)] bg-repeat bg-[length:500px_500px]`}
+    >
+      <div className="bg-zinc-950/30">{children}</div>
+    </div>
+  </div>
+);
+```
+</Tab>
+</Tabs>
