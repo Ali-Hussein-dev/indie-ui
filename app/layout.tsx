@@ -3,6 +3,7 @@ import './global.css';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
+import { Banner } from '@/components/banner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,7 +26,8 @@ export default function Layout({ children }: { children: ReactNode }) {
           data-website-id="47b996fd-088c-4d37-9ea2-b172bc689b61"
         ></script>
       </head>
-      <body className="selection:bg-zinc-800 selection:text-zinc-100">
+      <body className="selection:bg-zinc-800 selection:text-zinc-100 relative">
+        <Banner />
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

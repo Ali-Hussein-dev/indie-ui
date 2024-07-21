@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { Button } from '@/components/buttons/button';
 import { motion } from 'framer-motion';
 //======================================
-export const Banner = ({ children }: { children: React.ReactNode }) => {
+export const Banner = () => {
   const [isVisible, setIsVisible] = React.useState(false);
 
   React.useEffect(() => {
