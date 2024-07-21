@@ -66,7 +66,7 @@ export const Header = ({
   return (
     <header
       className={cn(
-        'w-full sticky border-b dark:border-zinc-900 top-0 dark:bg-zinc-950/50 bg-white/70 backdrop-blur z-50'
+        'w-full border-b dark:border-zinc-900 top-0 dark:bg-zinc-950/50 bg-white/70',
       )}
     >
       <div className={cn('hidden md:block', headerVariants({ variant }))}>
