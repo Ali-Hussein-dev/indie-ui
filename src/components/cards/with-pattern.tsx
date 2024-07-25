@@ -20,7 +20,7 @@ export const CardWithEllipsis = ({
 }: {
   children: React.ReactNode;
 }) => (
-  <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-3">
+  <div className="border w-full rounded-md overflow-hidden border-zinc-900 bg-zinc-950 p-3">
     <div className="size-full bg-repeat bg-[url(/svg/ellipsis.svg)] bg-[length:30px_30px]">
       <div
         className={
@@ -39,7 +39,7 @@ export const CardWithGridEllipsis = ({
 }: {
   children: React.ReactNode;
 }) => (
-  <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-1">
+  <div className="border w-full rounded-md overflow-hidden border-zinc-900 bg-zinc-950 p-1">
     <div className="size-full bg-repeat bg-[url(/svg/grid-ellipsis.svg)] bg-[length:25px_25px]">
       <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/70 to-zinc-950">
         {children}
@@ -54,7 +54,7 @@ export const CardWithCircleEllipsis = ({
 }: {
   children: React.ReactNode;
 }) => (
-  <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 bg-zinc-950 p-1">
+  <div className="border w-full rounded-md overflow-hidden border-zinc-900 bg-zinc-950 p-1">
     <div
       className={`size-full bg-[url(/svg/circle-ellipsis.svg)] bg-repeat bg-[length:30px_30px]`}
     >
@@ -67,7 +67,7 @@ export const CardWithCircleEllipsis = ({
 
 //======================================
 export const CardWithLines = ({ children }: { children: React.ReactNode }) => (
-  <div className="border w-full rounded-md overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-[1px]">
+  <div className="border w-full rounded-md overflow-hidden border-zinc-900 bg-zinc-950 p-[1px]">
     <div className="bg-[url(/svg/lines.svg)] bg-[length:40px_40px] size-full bg-repeat rounded-md">
       <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/80 to-zinc-900/40">
         {children}
