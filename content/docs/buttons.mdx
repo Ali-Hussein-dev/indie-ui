@@ -12,8 +12,10 @@ import {
   Button_v5,
   Button_v6,
   Button_v7,
+  Button_v8,
 } from '@/components/buttons/button-variants';
 import { Button } from '@/components/buttons/button';
+import { FaCode } from 'react-icons/fa';
 
 ## Variant 1 neubrutalism
 
@@ -330,6 +332,106 @@ export const Button_v7 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   );
 };
+```
+
+</Tab>
+</Tabs>
+
+## Variant 8 Embossed
+
+Make sure the background color in dark mode is set to `#121212` to see the effect`.
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+  <div className="flex-row-center flex-wrap gap-4 py-4 dark:bg-[#121212] bg-zinc-50 rounded-sm">
+    <Button_v8>Hover me </Button_v8>
+    <Button_v8 size="icon" className=""><FaCode /> </Button_v8>
+    <Button_v8 className="shadow-dembossed">Hover me </Button_v8>
+    <Button_v8 size="icon" className="shadow-dembossed rounded-lg"><FaCode /> </Button_v8>
+  </div>
+  </Tab>
+  <Tab value="React">
+
+```jsx title="Example.tsx"
+import { cn } from '@/lib/utils';
+import {
+  Button,
+  type ButtonProps as BaseButtonProps,
+} from '@/components/button';
+
+type ButtonProps = {
+  children: React.ReactNode,
+} & BaseButtonProps;
+
+//======================================
+export const Button_v8 = ({ children, ...rest }: ButtonProps) => {
+  return (
+    <Button
+      {...rest}
+      className={cn(
+        'shadow-embossed hover:shadow-none ease-out hover:scale-100 dark:bg-[#121212] dark:text-[#999999] bg-zinc-50 text-zinc-900',
+        rest.className,
+      )}
+    >
+      {children}
+    </Button>
+  );
+};
+```
+
+```css title="global.css"
+  /* // add colors variables */
+:root {
+  --embossed-top-left-shadow: rgba(82,
+      82,
+      91, 0.15);
+  --embossed-bottom-right-shadow: rgb(113,
+      113,
+      122);
+
+  --dembossed-top-left-shadow: rgba(82,
+      82,
+      91,
+      0.15);
+  --dembossed-bottom-right-shadow: rgb(113,
+      113,
+      122);
+}
+
+.dark {
+  --embossed-top-left-shadow: rgba(64,
+      64,
+      64,
+      0.25);
+  --embossed-bottom-right-shadow: rgb(0,
+      0,
+      0);
+
+  --dembossed-top-left-shadow: rgba(64,
+      64,
+      64,
+      0.25);
+  --dembossed-bottom-right-shadow: rgb(0,
+      0,
+      0);
+}
+```
+
+```ts title="tailwind.config.ts"
+{
+  // ...
+  theme: {
+    extend: {
+      boxShadow: {
+        embossed: `-2px -2px 2px 0px var(--embossed-top-left-shadow), 2px 2px 2px 0px var(--embossed-bottom-right-shadow)`,
+
+        dembossed: `inset -2px -2px 2px 0px var(--dembossed-top-left-shadow), inset 2px 2px 2px 0px var(--dembossed-bottom-right-shadow)`,
+
+      },
+    },
+  },
+}
+
 ```
 
 </Tab>

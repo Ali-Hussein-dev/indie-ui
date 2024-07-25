@@ -26,6 +26,13 @@ export default {
         'all-xl': '0 0 25px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.2)',
         'all-2xl':
           '0 0 25px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.2)',
+
+        // embossed: "-2px -2px 2px 0px rgba(64, 64, 64, 0.25), 2px 2px 2px 0px rgb(0, 0, 0)",
+        embossed: `-2px -2px 2px 0px var(--embossed-top-left-shadow), 2px 2px 2px 0px var(--embossed-bottom-right-shadow)`,
+
+        // dembossed: "inset -2px -2px 2px 0px rgba(64, 64, 64, 0.25), inset 2px 2px 2px 0px rgb(0, 0, 0)"
+        dembossed: `inset -2px -2px 2px 0px var(--dembossed-top-left-shadow), inset 2px 2px 2px 0px var(--dembossed-bottom-right-shadow)`,
+
       },
       animation: {
         'bg-shine': 'bg-shine 2.2s linear infinite',

@@ -7,3 +7,39 @@
   justify-content: center;
   align-items: center;
 }
+
+/* global.css */
+:root {
+  --embossed-top-left-shadow: rgba(82,
+      82,
+      91, 0.15);
+  --embossed-bottom-right-shadow: rgb(113,
+      113,
+      122);
+
+  --dembossed-top-left-shadow: rgba(82,
+      82,
+      91,
+      0.15);
+  --dembossed-bottom-right-shadow: rgb(113,
+      113,
+      122);
+}
+
+.dark {
+  --embossed-top-left-shadow: rgba(64,
+      64,
+      64,
+      0.25);
+  --embossed-bottom-right-shadow: rgb(0,
+      0,
+      0);
+
+  --dembossed-top-left-shadow: rgba(64,
+      64,
+      64,
+      0.25);
+  --dembossed-bottom-right-shadow: rgb(0,
+      0,
+      0);
+}

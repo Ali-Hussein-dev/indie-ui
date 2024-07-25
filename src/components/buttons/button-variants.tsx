@@ -152,3 +152,18 @@ export const Button_v7 = ({ children, ...rest }: ButtonProps) => {
     </Button>
   );
 };
+
+//======================================
+export const Button_v8 = ({ children, ...rest }: ButtonProps) => {
+  return (
+    <Button
+      {...rest}
+      className={cn(
+        'shadow-embossed hover:shadow-none ease-out hover:scale-100 dark:bg-[#121212] dark:text-[#999999] bg-zinc-50 text-zinc-900',
+        rest.className,
+      )}
+    >
+      {children}
+    </Button>
+  );
+};
