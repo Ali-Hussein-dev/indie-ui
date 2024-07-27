@@ -1,0 +1,116 @@
+---
+title: Counter
+description: Animated counter component.
+---
+
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { AnimationContainer } from '@/components/text/animation-container';
+import { Counter } from '@/components/text/counter';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+
+## Counter
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+    <AnimationContainer className="border-none py-0 ">
+    <div className="w-fit mx-auto">
+      <Counter from={0} to={50} />
+    </div>
+    </AnimationContainer>
+  </Tab>
+  <Tab value="React">
+```tsx title="counter.tsx"
+'use client';
+
+import {
+  KeyframeOptions,
+  animate,
+  useInView,
+  useIsomorphicLayoutEffect,
+} from 'framer-motion';
+import * as React from 'react';
+
+type AnimatedCounterProps = {
+  from: number;
+  to: number;
+  animationOptions?: KeyframeOptions & { duration?: number };
+  className?: string;
+};
+
+export const Counter = ({
+  from = 0,
+  to,
+  animationOptions,
+  className = 'text-xl font-extrabold sm:text-2xl md:text-3xl',
+}: AnimatedCounterProps) => {
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  useIsomorphicLayoutEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+    if (!inView) return;
+
+    // Set initial value
+    element.textContent = String(from);
+
+    // If reduced motion is enabled in system's preferences
+    if (window.matchMedia('(prefers-reduced-motion)').matches) {
+      element.textContent = String(to);
+      return;
+    }
+
+    const controls = animate(from, to, {
+      duration: 10,
+      ease: 'easeOut',
+      ...animationOptions,
+      onUpdate(value) {
+        element.textContent = value.toFixed(0);
+      },
+    });
+
+    // Cancel on unmount
+    return () => {
+      controls.stop();
+    };
+  }, [ref, inView, from, to]);
+
+  return <span ref={ref} className={className} />;
+};
+```
+  </Tab>
+  </Tabs>
+
+## Props
+
+<TypeTable
+  type={{
+    duration: {
+      type: 'number',
+      description: 'Duration of the animation in seconds.',
+      default: '0.4',
+    },
+    from: {
+      type: 'number',
+      description: 'Initial value of the counter.',
+      default: '0',
+    },
+    to: {
+      type: 'number',
+      description: 'Final value of the counter.',
+      required: true,
+    },
+    animationOptions: {
+      type: 'KeyframeOptions',
+      description: 'Options for the animation.',
+      default: '{}',
+    },
+    className: {
+      type: 'string',
+      description: 'Classname for the counter.',
+      default: 'text-xl font-extrabold sm:text-2xl md:text-3xl',
+    },
+  }}
+/>

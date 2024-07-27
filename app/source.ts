@@ -39,11 +39,14 @@ export const pageTree: PageTree.Root = {
     { type: 'separator', name: 'Loaders' },
     { type: 'page', name: 'Skeleton', url: '/docs/skeleton' },
 
+    { type: 'separator', name: 'Text animation' },
+    { type: 'page', name: 'Text', url: '/docs/text-animation' },
+    { type: 'page', name: 'Counter', url: '/docs/counter' },
+
     { type: 'separator', name: 'Other' },
     { type: 'page', name: 'Header', url: '/docs/header' },
     { type: 'page', name: 'Separator', url: '/docs/separator' },
     { type: 'page', name: 'Inputs', url: '/docs/inputs' },
-    { type: 'page', name: 'Text animation', url: '/docs/text-animation' },
 
   ],
 };

@@ -8,6 +8,7 @@ import { RotateWords } from '@/components/text/rotate-words';
 import { LettersPullUp, WordsPullUp } from '@/components/text/pull-up';
 import { BlurIn } from '@/components/text/blur-in';
 import { TextFade } from '@/components/text/fade';
+import { Counter } from '@/components/text/counter';
 
 //======================================
 export const TextAnimationVariants = () => {
@@ -73,7 +74,33 @@ export const TextAnimationVariants = () => {
           <span className="mx-auto">Lorem, ipsum dolor.</span>
         </TextFade>
       </AnimationContainer>
-      <p className="pt-4 dark:text-zinc-500">Built on top of Variant Vault</p>
+      {/* //-------------------------------------------Numbers */}
+      <AnimationContainer>
+        <div className="flex-row-center mx-auto gap-5">
+          <div className="w-10">
+            <Counter from={0} to={50} animationOptions={{ duration: 2 }} />
+          </div>
+          <div className="h-6 w-[1px] dark:bg-zinc-700 bg-zinc-500"></div>
+          <div className="w-12">
+            <Counter
+              from={0}
+              to={50}
+              animationOptions={{ duration: 6, ease: 'easeIn' }}
+            />
+          </div>
+          <div className="h-6 w-[1px] dark:bg-zinc-700 bg-zinc-500"></div>
+          <div className="w-12">
+            <Counter
+              from={0}
+              to={50}
+              animationOptions={{ duration: 6, ease: 'easeInOut' }}
+            />
+          </div>
+        </div>
+      </AnimationContainer>
+      <p className="pt-4 dark:text-zinc-500">
+        Some of the animation are built on top of Variant Vault
+      </p>
     </VariantsCard>
   );
 };
