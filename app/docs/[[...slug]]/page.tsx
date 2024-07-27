@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 import { CiEdit } from 'react-icons/ci';
 import { Button } from '@/components/buttons/button';
 import { FaRegStar } from 'react-icons/fa';
+import { configs } from '@/configs';
+
 export default async function Page({
   params,
 }: {
@@ -28,7 +30,7 @@ export default async function Page({
               <span className="flex-row-start gap-2">
                 <CiEdit />
                 <a
-                  href={`https://github.com/Ali-Hussein-dev/indie-ui/blob/main/content${page.url}.mdx`}
+                  href={`${configs.urls.github}/blob/main/content${page.url}.mdx`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:font-semibold"
@@ -37,21 +39,16 @@ export default async function Page({
                 </a>
               </span>
             </Button>
-            <div className="flex-col-center w-full gap-2 border rounded-lg px-2 py-3">
-              <p className="text-center font-medium">
-                Support us with one click
-              </p>
-              <Button asChild className="w-[88%]" variant="secondary">
-                <a
-                  href="https://github.com/Ali-Hussein-dev/indie-ui"
-                  data-umami-event="gh-star"
-                  target="_blank"
-                >
-                  <FaRegStar className="inline mr-2 size-4" />
-                  Star
-                </a>
-              </Button>
-            </div>
+            <Button asChild className="w-[88%]" variant="outline">
+              <a
+                href={configs.urls.github}
+                data-umami-event="gh-star"
+                target="_blank"
+              >
+                <FaRegStar className="inline mr-2 size-4" />
+                Star us
+              </a>
+            </Button>
           </div>
         ),
       }}
