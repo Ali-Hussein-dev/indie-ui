@@ -36,26 +36,6 @@ import {
   Card_with_image_v5,
   Card_with_image_v6,
 } from '@/components/cards/with-image-bg';
-
-import {
-  Bento_4_v1,
-  Bento_4_v2,
-  Bento_4_v3,
-  Bento_4_v4,
-} from '@/components/layout/bento-4';
-
-import {
-  Bento_5_v1,
-  Bento_5_v2,
-  Bento_5_v3,
-  Bento_5_v4,
-} from '@/components/layout/bento-5';
-import {
-  Bento_6_v1,
-  Bento_6_v2,
-  Bento_6_v3,
-  Bento_6_v4,
-} from '@/components/layout/bento-6';
 import { InputBlock } from '@/components/inputs/inputs';
 import { Footer } from '@/components/footer';
 import { Newsletter } from '@/components/newsletter';
@@ -78,6 +58,7 @@ import {
   CardWithPlus,
   CardWithSquareX,
 } from '@/components/cards/with-pattern';
+import { BentoVariants } from '@/components/layout/bento-variants';
 import * as React from 'react';
 
 const CardsWithPattern = [
@@ -244,51 +225,7 @@ export default function HomePage() {
             </div>
           </VariantsCard>
           <TextAnimationVariants />
-          <VariantsCard
-            id={components.bentoGrids4.id}
-            title={components.bentoGrids4.title}
-            docUrl={components.bentoGrids4.docUrl}
-          >
-            <div className="max-w-2xl grid gap-8 w-full">
-              <Bento_4_v1 />
-              <hr />
-              <Bento_4_v2 />
-              <hr />
-              <Bento_4_v3 />
-              <hr />
-              <Bento_4_v4 />
-            </div>
-          </VariantsCard>
-          <VariantsCard
-            id={components.bentoGrids5.id}
-            title={components.bentoGrids5.title}
-            docUrl={components.bentoGrids5.docUrl}
-          >
-            <div className="max-w-2xl grid gap-12 w-full">
-              <Bento_5_v1 />
-              <hr />
-              <Bento_5_v2 />
-              <hr />
-              <Bento_5_v3 />
-              <hr />
-              <Bento_5_v4 />
-            </div>
-          </VariantsCard>
-          <VariantsCard
-            id={components.bentoGrids6.id}
-            title={components.bentoGrids6.title}
-            docUrl={components.bentoGrids6.docUrl}
-          >
-            <div className="max-w-2xl grid gap-12 w-full">
-              <Bento_6_v1 />
-              <hr />
-              <Bento_6_v2 />
-              <hr />
-              <Bento_6_v3 />
-              <hr />
-              <Bento_6_v4 />
-            </div>
-          </VariantsCard>
+          <BentoVariants />
         </div>
       </div>
       <Footer />

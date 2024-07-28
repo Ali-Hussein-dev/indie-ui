@@ -5,6 +5,9 @@ import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Banner } from '@/components/banner';
 import { AnalyticsProv } from '@/analytics-prov';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 const inter = Inter({
   subsets: ['latin'],

@@ -11,22 +11,20 @@ const cells = [1, 2, 3, 4];
 //======================================
 export const Bento_4_v1 = () => {
   return (
-    <div>
-      <div className="grid md:grid-cols-4 gap-2">
-        {cells.map((n, i) => (
-          <div
-            key={n}
-            className={cn(
-              'p-1 rounded-lg h-32',
-              i == 0 && 'md:col-span-3',
-              i == 2 && 'md:col-start-1',
-              i == 3 && 'md:col-start-2 md:col-span-3'
-            )}
-          >
-            <Cell i={i + 1} />
-          </div>
-        ))}
-      </div>
+    <div className="grid md:grid-cols-4 gap-2">
+      {cells.map((n, i) => (
+        <div
+          key={n}
+          className={cn(
+            'p-1 rounded-lg h-32',
+            i == 0 && 'md:col-span-3',
+            i == 2 && 'md:col-start-1',
+            i == 3 && 'md:col-start-2 md:col-span-3',
+          )}
+        >
+          <Cell i={i + 1} />
+        </div>
+      ))}
     </div>
   );
 };
@@ -56,23 +54,21 @@ export const Bento_4_v2 = () => {
 //======================================
 export const Bento_4_v3 = () => {
   return (
-    <div>
-      <div className="grid md:grid-cols-4 gap-2">
-        {cells.map((n, i) => (
-          <div
-            key={n}
-            className={cn(
-              'p-1 rounded-lg h-32',
-              i == 0 && 'md:col-start-1 ',
-              i == 1 && 'md:col-span-2',
-              i == 2 && 'md:col-start-4',
-              i == 3 && 'md:col-span-4'
-            )}
-          >
-            <Cell i={i + 1} />
-          </div>
-        ))}
-      </div>
+    <div className="grid md:grid-cols-4 gap-2">
+      {cells.map((n, i) => (
+        <div
+          key={n}
+          className={cn(
+            'p-1 rounded-lg h-32',
+            i == 0 && 'md:col-start-1 ',
+            i == 1 && 'md:col-span-2',
+            i == 2 && 'md:col-start-4',
+            i == 3 && 'md:col-span-4',
+          )}
+        >
+          <Cell i={i + 1} />
+        </div>
+      ))}
     </div>
   );
 };
