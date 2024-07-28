@@ -12,17 +12,16 @@ export const SwiperWrapper: React.FC<CustomSwiperProps> = (props) => {
   const defaultSwiperProps: SwiperProps = {
     spaceBetween: 50,
     slidesPerView: 1,
-    // autoplay: true,
+    autoplay: true,
     modules: [Autoplay, Pagination],
     pagination: {
       clickable: true,
       type: 'fraction',
-      //   el: '.swiper-pagination',
     },
     ...props.swiperProps,
   };
   return (
-    <Swiper {...defaultSwiperProps} className="max-w-2xl">
+    <Swiper {...defaultSwiperProps} className="sm:max-w-2xl max-w-sm">
       {props.slides.map((slide, i) => (
         <SwiperSlide key={i}>
           <div className="pb-9">{slide}</div>
