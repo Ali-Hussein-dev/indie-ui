@@ -43,3 +43,7 @@
       0,
       0);
 }
+/* Custom styles for Swiper fraction pagination */
+.swiper-pagination-fraction {
+    font-weight: bold;
+}

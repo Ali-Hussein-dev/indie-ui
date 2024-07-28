@@ -23,6 +23,7 @@ specifiers:
   react: ^18.3.1
   react-dom: ^18.3.1
   react-icons: ^5.2.1
+  swiper: ^11.1.8
   tailwind-custom-utilities: ^1.0.5
   tailwind-merge: ^2.3.0
   tailwindcss: ^3.4.3
@@ -40,6 +41,7 @@ dependencies:
   react: 18.3.1
   react-dom: 18.3.1_react@18.3.1
   react-icons: 5.2.1_react@18.3.1
+  swiper: 11.1.8
 
 devDependencies:
   '@types/mdx': 2.0.13
@@ -5958,6 +5960,11 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /swiper/11.1.8:
+    resolution: {integrity: sha512-sBFp7fA+IfZ/7BMcg8/JSEqDD1qZXBUyliT76yk3zIYVu2fMwFVAghhAJ9vBM5tJUtHW5qcD0pmeEGQs1EK14w==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /swr/2.2.5_react@18.3.1:
     resolution: {integrity: sha512-QtxqyclFeAsxEUeZIYmsaQ0UjimSq1RZ9Un7I68/0ClKK/U3LoyQunwkQfJZr2fc22DfIXLNDc2wFyTEikCUpg==}
