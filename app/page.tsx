@@ -20,6 +20,7 @@ import {
   SimpleCard_V4,
   SimpleCard_V5,
   SimpleCard_V6,
+  SimpleCard_V7,
 } from '@/components/cards/simple';
 import {
   MultilayerCardV_1,
@@ -146,6 +147,7 @@ export default function HomePage() {
               <SimpleCard_V4 />
               <SimpleCard_V5 />
               <SimpleCard_V6 />
+              <SimpleCard_V7 />
             </div>
           </VariantsCard>
           <VariantsCard
