@@ -90,8 +90,8 @@ export const SimpleCard_V3 = () => {
         height={24}
         strokeWidth="1"
         stroke="currentColor"
-        className={cn('dark:text-white text-black size-6 absolute', className)}
         {...rest}
+        className={cn('dark:text-white text-black size-6 absolute', className)}
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
       </svg>
@@ -132,7 +132,7 @@ export const SimpleCard_V5 = () => {
             // light mode
             ' from-white to-zinc-200/60 border-zinc-300 shadow-[2px_0_8px_rgba(0,_0,_0,_0.15)]',
             // dark mode
-            'dark:from-zinc-950 dark:to-zinc-900/60 dark:border-zinc-900/50 dark:shadow-inner'
+            'dark:from-zinc-950 dark:to-zinc-900/60 dark:border-zinc-900/50 dark:shadow-inner',
           )}
         >
           <CardBody />
@@ -149,6 +149,33 @@ export const SimpleCard_V6 = () => {
       <div className="border border-zinc-400 dark:border-zinc-700 relative shadow-[0px_5px_0px_0px_rgba(0,0,0,0.7)] dark:shadow-[0px_4px_0px_0px_rgba(255,255,255,0.5)] rounded-xl dark:bg-zinc-900/50 bg-zinc-50">
         <CardBody className="p-6" />
       </div>
+    </div>
+  );
+};
+
+//======================================
+export const SimpleCard_V7 = () => {
+  const Icon = ({
+    className,
+    ...rest
+  }: React.HTMLAttributes<HTMLDivElement>) => {
+    return (
+      <div
+        {...rest}
+        className={cn(
+          'dark:border-zinc-200 border-zinc-700 size-6 absolute',
+          className,
+        )}
+      />
+    );
+  };
+  return (
+    <div className="border-2 border-zinc-100 dark:border-zinc-700 relative rounded-md">
+      <Icon className="-top-0.5 -left-0.5 border-l-2 border-t-2 rounded-tl-md" />
+      <Icon className="-top-0.5 -right-0.5 border-r-2 border-t-2 rounded-tr-md" />
+      <Icon className="-bottom-0.5 -left-0.5 border-l-2 border-b-2 rounded-bl-md" />
+      <Icon className="-bottom-0.5 -right-0.5 border-r-2 border-b-2 rounded-br-md" />
+      <CardBody className="p-6" />
     </div>
   );
 };
