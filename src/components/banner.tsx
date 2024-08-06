@@ -43,7 +43,10 @@ export const Banner = () => {
             <p>Check pro templates</p>
             <Button asChild variant="outline" size="sm" className="rounded-xl">
               <div className="flex-row-start gap-2">
-                <a href={'https://indie-starter.dev'} className="inline-block">
+                <a
+                  href={'https://indie-starter.dev/templates'}
+                  className="inline-block"
+                >
                   <FaArrowRight />
                 </a>
               </div>
