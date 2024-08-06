@@ -1,9 +1,25 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { Button } from '@/components/buttons/button';
 import { Header } from '@/components/homepage/header';
 import { configs } from '@/configs';
 import { FaArrowRight, FaGithub } from 'react-icons/fa';
 import components from '@/constants/components.json';
+
+const ProductHunt = () => (
+  <a
+    href="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=477059"
+    target="_blank"
+  >
+    <img
+      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=477059&theme=dark"
+      alt="Indie UI - Rich Styled UI | Product Hunt"
+      className="w-[250px] h-[54px] mx-auto"
+      width="250"
+      height="54"
+    />
+  </a>
+);
 
 //======================================
 export const Hero = () => {
@@ -31,17 +47,16 @@ export const Hero = () => {
           <div className="mx-auto pt-10 w-fit">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-5 ">
               {Object.values(components).map((o) => (
-                <Button
-                  key={o.id}
-                  size="sm"
-                  variant={'outline'}
-                  asChild>
+                <Button key={o.id} size="sm" variant={'outline'} asChild>
                   <a href={`#${o.id}`} className="text-xs">
                     {o.title}
                   </a>
                 </Button>
               ))}
             </div>
+          </div>
+          <div className="pt-8">
+            <ProductHunt />
           </div>
         </div>
       </div>
