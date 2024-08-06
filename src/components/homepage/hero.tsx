@@ -12,7 +12,7 @@ export const Hero = () => {
       <Header />
       <div className="mx-auto max-w-2xl h-[95vh] center">
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-balance leading-loose lg:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-balance leading-loose lg:text-6xl h1">
             Rich Styled UI
           </h1>
           <p className="text-center text-pretty w-11/12 text-lg mb-4 dark:text-zinc-400 mx-auto">
