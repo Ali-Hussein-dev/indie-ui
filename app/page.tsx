@@ -60,6 +60,7 @@ import {
   CardWithSquareX,
 } from '@/components/cards/with-pattern';
 import { BentoVariants } from '@/components/layout/bento-variants';
+import { Dots_v1, Dots_v2, Dots_v3, Dots_v4 } from '@/components/loaders/dots';
 import * as React from 'react';
 
 const CardsWithPattern = [
@@ -188,6 +189,18 @@ export default function HomePage() {
                   <CardBody />
                 </Card>
               ))}
+            </div>
+          </VariantsCard>
+          <VariantsCard
+            id={components.loadersDots.id}
+            title={components.loadersDots.title}
+            docUrl={components.loadersDots.docUrl}
+          >
+            <div className="max-w-2xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <Dots_v1 />
+              <Dots_v2 />
+              <Dots_v3 />
+              <Dots_v4 />
             </div>
           </VariantsCard>
           <VariantsCard

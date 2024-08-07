@@ -39,6 +39,11 @@
     "id": "separators",
     "docUrl": "/docs/separator"
   },
+  "loadersDots": {
+    "title": "Dots loader",
+    "id": "loaders-dots",
+    "docUrl": "/docs/loader-dots"
+  },
   "textAnimation": {
     "title": "Text animation",
     "id": "text-animation",
