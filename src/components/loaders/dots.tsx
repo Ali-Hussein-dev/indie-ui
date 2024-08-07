@@ -101,7 +101,6 @@ export const Dots_v4 = () => (
           delay: index * 0.2,
           duration: 1.2,
           repeat: Infinity,
-          repeatType: 'reverse',
         }}
       ></motion.span>
     ))}
