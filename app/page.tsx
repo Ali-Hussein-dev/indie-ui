@@ -196,8 +196,10 @@ export default function HomePage() {
             title={components.loadersDots.title}
             docUrl={components.loadersDots.docUrl}
           >
-            <div className="max-w-2xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-              <Dots_v1 />
+            <div className="max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 gap-y-8 md:gap-y-4 pl-8">
+              <div className="mx-auto -translate-x-9 md:translate-x-0 md:mx-0">
+                <Dots_v1 />
+              </div>
               <Dots_v2 />
               <Dots_v3 />
               <Dots_v4 />

@@ -3,36 +3,38 @@ import { motion } from 'framer-motion';
 
 //======================================
 export const Dots_v1 = () => (
-  <div className="relative flex items-center">
-    <motion.span
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.7, repeat: Infinity }}
-      className="absolute size-3.5 rounded-full bg-current left-2"
-    ></motion.span>
-    <motion.span
-      initial={{ x: 0 }}
-      animate={{ x: 24 }}
-      transition={{ duration: 0.7, repeat: Infinity }}
-      className="absolute size-3.5 rounded-full bg-current left-2"
-    ></motion.span>
-    <motion.span
-      initial={{ x: 0 }}
-      animate={{ x: 24 }}
-      transition={{ duration: 0.7, repeat: Infinity }}
-      className="absolute size-3.5 rounded-full bg-current left-8"
-    ></motion.span>
-    <motion.span
-      initial={{ scale: 1 }}
-      animate={{ scale: 0 }}
-      transition={{ duration: 0.7, repeat: Infinity }}
-      className="absolute size-3.5 rounded-full bg-current left-14"
-    ></motion.span>
+  <div className="w-fit">
+    <div className="relative size-full flex items-center justify-start">
+      <motion.span
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.7, repeat: Infinity }}
+        className="absolute top-0 size-3.5 rounded-full bg-current left-2"
+      ></motion.span>
+      <motion.span
+        initial={{ x: 0 }}
+        animate={{ x: 24 }}
+        transition={{ duration: 0.7, repeat: Infinity }}
+        className="absolute top-0 size-3.5 rounded-full bg-current left-2"
+      ></motion.span>
+      <motion.span
+        initial={{ x: 0 }}
+        animate={{ x: 24 }}
+        transition={{ duration: 0.7, repeat: Infinity }}
+        className="absolute top-0 size-3.5 rounded-full bg-current left-8"
+      ></motion.span>
+      <motion.span
+        initial={{ scale: 1 }}
+        animate={{ scale: 0 }}
+        transition={{ duration: 0.7, repeat: Infinity }}
+        className="absolute top-0 size-3.5 rounded-full bg-current left-14"
+      ></motion.span>
+    </div>
   </div>
 );
 
 export const Dots_v2 = () => (
-  <div className="flex items-center justify-center">
+  <div className="flex items-center justify-center ">
     <div className="flex space-x-2">
       <motion.div
         className="size-3.5 rounded-full bg-current"
