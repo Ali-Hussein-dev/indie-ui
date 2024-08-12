@@ -3,6 +3,12 @@ title: Changelog
 description: Latest updates and announcements
 ---
 
+## August 2024 - Added new components
+
+- Added [dots loaders](/docs/loader-dots)
+
+---
+
 ## July 2024 - Added new components
 
 - Improve existing components
