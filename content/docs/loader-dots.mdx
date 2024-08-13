@@ -7,16 +7,17 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import {
     Dots_v1, Dots_v2, Dots_v3, Dots_v4
 } from '@/components/loaders/dots';
+import { WithContributor } from '@/components/with-contributor';
 
 
 ## Variant 1
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center py-4">
-  <div className="mr-20">
-    <Dots_v1 />
-  </div>
-  </div>
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
+    <div className="mr-20">
+      <Dots_v1 />
+    </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -60,9 +61,9 @@ export const Dots_v1 = () => (
 ## Variant 2
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center py-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Dots_v2 />
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -124,9 +125,9 @@ export const Dots_v2 = () => (
 ## Variant 3
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center py-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Dots_v3 />
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -150,9 +151,9 @@ export const Dots_v3 = () => (
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center py-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Dots_v4 />
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 

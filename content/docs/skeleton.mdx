@@ -5,14 +5,15 @@ description: Skeleton variations
 
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Skeleton_v1, Skeleton_v2 } from '@/components/loaders/skeleton';
+import { WithContributor } from '@/components/with-contributor';
 
 ## Variant 1
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"adam"}>
     <Skeleton_v1 />
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -41,7 +42,9 @@ export const Skeleton_v1 = () => {
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
   <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"adam"}>
     <Skeleton_v2 />
+  </WithContributor>
   </div>
   </Tab>
   <Tab value="React">
