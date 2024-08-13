@@ -49,6 +49,15 @@ export default async function Page({
                 Star us
               </a>
             </Button>
+            <Button asChild className="w-[88%]" variant="outline">
+              <a
+                href={configs.urls.github + '/blob/main/CONTRIBUTING.md'}
+                data-umami-event="gh-star"
+                target="_blank"
+              >
+                Contribute
+              </a>
+            </Button>
           </div>
         ),
       }}
