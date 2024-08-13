@@ -12,19 +12,21 @@ import {
   EyeCatchingButton_v5,
 } from '@/components/buttons/eye-catching-buttons';
 import { FaCode } from 'react-icons/fa';
+import { WithContributor } from '@/components/with-contributor';
+
 
 ## Variant 1 - Shimmer effect
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4 gap-2">
+<WithContributor contributorKey={"aliHussein"} className="flex-row-center gap-2">
     <EyeCatchingButton_v1>
       Shimmer effect
     </EyeCatchingButton_v1>
     <EyeCatchingButton_v1 className="px-3 flex-row-center" size="icon">
       <FaCode />
     </EyeCatchingButton_v1>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -53,14 +55,15 @@ export const EyeCatchingButton_v1 = ({ ...props }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center gap-3 pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center gap-2">
     <EyeCatchingButton_v2>
       Shiny background
     </EyeCatchingButton_v2>
     <EyeCatchingButton_v2 size="icon" className="rounded-full">
       <FaCode />
     </EyeCatchingButton_v2>
-  </div>
+  </WithContributor>
+  
   </Tab>
   <Tab value="React">
 
@@ -112,11 +115,11 @@ export const EyeCatchingButton_v2 = ({ ...props }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
-    <EyeCatchingButton_v3>
-      Shiny text
-    </EyeCatchingButton_v3>
-  </div>
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center gap-2">
+      <EyeCatchingButton_v3>
+        Shiny text
+      </EyeCatchingButton_v3>
+    </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -168,11 +171,11 @@ export const EyeCatchingButton_v3 = ({ ...props }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <EyeCatchingButton_v4>
       Animated border gradient
     </EyeCatchingButton_v4>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -201,11 +204,11 @@ export const EyeCatchingButton_v4 = ({ ...props }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <EyeCatchingButton_v5>
       Animated text gradient
     </EyeCatchingButton_v5>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 

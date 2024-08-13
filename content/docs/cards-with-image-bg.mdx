@@ -12,14 +12,15 @@ import {
   Card_with_image_v5,
   Card_with_image_v6,
 } from '@/components/cards/with-image-bg';
+import { WithContributor } from '@/components/with-contributor';
 
 ## Variant 1
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-  <div className="mx-auto max-w-xl pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
   <Card_with_image_v1 />
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -74,9 +75,9 @@ export const Card_with_image_v1 = ({
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-  <div className="mx-auto max-w-xl pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
   <Card_with_image_v2 />
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -123,8 +124,10 @@ export const Card_with_image_v2 = ({
 ## Variant 3
 
 <Tabs items={['Preview', 'React']}>
-  <Tab value="Preview" className="mx-auto max-w-xl pt-4">
-    <Card_with_image_v3/>
+  <Tab value="Preview">
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+  <Card_with_image_v3 />
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -180,8 +183,10 @@ export const Card_with_image_v3 = ({
 ## Variant 4
 
 <Tabs items={['Preview', 'React']}>
-  <Tab value="Preview" className="mx-auto max-w-xl pt-4">
-    <Card_with_image_v4/>
+  <Tab value="Preview">
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+  <Card_with_image_v1 />
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -237,8 +242,10 @@ export const Card_with_image_v4 = ({
 ## Variant 5
 
 <Tabs items={['Preview', 'React']}>
-  <Tab value="Preview" className="mx-auto max-w-xl pt-4">
-    <Card_with_image_v5/>
+  <Tab value="Preview">
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+  <Card_with_image_v5 />
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -294,8 +301,10 @@ export const Card_with_image_v5 = () => {
 ## Variant 6
 
 <Tabs items={['Preview', 'React']}>
-  <Tab value="Preview" className="mx-auto max-w-xl pt-4">
-    <Card_with_image_v6/>
+  <Tab value="Preview">
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+  <Card_with_image_v6 />
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx

@@ -10,14 +10,15 @@ import {
   MultilayerCardV_3,
   MultilayerCardV_4,
 } from '@/components/cards/multi-layers';
+import { WithContributor } from '@/components/with-contributor';
 
 ## Variant 1
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-  <div className="pt-4 mx-auto max-w-xl">
+  <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
     <MultilayerCardV_1/>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -31,7 +32,6 @@ description:
 
 const CardBody = ({ className = "" }) => (
 
-{' '}
 
 <div className={cn(className)}>
   <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
@@ -69,9 +69,9 @@ return (
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="pt-4 mx-auto max-w-xl">
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
       <MultilayerCardV_2/>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -126,9 +126,9 @@ export const MultilayerCardV_2 = ({
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="pt-4 mx-auto max-w-xl">
+      <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
     <MultilayerCardV_3/>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -184,9 +184,9 @@ export const MultilayerCardV_3 = ({children}: CardProps) => {
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="pt-4 mx-auto max-w-xl">
+      <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
     <MultilayerCardV_4/>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx

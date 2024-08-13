@@ -16,14 +16,15 @@ import {
 } from '@/components/buttons/button-variants';
 import { Button } from '@/components/buttons/button';
 import { FaCode } from 'react-icons/fa';
+import { WithContributor } from '@/components/with-contributor';
 
 ## Variant 1 neubrutalism
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v1>Click me </Button_v1>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -65,9 +66,9 @@ export const Button_v1 = ({ children, ...rest }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v2>Hover me </Button_v2>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -112,9 +113,9 @@ export const Button_v2 = ({ children, ...rest }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v3>Hover me </Button_v3>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -157,9 +158,9 @@ export const Button_v3 = ({ children, ...rest }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v4>Hover me </Button_v4>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -202,9 +203,9 @@ export const Button_v4 = ({ children, ...rest }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v5>Hover me </Button_v5>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -257,9 +258,9 @@ export const Button_v5 = ({
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v6>Hover me </Button_v6>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -299,9 +300,9 @@ export const Button_v6 = ({ children, ...rest }: ButtonProps) => {
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center pt-4">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
     <Button_v7>Hover me </Button_v7>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 
@@ -343,12 +344,14 @@ Make sure the background color in dark mode is set to `#121212` to see the effec
 
 <Tabs items={["Preview", "React"]}>
   <Tab value="Preview">
-  <div className="flex-row-center flex-wrap gap-4 py-4 dark:bg-[#121212] bg-zinc-50 rounded-sm">
+  <WithContributor contributorKey={"aliHussein"} className="flex-row-center">
+  <div className="flex-row-center flex-wrap gap-4 py-4 dark:bg-[#121212] bg-zinc-50 rounded-sm w-full">
     <Button_v8>Hover me </Button_v8>
     <Button_v8 size="icon" className=""><FaCode /> </Button_v8>
     <Button_v8 className="shadow-dembossed">Hover me </Button_v8>
     <Button_v8 size="icon" className="shadow-dembossed rounded-lg"><FaCode /> </Button_v8>
   </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 

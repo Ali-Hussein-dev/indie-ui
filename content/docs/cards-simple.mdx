@@ -13,14 +13,16 @@ import {
   SimpleCard_V6,
   SimpleCard_V7,
 } from '@/components/cards/simple';
+import { WithContributor } from '@/components/with-contributor';
+
 
 ## Variant 1
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-  <div className="py-4 mx-auto max-w-xl">
+  <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
     <SimpleCard_V1/>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -86,9 +88,9 @@ export const SimpleCard_V1 = () => {
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="py-4 mx-auto max-w-xl">
-      <SimpleCard_V2/>
-  </div>
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+    <SimpleCard_V2/>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -145,9 +147,9 @@ return (
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="py-4 mx-auto max-w-xl">
-      <SimpleCard_V3/>
-  </div>
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+    <SimpleCard_V3/>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -206,9 +208,9 @@ export const SimpleCard_V3 = () => {
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="py-4 mx-auto max-w-xl">
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
     <SimpleCard_V4/>
-  </div>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```jsx
@@ -245,9 +247,9 @@ export const SimpleCard_V4 = () => {
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="py-4 mx-auto max-w-xl">
-      <SimpleCard_V5/>
-  </div>
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+    <SimpleCard_V5/>
+  </WithContributor>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -296,9 +298,9 @@ export const SimpleCard_V5 = () => {
 
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="py-4 mx-auto max-w-xl">
-      <SimpleCard_V6/>
-  </div>
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+    <SimpleCard_V6/>
+  </WithContributor>
   </Tab>
   <Tab value="React">
   ```jsx
@@ -336,9 +338,9 @@ export const SimpleCard_V6 = () => {
 ## Variant 7
 <Tabs items={['Preview', 'React']}>
   <Tab value="Preview">
-    <div className="py-4 mx-auto max-w-xl">
-      <SimpleCard_V7/>
-  </div>
+    <WithContributor contributorKey={"aliHussein"} className="max-w-xl mx-auto">
+    <SimpleCard_V7/>
+  </WithContributor>
   </Tab>
   <Tab value="React">
 ```tsx
