@@ -20,7 +20,9 @@ export const VariantsCard = ({
     <div className="flex-row-between mb-4 gap-1 border-b border-dashed py-1">
       <h3 className="text-xl font-bold text-left">{title}</h3>
       <Button asChild variant="ghost" size="sm" rightIcon={<FaChevronRight />}>
-        <Link href={docUrl}>Get code</Link>
+        <Link href={docUrl} prefetch={false}>
+          Get code
+        </Link>
       </Button>
     </div>
     <div className="w-full pt-4">{children}</div>
