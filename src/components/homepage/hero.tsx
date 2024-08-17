@@ -7,10 +7,7 @@ import { FaArrowRight, FaGithub } from 'react-icons/fa';
 import components from '@/constants/components.json';
 
 const ProductHunt = () => (
-  <a
-    href="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=477059"
-    target="_blank"
-  >
+  <a href="https://www.producthunt.com/posts/indie-ui" target="_blank">
     <img
       src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=477059&theme=dark"
       alt="Indie UI - Rich Styled UI | Product Hunt"
