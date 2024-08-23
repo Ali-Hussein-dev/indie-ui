@@ -84,7 +84,7 @@ export default function HomePage() {
             title={components.button.title}
             docUrl={components.button.docUrl}
           >
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 max-w-2xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-3 md:gap-6 max-w-2xl gap-y-3">
               <Button_v1>Click me</Button_v1>
               <Button_v2>Hover me</Button_v2>
               <Button_v3>Hover me</Button_v3>

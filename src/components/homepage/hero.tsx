@@ -42,7 +42,7 @@ export const Hero = () => {
             </Button>
           </div>
           <div className="mx-auto pt-10 w-fit">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-3 px-2">
               {Object.values(components).map((o, i) => (
                 <Button
                   key={o.id}

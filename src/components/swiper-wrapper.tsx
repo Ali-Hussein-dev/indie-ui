@@ -21,7 +21,7 @@ export const SwiperWrapper: React.FC<CustomSwiperProps> = (props) => {
     ...props.swiperProps,
   };
   return (
-    <Swiper {...defaultSwiperProps} className="sm:max-w-2xl max-w-sm">
+    <Swiper {...defaultSwiperProps} className="sm:max-w-2xl max-w-xs">
       {props.slides.map((slide, i) => (
         <SwiperSlide key={i}>
           <div className="pb-9">{slide}</div>
