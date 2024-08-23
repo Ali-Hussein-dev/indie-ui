@@ -5,6 +5,7 @@ import { Header } from '@/components/homepage/header';
 import { configs } from '@/configs';
 import { FaArrowRight, FaGithub } from 'react-icons/fa';
 import components from '@/constants/components.json';
+import { cn } from '@/lib/utils';
 
 const ProductHunt = () => (
   <a href="https://www.producthunt.com/posts/indie-ui" target="_blank">
@@ -23,9 +24,9 @@ export const Hero = () => {
   return (
     <div>
       <Header />
-      <div className="mx-auto max-w-2xl h-[95vh] center">
-        <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-balance leading-loose lg:text-6xl h1">
+      <div className="mx-auto max-w-2xl h-full lg:h-[95vh] center">
+        <div className="animate-in px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-center font-black text-balance leading-loose lg:text-6xl h1 mt-10 sm:mt-16">
             Rich Styled UI
           </h1>
           <p className="text-center text-pretty text-lg mb-4 dark:text-zinc-400 mx-auto">
@@ -41,19 +42,22 @@ export const Hero = () => {
               <Link href={configs.urls.github}>Star on GitHub</Link>
             </Button>
           </div>
-          <div className="mx-auto pt-10 w-fit">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-3 px-2">
+          <div className="mx-auto pt-10">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 lg:gap-3">
               {Object.values(components).map((o, i) => (
                 <Button
                   key={o.id}
                   size="sm"
                   variant={'outline'}
                   asChild
-                  className={i == 12 ? 'md:col-span-3' : ''}
+                  className={cn(
+                    'sm:justify-start text-xs',
+                    i == 12
+                      ? 'md:col-span-3 sm:justify-center sm:col-span-2'
+                      : '',
+                  )}
                 >
-                  <a href={`#${o.id}`} className="text-xs">
-                    {o.title}
-                  </a>
+                  <a href={`#${o.id}`}>{o.title}</a>
                 </Button>
               ))}
             </div>
