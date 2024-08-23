@@ -62,7 +62,7 @@ export const Hero = () => {
               ))}
             </div>
           </div>
-          <div className="pt-8">
+          <div className="pt-8 pb-8">
             <ProductHunt />
           </div>
         </div>
