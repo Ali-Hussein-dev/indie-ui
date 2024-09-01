@@ -62,6 +62,7 @@ import {
 import { BentoVariants } from '@/components/layout/bento-variants';
 import { Dots_v1, Dots_v2, Dots_v3, Dots_v4 } from '@/components/loaders/dots';
 import * as React from 'react';
+import { StatefulButton_1 } from '@/components/stateful-buttons';
 
 const CardsWithPattern = [
   CardWithEllipsis,
@@ -109,6 +110,15 @@ export default function HomePage() {
               <EyeCatchingButton_v1>Shimmer effect</EyeCatchingButton_v1>
               <EyeCatchingButton_v2>Shiny background</EyeCatchingButton_v2>
               <EyeCatchingButton_v3>Shiny text</EyeCatchingButton_v3>
+            </div>
+          </VariantsCard>
+          <VariantsCard
+            id={components.statefulButton.id}
+            title={components.statefulButton.title}
+            docUrl={components.statefulButton.docUrl}
+          >
+            <div className="mx-auto">
+              <StatefulButton_1 />
             </div>
           </VariantsCard>
           <VariantsCard
