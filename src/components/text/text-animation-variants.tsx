@@ -9,6 +9,7 @@ import { LettersPullUp, WordsPullUp } from '@/components/text/pull-up';
 import { BlurIn } from '@/components/text/blur-in';
 import { TextFade } from '@/components/text/fade';
 import { Counter } from '@/components/text/counter';
+import { Button } from '@/components/buttons/button';
 
 //======================================
 export const TextAnimationVariants = () => {
@@ -56,10 +57,12 @@ export const TextAnimationVariants = () => {
           <h2 className="text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]">
             Fade Up
           </h2>
-          <p className="mt-5 text-center md:text-lg max-w-lg mx-auto text-balance dark:text-zinc-300">
+          <p className="mt-5 text-center md:text-lg max-w-lg mx-auto text-balance dark:text-zinc-300 pb-4">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit amet.
           </p>
-          <span className="mx-auto">Lorem, ipsum dolor.</span>
+          <Button variant={'secondary'} className="mx-auto">
+            Get Started
+          </Button>
         </TextFade>
       </AnimationContainer>
       {/* //-------------------------------------------TextFadeDown */}
@@ -68,10 +71,12 @@ export const TextAnimationVariants = () => {
           <h2 className="text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]">
             Fade Down
           </h2>
-          <p className="mt-5 text-center md:text-lg max-w-lg mx-auto text-balance dark:text-zinc-300">
+          <p className="mt-5 text-center md:text-lg max-w-lg mx-auto text-balance dark:text-zinc-300 pb-4">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit amet.
           </p>
-          <span className="mx-auto">Lorem, ipsum dolor.</span>
+          <Button variant={'secondary'} className="mx-auto">
+            Get Started
+          </Button>
         </TextFade>
       </AnimationContainer>
       {/* //-------------------------------------------Numbers */}
