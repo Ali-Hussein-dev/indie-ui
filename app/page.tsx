@@ -62,7 +62,7 @@ import {
 import { BentoVariants } from '@/components/layout/bento-variants';
 import { Dots_v1, Dots_v2, Dots_v3, Dots_v4 } from '@/components/loaders/dots';
 import * as React from 'react';
-import { StatefulButton_1 } from '@/components/stateful-buttons';
+import { StatefulButton_1 } from '@/components/buttons/stateful/variant-1';
 
 const CardsWithPattern = [
   CardWithEllipsis,

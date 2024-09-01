@@ -1,10 +1,11 @@
 'use client';
 import * as React from 'react';
-import { Button, ButtonProps } from './buttons/button';
+import { Button, ButtonProps } from '@/components/buttons/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCircleCheck, FaCircleXmark } from 'react-icons/fa6';
 import { cn } from '@/lib/utils';
 import { ImSpinner2 } from 'react-icons/im';
+import { LuSend } from 'react-icons/lu';
 
 // mock async code
 const useStatus = ({ resloveTo }: { resloveTo: 'success' | 'error' }) => {
