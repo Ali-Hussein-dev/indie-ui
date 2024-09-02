@@ -5,6 +5,7 @@
 
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { StatefulButton_1 } from '@/components/buttons/stateful/variant-1';
+import { StatefulButton_2 } from '@/components/buttons/stateful/variant-2';
 import { WithContributor } from '@/components/with-contributor';
 
 ## Variant 1
@@ -103,6 +104,112 @@ export function StatefulButton_1({ ...rest }: ButtonProps) {
     </Button>
   );
 }
+```
+</Tab>
+
+</Tabs>
+
+
+## Variant 2
+
+<Tabs items={["Preview", "React"]}>
+  <Tab value="Preview">
+  <WithContributor className='flex gap-3 flex-wrap justify-center' contributorKey='aliHussein'>
+    <StatefulButton_2 variant={"default"} />
+    <StatefulButton_2 variant={"outline"} />
+    <StatefulButton_2 variant={"secondary"} />
+    <StatefulButton_2 variant={"ghost"} />
+  </WithContributor>
+  </Tab>
+  <Tab value="React">
+```tsx
+'use client';
+import * as React from 'react';
+import { Button, ButtonProps } from '@/components/buttons/button';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCircleCheck, FaCircleXmark } from 'react-icons/fa6';
+import { cn } from '@/lib/utils';
+import { ImSpinner2 } from 'react-icons/im';
+import { LuSendHorizonal } from 'react-icons/lu';
+
+// mock async code
+const useStatus = ({ resloveTo }: { resloveTo: 'success' | 'error' }) => {
+  const [status, setStatus] = React.useState('idle');
+  // mock async request
+  const onSubmit = () => {
+    setStatus('loading');
+    setTimeout(() => {
+      setStatus(resloveTo);
+    }, 3500);
+  };
+
+  return {
+    onSubmit,
+    status,
+  };
+};
+
+//======================================
+export function StatefulButton_2({ ...rest }: ButtonProps) {
+  const { status, onSubmit } = useStatus({ resloveTo: 'success' });
+  const variants = {
+    initial: { opacity: 0, y: 15 },
+    show: { opacity: 100, y: 0, transition: { delay: 0.1, duration: 0.4 } },
+    hidden: { opacity: 0, y: -15, transition: { duration: 0.3 } },
+  };
+  return (
+    <Button
+      disabled={status == 'loading'}
+      onClick={onSubmit}
+      {...rest}
+      variant={status === 'error' ? 'destructive' : rest.variant}
+      className={cn('w-40 rounded-lg overflow-hidden gap-2', rest.className)}
+    >
+      <span key="label">
+        {status == 'idle'
+          ? 'Click me'
+          : status == 'loading'
+            ? 'Pending...'
+            : 'Completed'}
+      </span>
+      <AnimatePresence mode="wait">
+        {status === 'idle' ? (
+          <motion.span
+            key={status}
+            variants={variants}
+            initial={'initial'}
+            animate={'show'}
+            exit={'hidden'}
+          >
+            <LuSendHorizonal className="size-4" />
+          </motion.span>
+        ) : status === 'loading' ? (
+          <motion.span
+            key={status}
+            variants={variants}
+            initial={'initial'}
+            animate={'show'}
+            exit={'hidden'}
+          >
+            <ImSpinner2 className="animate-spin size-4" />
+          </motion.span>
+        ) : (
+          <motion.span
+            key={status}
+            variants={variants}
+            initial={'initial'}
+            animate={'show'}
+            exit={'hidden'}
+          >
+            {status === 'success' && <FaCircleCheck className="size-4" />}
+            {status === 'error' && <FaCircleXmark className="size-4" />}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </Button>
+  );
+}
+
 ```
 </Tab>
 
