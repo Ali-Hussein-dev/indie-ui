@@ -14,7 +14,7 @@ export function TextFade({
   staggerChildren?: number;
 }) {
   const FADE_DOWN = {
-    show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', duration: 1 } },
     hidden: { opacity: 0, y: direction === 'down' ? -18 : 18 },
   };
   const ref = React.useRef(null);
@@ -32,14 +32,14 @@ export function TextFade({
           },
         },
       }}
-      className={`space-y-4 ${className}`}
+      className={className}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child) ? (
           <motion.div variants={FADE_DOWN}>{child}</motion.div>
         ) : (
           child
-        )
+        ),
       )}
     </motion.div>
   );

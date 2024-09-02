@@ -50,12 +50,7 @@ export const Hero = () => {
                   size="sm"
                   variant={'outline'}
                   asChild
-                  className={cn(
-                    'sm:justify-start text-xs',
-                    i == 12
-                      ? 'md:col-span-3 sm:justify-center sm:col-span-2'
-                      : '',
-                  )}
+                  className={cn('sm:justify-start text-xs')}
                 >
                   <a href={`#${o.id}`}>{o.title}</a>
                 </Button>

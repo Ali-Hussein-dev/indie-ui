@@ -30,6 +30,7 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Base', url: '/docs/base-button' },
     { type: 'page', name: 'Simple', url: '/docs/buttons' },
     { type: 'page', name: 'Eye catching', url: '/docs/eye-catching-buttons' },
+    { type: 'page', name: 'Stateful', url: '/docs/stateful-buttons' },
 
     { type: 'separator', name: 'Grid' },
     { type: 'page', name: 'Bento Grid (4 cells)', url: '/docs/bento-4' },

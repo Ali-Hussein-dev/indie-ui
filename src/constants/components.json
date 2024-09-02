@@ -9,6 +9,11 @@
     "id": "eye-catching-buttons",
     "docUrl": "/docs/eye-catching-buttons"
   },
+  "statefulButton": {
+    "title": "Stateful button",
+    "id": "stateful-buttons",
+    "docUrl": "/docs/stateful-buttons"
+  },
   "input": {
     "title": "Input variants",
     "id": "inputs",
