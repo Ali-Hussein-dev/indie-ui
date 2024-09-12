@@ -5,7 +5,7 @@ const siteUrl = 'https://ui.indie-starter.dev';
 export const configs = {
   site: {
     name: Site_Name,
-    description: 'Make your website stand out with minimal effort',
+    description: 'Make your website stand out with minimal effort. Built with Reactjs, shadcn and Framer Motion for animation.',
     siteUrl,
   },
   urls: {
