@@ -39,8 +39,8 @@ export const Banner = () => {
     >
       <div className="fixed left-0 right-0 top-0 z-30">
         <div className="flex-row-center w-full gap-x-6 dark:bg-zinc-800/40 backdrop-blur-lg px-6 py-2.5 sm:px-3.5 bg-zinc-50/40">
-          <div className="flex items-center justify-center text-sm font-medium leading-6 tracking-wider dark:text-green-300 text-green-600 gap-4">
-            <p>Check pro templates</p>
+          <div className="flex items-center justify-center font-semibold leading-6 tracking-wide dark:text-green-300 text-green-600 text-lg gap-4">
+            <span>Check Pro Templates</span>
             <Button asChild variant="outline" size="sm" className="rounded-xl">
               <div className="flex-row-start gap-2">
                 <a
