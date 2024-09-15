@@ -21,7 +21,7 @@ import {
   SimpleCard_V5,
   SimpleCard_V6,
   SimpleCard_V7,
-} from '@/components/cards/simple';
+} from '@/components/cards/simple-cards';
 import {
   MultilayerCardV_1,
   MultilayerCardV_2,
