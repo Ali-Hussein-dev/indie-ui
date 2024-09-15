@@ -64,6 +64,7 @@ import { Dots_v1, Dots_v2, Dots_v3, Dots_v4 } from '@/components/loaders/dots';
 import * as React from 'react';
 import { StatefulButton_1 } from '@/components/buttons/stateful/variant-1';
 import { StatefulButton_2 } from '@/components/buttons/stateful/variant-2';
+import { ExpandableCard } from '@/components/cards/expandable-card';
 
 const CardsWithPattern = [
   CardWithEllipsis,
@@ -201,6 +202,28 @@ export default function HomePage() {
                   <CardBody />
                 </Card>
               ))}
+            </div>
+          </VariantsCard>
+          <VariantsCard
+            id={components.cardsInteractive.id}
+            title={components.cardsInteractive.title}
+            docUrl={components.cardsInteractive.docUrl}
+          >
+            <div className="max-w-2xl mx-auto">
+              <ExpandableCard height="6rem">
+                <p className="text-sm/relaxed">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam pulvinar risus non risus hendrerit venenatis.
+                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                  ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                  pulvinar risus non risus hendrerit venenatis. Pellentesque sit
+                  amet hendrerit risus, sed porttitor quam. Magna exercitation
+                  reprehenderit magna cillum tempor amet aliquip ullamco.
+                  Occaecat adipisicing ea elit labore incididunt consectetur
+                  dolore sint ipsum nulla ullamco magna aliqua culpa dolore
+                  cillum esse veniam.
+                </p>
+              </ExpandableCard>
             </div>
           </VariantsCard>
           <VariantsCard

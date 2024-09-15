@@ -39,6 +39,11 @@
     "id": "cards-with-pattern",
     "docUrl": "/docs/cards-with-pattern"
   },
+  "cardsInteractive": {
+    "title": "Interactive Cards",
+    "id": "cards-interactive",
+    "docUrl": "/docs/cards-interactive"
+  },
   "separator": {
     "title": "Separator",
     "id": "separators",
