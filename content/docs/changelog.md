@@ -3,6 +3,11 @@ title: Changelog
 description: Latest updates and announcements
 ---
 
+## September 2024 - Added new components
+
+- Added [stateful buttons](/docs/stateful-buttons)
+- Added [Expandable card](/docs/cards-interactive)
+
 ## August 2024 - Added new components
 
 - Added [dots loaders](/docs/loader-dots)

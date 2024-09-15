@@ -25,6 +25,7 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Multi layers', url: '/docs/cards-multi-layers' },
     { type: 'page', name: 'With image', url: '/docs/cards-with-image-bg' },
     { type: 'page', name: 'With pattern', url: '/docs/cards-with-pattern' },
+    { type: 'page', name: 'Interactive', url: '/docs/cards-interactive' },
 
     { type: 'separator', name: 'Buttons' },
     { type: 'page', name: 'Base', url: '/docs/base-button' },

@@ -1,0 +1,51 @@
+---
+title: Interactive Cards
+description: A list of interactive cards that you can copy/paste into your project.
+---
+
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+import { WithContributor } from '@/components/with-contributor';
+import { ExpandableCard } from '@/components/cards/expandable-card';
+
+## Expandable Card
+
+Use the `ExpandableCard` component to create a card that can be expanded to show more content.
+
+<Tabs items={['Preview', 'React']}>
+  <Tab value="Preview">
+    <WithContributor contributorKey={'aliHussein'} className="max-w-xl mx-auto">
+      <ExpandableCard height="6rem">
+        <div className="text-sm/relaxed prose-p:mt-0">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+          hendrerit risus, sed porttitor quam. ipsum dolor sit amet,
+          consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit
+          venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam.
+          Magna exercitation reprehenderit magna cillum tempor amet aliquip
+          ullamco. Occaecat adipisicing ea elit labore incididunt consectetur
+          dolore sint ipsum nulla ullamco magna aliqua culpa dolore cillum esse
+          veniam.
+        </div>
+      </ExpandableCard>
+    </WithContributor>
+  </Tab>
+  <Tab value="React">```jsx ```</Tab>
+</Tabs>
+
+### Expandable Card Props
+
+<TypeTable
+  type={{
+    height: {
+      type: 'css value',
+      description: 'The height of the card when it is collapsed',
+      default: '8rem',
+    },
+    className: {
+      type: 'string',
+      description: 'Additional classes to apply to the root container',
+      default: 'empty string',
+    },
+  }}
+/>
