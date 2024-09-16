@@ -5,6 +5,7 @@ import * as React from 'react';
 
 const filePaths = {
   ExpandableCard: 'cards/expandable-card.tsx',
+  Separator: 'separators/separator.tsx',
 };
 
 type ComponentPreviewProps = {
