@@ -9,19 +9,35 @@ import { ComponentPreview } from '@/components/component-preview';
 
 ## Expandable Card
 
-Use the `ExpandableCard` component to create a card that can be expanded to show more content.
+The `ExpandableCard` component allows you to create a card that can be expanded to show more content. This is useful for displaying additional information without overwhelming the user with too much content at once.
 
-<ComponentPreview filePathsKey={"ExpandableCard"} className="mx-auto py-6 max-w-lg">
-  <ExpandableCard height="6rem">
+To use the `ExpandableCard` component, simply wrap your content inside the `ExpandableCard` tags. You can customize the **height** of the card when it is collapsed and the **width** of the expand/collapse button.
+
+<ComponentPreview
+  filePathsKey={'ExpandableCard'}
+  className="mx-auto py-6 max-w-lg"
+>
+  <ExpandableCard>
     <div className="text-sm/relaxed prose-p:mt-0">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+      <h4 className="mb-2 mt-2 font-bold text-lg">Default expandable card</h4>
+      Lorem ipsum, consectetur adipiscing elit. Nullam pulvinar risus non risus
+      hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+      quam. ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
       risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit
-      risus, sed porttitor quam. ipsum dolor sit amet, consectetur adipiscing
-      elit. Nullam pulvinar risus non risus hendrerit venenatis. Pellentesque
-      sit amet hendrerit risus, sed porttitor quam. Magna exercitation
-      reprehenderit magna cillum tempor amet aliquip ullamco. Occaecat
-      adipisicing ea elit labore incididunt consectetur dolore sint ipsum nulla
-      ullamco magna aliqua culpa dolore cillum esse veniam.
+      risus, sed porttitor quam. Magna exercitation reprehenderit magna cillum
+      tempor amet aliquip ullamco.
+    </div>
+  </ExpandableCard>
+  <br />
+  <ExpandableCard height="10rem" wide>
+    <div className="text-sm/relaxed prose-p:mt-0">
+      <h4 className="mb-2 mt-2 font-bold text-lg">Customize the height & button width</h4>
+      Lorem ipsum, consectetur adipiscing elit. Nullam pulvinar risus non risus
+      hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+      quam. ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+      risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit
+      risus, sed porttitor quam. Magna exercitation reprehenderit magna cillum
+      tempor amet aliquip ullamco.
     </div>
   </ExpandableCard>
 </ComponentPreview>
@@ -34,6 +50,11 @@ Use the `ExpandableCard` component to create a card that can be expanded to show
       type: 'css value',
       description: 'The height of the card when it is collapsed',
       default: '8rem',
+    },
+    wide: {
+      type: 'boolean',
+      description: 'Whether the button should be full width or not.',
+      default: 'false',
     },
     className: {
       type: 'string',
