@@ -1,4 +1,4 @@
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import {
   Button_v1,
   Button_v2,

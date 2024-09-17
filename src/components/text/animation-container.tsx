@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import { FaPlay } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 

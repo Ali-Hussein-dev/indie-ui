@@ -1,5 +1,5 @@
 import { ThemeToggle } from '../toggle-theme';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { MobileHeader } from './mobile-header';

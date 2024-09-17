@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { Button, ButtonProps } from './button';
+import { Button, ButtonProps } from '@/components/ui/button';
 
 //======================================
 export const EyeCatchingButton_v1 = ({ ...props }: ButtonProps) => {

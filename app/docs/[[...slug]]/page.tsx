@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { DocsPage, DocsBody } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { CiEdit } from 'react-icons/ci';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import { FaRegStar } from 'react-icons/fa';
 import { configs } from '@/configs';
 

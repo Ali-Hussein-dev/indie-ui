@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import { Header } from '@/components/homepage/header';
 import { configs } from '@/configs';
 import { FaArrowRight, FaGithub } from 'react-icons/fa';

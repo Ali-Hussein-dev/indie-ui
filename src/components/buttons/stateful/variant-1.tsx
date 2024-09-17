@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { Button, ButtonProps } from '@/components/buttons/button';
+import { Button, ButtonProps } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCircleCheck, FaCircleXmark } from 'react-icons/fa6';
 import { cn } from '@/lib/utils';

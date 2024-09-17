@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '../buttons/button';
+import { Button } from '../ui/button';
 import { CgClose, CgMenu } from 'react-icons/cg';
 import * as React from 'react';
 import { cn } from '@/lib/utils';

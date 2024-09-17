@@ -2,7 +2,7 @@ import { configs } from '@/configs';
 import { FaDiscord, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { LogoLink } from '@/components/logo';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 
 //======================================
 export const Footer = () => {

@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import {
   Button,
   type ButtonProps as BaseButtonProps,
-} from '@/components/buttons/button';
+} from '@/components/ui/button';
 
 type ButtonProps = {
   children: React.ReactNode;

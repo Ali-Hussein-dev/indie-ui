@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 //======================================
 export const Banner = () => {

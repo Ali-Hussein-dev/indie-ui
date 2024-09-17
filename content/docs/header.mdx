@@ -6,7 +6,7 @@ description: The header component is used to display the title of the page and t
 import { HeaderDemo } from '@/components/headers/header-demo';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import Link from 'next/link';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import { TypeTable } from 'fumadocs-ui/components/type-table';
 import { WithContributor } from '@/components/with-contributor';
 import { HiOutlineExternalLink } from 'react-icons/hi';
@@ -35,7 +35,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { FaGithub } from 'react-icons/fa';
 import { LogoLink } from '@/components/logo';
 import { Header } from './header';
-import { Button } from '../buttons/button';
+import { Button } from '../ui/button';
 import Link from 'next/link';
 
 const headerLinks = [
@@ -177,7 +177,7 @@ export const Header = ({
 ```tsx title="moible-header.tsx"
 'use client';
 
-import { Button } from '../buttons/button';
+import { Button } from '../ui/button';
 import { CgClose, CgMenu } from 'react-icons/cg';
 import * as React from 'react';
 import { cn } from '@/lib/utils';

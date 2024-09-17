@@ -9,7 +9,7 @@ import { LettersPullUp, WordsPullUp } from '@/components/text/pull-up';
 import { BlurIn } from '@/components/text/blur-in';
 import { TextFade } from '@/components/text/fade';
 import { Counter } from '@/components/text/counter';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 
 //======================================
 export const TextAnimationVariants = () => {

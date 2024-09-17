@@ -1,7 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import * as React from 'react';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 
 export function ExpandableCard({
   /**

@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { Button } from '@/components/buttons/button';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 const cardContent = {

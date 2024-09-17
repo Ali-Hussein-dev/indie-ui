@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button } from './buttons/button';
+import { Button } from './ui/button';
 import { FaChevronRight } from 'react-icons/fa';
 
 export const VariantsCard = ({

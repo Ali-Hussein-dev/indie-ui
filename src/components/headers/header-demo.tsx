@@ -2,7 +2,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { FaGithub } from 'react-icons/fa';
 import { LogoLink } from '@/components/logo';
 import { Header } from './header';
-import { Button } from '../buttons/button';
+import { Button } from '../ui/button';
 import Link from 'next/link';
 import { ThemeToggle } from '../toggle-theme';
 
