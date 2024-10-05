@@ -34,6 +34,7 @@ export function Sponsor() {
             <a
               href="https://github.com/sponsors/Ali-Hussein-dev"
               target="_blank"
+              data-umami-event="sponsor-github"
             >
               Become a Sponsor
             </a>
