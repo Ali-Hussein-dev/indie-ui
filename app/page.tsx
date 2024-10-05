@@ -181,19 +181,14 @@ export default function HomePage() {
             title={components.cardsWithImageBg.title}
             docUrl={components.cardsWithImageBg.docUrl}
           >
-            <ExpandableCard
-              height="10rem"
-              className="border-none dark:bg-black z-10 relative h-full"
-            >
-              <div className="max-w-2xl grid md:grid-cols-2 gap-y-8 md:gap-y-20 gap-4">
-                <Card_with_image_v1 />
-                <Card_with_image_v2 />
-                <Card_with_image_v3 />
-                <Card_with_image_v4 />
-                <Card_with_image_v5 />
-                <Card_with_image_v6 />
-              </div>
-            </ExpandableCard>
+            <div className="max-w-2xl grid md:grid-cols-2 gap-y-8 md:gap-y-20 gap-4">
+              <Card_with_image_v1 />
+              <Card_with_image_v2 />
+              <Card_with_image_v3 />
+              <Card_with_image_v4 />
+              <Card_with_image_v5 />
+              <Card_with_image_v6 />
+            </div>
           </VariantsCard>
           <Newsletter />
           <VariantsCard
@@ -201,18 +196,13 @@ export default function HomePage() {
             title={components.cardsWithPattern.title}
             docUrl={components.cardsWithPattern.docUrl}
           >
-            <ExpandableCard
-              height="10rem"
-              className="border-none dark:bg-black "
-            >
-              <div className="grid gap-4 gap-y-8 max-w-2xl mx-auto md:grid-cols-2">
-                {CardsWithPattern.map((Card, i) => (
-                  <Card key={i}>
-                    <CardBody />
-                  </Card>
-                ))}
-              </div>
-            </ExpandableCard>
+            <div className="grid gap-4 gap-y-8 max-w-2xl mx-auto md:grid-cols-2">
+              {CardsWithPattern.map((Card, i) => (
+                <Card key={i}>
+                  <CardBody />
+                </Card>
+              ))}
+            </div>
           </VariantsCard>
           <VariantsCard
             id={components.cardsInteractive.id}
