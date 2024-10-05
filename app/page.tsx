@@ -37,7 +37,7 @@ import {
   Card_with_image_v5,
   Card_with_image_v6,
 } from '@/components/cards/with-image-bg';
-import { InputBlock } from '@/components/inputs/inputs';
+import { Input, InputBlock } from '@/components/inputs/input';
 import { Footer } from '@/components/footer';
 import { Newsletter } from '@/components/newsletter';
 import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
@@ -131,23 +131,21 @@ export default function HomePage() {
             docUrl={components.input.docUrl}
           >
             <div className="space-y-6 max-w-2xl">
-              <InputBlock placeholder="Input field (default)" />
-              <InputBlock
-                placeholder="Input field (ghost)"
-                root={{ variant: 'ghost' }}
-              />
-              <InputBlock
-                placeholder="Input field (underlined)"
-                root={{ variant: 'underlined' }}
-              />
-              <InputBlock
-                placeholder="Input field (neubrutalism)"
-                root={{ variant: 'neubrutalism' }}
-              />
-              <InputBlock
-                placeholder="Input field (filled)"
-                root={{ variant: 'filled' }}
-              />
+              <InputBlock>
+                <Input placeholder="Input field (default)" />
+              </InputBlock>
+              <InputBlock variant="underlined">
+                <Input placeholder="Input field (underlined)" />
+              </InputBlock>
+              <InputBlock variant="filled">
+                <Input placeholder="Input field (filled)" />
+              </InputBlock>
+              <InputBlock variant="neubrutalism">
+                <Input placeholder="Input field (neubrutalism)" />
+              </InputBlock>
+              <InputBlock variant="ghost">
+                <Input placeholder="Input field (ghost)" />
+              </InputBlock>
             </div>
           </VariantsCard>
           <VariantsCard
@@ -183,14 +181,19 @@ export default function HomePage() {
             title={components.cardsWithImageBg.title}
             docUrl={components.cardsWithImageBg.docUrl}
           >
-            <div className="max-w-2xl grid md:grid-cols-2 gap-y-8 md:gap-y-20 gap-4">
-              <Card_with_image_v1 />
-              <Card_with_image_v2 />
-              <Card_with_image_v3 />
-              <Card_with_image_v4 />
-              <Card_with_image_v5 />
-              <Card_with_image_v6 />
-            </div>
+            <ExpandableCard
+              height="10rem"
+              className="border-none dark:bg-black z-10 relative h-full"
+            >
+              <div className="max-w-2xl grid md:grid-cols-2 gap-y-8 md:gap-y-20 gap-4">
+                <Card_with_image_v1 />
+                <Card_with_image_v2 />
+                <Card_with_image_v3 />
+                <Card_with_image_v4 />
+                <Card_with_image_v5 />
+                <Card_with_image_v6 />
+              </div>
+            </ExpandableCard>
           </VariantsCard>
           <Newsletter />
           <VariantsCard
@@ -198,13 +201,18 @@ export default function HomePage() {
             title={components.cardsWithPattern.title}
             docUrl={components.cardsWithPattern.docUrl}
           >
-            <div className="grid gap-4 gap-y-8 max-w-2xl mx-auto md:grid-cols-2">
-              {CardsWithPattern.map((Card, i) => (
-                <Card key={i}>
-                  <CardBody />
-                </Card>
-              ))}
-            </div>
+            <ExpandableCard
+              height="10rem"
+              className="border-none dark:bg-black "
+            >
+              <div className="grid gap-4 gap-y-8 max-w-2xl mx-auto md:grid-cols-2">
+                {CardsWithPattern.map((Card, i) => (
+                  <Card key={i}>
+                    <CardBody />
+                  </Card>
+                ))}
+              </div>
+            </ExpandableCard>
           </VariantsCard>
           <VariantsCard
             id={components.cardsInteractive.id}
