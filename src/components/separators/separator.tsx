@@ -1,6 +1,38 @@
 import { cn } from '@/lib/utils';
 import { FaPlus } from 'react-icons/fa';
 
+/**
+ * 
+ * USAGE EXAMPLES
+ * 
+ * const Usage = () => (
+  <div>
+    <Separator gradient />
+    <Separator />
+    <Separator label={<span className="px-2">Section</span>} gradient />
+    <Separator label={<span className="px-2">Section</span>} />
+    <Separator
+      label={
+        <div className="border px-4 py-1 rounded-full border-dashed">
+          Section
+        </div>
+      }
+      gradient
+    />
+    <Separator
+      label={<div className="border px-4 py-1 rounded-full">Section</div>}
+    />
+    <Separator
+      label={
+        <div className="border px-12 py-2 rounded-full">
+          <FaPlus />
+        </div>
+      }
+      gradient
+    />
+  </div>
+);
+ */
 type SeparatorProps = {
   /**
    * @default ""
@@ -58,31 +90,3 @@ export const Separator = ({
   );
 };
 
-//======================================USAGE
-const Usage = () => (
-  <div>
-    <Separator gradient />
-    <Separator />
-    <Separator label={<span className="px-2">Section</span>} gradient />
-    <Separator label={<span className="px-2">Section</span>} />
-    <Separator
-      label={
-        <div className="border px-4 py-1 rounded-full border-dashed">
-          Section
-        </div>
-      }
-      gradient
-    />
-    <Separator
-      label={<div className="border px-4 py-1 rounded-full">Section</div>}
-    />
-    <Separator
-      label={
-        <div className="border px-12 py-2 rounded-full">
-          <FaPlus />
-        </div>
-      }
-      gradient
-    />
-  </div>
-);

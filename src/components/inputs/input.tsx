@@ -2,6 +2,19 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
+
+/**
+ * USAGE EXAMPLE
+ * 
+ * const Usage = () => {
+  return (
+    <InputBlock variant="filled" size="lg">
+      <Input />
+    </InputBlock>
+  );
+}
+ */
+
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
@@ -81,3 +94,4 @@ export { Input, InputBlock };
 
 Input.displayName = 'Input';
 InputBlock.displayName = 'InputBlock';
+
