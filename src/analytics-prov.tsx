@@ -1,13 +1,18 @@
+import Script from 'next/script';
+
 const isDev = process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 
 //======================================
 export const AnalyticsProv = () => {
   if (isDev) return null;
+  const ALIYTICS_SRC = process.env?.NEXT_PUBLIC_ALIYTICS_SRC;
+  const ALIYTICS_ID = process.env?.NEXT_PUBLIC_ALIYTICS_ID;
   return (
-    <script
-      defer
-      src="https://aliytics.netlify.app/script.js"
-      data-website-id="47b996fd-088c-4d37-9ea2-b172bc689b61"
-    ></script>
+    <Script
+      async
+      strategy="afterInteractive"
+      src={ALIYTICS_SRC}
+      data-website-id={ALIYTICS_ID}
+    />
   );
 };
