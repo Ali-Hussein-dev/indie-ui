@@ -1,6 +1,6 @@
 {
   "button": {
-    "title": "Button variants",
+    "title": "Button",
     "id": "buttons",
     "docUrl": "/docs/buttons"
   },
@@ -15,7 +15,7 @@
     "docUrl": "/docs/stateful-buttons"
   },
   "input": {
-    "title": "Input variants",
+    "title": "Input",
     "id": "inputs",
     "docUrl": "/docs/inputs"
   },
