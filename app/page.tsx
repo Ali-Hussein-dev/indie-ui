@@ -65,7 +65,6 @@ import * as React from 'react';
 import { StatefulButton_1 } from '@/components/buttons/stateful/variant-1';
 import { StatefulButton_2 } from '@/components/buttons/stateful/variant-2';
 import { ExpandableCard } from '@/components/cards/expandable-card';
-import { Sponsor } from '@/components/homepage/sponsor';
 
 const CardsWithPattern = [
   CardWithEllipsis,
@@ -163,7 +162,6 @@ export default function HomePage() {
               <SimpleCard_V7 />
             </div>
           </VariantsCard>
-          <Sponsor />
           <VariantsCard
             id={components.cardsWithMultiLayers.id}
             title={components.cardsWithMultiLayers.title}
