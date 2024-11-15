@@ -30,7 +30,9 @@ export default {
   		},
   		animation: {
   			'bg-shine': 'bg-shine 2.2s linear infinite',
-  			'text-gradient': 'text-gradient 6s ease infinite alternate'
+  			'text-gradient': 'text-gradient 6s ease infinite alternate',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		keyframes: {
   			'bg-shine': {
@@ -50,6 +52,22 @@ export default {
   				},
   				'100%': {
   					backgroundPosition: '0% 50%'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
   				}
   			}
   		},
