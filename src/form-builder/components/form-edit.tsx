@@ -297,11 +297,7 @@ export function FormEdit({
 }) {
   const [openItems, setOpenItems] = React.useState<string[]>([]);
   const onValueChange = (value: string) => {
-    setOpenItems((prev) =>
-      prev.includes(value)
-        ? prev.filter((id) => id !== value)
-        : [...prev, value],
-    );
+    setOpenItems((prev) => (prev.includes(value) ? [] : [value]));
   };
   const closeAccordionItem = () => {
     setOpenItems([]);
@@ -336,6 +332,9 @@ export function FormEdit({
               value={element.name}
               className={cn(
                 'rounded-xl border border-dashed py-1 bg-background',
+                // when open item style differently
+                openItems.includes(element.name) &&
+                  'dark:bg-secondary/40 bg-secondary/50 transition-colors duration-100',
               )}
             >
               <div className="flex-row-between px-3">
