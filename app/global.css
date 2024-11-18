@@ -8,41 +8,6 @@
   align-items: center;
 }
 
-/* global.css */
-:root {
-  --embossed-top-left-shadow: rgba(82,
-      82,
-      91, 0.15);
-  --embossed-bottom-right-shadow: rgb(113,
-      113,
-      122);
-
-  --dembossed-top-left-shadow: rgba(82,
-      82,
-      91,
-      0.15);
-  --dembossed-bottom-right-shadow: rgb(113,
-      113,
-      122);
-}
-
-.dark {
-  --embossed-top-left-shadow: rgba(64,
-      64,
-      64,
-      0.25);
-  --embossed-bottom-right-shadow: rgb(0,
-      0,
-      0);
-
-  --dembossed-top-left-shadow: rgba(64,
-      64,
-      64,
-      0.25);
-  --dembossed-bottom-right-shadow: rgb(0,
-      0,
-      0);
-}
 /* Custom styles for Swiper fraction pagination */
 .swiper-pagination-fraction {
     font-weight: bold;
@@ -67,6 +32,7 @@
 }
 @layer base {
   :root {
+    /* Shadcn variables */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -92,8 +58,24 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    /* embossed button variables */
+      --embossed-top-left-shadow: rgba(82,
+          82,
+          91, 0.15);
+      --embossed-bottom-right-shadow: rgb(113,
+          113,
+          122);
+    
+      --dembossed-top-left-shadow: rgba(82,
+          82,
+          91,
+          0.15);
+      --dembossed-bottom-right-shadow: rgb(113,
+          113,
+          122);
   }
   .dark {
+    /* Shadcn variables */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -118,6 +100,22 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+/* embossed button variables */
+  --embossed-top-left-shadow: rgba(64,
+      64,
+      64,
+      0.25);
+  --embossed-bottom-right-shadow: rgb(0,
+      0,
+      0);
+
+  --dembossed-top-left-shadow: rgba(64,
+      64,
+      64,
+      0.25);
+  --dembossed-bottom-right-shadow: rgb(0,
+      0,
+      0);
   }
 }
 @layer base {
