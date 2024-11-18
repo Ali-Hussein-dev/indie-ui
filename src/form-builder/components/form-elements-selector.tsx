@@ -3,6 +3,22 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { MdAdd } from 'react-icons/md';
 
 const formElementsList = [
+  // static elements
+  {
+    name: 'Heading 1',
+    variant: 'H1',
+    content: 'Heading 1',
+  },
+  {
+    name: 'Heading 2',
+    variant: 'H2',
+    content: 'Heading 2',
+  },
+  {
+    name: 'Heading 3',
+    variant: 'H3',
+    content: 'Heading 3',
+  },
   {
     name: 'Input',
     variant: 'Input',
@@ -33,13 +49,16 @@ const formElementsList = [
     // description: '',
   },
   {
+    name: 'Separator',
+    variant: 'Separator',
+  },
+  {
     name: 'Select',
     variant: 'Select',
     options: [
       { value: '1', label: 'Option 1' },
       { value: '2', label: 'Option 2' },
     ],
-    // description: '',
   },
   {
     name: 'Multi select',
@@ -63,26 +82,6 @@ const formElementsList = [
     variant: 'DatePicker',
     // description: '',
   },
-  // static elements
-  {
-    name: 'Separator',
-    variant: 'Separator',
-  },
-  {
-    name: 'Heading 1',
-    variant: 'H1',
-    content: 'Heading 1',
-  },
-  {
-    name: 'Heading 2',
-    variant: 'H2',
-    content: 'Heading 2',
-  },
-  {
-    name: 'Heading 3',
-    variant: 'H3',
-    content: 'Heading 3',
-  },
 ];
 //======================================
 export function FormElementSelector({
@@ -92,27 +91,28 @@ export function FormElementSelector({
 }) {
   return (
     <ScrollArea
-      className="border rounded-sm border-dashed overflow-auto p-3 hidden md:block md:col-span-2"
+      className="border rounded-sm border-dashed overflow-auto p-3 w-full md:col-span-2"
       style={{
-        height: '55vh',
-        maxHeight: '55vh',
+        height: '100%',
+        maxHeight: '60vh',
       }}
     >
-      {formElementsList.map((o) => (
-        <div key={o.name} className="py-1">
+      <div className="flex md:flex-col flex-wrap gap-2 flex-row">
+        {formElementsList.map((o) => (
           <Button
+            key={o.name}
             size="sm"
             variant="secondary"
             onClick={() => {
               addElement(o.variant);
             }}
-            className="gap-1 w-full justify-start rounded-lg"
+            className="gap-1 justify-start rounded-lg w-fit md:w-full"
           >
             <MdAdd />
             {o.name}
           </Button>
-        </div>
-      ))}
+        ))}
+      </div>
     </ScrollArea>
   );
 }
