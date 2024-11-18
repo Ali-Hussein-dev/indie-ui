@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MdAdd } from 'react-icons/md';
+import { FormElementsSelectorCommand } from './form-elements-selector-command';
 
-const formElementsList = [
+export const formElementsList = [
   // static elements
   {
     name: 'Heading 1',
@@ -85,7 +86,7 @@ const formElementsList = [
 ];
 //======================================
 export function FormElementSelector({
-  appendElement: addElement,
+  appendElement,
 }: {
   appendElement: (elementVariant: string) => void;
 }) {
@@ -97,6 +98,7 @@ export function FormElementSelector({
         maxHeight: '60vh',
       }}
     >
+      <FormElementsSelectorCommand appendElement={appendElement} />
       <div className="flex md:flex-col flex-wrap gap-2 flex-row">
         {formElementsList.map((o) => (
           <Button
@@ -104,7 +106,7 @@ export function FormElementSelector({
             size="sm"
             variant="secondary"
             onClick={() => {
-              addElement(o.variant);
+              appendElement(o.variant);
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full"
           >
