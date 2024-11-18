@@ -21,8 +21,7 @@ export default function FormBuilderLayout({
         <div className="mx-auto mb-4 md:mb-6 px-2 max-w-md">
           <h1 className="text-2xl text-center font-bold mb-2">Form Builder</h1>
           <p className="text-foreground/70 text-center text-pretty">
-            Build your form with the <br />
-            <span className="">React</span>,{' '}
+            Build your form easily with <span className="">React</span>,{' '}
             <span className="">Tailwindcss</span>,{' '}
             <span className="">Shadcn</span>, <span className="">Zod</span>, and{' '}
             <span className="">React Hook Form</span>
