@@ -8,65 +8,33 @@
   align-items: center;
 }
 
-/* global.css */
-:root {
-  --embossed-top-left-shadow: rgba(82,
-      82,
-      91, 0.15);
-  --embossed-bottom-right-shadow: rgb(113,
-      113,
-      122);
-
-  --dembossed-top-left-shadow: rgba(82,
-      82,
-      91,
-      0.15);
-  --dembossed-bottom-right-shadow: rgb(113,
-      113,
-      122);
-}
-
-.dark {
-  --embossed-top-left-shadow: rgba(64,
-      64,
-      64,
-      0.25);
-  --embossed-bottom-right-shadow: rgb(0,
-      0,
-      0);
-
-  --dembossed-top-left-shadow: rgba(64,
-      64,
-      64,
-      0.25);
-  --dembossed-bottom-right-shadow: rgb(0,
-      0,
-      0);
-}
 /* Custom styles for Swiper fraction pagination */
 .swiper-pagination-fraction {
-    font-weight: bold;
+  font-weight: bold;
 }
+
 @layer components {
-    .h1-dark {
-        background: linear-gradient(180deg, #ffffff 0%, hsl(0, 0%, 67%) 100%),
-            #ffffff;
-        background-clip: text;
+  .h1-dark {
+      background: linear-gradient(180deg, #ffffff 0%, hsl(0, 0%, 67%) 100%),
+        #ffffff;
+      background-clip: text;
     }
 
     .h1-light {
-        background: linear-gradient(180deg,
-                hsla(224, 71%, 4%, 47%) 0%,
-                hsl(224, 71%, 4%) 100%),
-            #ffffff;
+      background: linear-gradient(180deg,
+          hsla(224, 71%, 4%, 47%) 0%,
+          hsl(224, 71%, 4%) 100%),
+        #ffffff;
     }
 
     .h1 {
-        @apply dark:h1-dark h1-light bg-clip-text text-transparent;
+      @apply dark:h1-dark h1-light bg-clip-text text-transparent;
     }
 }
+
 @layer base {
   :root {
+    /* Shadcn variables */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -92,8 +60,25 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    /* embossed button variables */
+      --embossed-top-left-shadow: rgba(82,
+          82,
+          91, 0.15);
+      --embossed-bottom-right-shadow: rgb(113,
+          113,
+          122);
+    
+      --dembossed-top-left-shadow: rgba(82,
+          82,
+          91,
+          0.15);
+      --dembossed-bottom-right-shadow: rgb(113,
+          113,
+          122);
   }
+
   .dark {
+    /* Shadcn variables */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -118,12 +103,30 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    /* embossed button variables */
+      --embossed-top-left-shadow: rgba(64,
+          64,
+          64,
+          0.25);
+      --embossed-bottom-right-shadow: rgb(0,
+          0,
+          0);
+    
+      --dembossed-top-left-shadow: rgba(64,
+          64,
+          64,
+          0.25);
+      --dembossed-bottom-right-shadow: rgb(0,
+          0,
+          0);
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
