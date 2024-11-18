@@ -7,6 +7,14 @@ const filePaths = {
   ExpandableCard: 'cards/expandable-card.tsx',
   Separator: 'separators/separator.tsx',
   input: 'inputs/input.tsx',
+  button_v1: 'buttons/button-v1.tsx',
+  button_v2: 'buttons/button-v2.tsx',
+  button_v3: 'buttons/button-v3.tsx',
+  button_v4: 'buttons/button-v4.tsx',
+  button_v5: 'buttons/button-v5.tsx',
+  button_v6: 'buttons/button-v6.tsx',
+  button_v7: 'buttons/button-v7.tsx',
+  button_v8: 'buttons/button-v8.tsx',
 };
 
 type ComponentPreviewProps = {
