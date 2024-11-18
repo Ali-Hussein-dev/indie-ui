@@ -50,6 +50,10 @@ const iconsList = [
 ];
 const linksList = [
   {
+    href: configs.urls.formBuilder,
+    label: 'Form builder',
+  },
+  {
     href: configs.urls.indiestarter,
     label: 'Indie Starter',
   },
