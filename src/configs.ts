@@ -15,5 +15,6 @@ export const configs = {
     indiestarter: 'https://indie-starter.dev?ref=indie-ui',
     prostarter: 'https://pro.indie-starter.dev',
     newsletter: 'https://indiestarter.substack.com/',
+    formBuilder: '/form-builder',
   },
 };
