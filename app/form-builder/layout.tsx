@@ -17,7 +17,7 @@ export default function FormBuilderLayout({
   return (
     <div className="flex-col-center w-full min-h-screen">
       <Header />
-      <div className="h-full grow py-6">
+      <div className="h-full grow py-6 w-full">
         <div className="mx-auto mb-4 md:mb-6 px-2 max-w-md">
           <h1 className="text-2xl text-center font-bold mb-2">Form Builder</h1>
           <p className="text-foreground/70 text-center text-pretty">

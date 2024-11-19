@@ -67,7 +67,7 @@ export function FormBuilderMain() {
     setSubmittedData(form.watch());
   }, [JSON.stringify(form.watch())]);
   return (
-    <div className="w-full grid md:grid-cols-12 max-w-6xl gap-3 p-1 min-w-full">
+    <div className="w-full grid mx-auto md:grid-cols-12 max-w-[75rem] gap-3 p-1">
       <FormElementSelector appendElement={appendElement} />
       <Tabs
         defaultValue={tabsList[0].name}
