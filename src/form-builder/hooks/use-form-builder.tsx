@@ -147,9 +147,9 @@ export const useFormBuilder = ({
     setFormElements((prev) => [
       ...prev,
       {
-        name: generatedName,
-        fieldType: elementVariant as FormElement['fieldType'],
         ...initialAttibutes[elementVariant as FormElement['fieldType']],
+        fieldType: elementVariant as FormElement['fieldType'],
+        name: generatedName,
       } as FormFieldElement,
     ]);
   };
