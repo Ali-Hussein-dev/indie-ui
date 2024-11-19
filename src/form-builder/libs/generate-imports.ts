@@ -48,6 +48,11 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
                     "import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'",
                 );
                 break;
+            case 'ToggleGroup':
+                importSet.add(
+                    "import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'",
+                );
+                break;
             case 'H1':
             case 'H2':
             case 'H3':

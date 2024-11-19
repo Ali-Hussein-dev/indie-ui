@@ -39,6 +39,19 @@ export const initialAttibutes: Record<
       { value: '3', label: 'Option 3' },
     ],
   },
+  ToggleGroup: {
+    label: 'Pick multiple days',
+    type: 'multiple',
+    options: [
+      { value: 'monday', label: 'Mon' },
+      { value: 'tuesday', label: 'Tue' },
+      { value: 'wednesday', label: 'Wed' },
+      { value: 'thursday', label: 'Thu' },
+      { value: 'friday', label: 'Fri' },
+      { value: 'saturday', label: 'Sat' },
+      { value: 'sunday', label: 'Sun' },
+    ],
+  },
   DatePicker: {
     label: 'Pick a date',
   },

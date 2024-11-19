@@ -47,6 +47,7 @@ import {
 } from '@/components/ui/input-otp';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 type RenderFormElementProps =
   | (FormFieldElement & ControllerRenderProps)
@@ -170,6 +171,56 @@ export const RenderFormElement = (
           <FormMessage />
         </FormItem>
       );
+    case 'ToggleGroup': {
+      const options = field.options.map(({ label, value }) => (
+        <ToggleGroupItem
+          value={value}
+          key={value}
+          className="flex items-center gap-x-2"
+        >
+          {label}
+        </ToggleGroupItem>
+      ));
+      return (
+        <FormItem className="flex flex-col gap-2 w-full py-1">
+          <FormLabel className="mt-0">
+            {field?.label} {field.required && '*'}
+          </FormLabel>
+          <FormControl>
+            {field.type === 'single' ? (
+              <ToggleGroup
+                variant="outline"
+                onValueChange={field.onChange}
+                defaultValue={field.defaultValue}
+                type='single'
+                className="flex justify-start items-center gap-2"
+              >
+                {options}
+              </ToggleGroup>
+            ) : (
+              <ToggleGroup
+                {...field}
+                variant="outline"
+                onValueChange={field.onChange}
+                defaultValue={
+                  Array.isArray(field.defaultValue)
+                    ? field.defaultValue.filter((val) => val !== undefined)
+                    : [field.defaultValue].filter((val) => val !== undefined)
+                }
+                type='multiple'
+                className="flex justify-start items-center gap-2"
+              >
+                {options}
+              </ToggleGroup>
+            )}
+          </FormControl>
+          {field.description && (
+            <FormDescription>{field.description}</FormDescription>
+          )}
+          <FormMessage />
+        </FormItem>
+      );
+    }
     case 'Switch':
       return (
         <FormItem className="flex flex-col p-3 justify-center w-full border rounded">

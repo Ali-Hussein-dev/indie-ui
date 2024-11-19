@@ -1,6 +1,6 @@
 'use client';
 import { FaEdit } from 'react-icons/fa';
-import { FormElement } from '../form-types';
+import { FormElement, FormFieldElement } from '../form-types';
 import {
   Accordion,
   AccordionContent,
@@ -242,6 +242,35 @@ const FormElementOptions = ({
                 />
               </div>
             )}
+            {formElement.fieldType === 'ToggleGroup' && (
+              <FormField
+                key={formElement.name}
+                control={form.control}
+                name="type"
+                render={({
+                  field,
+                }: {
+                  field: ControllerRenderProps<FormElement, 'type'>;
+                }) => {
+                  return RenderFormElement(
+                    {
+                      label: 'Select type for ToggleGroup',
+                      fieldType: 'ToggleGroup',
+                      defaultValue: field.value,
+                      required: true,
+                      type: 'single',
+                      options: [
+                        { value: 'single', label: 'Single' },
+                        { value: 'multiple', label: 'Multiple' },
+                      ],
+                      ...field,
+                    },
+                    // as FormFieldElement & ControllerRenderProps,
+                    form,
+                  );
+                }}
+              />
+            )}
             <FormField
               control={form.control}
               name="description"
@@ -254,7 +283,7 @@ const FormElementOptions = ({
                   {
                     label: 'Description',
                     fieldType: 'Input',
-                    defaultValue: 'text',
+                    placeholder: 'describe the field',
                     required: false,
                     ...field,
                   },

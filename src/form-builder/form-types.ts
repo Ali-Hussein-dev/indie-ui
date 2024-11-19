@@ -4,6 +4,7 @@ import { SwitchProps } from "@radix-ui/react-switch"
 import { SeparatorProps } from "@radix-ui/react-separator"
 import { OTPInputProps } from "input-otp"
 import { RadioGroupProps } from "@radix-ui/react-radio-group"
+import { ToggleGroupMultipleProps, ToggleGroupSingleProps } from "@radix-ui/react-toggle-group"
 
 type Option = { value: string; label: string }
 //------------------------------------------------------------
@@ -50,6 +51,23 @@ type RadioGroup = {
     options: Option[]
 } & RadioGroupProps &
     SharedFormProps
+//------------------------------
+type ToggleGroupBaseProps = {
+    fieldType: "ToggleGroup";
+    options: Option[];
+};
+
+type ToggleGroupSingle = ToggleGroupBaseProps & ToggleGroupSingleProps & {
+    type: "single";
+};
+
+type ToggleGroupMultiple = ToggleGroupBaseProps & ToggleGroupMultipleProps & {
+    type: "multiple";
+};
+
+type ToggleGroup = (ToggleGroupSingle | ToggleGroupMultiple) & SharedFormProps;
+//------------------------------
+
 
 type Switch = {
     fieldType: "Switch"
@@ -142,6 +160,7 @@ export type FormFieldElement =
     | OTPInput
     | Checkbox
     | RadioGroup
+    | ToggleGroup
     | Switch
     | Select
     | MultiSelect
