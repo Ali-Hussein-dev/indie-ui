@@ -33,7 +33,7 @@ export const generateFormCode = (formElements: FormElement[]): string => {
   const defaultValues = '{}';
 
   const component = `
-export function DraftForm() {
+  export function DraftForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: ${defaultValues},
@@ -55,7 +55,7 @@ export function DraftForm() {
           </div>
         </form>
       </Form>
-    <div>
+    </div>
   )
 }
 `;
