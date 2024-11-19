@@ -7,46 +7,46 @@ export const formElementsList = [
   // static elements
   {
     name: 'Heading 1',
-    variant: 'H1',
+    fieldType: 'H1',
     content: 'Heading 1',
   },
   {
     name: 'Heading 2',
-    variant: 'H2',
+    fieldType: 'H2',
     content: 'Heading 2',
   },
   {
     name: 'Heading 3',
-    variant: 'H3',
+    fieldType: 'H3',
     content: 'Heading 3',
   },
   {
     name: 'Input',
-    variant: 'Input',
+    fieldType: 'Input',
     // description: 'A single line text input field',
   },
   {
     name: 'Input OTP',
-    variant: 'OTP',
+    fieldType: 'OTP',
   },
   {
     name: 'Password',
-    variant: 'Password',
+    fieldType: 'Password',
     type: 'password',
   },
   {
     name: 'Textarea',
-    variant: 'Textarea',
+    fieldType: 'Textarea',
     // description: 'A multi-line text input field',
   },
   {
     name: 'Checkbox',
-    variant: 'Checkbox',
+    fieldType: 'Checkbox',
     // description: '',
   },
   {
     name: 'RadioGroup',
-    variant: 'RadioGroup',
+    fieldType: 'RadioGroup',
     options: [
       { value: '1', label: 'Option 1' },
       { value: '2', label: 'Option 2' },
@@ -55,16 +55,16 @@ export const formElementsList = [
   },
   {
     name: 'Switch',
-    variant: 'Switch',
+    fieldType: 'Switch',
     // description: '',
   },
   {
     name: 'Separator',
-    variant: 'Separator',
+    fieldType: 'Separator',
   },
   {
     name: 'Select',
-    variant: 'Select',
+    fieldType: 'Select',
     options: [
       { value: '1', label: 'Option 1' },
       { value: '2', label: 'Option 2' },
@@ -72,7 +72,7 @@ export const formElementsList = [
   },
   {
     name: 'Multi select',
-    variant: 'MultiSelect',
+    fieldType: 'MultiSelect',
     options: [
       { value: '1', label: 'Option 1' },
       { value: '2', label: 'Option 2' },
@@ -84,12 +84,12 @@ export const formElementsList = [
   },
   {
     name: 'Slider',
-    variant: 'Slider',
+    fieldType: 'Slider',
     // description: '',
   },
   {
     name: 'Date Picker',
-    variant: 'DatePicker',
+    fieldType: 'DatePicker',
     // description: '',
   },
 ].sort((a, b) => a.name.localeCompare(b.name));
@@ -116,7 +116,7 @@ export function FormElementSelector({
             size="sm"
             variant="secondary"
             onClick={() => {
-              appendElement(o.variant);
+              appendElement(o.fieldType);
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full"
           >

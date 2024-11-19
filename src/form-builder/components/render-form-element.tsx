@@ -56,7 +56,7 @@ export const RenderFormElement = (
   field: RenderFormElementProps,
   form: any,
 ): React.ReactElement => {
-  switch (field.variant) {
+  switch (field.fieldType) {
     case 'Input':
       return (
         <FormItem className="w-full">

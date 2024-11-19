@@ -1,7 +1,7 @@
 import { FormElement } from '../form-types';
 
 export const getFormElementCode = (field: FormElement) => {
-  switch (field.variant) {
+  switch (field.fieldType) {
     case 'Input':
       return `
         <FormField

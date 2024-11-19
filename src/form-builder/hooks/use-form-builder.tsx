@@ -11,7 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 type UseFormbuilderProps = FieldsElementsList;
 
 export const initialAttibutes: Record<
-  FormElement['variant'],
+  FormElement['fieldType'],
   Partial<FormElement>
 > = {
   Input: {
@@ -135,8 +135,8 @@ export const useFormBuilder = ({
       ...prev,
       {
         name: generatedName,
-        variant: elementVariant as FormElement['variant'],
-        ...initialAttibutes[elementVariant as FormElement['variant']],
+        fieldType: elementVariant as FormElement['fieldType'],
+        ...initialAttibutes[elementVariant as FormElement['fieldType']],
       } as FormFieldElement,
     ]);
   };

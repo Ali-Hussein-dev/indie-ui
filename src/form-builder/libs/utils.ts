@@ -1,7 +1,7 @@
 import { js_beautify } from 'js-beautify';
 
-export const isStatic = (variant: string) => {
-    return ['Separator', 'H1', 'H2', 'H3'].includes(variant)
+export const isStatic = (fieldType: string) => {
+    return ['Separator', 'H1', 'H2', 'H3'].includes(fieldType)
 }
 
 

@@ -11,13 +11,13 @@ import * as React from 'react';
 const initialFormElements: FormElement[] = [
   {
     name: 'heading',
-    variant: 'H2',
+    fieldType: 'H2',
     static: true,
     content: 'Form Title',
   },
   {
     name: 'name',
-    variant: 'Input',
+    fieldType: 'Input',
     type: 'text',
     label: 'Name',
     required: true,
@@ -25,7 +25,7 @@ const initialFormElements: FormElement[] = [
   },
   {
     name: 'email',
-    variant: 'Input',
+    fieldType: 'Input',
     type: 'email',
     label: 'Email',
     required: true,

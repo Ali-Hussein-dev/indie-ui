@@ -44,7 +44,7 @@ const FormElementOptions = ({
     editFormElement(index, getValues());
     // close();
   };
-  const hasOptions = ['Select', 'MultiSelect'].includes(formElement.variant);
+  // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
   /**
    * TODO:
    *  1- Add options to form element
@@ -55,7 +55,7 @@ const FormElementOptions = ({
       <form onSubmit={handleSubmit(onSubmit)} className="pt-1 px-5">
         {/* {JSON.stringify(watch(), null, 2)} {index} */}
         {/* {JSON.stringify(formElement, null, 2)} */}
-        {isStatic(formElement.variant) ? (
+        {isStatic(formElement.fieldType) ? (
           <div className="mb-4">
             <FormField
               // key={formElement.name}
@@ -68,8 +68,8 @@ const FormElementOptions = ({
               }) =>
                 RenderFormElement(
                   {
-                    label: `Customize ${formElement.variant}`,
-                    variant: 'Input',
+                    label: `Customize ${formElement.fieldType}`,
+                    fieldType: 'Input',
                     defaultValue: formElement.content,
                     required: true,
                     ...field,
@@ -94,7 +94,7 @@ const FormElementOptions = ({
                   RenderFormElement(
                     {
                       label: 'Name',
-                      variant: 'Input',
+                      fieldType: 'Input',
                       defaultValue: 'text',
                       required: true,
                       ...field,
@@ -116,7 +116,7 @@ const FormElementOptions = ({
                     {
                       // ...formElement,
                       label: 'Placeholder',
-                      variant: 'Input',
+                      fieldType: 'Input',
                       defaultValue: 'text',
                       required: false,
                       ...field,
@@ -139,7 +139,7 @@ const FormElementOptions = ({
                   RenderFormElement(
                     {
                       label: 'Label',
-                      variant: 'Input',
+                      fieldType: 'Input',
                       defaultValue: 'text',
                       required: false,
                       ...field,
@@ -148,7 +148,7 @@ const FormElementOptions = ({
                   )
                 }
               />
-              {formElement.variant === 'Input' && (
+              {formElement.fieldType === 'Input' && (
                 <FormField
                   key={formElement.name}
                   control={form.control}
@@ -161,7 +161,7 @@ const FormElementOptions = ({
                     RenderFormElement(
                       {
                         label: 'Type',
-                        variant: 'Select',
+                        fieldType: 'Select',
                         defaultValue: 'text',
                         placeholder: 'input type',
                         options: inputTypes,
@@ -173,7 +173,7 @@ const FormElementOptions = ({
                 />
               )}
             </div>
-            {formElement.variant === 'Slider' && (
+            {formElement.fieldType === 'Slider' && (
               <div className="flex-row-between gap-3">
                 <FormField
                   key={formElement.name}
@@ -187,7 +187,7 @@ const FormElementOptions = ({
                     RenderFormElement(
                       {
                         label: 'Min',
-                        variant: 'Input',
+                        fieldType: 'Input',
                         defaultValue: '0',
                         type: 'number',
                         required: false,
@@ -209,7 +209,7 @@ const FormElementOptions = ({
                     RenderFormElement(
                       {
                         label: 'Max',
-                        variant: 'Input',
+                        fieldType: 'Input',
                         defaultValue: 0,
                         type: 'number',
                         required: false,
@@ -231,7 +231,7 @@ const FormElementOptions = ({
                     RenderFormElement(
                       {
                         label: 'Step',
-                        variant: 'Input',
+                        fieldType: 'Input',
                         defaultValue: 5,
                         type: 'number',
                         required: false,
@@ -254,7 +254,7 @@ const FormElementOptions = ({
                 RenderFormElement(
                   {
                     label: 'Description',
-                    variant: 'Input',
+                    fieldType: 'Input',
                     defaultValue: 'text',
                     required: false,
                     ...field,
@@ -276,7 +276,7 @@ const FormElementOptions = ({
                   RenderFormElement(
                     {
                       label: 'Required',
-                      variant: 'Checkbox',
+                      fieldType: 'Checkbox',
                       required: false,
                       ...field,
                     },
@@ -297,7 +297,7 @@ const FormElementOptions = ({
                   RenderFormElement(
                     {
                       label: 'Disabled',
-                      variant: 'Checkbox',
+                      fieldType: 'Checkbox',
                       required: false,
                       ...field,
                     },
@@ -382,7 +382,7 @@ export function FormEdit({
                   {element.name}
                 </div>
                 <div className="flex-row-end gap-1">
-                  {element.variant !== 'Separator' && (
+                  {element.fieldType !== 'Separator' && (
                     <Button
                       size="icon"
                       className="rounded-full center"

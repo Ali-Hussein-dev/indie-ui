@@ -12,7 +12,7 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
     ]);
 
     const processField = (field: FormElement) => {
-        switch (field.variant) {
+        switch (field.fieldType) {
             case 'DatePicker':
                 importSet.add('import { format } from "date-fns"');
                 importSet.add(
@@ -54,7 +54,7 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
                 break;
             default:
                 importSet.add(
-                    `import { ${field.variant} } from "@/components/ui/${field.variant.toLowerCase()}"`,
+                    `import { ${field.fieldType} } from "@/components/ui/${field.fieldType.toLowerCase()}"`,
                 );
                 break;
         }

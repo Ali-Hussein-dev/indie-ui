@@ -16,53 +16,52 @@ type SharedFormProps = {
 
 type Input = {
     name: string
-    variant: "Input"
+    fieldType: "Input"
 } & React.InputHTMLAttributes<HTMLInputElement> &
     SharedFormProps
 
 type PasswordInput = {
     name: string
-    variant: "Password"
+    fieldType: "Password"
     type: "password"
 } & React.InputHTMLAttributes<HTMLInputElement> &
     SharedFormProps
 
 type OTPInput = {
     name: string
-    variant: "OTP"
+    fieldType: "OTP"
 } & OTPInputProps &
     SharedFormProps
 
 type Textarea = {
     name: string
-    variant: "Textarea"
+    fieldType: "Textarea"
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement> &
     SharedFormProps
 
 type Checkbox = {
-    variant: "Checkbox"
+    fieldType: "Checkbox"
 } & CheckboxProps &
     SharedFormProps
 
 type RadioGroup = {
-    variant: "RadioGroup"
+    fieldType: "RadioGroup"
     options: { value: string; label: string }[]
 } & RadioGroupProps &
     SharedFormProps
 
 type Switch = {
-    variant: "Switch"
+    fieldType: "Switch"
 } & SwitchProps &
     SharedFormProps
 
 type Slider = {
-    variant: "Slider"
-
+    fieldType: "Slider"
 } & SliderProps &
     SharedFormProps
 
 type Select = {
-    variant: "Select"
+    fieldType: "Select"
     /**
      * Options for the select field
      */
@@ -72,7 +71,7 @@ type Select = {
     SharedFormProps
 
 type MultiSelect = {
-    variant: "MultiSelect"
+    fieldType: "MultiSelect"
     /**
      * Options for the multiselect field
      */
@@ -81,12 +80,12 @@ type MultiSelect = {
 } & React.InputHTMLAttributes<HTMLInputElement> &
     SharedFormProps
 type DatePicker = {
-    variant: "DatePicker"
+    fieldType: "DatePicker"
 } & React.InputHTMLAttributes<HTMLInputElement> &
     SharedFormProps
 
 type H1 = {
-    variant: "H1"
+    fieldType: "H1"
     /**
      * the name is used as a key to identify the field
      */
@@ -95,7 +94,7 @@ type H1 = {
     static: true
 } & React.HTMLAttributes<HTMLHeadingElement>
 type H2 = {
-    variant: "H2"
+    fieldType: "H2"
     /**
      * the name is used as a key to identify the field
      */
@@ -104,7 +103,7 @@ type H2 = {
     content: string
 } & React.HTMLAttributes<HTMLHeadingElement>
 type H3 = {
-    variant: "H3"
+    fieldType: "H3"
     /**
      * the name is used as a key to identify the field
      */
@@ -113,7 +112,7 @@ type H3 = {
     content: string
 } & React.HTMLAttributes<HTMLHeadingElement>
 type Paragraph = {
-    variant: "P"
+    fieldType: "P"
     /**
      * the name is used as a key to identify the field
      */
@@ -123,7 +122,7 @@ type Paragraph = {
 } & React.HTMLAttributes<HTMLParagraphElement>
 
 type Divider = {
-    variant: "Separator"
+    fieldType: "Separator"
     /**
      * the name is used as a key to identify the field
      */

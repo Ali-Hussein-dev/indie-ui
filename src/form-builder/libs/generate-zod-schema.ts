@@ -9,11 +9,11 @@ export const generateZodSchema = (
 
     const addType = (element: FormElement): void => {
 
-        if (isStatic(element.variant)) return
+        if (isStatic(element.fieldType)) return
 
         let elementSchema: z.ZodTypeAny
 
-        switch (element.variant) {
+        switch (element.fieldType) {
             case 'Input':
                 if (element.type === 'email') {
                     elementSchema = z.string().email()
@@ -50,7 +50,7 @@ export const generateZodSchema = (
             default:
                 elementSchema = z.string()
         }
-        if (element.variant === "Slider") {
+        if (element.fieldType === "Slider") {
             if (element.min !== undefined) {
                 elementSchema = (elementSchema as any).min(
                     element.min,
