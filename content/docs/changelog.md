@@ -3,6 +3,10 @@ title: Changelog
 description: Latest updates and announcements
 ---
 
+## November 2024 - Introducing Form Builder
+
+- Added [Form Builder](/form-builder) to create forms with shadcn components, Zod and TypeScript.
+
 ## September 2024 - Added new components
 
 - Added [stateful buttons](/docs/stateful-buttons)
