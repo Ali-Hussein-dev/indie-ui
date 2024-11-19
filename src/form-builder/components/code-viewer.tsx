@@ -4,6 +4,7 @@ import { CodeBlock } from 'fumadocs-ui/components/codeblock';
 import { FormElement } from '../form-types';
 import { generateFormCode } from '../libs/generate-form-code';
 import { codeHighlighter } from '../libs/code-highlighter';
+import { formatCode } from '@/lib/utils';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
@@ -41,7 +42,8 @@ export const JsonViewer = ({ json }: { json: Record<string, any> | any[] }) => {
 //======================================
 export function JsxViewer({ formElements }: { formElements: FormElement[] }) {
   const generatedCode = generateFormCode(formElements);
-  const highlightedCode = useShiki({ code: generatedCode });
+  const formattedCode = formatCode(generatedCode);
+  const highlightedCode = useShiki({ code: formattedCode });
   return highlightedCode ? (
     <Wrapper>{highlightedCode}</Wrapper>
   ) : (
