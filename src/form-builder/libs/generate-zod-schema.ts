@@ -148,7 +148,7 @@ export const getZodSchemaString = (formElements: FormElement[]): string => {
     const schema = generateZodSchema(formElements)
     const schemaEntries = Object.entries(schema.shape)
         .map(([key, value]) => {
-            return `${key}: ${zodSchemaToString(value as ZodTypeAny)}`
+            return `"${key}": ${zodSchemaToString(value as ZodTypeAny)}`
         })
         .join(',\n')
 

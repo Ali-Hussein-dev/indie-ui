@@ -44,7 +44,7 @@ const tabsList = [
     name: 'JSON',
   },
   {
-    name: 'Submitted Data',
+    name: 'Submission',
   },
 ];
 //======================================
