@@ -4,7 +4,7 @@ import { CodeBlock } from 'fumadocs-ui/components/codeblock';
 import { FormElement } from '../form-types';
 import { generateFormCode } from '../libs/generate-form-code';
 import { codeHighlighter } from '../libs/code-highlighter';
-import { formatCode } from '@/lib/utils';
+import { formatCode } from '../libs/utils';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
