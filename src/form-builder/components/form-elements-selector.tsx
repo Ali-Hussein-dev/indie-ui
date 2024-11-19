@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MdAdd } from 'react-icons/md';
 import { FormElementsSelectorCommand } from './form-elements-selector-command';
+import { Badge } from '@/components/ui/badge';
 
 export const formElementsList = [
   // static elements
@@ -42,21 +43,20 @@ export const formElementsList = [
   {
     name: 'Checkbox',
     fieldType: 'Checkbox',
-    // description: '',
   },
   {
-    name: 'RadioGroup',
+    name: 'Radio',
     fieldType: 'RadioGroup',
     options: [
       { value: '1', label: 'Option 1' },
       { value: '2', label: 'Option 2' },
       { value: '2', label: 'Option 3' },
     ],
+    isNew: true,
   },
   {
     name: 'Switch',
     fieldType: 'Switch',
-    // description: '',
   },
   {
     name: 'Separator',
@@ -80,17 +80,19 @@ export const formElementsList = [
       { value: '4', label: 'Option 4' },
       { value: '5', label: 'Option 5' },
     ],
-    // description: '',
   },
   {
     name: 'Slider',
     fieldType: 'Slider',
-    // description: '',
+  },
+  {
+    name: 'Toggle',
+    fieldType: 'ToggleGroup',
+    isNew: true,
   },
   {
     name: 'Date Picker',
     fieldType: 'DatePicker',
-    // description: '',
   },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -118,10 +120,15 @@ export function FormElementSelector({
             onClick={() => {
               appendElement(o.fieldType);
             }}
-            className="gap-1 justify-start rounded-lg w-fit md:w-full"
+            className="gap-1 justify-start rounded-lg w-fit md:w-full relative text-sm px-2"
           >
-            <MdAdd />
-            {o.name}
+            <div className="flex-row-start gap-1">
+              <MdAdd />
+              {o.name}
+              {o.isNew && (
+                <Badge className="px-px text-sm py-0 rounded-[2px]">N</Badge>
+              )}
+            </div>
           </Button>
         ))}
       </div>

@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/command';
 import * as React from 'react';
 import { formElementsList } from './form-elements-selector';
+import { Badge } from '@/components/ui/badge';
 
 export function FormElementsSelectorCommand({
   appendElement,
@@ -61,8 +62,12 @@ export function FormElementsSelectorCommand({
                 onSelect={() => {
                   appendElement(o.fieldType);
                 }}
+                className="gap-3"
               >
                 {o.name}
+                {o.isNew && (
+                  <Badge className="text-sm py-0 rounded-[2px]">New</Badge>
+                )}
               </CommandItem>
             ))}
           </CommandGroup>
