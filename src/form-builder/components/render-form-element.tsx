@@ -54,49 +54,58 @@ type RenderFormElementProps =
   | StaticFormElement;
 
 export const RenderFormElement = (
-  field: RenderFormElementProps,
+  formElement: RenderFormElementProps,
   form: any,
 ): React.ReactElement => {
-  switch (field.fieldType) {
+  switch (formElement.fieldType) {
     case 'Input':
       return (
         <FormItem className="w-full">
-          <FormLabel>{field.label}</FormLabel> {field.required && '*'}
+          <FormLabel>{formElement.label}</FormLabel>{' '}
+          {formElement.required && '*'}
           <FormControl>
             <Input
-              {...field}
+              name={formElement.name}
+              placeholder={formElement.placeholder}
+              type={formElement.type ?? 'text'}
               onChange={(e) => {
                 const val = e.target.value;
-                field.onChange(field.type == 'number' ? +val : val);
+                formElement.onChange(formElement.type == 'number' ? +val : val);
               }}
             />
           </FormControl>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
     case 'Password':
       return (
         <FormItem className="w-full">
-          <FormLabel>{field.label}</FormLabel> {field.required && '*'}
+          <FormLabel>{formElement.label}</FormLabel>{' '}
+          {formElement.required && '*'}
           <FormControl>
-            <Input {...field} type="password" />
+            <Input
+              name={formElement.name}
+              placeholder={formElement.placeholder}
+              type="password"
+            />
           </FormControl>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
     case 'OTP':
       return (
         <FormItem className="w-full">
-          <FormLabel>{field.label}</FormLabel> {field.required && '*'}
+          <FormLabel>{formElement.label}</FormLabel>{' '}
+          {formElement.required && '*'}
           <FormControl>
             <InputOTP
               // {...field}
-              maxLength={field.maxLength ?? 6}
-              name={field.name}
-              value={field.value}
-              onChange={field.onChange}
+              maxLength={formElement.maxLength ?? 6}
+              name={formElement.name}
+              value={formElement.value}
+              onChange={formElement.onChange}
             >
               <InputOTPGroup>
                 <InputOTPSlot index={0} />
@@ -111,7 +120,7 @@ export const RenderFormElement = (
               </InputOTPGroup>
             </InputOTP>
           </FormControl>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
@@ -119,12 +128,12 @@ export const RenderFormElement = (
       return (
         <FormItem className="w-full">
           <FormLabel>
-            {field.label} {field.required && '*'}
+            {formElement.label} {formElement.required && '*'}
           </FormLabel>
           <FormControl>
-            <Textarea {...field} className="resize-none" />
+            <Textarea {...formElement} className="resize-none" />
           </FormControl>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
@@ -133,15 +142,17 @@ export const RenderFormElement = (
         <FormItem className="flex items-center gap-2 w-full py-1">
           <FormControl>
             <Checkbox
-              {...field}
-              checked={field.value}
-              onCheckedChange={field.onChange}
+              {...formElement}
+              checked={formElement.value}
+              onCheckedChange={formElement.onChange}
             />
           </FormControl>
-          <FormLabel className="leading-none mt-0">{field.label}</FormLabel>
-          {field.required && '*'}
-          {field.description && (
-            <FormDescription>{field.description}</FormDescription>
+          <FormLabel className="leading-none mt-0">
+            {formElement.label}
+          </FormLabel>
+          {formElement.required && '*'}
+          {formElement.description && (
+            <FormDescription>{formElement.description}</FormDescription>
           )}
           <FormMessage />
         </FormItem>
@@ -150,14 +161,14 @@ export const RenderFormElement = (
       return (
         <FormItem className="flex flex-col gap-2 w-full py-1">
           <FormLabel className="mt-0">
-            {field?.label} {field.required && '*'}
+            {formElement?.label} {formElement.required && '*'}
           </FormLabel>
           <FormControl>
             <RadioGroup
-              onValueChange={field.onChange}
-              defaultValue={field.defaultValue}
+              onValueChange={formElement.onChange}
+              defaultValue={formElement.defaultValue}
             >
-              {field.options.map(({ label, value }) => (
+              {formElement.options.map(({ label, value }) => (
                 <div key={value} className="flex items-center gap-x-2">
                   <RadioGroupItem value={value} id={value} />
                   <Label htmlFor={value}>{label}</Label>
@@ -165,14 +176,14 @@ export const RenderFormElement = (
               ))}
             </RadioGroup>
           </FormControl>
-          {field.description && (
-            <FormDescription>{field.description}</FormDescription>
+          {formElement.description && (
+            <FormDescription>{formElement.description}</FormDescription>
           )}
           <FormMessage />
         </FormItem>
       );
     case 'ToggleGroup': {
-      const options = field.options.map(({ label, value }) => (
+      const options = formElement.options.map(({ label, value }) => (
         <ToggleGroupItem
           value={value}
           key={value}
@@ -184,38 +195,42 @@ export const RenderFormElement = (
       return (
         <FormItem className="flex flex-col gap-2 w-full py-1">
           <FormLabel className="mt-0">
-            {field?.label} {field.required && '*'}
+            {formElement?.label} {formElement.required && '*'}
           </FormLabel>
           <FormControl>
-            {field.type === 'single' ? (
+            {formElement.type === 'single' ? (
               <ToggleGroup
                 variant="outline"
-                onValueChange={field.onChange}
-                defaultValue={field.defaultValue}
-                type='single'
+                onValueChange={formElement.onChange}
+                defaultValue={formElement.defaultValue}
+                type="single"
                 className="flex justify-start items-center gap-2"
               >
                 {options}
               </ToggleGroup>
             ) : (
               <ToggleGroup
-                {...field}
+                {...formElement}
                 variant="outline"
-                onValueChange={field.onChange}
+                onValueChange={formElement.onChange}
                 defaultValue={
-                  Array.isArray(field.defaultValue)
-                    ? field.defaultValue.filter((val) => val !== undefined)
-                    : [field.defaultValue].filter((val) => val !== undefined)
+                  Array.isArray(formElement.defaultValue)
+                    ? formElement.defaultValue.filter(
+                        (val) => val !== undefined,
+                      )
+                    : [formElement.defaultValue].filter(
+                        (val) => val !== undefined,
+                      )
                 }
-                type='multiple'
+                type="multiple"
                 className="flex justify-start items-center gap-2"
               >
                 {options}
               </ToggleGroup>
             )}
           </FormControl>
-          {field.description && (
-            <FormDescription>{field.description}</FormDescription>
+          {formElement.description && (
+            <FormDescription>{formElement.description}</FormDescription>
           )}
           <FormMessage />
         </FormItem>
@@ -225,32 +240,32 @@ export const RenderFormElement = (
       return (
         <FormItem className="flex flex-col p-3 justify-center w-full border rounded">
           <div className="flex items-center justify-between h-full">
-            <FormLabel className="w-full grow">{field.label}</FormLabel>
+            <FormLabel className="w-full grow">{formElement.label}</FormLabel>
             <FormControl>
               <Switch
-                {...field}
-                checked={field.value}
-                onCheckedChange={field.onChange}
+                {...formElement}
+                checked={formElement.value}
+                onCheckedChange={formElement.onChange}
               />
             </FormControl>
           </div>
-          {field.description && (
-            <FormDescription>{field.description}</FormDescription>
+          {formElement.description && (
+            <FormDescription>{formElement.description}</FormDescription>
           )}
         </FormItem>
       );
     case 'Slider':
-      const min = field.min || 0;
-      const max = field.max || 100;
-      const step = field.step || 5;
+      const min = formElement.min || 0;
+      const max = formElement.max || 100;
+      const step = formElement.step || 5;
       const defaultValue = 25;
-      const value = Array.isArray(field.value)
-        ? field.value
-        : [field.value || defaultValue];
+      const value = Array.isArray(formElement.value)
+        ? formElement.value
+        : [formElement.value || defaultValue];
       return (
         <FormItem className="w-full">
           <FormLabel className="flex justify-between items-center">
-            {field.label}
+            {formElement.label}
             <span>
               {value}/{max}
             </span>
@@ -263,12 +278,12 @@ export const RenderFormElement = (
               step={step}
               defaultValue={[defaultValue]}
               value={value}
-              onValueChange={(newValue) => field.onChange(newValue[0])}
+              onValueChange={(newValue) => formElement.onChange(newValue[0])}
               // Update to set the first value as a number
             />
           </FormControl>
           <FormDescription className="py-1">
-            {field.description}
+            {formElement.description}
           </FormDescription>
           <FormMessage />
         </FormItem>
@@ -276,44 +291,50 @@ export const RenderFormElement = (
     case 'Select':
       return (
         <FormItem className="w-full">
-          <FormLabel>{field.label}</FormLabel> {field.required && '*'}
+          <FormLabel>{formElement.label}</FormLabel>{' '}
+          {formElement.required && '*'}
           <Select
-            value={field.value}
-            onValueChange={field.onChange}
-            defaultValue={String(field?.defaultValue ?? '')}
+            value={formElement.value}
+            onValueChange={formElement.onChange}
+            defaultValue={String(formElement?.defaultValue ?? '')}
           >
             <FormControl>
               <SelectTrigger>
-                <SelectValue placeholder={field.placeholder || 'Select item'} />
+                <SelectValue
+                  placeholder={formElement.placeholder || 'Select item'}
+                />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
-              {field.options.map(({ label, value }) => (
+              {formElement.options.map(({ label, value }) => (
                 <SelectItem key={label} value={value}>
                   {label}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
     case 'MultiSelect':
       return (
         <FormItem className="w-full">
-          <FormLabel>{field.label}</FormLabel>
-          <MultiSelect value={field.value} onValueChange={field.onChange}>
+          <FormLabel>{formElement.label}</FormLabel>
+          <MultiSelect
+            value={formElement.value}
+            onValueChange={formElement.onChange}
+          >
             <FormControl>
               <MultiSelectTrigger>
                 <MultiSelectValue
-                  placeholder={field.placeholder || 'Select item'}
+                  placeholder={formElement.placeholder || 'Select item'}
                 />
               </MultiSelectTrigger>
             </FormControl>
             <MultiSelectContent>
               <MultiSelectList>
-                {field.options.map(({ label, value }) => (
+                {formElement.options.map(({ label, value }) => (
                   <MultiSelectItem key={label} value={value}>
                     {label}
                   </MultiSelectItem>
@@ -321,16 +342,17 @@ export const RenderFormElement = (
               </MultiSelectList>
             </MultiSelectContent>
           </MultiSelect>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
     case 'DatePicker':
-      const date = field.value;
+      const date = formElement.value;
       return (
         <FormItem className="flex flex-col w-full">
           <div>
-            <FormLabel>{field.label}</FormLabel> {field.required && '*'}
+            <FormLabel>{formElement.label}</FormLabel>{' '}
+            {formElement.required && '*'}
           </div>
           <Popover>
             <PopoverTrigger asChild>
@@ -351,10 +373,10 @@ export const RenderFormElement = (
               <Calendar
                 mode="single"
                 // selected={date}
-                selected={field.value}
+                selected={formElement.value}
                 onSelect={(newDate) => {
                   // setDate(newDate);
-                  form.setValue(field.name, newDate, {
+                  form.setValue(formElement.name, newDate, {
                     shouldValidate: true,
                     shouldDirty: true,
                   });
@@ -363,43 +385,46 @@ export const RenderFormElement = (
               />
             </PopoverContent>
           </Popover>
-          <FormDescription>{field.description}</FormDescription>
+          <FormDescription>{formElement.description}</FormDescription>
           <FormMessage />
         </FormItem>
       );
     case 'H1':
       return (
         <h1
-          key={field.content}
-          className={cn('mt-6 font-bold text-3xl', field.className)}
+          key={formElement.content}
+          className={cn('mt-6 font-bold text-3xl', formElement.className)}
         >
-          {field.content}
+          {formElement.content}
         </h1>
       );
     case 'H2':
       return (
         <h2
-          key={field.content}
-          className={cn('mt-4 font-bold text-xl', field.className)}
+          key={formElement.content}
+          className={cn('mt-4 font-bold text-xl', formElement.className)}
         >
-          {field.content}
+          {formElement.content}
         </h2>
       );
     case 'H3':
       return (
         <h3
-          key={field.content}
-          className={cn('mt-3 font-semiboldbold text-lg', field.className)}
+          key={formElement.content}
+          className={cn(
+            'mt-3 font-semiboldbold text-lg',
+            formElement.className,
+          )}
         >
-          {field.content} content
+          {formElement.content} content
         </h3>
       );
     case 'P':
-      return <p key={field.content}>{field.content}</p>;
+      return <p key={formElement.content}>{formElement.content}</p>;
     case 'Separator':
       return (
         <div className="py-3 w-full">
-          <Separator {...field} />
+          <Separator {...formElement} />
         </div>
       );
     default:
