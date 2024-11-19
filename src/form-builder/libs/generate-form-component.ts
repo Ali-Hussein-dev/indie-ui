@@ -3,28 +3,29 @@ import { FormElement } from '../form-types';
 export const getFormElementCode = (field: FormElement) => {
   switch (field.fieldType) {
     case 'Input':
-      return `
-        <FormField
-          control={form.control}
-          name="${field.name}"
-          render={({ field }) => (
-              <FormItem className="w-full">
-                <FormLabel>{field.label}</FormLabel> {field.required && '*'}
-                <FormControl>
-                  <Input
-                    {...field}
-                    onChange={(e) => {
-                      const val = e.target.value;
-                      field.onChange(field.type == 'number' ? +val : val);
-                    }}
-                  />
-                </FormControl>
-                <FormDescription>{field.description}</FormDescription>
-                <FormMessage />
-            </FormItem>
-            )
-          }
-        />`;
+      return `<FormField
+                control={form.control}
+                name="${field.name}"
+                render={({ field }) => (
+                    <FormItem className="w-full">
+                      ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
+                      <FormControl>
+                        <Input
+                          placeholder="${field.placeholder}"
+                          type={field.type}
+                          value={field.value}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            field.onChange(field.type == 'number' ? +val : val);
+                          }}
+                        />
+                      </FormControl>
+                      ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
+                      <FormMessage />
+                  </FormItem>
+                  )
+                }
+              />`;
     case 'OTP':
       return `
        <FormField
@@ -32,10 +33,10 @@ export const getFormElementCode = (field: FormElement) => {
           name="${field.name}"
           render={({ field }) => (
            <FormItem className="w-full">
-          <FormLabel>{field.label}</FormLabel> {field.required && '*'}
+          ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
           <FormControl>
             <InputOTP
-              maxLength={field.maxLength ?? 6}
+              maxLength={6}
               name={field.name}
               value={field.value}
               onChange={field.onChange}
@@ -53,7 +54,7 @@ export const getFormElementCode = (field: FormElement) => {
               </InputOTPGroup>
             </InputOTP>
           </FormControl>
-          <FormDescription>${field.description}</FormDescription>
+          ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
           <FormMessage />
         </FormItem>
           )}
@@ -65,16 +66,15 @@ export const getFormElementCode = (field: FormElement) => {
           name="${field.name}"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>${field.label}</FormLabel>
+              ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
               <FormControl>
                 <Textarea
-                  placeholder="${field.placeholder}"
-                  className="resize-none"
                   {...field}
+                  placeholder="${field.placeholder ?? ''}"
+                  className="resize-none"
                 />
               </FormControl>
-              ${field.description && `<FormDescription>${field.description}</FormDescription>`
-        }
+              ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
               <FormMessage />
             </FormItem>
           )}
@@ -86,14 +86,18 @@ export const getFormElementCode = (field: FormElement) => {
           name="${field.name}"
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>${field.label}</FormLabel> ${field.required && '*'}
+              ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
               <FormControl>
-                <Input ${{ ...field }} type="password" />
+                <Input
+                  {...field}
+                  placeholder="${field.placeholder}"
+                  type="password" 
+                />
               </FormControl>
-              <FormDescription>${field.description}</FormDescription>
+              ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
               <FormMessage />
             </FormItem>
-          )  
+          )
         }
         />
         `;
@@ -112,8 +116,7 @@ export const getFormElementCode = (field: FormElement) => {
               </FormControl>
               <div className="space-y-1 leading-none">
                 <FormLabel>${field.label}</FormLabel>
-                ${field.description &&
-        `<FormDescription>${field.description}</FormDescription>`}
+                ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
                 <FormMessage />
               </div>
             </FormItem>
@@ -155,9 +158,7 @@ export const getFormElementCode = (field: FormElement) => {
               />
             </PopoverContent>
           </Popover>
-       ${field.description &&
-        `<FormDescription>${field.description}</FormDescription>`
-        }
+            ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
           <FormMessage />
         </FormItem>
       )}
@@ -167,43 +168,52 @@ export const getFormElementCode = (field: FormElement) => {
            <FormField
               control={form.control}
               name="${field.name}"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>${field.label}</FormLabel>
-                  <FormControl>
-                    <MultiSelector
-                      values={field.value}
-                      onValuesChange={field.onChange}
-                      loop
-                      className="max-w-xs"
-                    >
-                      <MultiSelectorTrigger>
-                        <MultiSelectorInput placeholder="Select languages" />
-                      </MultiSelectorTrigger>
-                      <MultiSelectorContent>
-                      <MultiSelectorList>
-                        <MultiSelectorItem value={"React"}>React</MultiSelectorItem>
-                        <MultiSelectorItem value={"Vue"}>Vue</MultiSelectorItem>
-                        <MultiSelectorItem value={"Svelte"}>Svelte</MultiSelectorItem>
-                      </MultiSelectorList>
-                      </MultiSelectorContent>
-                    </MultiSelector>
-                  </FormControl>
-                  ${field.description &&
-        `<FormDescription>${field.description}</FormDescription>`
-        }
+              render={({ field }) => {
+              const options = [
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2' },
+                      { value: '2', label: 'Option 3' },
+                    ]
+              return (
+                <FormItem className="w-full">
+                  ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
+                  <MultiSelect value={field.value} onValueChange={field.onChange}>
+                    <FormControl>
+                      <MultiSelectTrigger>
+                        <MultiSelectValue
+                          placeholder={"${field.placeholder}"}
+                        />
+                      </MultiSelectTrigger>
+                    </FormControl>
+                    <MultiSelectContent>
+                      <MultiSelectList>
+                        {options.map(({ label, value }) => (
+                          <MultiSelectItem key={label} value={value}>
+                            {label}
+                          </MultiSelectItem>
+                        ))}
+                      </MultiSelectList>
+                    </MultiSelectContent>
+                  </MultiSelect>
+                  ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
                   <FormMessage />
                 </FormItem>
-              )}
+              )}}
             />`;
     case 'Select':
       return `
         <FormField
           control={form.control}
           name="${field.name}"
-          render={({ field }) => (
+          render={({ field }) => {
+          const options =[
+            { value: 'option-1', label: 'Option 1' },
+            { value: 'option-2', label: 'Option 2' },
+            { value: 'option-3', label: 'Option 3' },
+          ]
+          return (
             <FormItem>
-              <FormLabel>${field.label}</FormLabel>
+              ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
@@ -211,40 +221,39 @@ export const getFormElementCode = (field: FormElement) => {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                  {options.map(({ label, value }) => (
+                    <SelectItem key={value} value={value}>
+                      {label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
-                ${field.description &&
-        `<FormDescription>${field.description}</FormDescription>`
-        }
+                ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
               <FormMessage />
             </FormItem>
-          )}
+          )}}
         />`;
     case 'Slider':
       return `
             <FormField
               control={form.control}
               name="${field.name}"
-              render={({ field: { value, onChange } }) => (
+              render={({ field }) => (
               <FormItem>
-                <FormLabel>Price - {value}</FormLabel>
+                <FormLabel className="flex justify-between items-center">${field.label}<span>{field.value}/{max}</span>
+                </FormLabel>
                 <FormControl>
                   <Slider
-                    min=${field.min ? field.min : '{0}'}
-                    max=${field.max ? field.max : '{100}'}
-                    step=${field.step ? field.step : '{5}'}
+                    min={field.min}
+                    max={field.max}
+                    step={field.step}
                     defaultValue={[5]}
-                    onValueChange={(vals) => {
-                      onChange(vals[0]);
+                    onValueChange={(values) => {
+                      field.onChange(values[0]);
                     }}
                   />
                 </FormControl>
-                ${field.description &&
-        `<FormDescription>${field.description}</FormDescription>`
-        }
+                ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
                 <FormMessage />
               </FormItem>
               )}
@@ -257,18 +266,15 @@ export const getFormElementCode = (field: FormElement) => {
               render={({ field }) => (
                 <FormItem className="flex flex-col p-3 justify-center w-full border rounded">
                     <div className="flex items-center justify-between h-full">
-                      <FormLabel className="w-full grow">{field.label}</FormLabel>
+                      ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
                       <FormControl>
                         <Switch
-                          {...field}
                           checked={field.value}
                           onCheckedChange={field.onChange}
                         />
                       </FormControl>
                     </div>
-                    {field.description && (
-                      <FormDescription>{field.description}</FormDescription>
-                    )}
+                    ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
                 </FormItem>
               )}
             />`;
@@ -276,31 +282,78 @@ export const getFormElementCode = (field: FormElement) => {
       return `<FormField
               control={form.control}
               name="${field.name}"
-              render={({ field }) => (
+              render={({ field }) => {
+                const options =[
+                  { value: 'option-1', label: 'Option 1' },
+                  { value: 'option-2', label: 'Option 2' },
+                  { value: 'option-3', label: 'Option 3' },
+                ]
+              return (
                 <FormItem className="flex flex-col gap-2 w-full py-1">
-                    <FormLabel>
-                      {field?.label} {field.required && '*'}
-                    </FormLabel>
+                    ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
                     <FormControl>
                       <RadioGroup
                         onValueChange={field.onChange}
-                        defaultValue={field.defaultValue}
+                        defaultValue={field.value}
                       >
-                        {field.options.map(({ label, value }) => (
-                          <div key={value} className="flex items-center gap-x-2">
-                            <RadioGroupItem value={value} id={value} />
-                            <Label htmlFor={value}>{label}</Label>
-                          </div>
+                        {options.map(({ label, value }) => (
+                          <RadioGroupItem
+                          key={value}
+                          value={value}
+                          className="flex items-center gap-x-2"
+                        >
+                          {label}
+                        </RadioGroupItem>
                         ))}
                       </RadioGroup>
                     </FormControl>
-                    {field.description && (
-                      <FormDescription>{field.description}</FormDescription>
-                    )}
+                    ${field.description ? `<FormDescription>${field.description}</FormDescription>` : ''}
                     <FormMessage />
                 </FormItem>
-              )}
-            />`
+              )}}
+            />`;
+    case 'ToggleGroup':
+      return `<FormField
+              control={form.control}
+              name="${field.name}"
+              render={({ field }) => {
+              const options= [
+                     { value: 'monday', label: 'Mon' },
+                     { value: 'tuesday', label: 'Tue' },
+                     { value: 'wednesday', label: 'Wed' },
+                     { value: 'thursday', label: 'Thu' },
+                     { value: 'friday', label: 'Fri' },
+                     { value: 'saturday', label: 'Sat' },
+                     { value: 'sunday', label: 'Sun' },
+                  ]   
+            return (
+              <FormItem className="flex flex-col gap-2 w-full py-1">
+                ${field.label && `<FormLabel>${field.label}</FormLabel> ${field.required ? '*' : ''}`}
+                <FormControl>
+                  <ToggleGroup
+                      variant="outline"
+                      onValueChange={field.onChange}
+                      defaultValue={field.defaultValue}
+                      type='${field.type}'
+                      className="flex justify-start items-center gap-2"
+                    >
+                     {options.map(({ label, value }) => (
+                        <ToggleGroupItem
+                          key={value}
+                          value={value}
+                          className="flex items-center gap-x-2"
+                        >
+                          {label}
+                        </ToggleGroupItem>))
+                    }
+                  </ToggleGroup>
+                </FormControl>
+                ${field.description && `<FormDescription>${field.description}</FormDescription>`}
+                <FormMessage />
+              </FormItem>
+            )
+              }}
+            />`;
     case 'H1':
       return `<h1 className="text-3xl font-bold">${field.content}</h1>`;
     case 'H2':

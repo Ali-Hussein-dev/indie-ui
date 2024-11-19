@@ -8,7 +8,6 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
         'import { Button } from "@/components/ui/button"',
         'import { useForm } from "react-hook-form"',
         'import { \n Form,\n FormControl,\n FormDescription,\n FormField,\n FormItem,\n FormLabel,\n FormMessage\n } from "@/components/ui/form"',
-        'import { cn } from "@/lib/utils"',
     ]);
 
     const processField = (field: FormElement) => {
@@ -17,6 +16,9 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
                 importSet.add('import { format } from "date-fns"');
                 importSet.add(
                     'import { \n Popover,\n PopoverContent,\n PopoverTrigger\n} from "@/components/ui/popover"',
+                );
+                importSet.add(
+                    'import { cn } from "@/lib/utils"'
                 );
                 importSet.add('import { Calendar } from "@/components/ui/calendar"');
                 importSet.add(
@@ -35,12 +37,21 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
                 break;
             case 'MultiSelect':
                 importSet.add(
-                    'import { \n MultiSelector,\n MultiSelectorContent,\n MultiSelectorInput,\n MultiSelectorItem,\n MultiSelectorList,\n MultiSelectorTrigger\n} from "@/components/ui/multi-select"',
+                    `import {
+                        MultiSelect,
+                        MultiSelectContent,
+                        MultiSelectItem,
+                        MultiSelectList,
+                        MultiSelectTrigger,
+                        MultiSelectValue,} from '@/components/ui/multi-select'`
+                );
+                importSet.add(
+                    `\n // IMPORTANT: multi-select is not a shadcn component, so you need to copy it from the souce code and install dependencies. GitHub: https://github.com/Ali-Hussein-dev/indie-ui/blob/main/src/components/ui/multi-select.tsx`,
                 );
                 break;
             case 'Password':
                 importSet.add(
-                    'import { PasswordInput } from "@/components/ui/password-input"',
+                    "import { Input } from '@/components/ui/input'",
                 );
                 break;
             case 'RadioGroup':
