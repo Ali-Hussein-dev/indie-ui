@@ -5,6 +5,7 @@ import { SeparatorProps } from "@radix-ui/react-separator"
 import { OTPInputProps } from "input-otp"
 import { RadioGroupProps } from "@radix-ui/react-radio-group"
 
+type Option = { value: string; label: string }
 //------------------------------------------------------------
 type SharedFormProps = {
     name: string
@@ -46,7 +47,7 @@ type Checkbox = {
 
 type RadioGroup = {
     fieldType: "RadioGroup"
-    options: { value: string; label: string }[]
+    options: Option[]
 } & RadioGroupProps &
     SharedFormProps
 
@@ -65,7 +66,7 @@ type Select = {
     /**
      * Options for the select field
      */
-    options: { value: string; label: string }[]
+    options: Option[]
     placeholder: string
 } & React.SelectHTMLAttributes<HTMLSelectElement> &
     SharedFormProps
@@ -75,7 +76,7 @@ type MultiSelect = {
     /**
      * Options for the multiselect field
      */
-    options: { value: string; label: string }[]
+    options: Option[]
     placeholder: string
 } & React.InputHTMLAttributes<HTMLInputElement> &
     SharedFormProps
