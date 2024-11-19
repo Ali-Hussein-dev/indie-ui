@@ -57,6 +57,7 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
+    "@types/js-beautify": "^1.14.3",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20.17.6",
     "@types/react": "^18.3.12",

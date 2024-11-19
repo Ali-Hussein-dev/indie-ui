@@ -21,6 +21,7 @@ specifiers:
   '@radix-ui/react-toggle-group': ^1.1.0
   '@radix-ui/react-tooltip': ^1.1.4
   '@radix-ui/react-use-controllable-state': ^1.1.0
+  '@types/js-beautify': ^1.14.3
   '@types/mdx': ^2.0.13
   '@types/node': ^20.17.6
   '@types/react': ^18.3.12
@@ -108,6 +109,7 @@ dependencies:
   zustand: 5.0.1_ryhct6r6jz2fex4xfo2quarxhi
 
 devDependencies:
+  '@types/js-beautify': 1.14.3
   '@types/mdx': 2.0.13
   '@types/node': 20.17.6
   '@types/react': 18.3.12
@@ -2088,6 +2090,10 @@ packages:
     dependencies:
       '@types/unist': 3.0.3
     dev: false
+
+  /@types/js-beautify/1.14.3:
+    resolution: {integrity: sha512-FMbQHz+qd9DoGvgLHxeqqVPaNRffpIu5ZjozwV8hf9JAGpIOzuAf4wGbRSo8LNITHqGjmmVjaMggTT5P4v4IHg==}
+    dev: true
 
   /@types/json-schema/7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
