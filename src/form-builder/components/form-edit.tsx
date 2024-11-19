@@ -38,11 +38,10 @@ const FormElementOptions = ({
   const form = useForm<FormElement>({
     defaultValues: formElement as FormElement,
   });
-  const { handleSubmit, getValues, watch } = form;
+  const { handleSubmit, getValues } = form;
   const onSubmit = () => {
-    console.log(index, getValues());
     editFormElement(index, getValues());
-    // close();
+    close();
   };
   // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
   /**
