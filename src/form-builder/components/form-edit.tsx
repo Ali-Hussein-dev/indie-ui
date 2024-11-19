@@ -84,7 +84,6 @@ const FormElementOptions = ({
           <div className="flex-col-start w-full gap-3 mb-4">
             <div className="flex-row-between gap-2 w-full">
               <FormField
-                // key={formElement.name}
                 control={form.control}
                 name="name"
                 render={({
@@ -94,14 +93,12 @@ const FormElementOptions = ({
                 }) =>
                   RenderFormElement(
                     {
-                      // ...formElement,
                       label: 'Name',
                       variant: 'Input',
                       defaultValue: 'text',
                       required: true,
                       ...field,
                     },
-                    // as FormFieldElement & ControllerRenderProps,
                     form,
                   )
                 }
@@ -132,7 +129,6 @@ const FormElementOptions = ({
             </div>
             <div className="flex-row-between gap-2 w-full">
               <FormField
-                // key={formElement.name}
                 control={form.control}
                 name="label"
                 render={({
@@ -142,14 +138,12 @@ const FormElementOptions = ({
                 }) =>
                   RenderFormElement(
                     {
-                      // ...formElement,
                       label: 'Label',
                       variant: 'Input',
                       defaultValue: 'text',
                       required: false,
                       ...field,
                     },
-                    // as FormFieldElement & ControllerRenderProps,
                     form,
                   )
                 }
@@ -166,7 +160,6 @@ const FormElementOptions = ({
                   }) =>
                     RenderFormElement(
                       {
-                        // ...formElement,
                         label: 'Type',
                         variant: 'Select',
                         defaultValue: 'text',
@@ -174,15 +167,83 @@ const FormElementOptions = ({
                         options: inputTypes,
                         ...field,
                       },
-                      // as FormFieldElement & ControllerRenderProps,
                       form,
                     )
                   }
                 />
               )}
             </div>
+            {formElement.variant === 'Slider' && (
+              <div className="flex-row-between gap-3">
+                <FormField
+                  key={formElement.name}
+                  control={form.control}
+                  name="min"
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormElement, 'min'>;
+                  }) =>
+                    RenderFormElement(
+                      {
+                        label: 'Min',
+                        variant: 'Input',
+                        defaultValue: '0',
+                        type: 'number',
+                        required: false,
+                        ...field,
+                      },
+                      form,
+                    )
+                  }
+                />
+                <FormField
+                  key={formElement.name}
+                  control={form.control}
+                  name="max"
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormElement, 'max'>;
+                  }) =>
+                    RenderFormElement(
+                      {
+                        label: 'Max',
+                        variant: 'Input',
+                        defaultValue: 0,
+                        type: 'number',
+                        required: false,
+                        ...field,
+                      },
+                      form,
+                    )
+                  }
+                />
+                <FormField
+                  key={formElement.name}
+                  control={form.control}
+                  name="step"
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormElement, 'step'>;
+                  }) =>
+                    RenderFormElement(
+                      {
+                        label: 'Step',
+                        variant: 'Input',
+                        defaultValue: 5,
+                        type: 'number',
+                        required: false,
+                        ...field,
+                      },
+                      form,
+                    )
+                  }
+                />
+              </div>
+            )}
             <FormField
-              // key={formElement.name}
               control={form.control}
               name="description"
               render={({
@@ -192,38 +253,16 @@ const FormElementOptions = ({
               }) =>
                 RenderFormElement(
                   {
-                    // ...formElement,
                     label: 'Description',
                     variant: 'Input',
                     defaultValue: 'text',
                     required: false,
                     ...field,
                   },
-                  // as FormFieldElement & ControllerRenderProps,
                   form,
                 )
               }
             />
-            {/* {hasOptions && (
-              <FormField
-                key={formElement.name}
-                control={form.control}
-                name={'options'}
-                render={({ field }: { field: ControllerRenderProps }) =>
-                  RenderFormElement(
-                    {
-                      // ...formElement,
-                      label: 'Options',
-                      variant: 'Select',
-                      options: formElement.options,
-                      // required: false,
-                      ...field,
-                    } as FormFieldElement & ControllerRenderProps,
-                    form,
-                  )
-                }
-              />
-            )} */}
             <div className="flex-row-start gap-4 pl-1 pt-2">
               <FormField
                 key={formElement.name}
