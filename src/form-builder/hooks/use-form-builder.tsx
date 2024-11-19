@@ -31,6 +31,14 @@ export const initialAttibutes: Record<
   Checkbox: {
     label: 'Checkbox Label',
   },
+  RadioGroup: {
+    label: 'Pick one option',
+    options: [
+      { value: '1', label: 'Option 1' },
+      { value: '2', label: 'Option 2' },
+      { value: '3', label: 'Option 3' },
+    ],
+  },
   DatePicker: {
     label: 'Pick a date',
   },
@@ -122,7 +130,7 @@ export const useFormBuilder = ({
 
   const appendElement = (elementVariant: string) => {
     const length = formElements.length;
-    const generatedName = `${elementVariant} ${length + 1}`;
+    const generatedName = `${elementVariant}-${length + 1}`;
     setFormElements((prev) => [
       ...prev,
       {

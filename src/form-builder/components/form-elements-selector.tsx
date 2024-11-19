@@ -45,6 +45,15 @@ export const formElementsList = [
     // description: '',
   },
   {
+    name: 'RadioGroup',
+    variant: 'RadioGroup',
+    options: [
+      { value: '1', label: 'Option 1' },
+      { value: '2', label: 'Option 2' },
+      { value: '2', label: 'Option 3' },
+    ],
+  },
+  {
     name: 'Switch',
     variant: 'Switch',
     // description: '',
@@ -83,7 +92,8 @@ export const formElementsList = [
     variant: 'DatePicker',
     // description: '',
   },
-];
+].sort((a, b) => a.name.localeCompare(b.name));
+
 //======================================
 export function FormElementSelector({
   appendElement,

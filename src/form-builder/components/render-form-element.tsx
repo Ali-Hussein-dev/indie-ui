@@ -45,6 +45,8 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from '@/components/ui/input-otp';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 type RenderFormElementProps =
   | (FormFieldElement & ControllerRenderProps)
@@ -137,6 +139,31 @@ export const RenderFormElement = (
           </FormControl>
           <FormLabel className="leading-none mt-0">{field.label}</FormLabel>
           {field.required && '*'}
+          {field.description && (
+            <FormDescription>{field.description}</FormDescription>
+          )}
+          <FormMessage />
+        </FormItem>
+      );
+    case 'RadioGroup':
+      return (
+        <FormItem className="flex flex-col gap-2 w-full py-1">
+          <FormLabel className="mt-0">
+            {field?.label} {field.required && '*'}
+          </FormLabel>
+          <FormControl>
+            <RadioGroup
+              onValueChange={field.onChange}
+              defaultValue={field.defaultValue}
+            >
+              {field.options.map(({ label, value }) => (
+                <div key={value} className="flex items-center gap-x-2">
+                  <RadioGroupItem value={value} id={value} />
+                  <Label htmlFor={value}>{label}</Label>
+                </div>
+              ))}
+            </RadioGroup>
+          </FormControl>
           {field.description && (
             <FormDescription>{field.description}</FormDescription>
           )}

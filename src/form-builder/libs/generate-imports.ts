@@ -43,6 +43,11 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
                     'import { PasswordInput } from "@/components/ui/password-input"',
                 );
                 break;
+            case 'RadioGroup':
+                importSet.add(
+                    "import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'",
+                );
+                break;
             case 'H1':
             case 'H2':
             case 'H3':

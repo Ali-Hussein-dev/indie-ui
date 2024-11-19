@@ -3,6 +3,7 @@ import { SliderProps } from "@radix-ui/react-slider"
 import { SwitchProps } from "@radix-ui/react-switch"
 import { SeparatorProps } from "@radix-ui/react-separator"
 import { OTPInputProps } from "input-otp"
+import { RadioGroupProps } from "@radix-ui/react-radio-group"
 
 //------------------------------------------------------------
 type SharedFormProps = {
@@ -41,6 +42,12 @@ type Textarea = {
 type Checkbox = {
     variant: "Checkbox"
 } & CheckboxProps &
+    SharedFormProps
+
+type RadioGroup = {
+    variant: "RadioGroup"
+    options: { value: string; label: string }[]
+} & RadioGroupProps &
     SharedFormProps
 
 type Switch = {
@@ -134,6 +141,7 @@ export type FormFieldElement =
     | PasswordInput
     | OTPInput
     | Checkbox
+    | RadioGroup
     | Switch
     | Select
     | MultiSelect

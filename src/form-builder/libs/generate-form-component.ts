@@ -272,6 +272,35 @@ export const getFormElementCode = (field: FormElement) => {
                 </FormItem>
               )}
             />`;
+    case 'RadioGroup':
+      return `<FormField
+              control={form.control}
+              name="${field.name}"
+              render={({ field }) => (
+                <FormItem className="flex flex-col gap-2 w-full py-1">
+                    <FormLabel>
+                      {field?.label} {field.required && '*'}
+                    </FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.defaultValue}
+                      >
+                        {field.options.map(({ label, value }) => (
+                          <div key={value} className="flex items-center gap-x-2">
+                            <RadioGroupItem value={value} id={value} />
+                            <Label htmlFor={value}>{label}</Label>
+                          </div>
+                        ))}
+                      </RadioGroup>
+                    </FormControl>
+                    {field.description && (
+                      <FormDescription>{field.description}</FormDescription>
+                    )}
+                    <FormMessage />
+                </FormItem>
+              )}
+            />`
     case 'H1':
       return `<h1 className="text-3xl font-bold">${field.content}</h1>`;
     case 'H2':
