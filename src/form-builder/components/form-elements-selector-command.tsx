@@ -59,7 +59,7 @@ export function FormElementsSelectorCommand({
               <CommandItem
                 key={o.name}
                 onSelect={() => {
-                  appendElement(o.variant);
+                  appendElement(o.fieldType);
                 }}
               >
                 {o.name}
