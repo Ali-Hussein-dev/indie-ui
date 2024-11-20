@@ -1,11 +1,6 @@
-import { Form, FormField } from '@/components/ui/form';
+import { Form } from '@/components/ui/form';
 import { RenderFormElement } from './render-form-element';
-import {
-  FieldsElementsList,
-  FormElement,
-  FormFieldElement,
-} from '../form-types';
-import { ControllerRenderProps } from 'react-hook-form';
+import { FieldsElementsList, FormElement } from '../form-types';
 import { Button } from '@/components/ui/button';
 
 //======================================
@@ -29,30 +24,10 @@ export function FormPreview({
             className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border"
           >
             {formElements.map((element: FormElement, i) => {
-              if ('static' in element) {
-                return RenderFormElement(
-                  {
-                    ...element,
-                    ref: (form.control as any).register(element.name).ref,
-                  } as FormFieldElement & ControllerRenderProps,
-                  form,
-                );
-              }
               return (
-                <FormField
-                  key={element.name + i}
-                  control={form.control}
-                  name={element.name as keyof FormFieldElement}
-                  render={({ field }: { field: ControllerRenderProps }) =>
-                    RenderFormElement(
-                      {
-                        ...element,
-                        ...field,
-                      } as FormFieldElement & ControllerRenderProps,
-                      form,
-                    )
-                  }
-                />
+                <div key={element.name + i} className="w-full">
+                  {RenderFormElement(element, form)}
+                </div>
               );
             })}
             <div className="flex-row-end w-full pt-3">

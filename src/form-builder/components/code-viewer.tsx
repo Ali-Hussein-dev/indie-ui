@@ -19,7 +19,6 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => (
 const useShiki = ({ code, lang }: { code: string; lang?: string }) => {
   const [renderedCode, setRenderedCode] = React.useState<JSX.Element>();
   React.useLayoutEffect(() => {
-    console.log('highlighting code', code);
     if (typeof code == 'string') {
       void codeHighlighter({ code, lang }).then(setRenderedCode);
     }
