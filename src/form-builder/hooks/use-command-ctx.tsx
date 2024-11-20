@@ -31,7 +31,7 @@ const CommandProvider = ({ children }: { children: React.ReactNode }) => {
       document.addEventListener('keydown', down);
       return () => document.removeEventListener('keydown', down);
     }, []);
-  return <CommandProv value={{ openCommand, setOpenCommand }} >
+  return <CommandProv value={{ openCommand, setOpenCommand }}>
     {children}
   </CommandProv>;
 };
