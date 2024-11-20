@@ -7,6 +7,7 @@ import {
 } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { generateZodSchema } from '../libs/generate-zod-schema';
 
 type UseFormbuilderProps = FieldsElementsList;
 
@@ -132,15 +133,15 @@ export const useFormBuilder = ({
     },
     {},
   );
-
-  const form = useForm({
-    defaultValues,
-    // resolver: zodResolver(),
-  });
-
+  
   const { reset } = useForm();
   const [formElements, setFormElements] = React.useState(initialFormElements);
-
+  
+  const zodSchema = generateZodSchema(formElements);
+  const form = useForm({
+    defaultValues,
+    resolver: zodResolver(zodSchema),
+  });
   const appendElement = (elementVariant: string) => {
     const length = formElements.length;
     const generatedName = `${elementVariant}-${length + 1}`;
