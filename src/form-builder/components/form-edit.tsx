@@ -9,12 +9,12 @@ import {
 import { Button } from '@/components/ui/button';
 import { MdDelete } from 'react-icons/md';
 import { cn } from '@/lib/utils';
-import { ControllerRenderProps, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { LuGripVertical } from 'react-icons/lu';
 import { Reorder } from 'framer-motion';
 import * as React from 'react';
 import { RenderFormElement } from './render-form-element';
-import { Form, FormField } from '@/components/ui/form';
+import { Form } from '@/components/ui/form';
 import { isStatic } from '../libs/utils';
 
 const inputTypes = [
@@ -56,284 +56,143 @@ const FormElementOptions = ({
         {/* {JSON.stringify(formElement, null, 2)} */}
         {isStatic(formElement.fieldType) ? (
           <div className="mb-4">
-            <FormField
-              // key={formElement.name}
-              control={form.control}
-              name={'content'}
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<FormElement, 'content'>;
-              }) =>
-                RenderFormElement(
-                  {
-                    label: `Customize ${formElement.fieldType}`,
-                    fieldType: 'Input',
-                    defaultValue: formElement.content,
-                    required: true,
-                    ...field,
-                  },
-                  // as FormFieldElement & ControllerRenderProps,
-                  form,
-                )
-              }
-            />
+            {RenderFormElement(
+              {
+                name: 'content',
+                label: `Customize ${formElement.fieldType}`,
+                fieldType: 'Input',
+                defaultValue: formElement.content,
+                required: true,
+              },
+              form,
+            )}
           </div>
         ) : (
           <div className="flex-col-start w-full gap-3 mb-4">
             <div className="flex-row-between gap-2 w-full">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({
-                  field,
-                }: {
-                  field: ControllerRenderProps<FormElement, 'name'>;
-                }) =>
-                  RenderFormElement(
-                    {
-                      label: 'Name',
-                      fieldType: 'Input',
-                      defaultValue: 'text',
-                      required: true,
-                      ...field,
-                    },
-                    form,
-                  )
-                }
-              />
-              <FormField
-                // key={formElement.name}
-                control={form.control}
-                name="placeholder"
-                render={({
-                  field,
-                }: {
-                  field: ControllerRenderProps<FormElement, 'placeholder'>;
-                }) =>
-                  RenderFormElement(
-                    {
-                      // ...formElement,
-                      label: 'Placeholder',
-                      fieldType: 'Input',
-                      defaultValue: 'text',
-                      required: false,
-                      ...field,
-                    },
-                    // as FormFieldElement & ControllerRenderProps,
-                    form,
-                  )
-                }
-              />
+              {RenderFormElement(
+                {
+                  name: 'name',
+                  label: `Customize ${formElement.name}`,
+                  fieldType: 'Input',
+                  defaultValue: formElement.name,
+                  required: true,
+                },
+                form,
+              )}
+              {RenderFormElement(
+                {
+                  name: 'placeholder',
+                  label: `Customize placeholder`,
+                  fieldType: 'Input',
+                  type: 'text',
+                  required: true,
+                } as FormFieldElement,
+                form,
+              )}
             </div>
             <div className="flex-row-between gap-2 w-full">
-              <FormField
-                control={form.control}
-                name="label"
-                render={({
-                  field,
-                }: {
-                  field: ControllerRenderProps<FormElement, 'label'>;
-                }) =>
-                  RenderFormElement(
-                    {
-                      label: 'Label',
-                      fieldType: 'Input',
-                      defaultValue: 'text',
-                      required: false,
-                      ...field,
-                    },
-                    form,
-                  )
-                }
-              />
-              {formElement.fieldType === 'Input' && (
-                <FormField
-                  key={formElement.name}
-                  control={form.control}
-                  name="type"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormElement, 'type'>;
-                  }) =>
-                    RenderFormElement(
-                      {
-                        label: 'Type',
-                        fieldType: 'Select',
-                        defaultValue: 'text',
-                        placeholder: 'input type',
-                        options: inputTypes,
-                        ...field,
-                      },
-                      form,
-                    )
-                  }
-                />
+              {RenderFormElement(
+                {
+                  name: 'label',
+                  label: 'Customize label',
+                  fieldType: 'Input',
+                  type: 'text',
+                  required: true,
+                },
+                form,
               )}
+              {formElement.fieldType === 'Input' &&
+                RenderFormElement(
+                  {
+                    name: 'type',
+                    label: 'Select input type',
+                    fieldType: 'Select',
+                    options: inputTypes,
+                    required: true,
+                    placeholder: 'Select input type',
+                  },
+                  form,
+                )}
             </div>
             {formElement.fieldType === 'Slider' && (
               <div className="flex-row-between gap-3">
-                <FormField
-                  key={formElement.name}
-                  control={form.control}
-                  name="min"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormElement, 'min'>;
-                  }) =>
-                    RenderFormElement(
-                      {
-                        label: 'Min',
-                        fieldType: 'Input',
-                        defaultValue: '0',
-                        type: 'number',
-                        required: false,
-                        ...field,
-                      },
-                      form,
-                    )
-                  }
-                />
-                <FormField
-                  key={formElement.name}
-                  control={form.control}
-                  name="max"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormElement, 'max'>;
-                  }) =>
-                    RenderFormElement(
-                      {
-                        label: 'Max',
-                        fieldType: 'Input',
-                        defaultValue: 0,
-                        type: 'number',
-                        required: false,
-                        ...field,
-                      },
-                      form,
-                    )
-                  }
-                />
-                <FormField
-                  key={formElement.name}
-                  control={form.control}
-                  name="step"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormElement, 'step'>;
-                  }) =>
-                    RenderFormElement(
-                      {
-                        label: 'Step',
-                        fieldType: 'Input',
-                        defaultValue: 5,
-                        type: 'number',
-                        required: false,
-                        ...field,
-                      },
-                      form,
-                    )
-                  }
-                />
-              </div>
-            )}
-            {formElement.fieldType === 'ToggleGroup' && (
-              <FormField
-                key={formElement.name}
-                control={form.control}
-                name="type"
-                render={({
-                  field,
-                }: {
-                  field: ControllerRenderProps<FormElement, 'type'>;
-                }) => {
-                  return RenderFormElement(
-                    {
-                      label: 'Select type for ToggleGroup',
-                      fieldType: 'ToggleGroup',
-                      defaultValue: field.value,
-                      required: true,
-                      type: 'single',
-                      options: [
-                        { value: 'single', label: 'Single' },
-                        { value: 'multiple', label: 'Multiple' },
-                      ],
-                      ...field,
-                    },
-                    // as FormFieldElement & ControllerRenderProps,
-                    form,
-                  );
-                }}
-              />
-            )}
-            <FormField
-              control={form.control}
-              name="description"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<FormElement, 'description'>;
-              }) =>
-                RenderFormElement(
+                {RenderFormElement(
                   {
-                    label: 'Description',
+                    name: 'min',
+                    label: 'Customize min value',
                     fieldType: 'Input',
-                    placeholder: 'describe the field',
-                    required: false,
-                    ...field,
+                    type: 'number',
+                    defaultValue: formElement.min,
+                    required: true,
                   },
                   form,
-                )
-              }
-            />
+                )}
+                {RenderFormElement(
+                  {
+                    name: 'max',
+                    label: 'Customize max value',
+                    fieldType: 'Input',
+                    type: 'number',
+                    defaultValue: formElement.max,
+                    required: true,
+                  },
+                  form,
+                )}
+                {RenderFormElement(
+                  {
+                    name: 'step',
+                    label: 'Customize step value',
+                    fieldType: 'Input',
+                    type: 'number',
+                    defaultValue: formElement.step,
+                    required: true,
+                  },
+                  form,
+                )}
+              </div>
+            )}
+            {formElement.fieldType === 'ToggleGroup' &&
+              RenderFormElement(
+                {
+                  name: formElement.name,
+                  label: 'Select type for ToggleGroup',
+                  fieldType: 'ToggleGroup',
+                  type: 'single',
+                  options: [
+                    { value: 'single', label: 'Single' },
+                    { value: 'multiple', label: 'Multiple' },
+                  ],
+                  required: true,
+                },
+                form,
+              )}
+            {RenderFormElement(
+              {
+                name: 'description',
+                label: 'Select type for ToggleGroup',
+                fieldType: 'Input',
+                placeholder: 'Describe the field',
+              },
+              form,
+            )}
             <div className="flex-row-start gap-4 pl-1 pt-2">
-              <FormField
-                key={formElement.name}
-                control={form.control}
-                name="required"
-                render={({
-                  field,
-                }: {
-                  field: ControllerRenderProps<FormElement, 'required'>;
-                }) =>
-                  RenderFormElement(
-                    {
-                      label: 'Required',
-                      fieldType: 'Checkbox',
-                      required: false,
-                      ...field,
-                    },
-                    //  as FormFieldElement & ControllerRenderProps,
-                    form,
-                  )
-                }
-              />
-              <FormField
-                key={formElement.name}
-                control={form.control}
-                name="disabled"
-                render={({
-                  field,
-                }: {
-                  field: ControllerRenderProps<FormElement, 'disabled'>;
-                }) =>
-                  RenderFormElement(
-                    {
-                      label: 'Disabled',
-                      fieldType: 'Checkbox',
-                      required: false,
-                      ...field,
-                    },
-                    //  as FormFieldElement & ControllerRenderProps,
-                    form,
-                  )
-                }
-              />
+              {RenderFormElement(
+                {
+                  name: 'required',
+                  label: 'Required',
+                  fieldType: 'Checkbox',
+                },
+                form,
+              )}
+              {RenderFormElement(
+                {
+                  name: 'disabled',
+                  label: 'Disabled',
+                  fieldType: 'Checkbox',
+                },
+                form,
+              )}
             </div>
           </div>
         )}
