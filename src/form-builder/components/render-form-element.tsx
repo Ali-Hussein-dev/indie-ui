@@ -166,7 +166,7 @@ export const RenderFormElement = (
           control={form.control}
           name={formElement.name}
           render={({ field }: { field: ControllerRenderProps }) => (
-            <FormItem className="flex items-center gap-2 w-full py-1">
+            <FormItem className="flex items-center gap-2 w-full py-1 space-y-0">
               <FormControl>
                 <Checkbox
                   {...field}
@@ -174,7 +174,7 @@ export const RenderFormElement = (
                   onCheckedChange={field.onChange}
                 />
               </FormControl>
-              <FormLabel className="leading-none mt-0">
+              <FormLabel className="leading-none">
                 {formElement.label} {formElement.required && ' *'}
               </FormLabel>
               {formElement.description ? (
@@ -486,7 +486,11 @@ export const RenderFormElement = (
         </h3>
       );
     case 'P':
-      return <p className="tracking-wider">{formElement.content}</p>;
+      return (
+        <p className="tracking-wider text-foreground/60 pt-0 dark:text-foreground/60 mb-4 mt-0 text-wrap">
+          {formElement.content}
+        </p>
+      );
     case 'Separator':
       return (
         <div className="py-3 w-full">

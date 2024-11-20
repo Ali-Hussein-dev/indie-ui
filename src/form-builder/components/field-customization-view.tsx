@@ -247,7 +247,7 @@ export function FieldCustomizationView({
             type="button"
             variant="ghost"
             size="icon"
-            className="rounded-full h-10"
+            className="rounded-xl h-9"
           >
             <FaEdit />
           </Button>
@@ -269,7 +269,7 @@ export function FieldCustomizationView({
           type="button"
           variant="ghost"
           size="icon"
-          className="rounded-full h-10"
+          className="rounded-xl h-9"
         >
           <FaEdit />
         </Button>
