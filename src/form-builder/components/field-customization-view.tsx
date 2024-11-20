@@ -218,16 +218,6 @@ function FormElementOptions({
   );
 }
 
-const OpenButton = () => (
-  <Button
-    type="button"
-    variant="ghost"
-    size="icon"
-    className="rounded-full h-10"
-  >
-    <FaEdit />
-  </Button>
-);
 export function FieldCustomizationView({
   index,
   editFormElement,
@@ -253,7 +243,14 @@ export function FieldCustomizationView({
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <OpenButton />
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="rounded-full h-10"
+          >
+            <FaEdit />
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[520px]">
           <DialogHeader>
@@ -268,7 +265,14 @@ export function FieldCustomizationView({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <OpenButton />
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="rounded-full h-10"
+        >
+          <FaEdit />
+        </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
