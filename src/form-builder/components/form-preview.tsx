@@ -2,9 +2,8 @@ import { Form } from '@/components/ui/form';
 import { RenderFormElement } from './render-form-element';
 import {
   FieldsElementsList,
-  FormElement,
   FormElementOrList,
-} from '../form-types';
+} from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 
 //======================================

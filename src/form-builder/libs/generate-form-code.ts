@@ -1,27 +1,22 @@
-import { FormElement } from '../form-types';
+import { FormElementOrList } from '../form-types';
 import { generateImports } from './generate-imports';
 import { getZodSchemaString } from './generate-zod-schema';
 import { getFormElementCode } from './generate-form-component';
 
-export const generateFormCode = (formElements: FormElement[]): string => {
-  const imports = Array.from(generateImports(formElements)).join('\n');
-  const schema = getZodSchemaString(formElements);
+export const generateFormCode = (formElements: FormElementOrList[]): string => {
+  const flattenedFormElements = formElements.flat();
+  const imports = Array.from(generateImports(flattenedFormElements)).join('\n');
+
+  const schema = getZodSchemaString(flattenedFormElements);
   //   const constants = Array.from(generateConstants(formElement)).join('\n');
 
-  const renderFields = (fields: FormElement[]) => {
+  const renderFields = (fields: FormElementOrList[]) => {
     return fields
       .map((FormElement) => {
         if (Array.isArray(FormElement)) {
-          const colSpan = FormElement.length === 2 ? 6 : 4;
           return `
-        <div className="grid grid-cols-12 gap-4">
-          ${FormElement.map(
-            (field) => `
-          <div className="col-span-${colSpan}">
-            ${getFormElementCode(field)}
-          </div>
-          `,
-          ).join('')}
+            <div className="flex items-center justify-between flex-wrap sm:flex-nowrap w-full gap-2">
+          ${FormElement.map((field) => getFormElementCode(field)).join('')}
         </div>`;
         } else {
           return getFormElementCode(FormElement);
