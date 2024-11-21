@@ -1,45 +1,24 @@
 'use client';
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from '@/components/ui/command';
 import * as React from 'react';
-import { formElementsList } from './form-elements-selector';
+import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { Badge } from '@/components/ui/badge';
+import { useCommand } from '@/form-builder/hooks/use-command-ctx';
+import { AppendElement, FormElement } from '@/form-builder/form-types';
 
 export function FormElementsSelectorCommand({
   appendElement,
 }: {
-  appendElement: (elementVariant: string) => void;
+  appendElement: AppendElement;
 }) {
-  const [open, setOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName === 'INPUT' ||
-        target.tagName === 'TEXTAREA' ||
-        target.isContentEditable
-      ) {
-        return;
-      }
-      if (e.key === 'f') {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-    };
-
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
-  }, []);
+  const { openCommand: open, setOpenCommand: setOpen } = useCommand();
   return (
     <div>
       <p className="text-sm text-muted-foreground mb-2 text-center">
@@ -60,7 +39,7 @@ export function FormElementsSelectorCommand({
               <CommandItem
                 key={o.name}
                 onSelect={() => {
-                  appendElement(o.fieldType);
+                  appendElement(o.fieldType as FormElement['fieldType']);
                 }}
                 className="gap-3"
               >
