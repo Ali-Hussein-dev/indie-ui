@@ -48,7 +48,7 @@ export const useFormBuilder = ({
   const { reset } = useForm();
   const [formElements, setFormElements] = React.useState(initialFormElements);
 
-  const zodSchema = generateZodSchema(formElements);
+  const zodSchema = generateZodSchema(formElements.flat());
   const form = useForm({
     defaultValues,
     resolver: zodResolver(zodSchema),
