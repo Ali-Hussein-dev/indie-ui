@@ -8,134 +8,36 @@ import {
   EditElement,
   ReorderElement,
   AppendElement,
-  // FormElementOrList,
-  // DropElementHorizontal,
-  // ReorderHorizontal,
-  // AppendElementHorizontal,
+  FormElementOrList,
+  DropElementHorizontal,
+  ReorderHorizontal,
+  AppendElementHorizontal,
+  EditElementHorizontal as EditElementHorizontal,
 } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
-
-type UseFormbuilderProps = FieldsElementsList;
-
-export const initialAttibutes: Record<
-  FormElement['fieldType'],
-  Partial<FormElement>
-> = {
-  Input: {
-    name: 'input-field',
-    label: 'Single line Input Field',
-    placeholder: 'Enter your text',
-  },
-  OTP: {
-    name: 'one-time-password',
-    label: 'One-Time Password',
-    description: 'Please enter the one-time password sent to your phone.',
-  },
-  Password: {
-    name: 'password',
-    label: 'Password Field',
-  },
-  Checkbox: {
-    label: 'Checkbox Label',
-  },
-  RadioGroup: {
-    label: 'Pick one option',
-    options: [
-      { value: '1', label: 'Option 1' },
-      { value: '2', label: 'Option 2' },
-      { value: '3', label: 'Option 3' },
-    ],
-  },
-  ToggleGroup: {
-    label: 'Pick multiple days',
-    type: 'multiple',
-    options: [
-      { value: 'monday', label: 'Mon' },
-      { value: 'tuesday', label: 'Tue' },
-      { value: 'wednesday', label: 'Wed' },
-      { value: 'thursday', label: 'Thu' },
-      { value: 'friday', label: 'Fri' },
-      { value: 'saturday', label: 'Sat' },
-      { value: 'sunday', label: 'Sun' },
-    ],
-  },
-  DatePicker: {
-    label: 'Pick a date',
-  },
-  Select: {
-    label: 'Select option',
-    placeholder: '',
-    description: '',
-    options: [
-      { value: '1', label: 'Option 1' },
-      { value: '2', label: 'Option 2' },
-    ],
-  },
-  MultiSelect: {
-    label: 'Select multiple options',
-    description: 'Select multiple options.',
-    options: [
-      { value: '1', label: 'Option 1' },
-      { value: '2', label: 'Option 2' },
-      { value: '3', label: 'Option 3' },
-      { value: '4', label: 'Option 4' },
-      { value: '5', label: 'Option 5' },
-    ],
-  },
-  Slider: {
-    label: 'Set Range',
-    description: 'Adjust the range by sliding.',
-    min: 0,
-    max: 100,
-    step: 5,
-  },
-  Switch: {
-    label: 'Toggle Switch',
-    description: 'Turn on or off.',
-  },
-  Textarea: {
-    label: 'Textarea',
-    description: 'A multi-line text input field',
-  },
-  H1: {
-    label: 'Heading 1',
-    content: 'Heading 1',
-    static: true,
-  },
-  H2: {
-    label: 'Heading 2',
-    content: 'Heading 2',
-    static: true,
-  },
-  H3: {
-    label: 'Heading 3',
-    content: 'Heading 3',
-    static: true,
-  },
-  P: {
-    label: 'Paragraph',
-    content: 'E.g This is a note',
-    static: true,
-  },
-  Separator: {
-    static: true,
-  },
-};
+import { defaultFormElements } from '@/form-builder/constant/default-form-element';
 
 //-------------------------------------------
 export const useFormBuilder = ({
   initialFormElements,
 }: {
-  initialFormElements: UseFormbuilderProps;
+  initialFormElements: FieldsElementsList;
 }) => {
   interface DefaultValues {
     [key: string]: any;
   }
 
   const defaultValues: DefaultValues = initialFormElements.reduce(
-    (acc: DefaultValues, element: FormElement) => {
+    (acc: DefaultValues, element: FormElementOrList) => {
+      if (Array.isArray(element)) {
+        element.forEach((el) => {
+          if (el.static) return;
+          acc[el.name] = el.defaultValue || '';
+        });
+        return acc;
+      }
       if (element.static) return acc;
       acc[element.name] = element.defaultValue || '';
       return acc;
@@ -157,10 +59,10 @@ export const useFormBuilder = ({
     setFormElements((prev) => [
       ...prev,
       {
-        ...initialAttibutes[fieldType as FormElement['fieldType']],
-        fieldType: fieldType as FormElement['fieldType'],
+        ...defaultFormElements[fieldType],
+        fieldType: fieldType,
         name: generatedName,
-      } as FormFieldElement,
+      } as FormElementOrList,
     ]);
   };
   const dropElement: DropElement = (index) => {
@@ -182,14 +84,62 @@ export const useFormBuilder = ({
   const reorder: ReorderElement = (newOrder) => {
     setFormElements(newOrder);
   };
+  //----------Handlers for horizontal/nested form elements
+  const reorderHorizontal: ReorderHorizontal = (newOrder, j) => {
+    setFormElements((prev) => {
+      const newFormElements = [...prev];
+      newFormElements[j] = newOrder;
+      return newFormElements;
+    });
+  };
+  const dropElementHorizontal: DropElementHorizontal = (i, j) => {
+    setFormElements((prev) => {
+      const newFormElements = [...prev];
+      const updatedElements = (newFormElements[i] as FormElement[]).filter(
+        (_, index) => index !== j,
+      );
+      newFormElements[i] =
+        updatedElements.length === 1 ? updatedElements[0] : updatedElements;
+      return newFormElements;
+    });
+  };
+  const appendElementHorizontal: AppendElementHorizontal = (fieldType, i) => {
+    const generatedName = `${fieldType}-${i + 1}-2`;
+    setFormElements((prev) => {
+      const newFormElements = [...prev];
+      newFormElements[i] = [
+        ...(Array.isArray(newFormElements[i])
+          ? newFormElements[i]
+          : [newFormElements[i]]),
+        {
+          ...defaultFormElements[fieldType],
+          fieldType,
+          name: generatedName,
+        } as FormElement,
+      ];
+      return newFormElements;
+    });
+  };
+  const editElementHorizontal: EditElementHorizontal = (i, j, newProps) => {
+    setFormElements((prev) => {
+      const newFormElements = [...prev];
+      const currentFormElement = newFormElements[i] as FormElement[];
+      currentFormElement[j] = {
+        ...currentFormElement[j],
+        ...newProps,
+      } as FormElement;
+      newFormElements[i] = currentFormElement;
+      return newFormElements;
+    });
+  };
+
   const resetForm = () => {
     setFormElements([]);
     reset();
-    // unregister();
   };
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    console.log(data)
   };
   return {
     onSubmit,
@@ -199,6 +149,10 @@ export const useFormBuilder = ({
     dropElement,
     editElement,
     reorder,
+    reorderHorizontal,
+    dropElementHorizontal,
+    appendElementHorizontal,
+    editElementHorizontal,
     resetForm,
   };
 };

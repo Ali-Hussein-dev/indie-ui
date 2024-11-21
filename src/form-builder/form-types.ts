@@ -179,9 +179,7 @@ export type FormElement = FormFieldElement
 export type FormElementOrList = FormElement[] | FormElement
 
 export type FieldsElementsList = FormElement[]
-// | FormElementOrList[]
-
-
+    | FormElementOrList[]
 
 //------------------------------------------------------------Form Element Handlers
 
@@ -190,22 +188,22 @@ export type DropElement = (i: number) => void;
 
 export type EditElement = (index: number, props: FormElement) => void;
 
-export type ReorderElement = (newOrder: FormElement[]) => void;
+export type ReorderElement = (newOrder: FormElementOrList[]) => void;
 
 export type AppendElement = (fieldType: FormElement['fieldType']) => void;
 
+export type DropElementHorizontal = (i: number, j: number) => void;
 
-// export type DropElementHorizontal = (i: number, j: number) => void;
+export type ReorderHorizontal = (newOrder: FormElement[], i: number) => void;
 
-// export type EditFormElementHorizontal = (
-//     i: number,
-//     j: number,
-//     props: FormElement,
-// ) => void;
+export type EditElementHorizontal = (
+    i: number,
+    j: number,
+    props: FormElement,
+) => void;
 
-// export type ReorderHorizontal = (newOrder: FormElement[], i: number) => void;
 
-// export type AppendElementHorizontal = (
-//     fieldType: FormElement['fieldType'],
-//     i: number,
-// ) => void;
+export type AppendElementHorizontal = (
+    fieldType: FormElement['fieldType'],
+    i: number,
+) => void;
