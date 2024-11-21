@@ -86,7 +86,7 @@ export function FormBuilderMain() {
           </TabsList>
           <TabsContent value={tabsList[0].name}>
             <FormEdit
-              editFormElement={editElement}
+              editElement={editElement}
               formElements={formElements}
               dropElement={dropElement}
               reorder={reorder}

@@ -1,4 +1,9 @@
-import { FormElement } from '../form-types';
+import {
+  DropElement,
+  EditElement,
+  FormElement,
+  ReorderElement,
+} from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 import { MdDelete } from 'react-icons/md';
 import { LuGripVertical } from 'react-icons/lu';
@@ -6,18 +11,20 @@ import { Reorder } from 'framer-motion';
 import * as React from 'react';
 import { FieldCustomizationView } from './field-customization-view';
 
+type FormElementProps = {
+  reorder: ReorderElement;
+  formElements: FormElement[];
+  dropElement: DropElement;
+  editElement: EditElement;
+};
+
 //======================================
 export function FormEdit({
   formElements,
   dropElement,
-  editFormElement,
+  editElement,
   reorder,
-}: {
-  reorder: (newOrder: FormElement[]) => void;
-  formElements: FormElement[];
-  dropElement: (id: string) => void;
-  editFormElement: (index: number, props: FormElement) => void;
-}) {
+}: FormElementProps) {
   return (
     <div>
       <Reorder.Group
@@ -52,14 +59,14 @@ export function FormEdit({
                   {element.fieldType !== 'Separator' && (
                     <FieldCustomizationView
                       formElement={element as FormElement}
-                      editFormElement={editFormElement}
+                      editFormElement={editElement}
                       index={i}
                     />
                   )}
                   <Button
                     size="icon"
                     variant="ghost"
-                    onClick={() => dropElement(element.name)}
+                    onClick={() => dropElement(i)}
                     className="rounded-full center"
                   >
                     <MdDelete />

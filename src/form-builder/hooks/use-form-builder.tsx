@@ -4,10 +4,18 @@ import {
   FormFieldElement,
   FieldsElementsList,
   FormElement,
+  DropElement,
+  EditElement,
+  ReorderElement,
+  AppendElement,
+  // FormElementOrList,
+  // DropElementHorizontal,
+  // ReorderHorizontal,
+  // AppendElementHorizontal,
 } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { generateZodSchema } from '../libs/generate-zod-schema';
+import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
 
 type UseFormbuilderProps = FieldsElementsList;
 
@@ -116,6 +124,7 @@ export const initialAttibutes: Record<
   },
 };
 
+//-------------------------------------------
 export const useFormBuilder = ({
   initialFormElements,
 }: {
@@ -133,33 +142,34 @@ export const useFormBuilder = ({
     },
     {},
   );
-  
+
   const { reset } = useForm();
   const [formElements, setFormElements] = React.useState(initialFormElements);
-  
+
   const zodSchema = generateZodSchema(formElements);
   const form = useForm({
     defaultValues,
     resolver: zodResolver(zodSchema),
   });
-  const appendElement = (elementVariant: string) => {
+  const appendElement: AppendElement = (fieldType) => {
     const length = formElements.length;
-    const generatedName = `${elementVariant}-${length + 1}`;
+    const generatedName = `${fieldType}-${length + 1}`;
     setFormElements((prev) => [
       ...prev,
       {
-        ...initialAttibutes[elementVariant as FormElement['fieldType']],
-        fieldType: elementVariant as FormElement['fieldType'],
+        ...initialAttibutes[fieldType as FormElement['fieldType']],
+        fieldType: fieldType as FormElement['fieldType'],
         name: generatedName,
       } as FormFieldElement,
     ]);
   };
-  const dropElement = (elementId: string) => {
-    setFormElements((prev) =>
-      prev.filter((element) => element.name !== elementId),
-    );
+  const dropElement: DropElement = (index) => {
+    setFormElements((prev) => prev.filter((_, i) => i !== index));
   };
-  const editElement = (i: number, newProps: Partial<FormElement>) => {
+  const editElement: EditElement = (
+    i: number,
+    newProps: Partial<FormElement>,
+  ) => {
     setFormElements((prev) => {
       const newFormElements = [...prev];
       newFormElements[i] = {
@@ -169,7 +179,7 @@ export const useFormBuilder = ({
       return newFormElements;
     });
   };
-  const reorder = (newOrder: FormElement[]) => {
+  const reorder: ReorderElement = (newOrder) => {
     setFormElements(newOrder);
   };
   const resetForm = () => {

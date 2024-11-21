@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MdAdd } from 'react-icons/md';
-import { FormElementsSelectorCommand } from './form-elements-selector-command';
+import { FormElementsSelectorCommand } from '@/form-builder/components/form-elements-selector-command';
 import { Badge } from '@/components/ui/badge';
+import { AppendElement, FormElement } from '@/form-builder/form-types';
 
 export const formElementsList = [
   // static elements
@@ -94,13 +95,13 @@ export const formElementsList = [
     name: 'Date Picker',
     fieldType: 'DatePicker',
   },
-].sort((a, b) => a.name.localeCompare(b.name));
+].sort((a, b) => a.name.localeCompare(b.name)) ;
 
 //======================================
 export function FormElementSelector({
   appendElement,
 }: {
-  appendElement: (elementVariant: string) => void;
+  appendElement: AppendElement;
 }) {
   return (
     <ScrollArea
@@ -118,7 +119,7 @@ export function FormElementSelector({
             size="sm"
             variant="secondary"
             onClick={() => {
-              appendElement(o.fieldType);
+              appendElement(o.fieldType as FormElement["fieldType"]);
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full relative text-sm px-2"
           >
