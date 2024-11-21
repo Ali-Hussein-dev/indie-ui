@@ -1,6 +1,5 @@
 'use client';
 import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
-import { FormElement } from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FormElementSelector } from '@/form-builder/components/form-elements-selector';
@@ -9,31 +8,7 @@ import { FormPreview } from '@/form-builder/components/form-preview';
 import { JsonViewer, JsxViewer } from '@/form-builder/components/code-viewer';
 import * as React from 'react';
 import { CommandProvider } from '@/form-builder/hooks/use-command-ctx';
-
-const initialFormElements: FormElement[] = [
-  {
-    name: 'heading',
-    fieldType: 'H2',
-    static: true,
-    content: 'Form Title',
-  },
-  {
-    name: 'name',
-    fieldType: 'Input',
-    type: 'text',
-    label: 'Name',
-    required: true,
-    placeholder: 'Enter your name',
-  },
-  {
-    name: 'email',
-    fieldType: 'Input',
-    type: 'email',
-    label: 'Email',
-    required: true,
-    placeholder: 'Enter your email',
-  },
-];
+import {initialFormTemplate} from '@/form-builder/constant/initial-form-template';
 
 const tabsList = [
   {
@@ -61,7 +36,7 @@ export function FormBuilderMain() {
     editElement,
     reorder,
   } = useFormBuilder({
-    initialFormElements,
+    initialFormElements:initialFormTemplate,
   });
   const json = formElements.filter((element) => !element?.static);
   const [submittedData, setSubmittedData] = React.useState(form.watch());

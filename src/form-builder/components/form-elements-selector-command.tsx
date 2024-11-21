@@ -8,7 +8,7 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import * as React from 'react';
-import { formElementsList } from './form-elements-selector';
+import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { Badge } from '@/components/ui/badge';
 import { useCommand } from '@/form-builder/hooks/use-command-ctx';
 import { AppendElement, FormElement } from '@/form-builder/form-types';
