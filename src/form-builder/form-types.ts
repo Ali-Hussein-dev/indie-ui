@@ -176,7 +176,7 @@ export type StaticFormElement = H1 | H2 | H3 | Paragraph | Divider
 export type FormElement = FormFieldElement
     | StaticFormElement
 
-// export type FormElementOrList = FormElement[] | FormElement
+export type FormElementOrList = FormElement[] | FormElement
 
 export type FieldsElementsList = FormElement[]
 // | FormElementOrList[]

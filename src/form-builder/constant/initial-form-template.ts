@@ -1,26 +1,47 @@
-import { FormElement } from '@/form-builder/form-types';
+import { FormElementOrList } from '@/form-builder/form-types';
 
-export const initialFormTemplate: FormElement[] = [
+export const initialFormTemplate: FormElementOrList[] = [
     {
         name: 'heading',
         fieldType: 'H2',
         static: true,
-        content: 'Form Title',
+        content: 'Contact us Form',
     },
     {
-        name: 'name',
-        fieldType: 'Input',
-        type: 'text',
-        label: 'Name',
+        name: 'paragraph',
+        fieldType: 'P',
+        static: true,
+        content: 'Please fill the form below to contact us',
+    },
+    [
+        {
+            name: 'name',
+            fieldType: 'Input',
+            type: 'text',
+            label: 'Name',
+            required: true,
+            placeholder: 'Enter your name',
+        },
+        {
+            name: 'email',
+            fieldType: 'Input',
+            type: 'email',
+            label: 'Email',
+            required: true,
+            placeholder: 'Enter your email',
+        },
+    ],
+    {
+        name: 'Message',
+        fieldType: 'Textarea',
+        label: 'Textarea',
+        placeholder: 'Enter your message',
         required: true,
-        placeholder: 'Enter your name',
     },
     {
-        name: 'email',
-        fieldType: 'Input',
-        type: 'email',
-        label: 'Email',
+        name: 'agree',
+        fieldType: 'Checkbox',
+        label: 'I agree to the terms and conditions',
         required: true,
-        placeholder: 'Enter your email',
     },
 ];

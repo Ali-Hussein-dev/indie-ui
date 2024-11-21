@@ -1,6 +1,10 @@
 import { Form } from '@/components/ui/form';
 import { RenderFormElement } from './render-form-element';
-import { FieldsElementsList, FormElement } from '../form-types';
+import {
+  FieldsElementsList,
+  FormElement,
+  FormElementOrList,
+} from '../form-types';
 import { Button } from '@/components/ui/button';
 
 //======================================
@@ -15,15 +19,30 @@ export function FormPreview({
   onSubmit,
   formElements,
 }: FormPreviewProps) {
+  const data = Object.keys(form.watch());
   return (
     <div className="w-full animate-in">
-      {Object.keys(form.watch()).length > 0 ? (
+      {data.length > 0 ? (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border"
           >
-            {formElements.map((element: FormElement, i) => {
+            {formElements.map((element: FormElementOrList, i) => {
+              if (Array.isArray(element)) {
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between flex-wrap sm:flex-nowrap w-full gap-2"
+                  >
+                    {element.map((el, ii) => (
+                      <div key={el.name + ii} className="w-full">
+                        {RenderFormElement(el, form)}
+                      </div>
+                    ))}
+                  </div>
+                );
+              }
               return (
                 <div key={element.name + i} className="w-full">
                   {RenderFormElement(element, form)}
