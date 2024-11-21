@@ -38,7 +38,6 @@ export function FormBuilderMain() {
   } = useFormBuilder({
     initialFormElements:initialFormTemplate,
   });
-  const json = formElements.filter((element) => !element?.static);
   const [submittedData, setSubmittedData] = React.useState(form.watch());
   React.useEffect(() => {
     setSubmittedData(form.watch());
@@ -78,7 +77,7 @@ export function FormBuilderMain() {
             <JsxViewer formElements={formElements} />
           </TabsContent>
           <TabsContent value={tabsList[2].name}>
-            <JsonViewer json={json} />
+            <JsonViewer json={formElements} />
           </TabsContent>
           <TabsContent value={tabsList[3].name}>
             <JsonViewer json={submittedData} />

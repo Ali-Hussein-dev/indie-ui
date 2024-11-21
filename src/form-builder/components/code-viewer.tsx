@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 import { CodeBlock } from 'fumadocs-ui/components/codeblock';
-import { FormElement } from '../form-types';
+import { FieldsElementsList, FormElement } from '../form-types';
 import { generateFormCode } from '../libs/generate-form-code';
 import { codeHighlighter } from '../libs/code-highlighter';
 import { formatCode } from '../libs/utils';
@@ -26,11 +26,20 @@ const useShiki = ({ code, lang }: { code: string; lang?: string }) => {
   return renderedCode;
 };
 
-export const JsonViewer = ({ json }: { json: Record<string, any> | any[] }) => {
+export const JsonViewer = ({
+  json,
+}: {
+  json: FieldsElementsList | Record<string, any>;
+}) => {
+  json = Array.isArray(json)
+    ? json.filter((element) => !('static' in element && element.static))
+    : json;
+
   const highlightedCode = useShiki({
     code: JSON.stringify(json, null, 2),
     lang: 'json',
   });
+
   return highlightedCode ? (
     <Wrapper>{highlightedCode}</Wrapper>
   ) : (
