@@ -35,8 +35,12 @@ export function FormBuilderMain() {
     dropElement,
     editElement,
     reorder,
+    reorderHorizontal,
+    editElementHorizontal,
+    dropElementHorizontal,
+    appendElementHorizontal,
   } = useFormBuilder({
-    initialFormElements:initialFormTemplate,
+    initialFormElements: initialFormTemplate,
   });
   const [submittedData, setSubmittedData] = React.useState(form.watch());
   React.useEffect(() => {
@@ -47,43 +51,47 @@ export function FormBuilderMain() {
     <div className="w-full grid mx-auto md:grid-cols-12 max-w-[75rem] gap-3 p-1">
       <CommandProvider>
         <FormElementSelector appendElement={appendElement} />
-        <Tabs
-          defaultValue={tabsList[0].name}
-          className="w-full md:col-span-6 min-w-full grow"
-        >
-          <TabsList className="w-full">
-            {tabsList.map((tab) => (
-              <TabsTrigger key={tab.name} value={tab.name} className="w-full">
-                {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          <TabsContent value={tabsList[0].name}>
-            <FormEdit
-              editElement={editElement}
-              formElements={formElements}
-              dropElement={dropElement}
-              reorder={reorder}
-            />
-            <div className="flex-row-end pt-2">
-              {formElements.length > 1 && (
-                <Button size="sm" variant={'secondary'} onClick={resetForm}>
-                  Reset
-                </Button>
-              )}
-            </div>
-          </TabsContent>
-          <TabsContent value={tabsList[1].name}>
-            <JsxViewer formElements={formElements} />
-          </TabsContent>
-          <TabsContent value={tabsList[2].name}>
-            <JsonViewer json={formElements} />
-          </TabsContent>
-          <TabsContent value={tabsList[3].name}>
-            <JsonViewer json={submittedData} />
-          </TabsContent>
-        </Tabs>
       </CommandProvider>
+      <Tabs
+        defaultValue={tabsList[0].name}
+        className="w-full md:col-span-6 min-w-full grow"
+      >
+        <TabsList className="w-full">
+          {tabsList.map((tab) => (
+            <TabsTrigger key={tab.name} value={tab.name} className="w-full">
+              {tab.name}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        <TabsContent value={tabsList[0].name}>
+          <FormEdit
+            reorder={reorder}
+            editElement={editElement}
+            formElements={formElements}
+            dropElement={dropElement}
+            appendElementHorizontal={appendElementHorizontal}
+            editElementHorizontal={editElementHorizontal}
+            reorderHorizontal={reorderHorizontal}
+            dropElementHorizontal={dropElementHorizontal}
+          />
+          <div className="flex-row-end pt-2">
+            {formElements.length > 1 && (
+              <Button size="sm" variant={'secondary'} onClick={resetForm}>
+                Reset
+              </Button>
+            )}
+          </div>
+        </TabsContent>
+        <TabsContent value={tabsList[1].name}>
+          <JsxViewer formElements={formElements} />
+        </TabsContent>
+        <TabsContent value={tabsList[2].name}>
+          <JsonViewer json={formElements} />
+        </TabsContent>
+        <TabsContent value={tabsList[3].name}>
+          <JsonViewer json={submittedData} />
+        </TabsContent>
+      </Tabs>
       <div className="md:col-span-4 w-full">
         <FormPreview
           form={form}

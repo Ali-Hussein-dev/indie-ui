@@ -7,24 +7,24 @@ import {
   DialogHeader,
   DialogContent,
   DialogTrigger,
-  // DialogDescription,
 } from '@/components/ui/dialog';
 import {
   Drawer,
   DrawerContent,
-  // DrawerClose,
-  // DrawerDescription,
-  // DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { FaEdit } from 'react-icons/fa';
-import { FormElement } from '../form-types';
+import {
+  EditElement,
+  EditElementHorizontal,
+  FormElement,
+} from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { Form } from '@/components/ui/form';
-import { isStatic } from '../libs/utils';
-import { RenderFormElement } from './render-form-element';
+import { isStatic } from '@/form-builder/libs/utils';
+import { RenderFormElement } from '@/form-builder/components/render-form-element';
 
 const inputTypes = [
   { value: 'text', label: 'Text' },
@@ -38,10 +38,14 @@ function FormElementOptions({
   index,
   editFormElement,
   close,
+  j,
+  editElementHorizontal,
   ...formElement
 }: FormElement & {
   index: number;
-  editFormElement: (index: number, props: FormElement) => void;
+  j?: number;
+  editFormElement?: EditElement;
+  editElementHorizontal?: EditElementHorizontal;
   close: () => void;
 }) {
   const form = useForm<FormElement>({
@@ -49,7 +53,8 @@ function FormElementOptions({
   });
   const { handleSubmit, getValues } = form;
   const onSubmit = () => {
-    editFormElement(index, getValues());
+    editFormElement?.(index, getValues());
+    j && editElementHorizontal?.(index, j, getValues());
     close();
   };
   // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
@@ -222,10 +227,14 @@ export function FieldCustomizationView({
   index,
   editFormElement,
   formElement,
+  editElementHorizontal,
+  j,
 }: {
   index: number;
+  j?: number;
   formElement: FormElement;
-  editFormElement: (index: number, props: FormElement) => void;
+  editFormElement?: EditElement;
+  editElementHorizontal?: EditElementHorizontal;
 }) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -234,7 +243,9 @@ export function FieldCustomizationView({
   const SavedFormElementOptions = () => (
     <FormElementOptions
       index={index}
+      j={j}
       editFormElement={editFormElement}
+      editElementHorizontal={editElementHorizontal}
       {...formElement}
       close={close}
     />
