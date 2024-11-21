@@ -16,16 +16,19 @@ export const formElementsList = [
     name: 'Heading 1',
     fieldType: 'H1',
     content: 'Heading 1',
+    static: true,
   },
   {
     name: 'Heading 2',
     fieldType: 'H2',
     content: 'Heading 2',
+    static: true,
   },
   {
     name: 'Heading 3',
     fieldType: 'H3',
     content: 'Heading 3',
+    static: true,
   },
   {
     name: 'Input',
@@ -102,6 +105,7 @@ export const formElementsList = [
   {
     name: 'Separator',
     fieldType: 'Separator',
+    static: true
   },
   {
     name: 'Slider',
