@@ -2,7 +2,6 @@
 import * as React from 'react';
 import {
   FormFieldElement,
-  FieldsElementsList,
   FormElement,
   DropElement,
   EditElement,
@@ -12,23 +11,20 @@ import {
   DropElementHorizontal,
   ReorderHorizontal,
   AppendElementHorizontal,
-  EditElementHorizontal as EditElementHorizontal,
+  EditElementHorizontal,
 } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
 import { defaultFormElements } from '@/form-builder/constant/default-form-element';
+import { templates } from '@/form-builder/constant/templates';
 
 //-------------------------------------------
-export const useFormBuilder = ({
-  initialFormElements,
-}: {
-  initialFormElements: FieldsElementsList;
-}) => {
+export const useFormBuilder = () => {
   interface DefaultValues {
     [key: string]: any;
   }
-
+  const initialFormElements = templates['contactUs'].template;
   const defaultValues: DefaultValues = initialFormElements.reduce(
     (acc: DefaultValues, element: FormElementOrList) => {
       if (Array.isArray(element)) {
@@ -137,9 +133,12 @@ export const useFormBuilder = ({
     setFormElements([]);
     reset();
   };
-
+  const setTemplate = (templateName: keyof typeof templates) => {
+    const template = templates[templateName].template;
+    setFormElements(template);
+  };
   const onSubmit = (data: any) => {
-    console.log(data)
+    console.log(data);
   };
   return {
     onSubmit,
@@ -154,5 +153,6 @@ export const useFormBuilder = ({
     appendElementHorizontal,
     editElementHorizontal,
     resetForm,
+    setTemplate,
   };
 };

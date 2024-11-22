@@ -8,7 +8,6 @@ import { FormPreview } from '@/form-builder/components/form-preview';
 import { JsonViewer, JsxViewer } from '@/form-builder/components/code-viewer';
 import * as React from 'react';
 import { CommandProvider } from '@/form-builder/hooks/use-command-ctx';
-import {initialFormTemplate} from '@/form-builder/constant/initial-form-template';
 
 const tabsList = [
   {
@@ -39,9 +38,8 @@ export function FormBuilderMain() {
     editElementHorizontal,
     dropElementHorizontal,
     appendElementHorizontal,
-  } = useFormBuilder({
-    initialFormElements: initialFormTemplate,
-  });
+    setTemplate,
+  } = useFormBuilder();
   const [submittedData, setSubmittedData] = React.useState(form.watch());
   React.useEffect(() => {
     setSubmittedData(form.watch());
@@ -49,7 +47,7 @@ export function FormBuilderMain() {
 
   return (
     <div className="w-full grid mx-auto md:grid-cols-12 max-w-[75rem] gap-3 p-1">
-      <CommandProvider>
+      <CommandProvider setTemplate={setTemplate}>
         <FormElementSelector appendElement={appendElement} />
       </CommandProvider>
       <Tabs
