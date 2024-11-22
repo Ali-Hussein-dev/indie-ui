@@ -24,7 +24,7 @@ export default function FormBuilderLayout({
             <h1 className="text-2xl md:text-3xl text-center text-pretty font-bold mb-2">
               Build Forms{' '}
               <span className="underline-offset-4 decoration-green-500 underline">
-                In Mintues
+                In Minutes
               </span>{' '}
               <span className="line-through decoration-red-600">Not Hours</span>
             </h1>
