@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer';
 import { generateSEOTags } from '@/lib/seo';
 
 export const metadata = generateSEOTags({
-  title: 'Form Builder',
+  title: 'FormFast | Build Forms In Minutes',
   description:
     'Build as many forms as you want for free using React, shadcn, tailwindcss, Zod, and React Hook Form',
 });

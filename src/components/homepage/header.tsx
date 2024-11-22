@@ -51,7 +51,7 @@ const iconsList = [
 const linksList = [
   {
     href: configs.urls.formBuilder,
-    label: 'Form builder',
+    label: 'FormFast',
   },
   {
     href: configs.urls.indiestarter,
