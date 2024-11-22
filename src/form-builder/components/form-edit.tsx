@@ -134,6 +134,8 @@ export function FormEdit({
             <Reorder.Item
               value={element}
               key={element.map((f) => f.name).join('-')}
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
             >
               <div className="flex items-center justify-start gap-2 ">
                 <Button

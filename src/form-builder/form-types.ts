@@ -207,3 +207,5 @@ export type AppendElementHorizontal = (
     fieldType: FormElement['fieldType'],
     i: number,
 ) => void;
+
+export type SetTemplate = (template: string) => void;

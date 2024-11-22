@@ -5,6 +5,7 @@ import { FormElementsSelectorCommand } from '@/form-builder/components/form-elem
 import { Badge } from '@/components/ui/badge';
 import { AppendElement, FormElement } from '@/form-builder/form-types';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
+import { TemplatesSelect } from '@/form-builder/components/templates-select';
 
 //======================================
 export function FormElementSelector({
@@ -17,9 +18,10 @@ export function FormElementSelector({
       className="border rounded-sm border-dashed overflow-auto p-3 w-full md:col-span-2"
       style={{
         height: '100%',
-        maxHeight: '60vh',
+        maxHeight: '40vh',
       }}
     >
+      <TemplatesSelect />
       <FormElementsSelectorCommand appendElement={appendElement} />
       <div className="flex md:flex-col flex-wrap gap-2 flex-row">
         {formElementsList.map((o) => (
@@ -28,7 +30,7 @@ export function FormElementSelector({
             size="sm"
             variant="secondary"
             onClick={() => {
-              appendElement(o.fieldType as FormElement["fieldType"]);
+              appendElement(o.fieldType as FormElement['fieldType']);
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full relative text-sm px-2"
           >
