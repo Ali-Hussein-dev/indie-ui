@@ -126,6 +126,7 @@ export function FormEdit({
       }}
       values={formElements}
       className="flex flex-col gap-3"
+      tabIndex={-1}
     >
       {formElements.map((element: FormElementOrList, i) => {
         if (Array.isArray(element)) {
@@ -170,6 +171,8 @@ export function FormEdit({
             key={element.name}
             value={element}
             className="rounded-xl border border-dashed py-1.5 w-full"
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
           >
             <EditFormItem
               key={element.name + i}
