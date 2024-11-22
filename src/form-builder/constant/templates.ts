@@ -122,7 +122,7 @@ export const templates: TemplateList = {
             {
                 name: 'Message',
                 fieldType: 'Textarea',
-                label: 'Textarea',
+                label: 'Message',
                 placeholder: 'Enter your message',
                 required: true,
             },

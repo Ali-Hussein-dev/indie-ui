@@ -46,7 +46,7 @@ export function FormBuilderMain() {
   }, [JSON.stringify(form.watch())]);
 
   return (
-    <div className="w-full grid mx-auto md:grid-cols-12 max-w-[75rem] gap-3 p-1">
+    <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
       <CommandProvider setTemplate={setTemplate}>
         <FormElementSelector appendElement={appendElement} />
       </CommandProvider>
