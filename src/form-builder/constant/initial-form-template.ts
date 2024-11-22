@@ -5,7 +5,7 @@ export const initialFormTemplate: FormElementOrList[] = [
         name: 'heading',
         fieldType: 'H2',
         static: true,
-        content: 'Contact us Form',
+        content: 'Contact us',
     },
     {
         name: 'paragraph',

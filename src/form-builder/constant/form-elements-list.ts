@@ -31,6 +31,12 @@ export const formElementsList = [
     static: true,
   },
   {
+    name: 'paragraph',
+    fieldType: 'P',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    static: true,
+  },
+  {
     name: 'Input',
     fieldType: 'Input',
   },
