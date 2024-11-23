@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { CodeBlock } from 'fumadocs-ui/components/codeblock';
 import {
-  FieldsElementsList,
+  FormElementList,
   FormElement,
   FormElementOrList,
 } from '@/form-builder/form-types';
@@ -33,7 +33,7 @@ const useShiki = ({ code, lang }: { code: string; lang?: string }) => {
 export const JsonViewer = ({
   json,
 }: {
-  json: FieldsElementsList | Record<string, any>;
+  json: FormElementList | Record<string, any>;
 }) => {
   json = Array.isArray(json)
     ? json.filter((element) => !('static' in element && element.static))

@@ -178,7 +178,7 @@ export type FormElement = FormFieldElement
 
 export type FormElementOrList = FormElement[] | FormElement
 
-export type FieldsElementsList = FormElement[]
+export type FormElementList = FormElement[]
     | FormElementOrList[]
 
 //------------------------------------------------------------Form Element Handlers

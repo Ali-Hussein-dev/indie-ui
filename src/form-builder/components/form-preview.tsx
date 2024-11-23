@@ -1,16 +1,13 @@
 import { Form } from '@/components/ui/form';
 import { RenderFormElement } from './render-form-element';
-import {
-  FieldsElementsList,
-  FormElementOrList,
-} from '@/form-builder/form-types';
+import { FormElementList, FormElementOrList } from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 
 //======================================
 interface FormPreviewProps {
   form: any;
   onSubmit: (data: any) => void;
-  formElements: FieldsElementsList;
+  formElements: FormElementList;
 }
 
 export function FormPreview({
