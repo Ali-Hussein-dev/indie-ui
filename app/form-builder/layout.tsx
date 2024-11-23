@@ -2,6 +2,9 @@ import * as React from 'react';
 import { Header } from '@/components/homepage/header';
 import { Footer } from '@/components/footer';
 import { generateSEOTags } from '@/lib/seo';
+import { Button } from '@/components/ui/button';
+import { FaGithub } from 'react-icons/fa6';
+import { configs } from '@/configs';
 
 export const metadata = generateSEOTags({
   title: 'FormFast | Build Forms In Minutes',
@@ -20,7 +23,7 @@ export default function FormBuilderLayout({
       <div className="h-full grow w-full px-2 md:px-4 py-3">
         <div className="border border-dashed px-2 mb-5 md:grid-cols-8 grid max-w-[77rem] mx-auto">
           <div className="md:col-span-1"></div>
-          <div className="md:col-span-6 md:border-x border-dashed py-5 px-3 grow sm:py-6 md:py-10 md:px-6 w-full">
+          <div className="md:col-span-6 md:border-x border-dashed py-5 px-3 grow sm:py-6 md:py-8 md:px-6 w-full">
             <h1 className="text-2xl md:text-3xl text-center text-pretty font-bold mb-2">
               Build Forms{' '}
               <span className="underline-offset-4 decoration-green-500 underline">
@@ -37,6 +40,19 @@ export default function FormBuilderLayout({
               <span>Shadcn</span>
               <span>Zod</span>
               <span>React Hook Form</span>
+            </div>
+            <div className="mx-auto pt-4 w-fit">
+              <Button asChild variant={'outline'}>
+                <a
+                  href={configs.urls.github}
+                  className="rounded-full mx-auto px-5 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Star on Github
+                  <FaGithub className="inline-block ml-2" />
+                </a>
+              </Button>
             </div>
           </div>
           <div className="md:col-span-1"></div>
