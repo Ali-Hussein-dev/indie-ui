@@ -1,7 +1,6 @@
 'use client';
 import * as React from 'react';
 import {
-  FormFieldElement,
   FormElement,
   DropElement,
   EditElement,
@@ -73,7 +72,7 @@ export const useFormBuilder = () => {
       newFormElements[i] = {
         ...newFormElements[i],
         ...newProps,
-      } as FormFieldElement;
+      } as FormElement;
       return newFormElements;
     });
   };

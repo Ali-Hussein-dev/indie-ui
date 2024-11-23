@@ -153,7 +153,7 @@ type Divider = {
 * FormFieldType is a union type that represents all the possible form fields
 * that can be rendered in a form
 */
-export type FormFieldElement =
+type FormFieldElement =
     | Textarea
     | Input
     | PasswordInput
@@ -176,7 +176,7 @@ export type StaticFormElement = H1 | H2 | H3 | Paragraph | Divider
 export type FormElement = FormFieldElement
     | StaticFormElement
 
-export type FormElementOrList = FormElement[] | FormElement
+export type FormElementOrList = FormElement | FormElement[]
 
 export type FormElementList = FormElement[]
     | FormElementOrList[]
