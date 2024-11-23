@@ -1,4 +1,5 @@
 'use client';
+
 import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -23,6 +24,7 @@ const tabsList = [
     name: 'Submission',
   },
 ];
+
 //======================================
 export function FormBuilderMain() {
   const {
@@ -40,10 +42,16 @@ export function FormBuilderMain() {
     appendElementHorizontal,
     setTemplate,
   } = useFormBuilder();
-  const [submittedData, setSubmittedData] = React.useState(form.watch());
+  const { watch } = form;
+  const [submittedData, setSubmittedData] = React.useState(watch());
+
   React.useEffect(() => {
-    setSubmittedData(form.watch());
-  }, [JSON.stringify(form.watch())]);
+    const { unsubscribe } = watch((data) => {
+      setSubmittedData(data);
+    });
+
+    return unsubscribe;
+  }, [watch]);
 
   return (
     <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
