@@ -10,15 +10,16 @@ import {
   AppendElementHorizontal,
 } from '@/form-builder/form-types';
 import * as React from 'react';
-import { Reorder } from 'framer-motion';
+import { Reorder, useDragControls } from 'framer-motion';
 import { MdDelete } from 'react-icons/md';
 import { IoIosSwap } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
 import { LuGripVertical } from 'react-icons/lu';
 import { FieldCustomizationView } from './field-customization-view';
 import { HorizontalFormElements } from './horizontal-form-elements';
-
+import { motion } from 'framer-motion';
 type EditFormItemProps = {
+  onPointerDown: (e: React.PointerEvent) => void;
   element: FormElement;
   /**
    * Index of the main array
@@ -46,13 +47,18 @@ const EditFormItem = (props: EditFormItemProps) => {
   const canAddElementHorizontally =
     !element.static && 'appendElementHorizontal' in props;
   return (
-    <div className="w-full bg-background group">
+    <div className="w-full group">
       <div className="flex-row-between px-2">
         <div className="flex-row-start gap-2 size-full">
           {isNested ? (
             <span className="w-1"></span>
           ) : (
-            <LuGripVertical className="dark:text-muted-foreground text-muted-foreground" />
+            <motion.div
+              onPointerDown={props.onPointerDown}
+              className="p-2 h-full cursor-grab active:cursor-grabbing"
+            >
+              <LuGripVertical className="dark:text-muted-foreground text-muted-foreground" />
+            </motion.div>
           )}
           {element.name}
         </div>
@@ -118,6 +124,11 @@ export function FormEdit({
   dropElementHorizontal,
   appendElementHorizontal,
 }: FormElementProps) {
+  const dragControls = useDragControls();
+  const handleOnPointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    dragControls.start(e);
+  };
   return (
     <Reorder.Group
       axis="y"
@@ -132,21 +143,20 @@ export function FormEdit({
         if (Array.isArray(element)) {
           return (
             <Reorder.Item
+              dragControls={dragControls}
+              dragListener={false}
               value={element}
               key={element.map((f) => f.name).join('-')}
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
             >
               <div className="flex items-center justify-start gap-2 ">
-                <Button
-                  onClick={() => {
-                    reorderHorizontal(element.reverse(), i);
-                  }}
-                  variant="ghost"
-                  className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"
+                <motion.div
+                  onPointerDown={handleOnPointerDown}
+                  className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5 cursor-grab active:cursor-grabbing"
                 >
-                  <IoIosSwap className="dark:text-muted-foreground text-muted-foreground" />
-                </Button>
+                  <LuGripVertical className="dark:text-muted-foreground text-muted-foreground" />
+                </motion.div>
                 <div className="flex items-center justify-start grow flex-wrap sm:flex-nowrap w-full gap-2">
                   {element.map((el, j) => (
                     <div
@@ -154,6 +164,7 @@ export function FormEdit({
                       className="w-full rounded-xl border border-dashed py-1.5"
                     >
                       <EditFormItem
+                        onPointerDown={handleOnPointerDown}
                         key={el.name + j}
                         index={i}
                         j={j}
@@ -164,6 +175,15 @@ export function FormEdit({
                     </div>
                   ))}
                 </div>
+                <Button
+                  onClick={() => {
+                    reorderHorizontal(element.reverse(), i);
+                  }}
+                  variant="ghost"
+                  className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5 order-2"
+                >
+                  <IoIosSwap className="dark:text-muted-foreground text-muted-foreground" />
+                </Button>
               </div>
             </Reorder.Item>
           );
@@ -175,8 +195,11 @@ export function FormEdit({
             className="rounded-xl border border-dashed py-1.5 w-full"
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
+            dragControls={dragControls}
+            dragListener={false}
           >
             <EditFormItem
+              onPointerDown={handleOnPointerDown}
               key={element.name + i}
               index={i}
               element={element}
