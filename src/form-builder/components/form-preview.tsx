@@ -3,11 +3,19 @@ import { RenderFormElement } from '@/form-builder/components/render-form-element
 import { FormElementOrList } from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
+import * as React from 'react';
 
-//======================================
-export function FormPreview() {
-  const { form, onSubmit, formElements } = useFormBuilder();
-  const data = Object.values(form.watch()).filter((v) => v);
+interface FormPreviewProps {
+  form: any;
+  // onSubmit: (data: any) => void;
+  // formElements: FormElementList;
+}
+
+export function FormPreview({
+  form,
+}: FormPreviewProps) {
+  const { onSubmit, formElements } = useFormBuilder();
+  const data = Object.keys(form.watch());
   return (
     <div className="w-full animate-in mx-auto rounded-md max-w-3xl gap-2 border">
       {data.length > 0 ? (
@@ -38,7 +46,7 @@ export function FormPreview() {
               );
             })}
             <div className="flex-row-end w-full pt-3">
-              <Button className="rounded-lg" size="sm">
+              <Button type="submit" className="rounded-lg" size="sm">
                 Submit
               </Button>
             </div>

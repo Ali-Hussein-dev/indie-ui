@@ -27,7 +27,7 @@ const tabsList = [
 
 //======================================
 export function FormBuilderMain() {
-  const { formElements, resetForm, submittedData } = useFormBuilder();
+  const { submittedData, formElements, resetForm, form } = useFormBuilder();
 
   return (
     <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
@@ -66,7 +66,7 @@ export function FormBuilderMain() {
         </TabsContent>
       </Tabs>
       <div className="md:col-span-4 w-full">
-        <FormPreview />
+        <FormPreview form={form} />
       </div>
     </div>
   );

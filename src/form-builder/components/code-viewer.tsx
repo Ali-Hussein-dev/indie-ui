@@ -1,11 +1,7 @@
 'use client';
 import * as React from 'react';
 import { CodeBlock } from 'fumadocs-ui/components/codeblock';
-import {
-  FormElementList,
-  FormElement,
-  FormElementOrList,
-} from '@/form-builder/form-types';
+import { FormElementList } from '@/form-builder/form-types';
 import { generateFormCode } from '../libs/generate-form-code';
 import { codeHighlighter } from '../libs/code-highlighter';
 import { formatCode } from '../libs/utils';

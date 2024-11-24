@@ -25,7 +25,9 @@ export const useFormBuilder = () => {
     setTemplate,
     resestFormElements,
   } = useFormBuilderStore();
-  const initialFormElements = templates['contactUs'].template;
+
+  let initialFormElements =
+    formElements.length > 0 ? formElements : templates['contactUs'].template;
   const defaultValues: DefaultValues = initialFormElements.reduce(
     (acc: DefaultValues, element: FormElementOrList) => {
       if (Array.isArray(element)) {
@@ -42,23 +44,14 @@ export const useFormBuilder = () => {
     {},
   );
 
-  const { reset } = useForm();
-
   const zodSchema = generateZodSchema(formElements.flat());
   const form = useForm({
     defaultValues,
     resolver: zodResolver(zodSchema),
   });
 
-  const resetForm = () => {
-    resestFormElements();
-    reset();
-  };
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
-  const { watch } = form;
-  const [submittedData, setSubmittedData] = React.useState(watch());
+  const { watch, reset } = form;
+  const [submittedData, setSubmittedData] = React.useState({});
 
   React.useEffect(() => {
     const { unsubscribe } = watch((data) => {
@@ -66,12 +59,21 @@ export const useFormBuilder = () => {
     });
 
     return unsubscribe;
-  }, [watch]);
+  }, [watch, setSubmittedData]);
+
+  const resetForm = () => {
+    resestFormElements();
+    reset();
+    setSubmittedData({});
+  };
+  const onSubmit = (data: any) => {
+    setSubmittedData(data);
+  };
+
   return {
     form,
     formElements,
     submittedData,
-
     appendElement,
     dropElement,
     editElement,
