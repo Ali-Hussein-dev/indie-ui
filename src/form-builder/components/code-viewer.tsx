@@ -9,6 +9,7 @@ import {
 import { generateFormCode } from '../libs/generate-form-code';
 import { codeHighlighter } from '../libs/code-highlighter';
 import { formatCode } from '../libs/utils';
+import { useFormBuilder } from '../hooks/use-form-builder';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
@@ -52,11 +53,8 @@ export const JsonViewer = ({
 };
 
 //======================================
-export function JsxViewer({
-  formElements,
-}: {
-  formElements: FormElementOrList[];
-}) {
+export function JsxViewer() {
+  const { formElements } = useFormBuilder();
   const generatedCode = generateFormCode(formElements);
   const formattedCode = formatCode(generatedCode);
   const highlightedCode = useShiki({ code: formattedCode });

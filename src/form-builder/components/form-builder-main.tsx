@@ -27,36 +27,12 @@ const tabsList = [
 
 //======================================
 export function FormBuilderMain() {
-  const {
-    form,
-    onSubmit,
-    formElements,
-    appendElement,
-    resetForm,
-    dropElement,
-    editElement,
-    reorder,
-    reorderHorizontal,
-    editElementHorizontal,
-    dropElementHorizontal,
-    appendElementHorizontal,
-    setTemplate,
-  } = useFormBuilder();
-  const { watch } = form;
-  const [submittedData, setSubmittedData] = React.useState(watch());
-
-  React.useEffect(() => {
-    const { unsubscribe } = watch((data) => {
-      setSubmittedData(data);
-    });
-
-    return unsubscribe;
-  }, [watch]);
+  const { formElements, resetForm, submittedData } = useFormBuilder();
 
   return (
     <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
-      <CommandProvider setTemplate={setTemplate}>
-        <FormElementSelector appendElement={appendElement} />
+      <CommandProvider>
+        <FormElementSelector />
       </CommandProvider>
       <Tabs
         defaultValue={tabsList[0].name}
@@ -70,16 +46,7 @@ export function FormBuilderMain() {
           ))}
         </TabsList>
         <TabsContent value={tabsList[0].name}>
-          <FormEdit
-            reorder={reorder}
-            editElement={editElement}
-            formElements={formElements}
-            dropElement={dropElement}
-            appendElementHorizontal={appendElementHorizontal}
-            editElementHorizontal={editElementHorizontal}
-            reorderHorizontal={reorderHorizontal}
-            dropElementHorizontal={dropElementHorizontal}
-          />
+          <FormEdit />
           <div className="flex-row-end pt-2">
             {formElements.length > 1 && (
               <Button size="sm" variant={'secondary'} onClick={resetForm}>
@@ -89,7 +56,7 @@ export function FormBuilderMain() {
           </div>
         </TabsContent>
         <TabsContent value={tabsList[1].name}>
-          <JsxViewer formElements={formElements} />
+          <JsxViewer />
         </TabsContent>
         <TabsContent value={tabsList[2].name}>
           <JsonViewer json={formElements} />
@@ -99,11 +66,7 @@ export function FormBuilderMain() {
         </TabsContent>
       </Tabs>
       <div className="md:col-span-4 w-full">
-        <FormPreview
-          form={form}
-          formElements={formElements}
-          onSubmit={onSubmit}
-        />
+        <FormPreview />
       </div>
     </div>
   );

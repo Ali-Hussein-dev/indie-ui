@@ -1,6 +1,7 @@
 import { createSafeContext } from '@/form-builder/libs/create-safe-context';
 import * as React from 'react';
-import { SetTemplate } from '../form-types';
+import { SetTemplate } from '@/form-builder/form-types';
+import { useFormBuilder } from '@/form-builder/hooks//use-form-builder';
 
 type CommandCtx = {
   openCommand: boolean;
@@ -12,13 +13,8 @@ const [CommandProv, useCommand] = createSafeContext<CommandCtx>(
   'useCommand must be used within a CommandProv provider',
 );
 
-const CommandProvider = ({
-  children,
-  setTemplate,
-}: {
-  children: React.ReactNode;
-  setTemplate: SetTemplate;
-}) => {
+const CommandProvider = ({ children }: { children: React.ReactNode }) => {
+  const { setTemplate } = useFormBuilder();
   const [openCommand, setOpenCommand] = React.useState(false);
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
