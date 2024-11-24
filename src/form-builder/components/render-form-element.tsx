@@ -152,7 +152,11 @@ export const RenderFormElement = (
                 {formElement.label} {formElement.required && '*'}
               </FormLabel>
               <FormControl>
-                <Textarea {...field} className="resize-none" />
+                <Textarea
+                  {...field}
+                  placeholder={formElement.placeholder}
+                  className="resize-none"
+                />
               </FormControl>
               <FormDescription>{formElement.description}</FormDescription>
               <FormMessage />
