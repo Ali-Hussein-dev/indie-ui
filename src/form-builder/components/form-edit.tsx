@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button';
 import { LuGripVertical } from 'react-icons/lu';
 import { FieldCustomizationView } from './field-customization-view';
 import { HorizontalFormElements } from './horizontal-form-elements';
+import { useFormBuilder } from '../hooks/use-form-builder';
 
 type EditFormItemProps = {
   element: FormElement;
@@ -94,30 +95,17 @@ const EditFormItem = (props: EditFormItemProps) => {
 };
 
 //======================================
-type FormElementProps = {
-  formElements: FormElementOrList[];
-
-  reorder: ReorderElement;
-  dropElement: DropElement;
-  editElement: EditElement;
-
-  dropElementHorizontal: DropElementHorizontal;
-  reorderHorizontal: ReorderHorizontal;
-  appendElementHorizontal: AppendElementHorizontal;
-  editElementHorizontal: EditElementHorizontal;
-};
-
-//======================================
-export function FormEdit({
-  formElements,
-  dropElement,
-  editElement,
-  reorder,
-  reorderHorizontal,
-  editElementHorizontal,
-  dropElementHorizontal,
-  appendElementHorizontal,
-}: FormElementProps) {
+export function FormEdit() {
+  const {
+    formElements,
+    reorder,
+    dropElement,
+    editElement,
+    reorderHorizontal,
+    editElementHorizontal,
+    dropElementHorizontal,
+    appendElementHorizontal,
+  } = useFormBuilder();
   return (
     <Reorder.Group
       axis="y"

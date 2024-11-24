@@ -1,28 +1,28 @@
 import { Form } from '@/components/ui/form';
-import { RenderFormElement } from './render-form-element';
-import { FormElementList, FormElementOrList } from '@/form-builder/form-types';
+import { RenderFormElement } from '@/form-builder/components/render-form-element';
+import { FormElementOrList } from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
+import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
+import * as React from 'react';
 
-//======================================
 interface FormPreviewProps {
   form: any;
-  onSubmit: (data: any) => void;
-  formElements: FormElementList;
+  // onSubmit: (data: any) => void;
+  // formElements: FormElementList;
 }
 
 export function FormPreview({
   form,
-  onSubmit,
-  formElements,
 }: FormPreviewProps) {
+  const { onSubmit, formElements } = useFormBuilder();
   const data = Object.keys(form.watch());
   return (
-    <div className="w-full animate-in">
+    <div className="w-full animate-in mx-auto rounded-md max-w-3xl gap-2 border">
       {data.length > 0 ? (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border"
+            className="flex flex-col p-2 md:p-5 w-full"
           >
             {formElements.map((element: FormElementOrList, i) => {
               if (Array.isArray(element)) {
@@ -46,15 +46,17 @@ export function FormPreview({
               );
             })}
             <div className="flex-row-end w-full pt-3">
-              <Button className="rounded-lg" size="sm">
+              <Button type="submit" className="rounded-lg" size="sm">
                 Submit
               </Button>
             </div>
           </form>
         </Form>
       ) : (
-        <div className="h-full">
-          <p className="text-center">Add form elements to preview</p>
+        <div className="h-full py-10 px-3">
+          <p className="text-center text-muted-foreground text-lg">
+            No form elements added yet.
+          </p>
         </div>
       )}
     </div>

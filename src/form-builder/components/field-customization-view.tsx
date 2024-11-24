@@ -54,7 +54,7 @@ function FormElementOptions({
   const { handleSubmit, getValues } = form;
   const onSubmit = () => {
     editFormElement?.(index, getValues());
-    j && editElementHorizontal?.(index, j, getValues());
+    typeof j == 'number' && editElementHorizontal?.(index, j, getValues());
     close();
   };
   // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
