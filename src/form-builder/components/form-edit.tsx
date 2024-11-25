@@ -96,7 +96,6 @@ export function FormEdit() {
     reorder,
     dropElement,
     editElement,
-    reorderHorizontal,
     editElementHorizontal,
     appendElement,
   } = useFormBuilder();
@@ -104,7 +103,7 @@ export function FormEdit() {
     <Reorder.Group
       axis="y"
       onReorder={(newOrder) => {
-        reorder(newOrder);
+        reorder({ newOrder, i: null });
       }}
       values={formElements}
       className="flex flex-col gap-3"
@@ -122,7 +121,7 @@ export function FormEdit() {
               <div className="flex items-center justify-start gap-2 ">
                 <Button
                   onClick={() => {
-                    reorderHorizontal(element.reverse(), i);
+                    reorder({ newOrder: element.reverse(), i });
                   }}
                   variant="ghost"
                   className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"

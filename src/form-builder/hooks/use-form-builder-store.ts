@@ -3,10 +3,9 @@ import {
     FormElement,
     DropElement,
     EditElement,
-    ReorderElement,
+    ReorderElements,
     AppendElement,
     FormElementOrList,
-    ReorderHorizontal,
     EditElementHorizontal,
     SetTemplate,
 } from '@/form-builder/form-types';
@@ -18,8 +17,7 @@ interface FormBuilderState {
     appendElement: AppendElement;
     dropElement: DropElement;
     editElement: EditElement;
-    reorder: ReorderElement;
-    reorderHorizontal: ReorderHorizontal;
+    reorder: ReorderElements;
     editElementHorizontal: EditElementHorizontal;
     setTemplate: SetTemplate;
     resestFormElements: () => void;
@@ -30,37 +28,36 @@ const initialFormElements = templates['contactUs'].template;
 export const useFormBuilderStore = create<FormBuilderState>((set) => ({
     formElements: initialFormElements,
     appendElement: (fieldType, options) => {
-        const { index: i
-        } = options || { index: null };
-        set((state) => {
-            const generatedName = `${fieldType}-${state.formElements.length + 1}`;
-            const newElement = {
-                ...defaultFormElements[fieldType],
-                fieldType: fieldType,
-                name: generatedName,
-            } as FormElementOrList;
+      const { index: i } = options || { index: null };
+      set((state) => {
+          const generatedName = `${fieldType}-${state.formElements.length + 1}`;
+          const newElement = {
+              ...defaultFormElements[fieldType],
+              fieldType: fieldType,
+              name: generatedName,
+          } as FormElementOrList;
 
-            if (typeof i == "number" && !Array.isArray(state.formElements[i])) {
-                // Append to a nested array
-                const newFormElements = [...state.formElements];
-                newFormElements[i] = [
-                    ...(Array.isArray(newFormElements[i])
-                        ? newFormElements[i]
-                        : [newFormElements[i]]),
-                    {
-                        ...defaultFormElements[fieldType],
-                        fieldType,
-                        name: generatedName,
-                    } as FormElement,
-                ];
-                return { formElements: newFormElements };
-            } else {
-                // Append to the main array
-                return {
-                    formElements: [...state.formElements, newElement],
-                };
-            }
-        });
+        if (typeof i == 'number' && !Array.isArray(state.formElements[i])) {
+            // Append to a nested array
+            const newFormElements = [...state.formElements];
+            newFormElements[i] = [
+                ...(Array.isArray(newFormElements[i])
+                    ? newFormElements[i]
+                    : [newFormElements[i]]),
+                {
+                    ...defaultFormElements[fieldType],
+                    fieldType,
+                    name: generatedName,
+                } as FormElement,
+            ];
+            return { formElements: newFormElements };
+        } else {
+            // Append to the main array
+            return {
+                formElements: [...state.formElements, newElement],
+            };
+        }
+    });
     },
     dropElement: (i, options) => {
         const { j } = options || { j: null };
@@ -68,15 +65,17 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
             if (typeof j === 'number' && Array.isArray(state.formElements[i])) {
                 // Remove from a nested array
                 const newFormElements = [...state.formElements];
-                newFormElements[i] = (newFormElements[i] as FormElement[]).filter((_, index) => index !== j)[0];
-                return { formElements: newFormElements };
-            } else {
-                // Remove from the main array
-                return {
-                    formElements: state.formElements.filter((_, index) => index !== i),
-                };
-            }
-        });
+            newFormElements[i] = (newFormElements[i] as FormElement[]).filter(
+                (_, index) => index !== j,
+            )[0];
+            return { formElements: newFormElements };
+        } else {
+            // Remove from the main array
+            return {
+                formElements: state.formElements.filter((_, index) => index !== i),
+            };
+        }
+    });
     },
     editElement: (i, newProps) => {
         set((state) => {
@@ -88,15 +87,18 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
             return { formElements: newFormElements };
         });
     },
-    reorder: (newOrder) => {
-        set({ formElements: newOrder });
-    },
-    reorderHorizontal: (newOrder, j) => {
+    reorder: ({ newOrder, i }): void => {
         set((state) => {
-            const newFormElements = [...state.formElements];
-            newFormElements[j] = newOrder;
-            return { formElements: newFormElements };
-        });
+        if (typeof i === 'number') {
+        // Reorder nested elements
+          const newFormElements = [...state.formElements];
+          newFormElements[i] = newOrder as FormElementOrList;
+          return { formElements: newFormElements };
+      } else {
+          // Reorder main elements
+          return { formElements: newOrder };
+      }
+    });
     },
     editElementHorizontal: (i, j, newProps) => {
         set((state) => {
@@ -116,7 +118,7 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
     },
     resestFormElements: () => {
         set({ formElements: [] });
-    }
+    },
 }));
 
 export default useFormBuilderStore;
