@@ -3,7 +3,6 @@ import {
   DropElement,
   EditElement,
   FormElementOrList,
-  EditElementHorizontal,
   AppendElement,
 } from '@/form-builder/form-types';
 import * as React from 'react';
@@ -23,22 +22,21 @@ type EditFormItemProps = {
    */
   index: number;
   dropElement: DropElement;
+  editElement: EditElement;
 } & (
   | {
       appendElement: AppendElement;
-      editElement: EditElement;
     }
   | {
       /**
        * Index of the nested array element
        */
       j: number;
-      editElementHorizontal: EditElementHorizontal;
     }
 );
 
 const EditFormItem = (props: EditFormItemProps) => {
-  const { element, index, dropElement } = props;
+  const { element, index, dropElement, editElement } = props;
   const isNested = 'j' in props;
   return (
     <div className="w-full bg-background group">
@@ -55,10 +53,7 @@ const EditFormItem = (props: EditFormItemProps) => {
           {element.fieldType !== 'Separator' && (
             <FieldCustomizationView
               formElement={element as FormElement}
-              editFormElement={!isNested ? props.editElement : undefined}
-              editElementHorizontal={
-                isNested ? props.editElementHorizontal : undefined
-              }
+              editElement={editElement}
               index={index}
               j={isNested ? props.j : undefined}
             />
@@ -91,14 +86,8 @@ const EditFormItem = (props: EditFormItemProps) => {
 
 //======================================
 export function FormEdit() {
-  const {
-    formElements,
-    reorder,
-    dropElement,
-    editElement,
-    editElementHorizontal,
-    appendElement,
-  } = useFormBuilder();
+  const { formElements, reorder, dropElement, editElement, appendElement } =
+    useFormBuilder();
   return (
     <Reorder.Group
       axis="y"
@@ -140,7 +129,7 @@ export function FormEdit() {
                         j={j}
                         element={el}
                         dropElement={dropElement}
-                        editElementHorizontal={editElementHorizontal}
+                        editElement={editElement}
                       />
                     </div>
                   ))}

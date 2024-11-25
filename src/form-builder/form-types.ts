@@ -186,7 +186,8 @@ export type FormElementList = FormElement[]
 
 export type DropElement = (i: number, options?: { j?: number, isMS?: boolean }) => void;
 
-export type EditElement = (index: number, props: FormElement) => void;
+export type EditElement = (index: number, props: FormElement, options?: { j?: number | null }) => void;
+
 
 type ReorderParams = { newOrder: FormElementOrList[], i: null } | { newOrder: FormElement[], i: number | null };
 
@@ -201,11 +202,6 @@ export type AppendElement = (fieldType: FormElement['fieldType'], options?: {
 }) => void;
 
 
-export type EditElementHorizontal = (
-    i: number,
-    j: number,
-    props: FormElement,
-) => void;
 
 
 export type SetTemplate = (template: string) => void;

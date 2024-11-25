@@ -6,7 +6,6 @@ import {
     ReorderElements,
     AppendElement,
     FormElementOrList,
-    EditElementHorizontal,
     SetTemplate,
 } from '@/form-builder/form-types';
 import { defaultFormElements } from '@/form-builder/constant/default-form-element';
@@ -18,7 +17,6 @@ interface FormBuilderState {
     dropElement: DropElement;
     editElement: EditElement;
     reorder: ReorderElements;
-    editElementHorizontal: EditElementHorizontal;
     setTemplate: SetTemplate;
     resestFormElements: () => void;
 }
@@ -77,8 +75,20 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
         }
     });
     },
-    editElement: (i, newProps) => {
+    editElement: (i, newProps, options) => {
+        const { j } = options || { j: null };
         set((state) => {
+            if (typeof j == "number") {
+                // Edit nested elements
+                const newFormElements = [...state.formElements];
+                const currentFormElement = [...(newFormElements[i] as FormElement[])];
+                currentFormElement[j] = {
+                    ...currentFormElement[j],
+                    ...newProps,
+                } as FormElement;
+                newFormElements[i] = currentFormElement;
+                return { formElements: newFormElements };
+            }
             const newFormElements = [...state.formElements];
             newFormElements[i] = {
                 ...newFormElements[i],
@@ -99,18 +109,6 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
           return { formElements: newOrder };
       }
     });
-    },
-    editElementHorizontal: (i, j, newProps) => {
-        set((state) => {
-            const newFormElements = [...state.formElements];
-            const currentFormElement = [...(newFormElements[i] as FormElement[])];
-            currentFormElement[j] = {
-                ...currentFormElement[j],
-                ...newProps,
-            } as FormElement;
-            newFormElements[i] = currentFormElement;
-            return { formElements: newFormElements };
-        });
     },
     setTemplate: (templateName: keyof typeof templates) => {
         const template = templates[templateName].template;
