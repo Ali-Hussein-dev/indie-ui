@@ -18,10 +18,6 @@ export const useFormBuilder = () => {
     dropElement,
     editElement,
     reorder,
-    reorderHorizontal,
-    appendElementHorizontal,
-    dropElementHorizontal,
-    editElementHorizontal,
     setTemplate,
     resestFormElements,
   } = useFormBuilderStore();
@@ -78,11 +74,6 @@ export const useFormBuilder = () => {
     dropElement,
     editElement,
     reorder,
-
-    reorderHorizontal,
-    dropElementHorizontal,
-    appendElementHorizontal,
-    editElementHorizontal,
 
     onSubmit,
     resetForm,

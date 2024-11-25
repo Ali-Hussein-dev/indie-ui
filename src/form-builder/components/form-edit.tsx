@@ -2,12 +2,8 @@ import {
   FormElement,
   DropElement,
   EditElement,
-  ReorderElement,
-  ReorderHorizontal,
   FormElementOrList,
-  EditElementHorizontal,
-  DropElementHorizontal,
-  AppendElementHorizontal,
+  AppendElement,
 } from '@/form-builder/form-types';
 import * as React from 'react';
 import { Reorder } from 'framer-motion';
@@ -25,27 +21,23 @@ type EditFormItemProps = {
    * Index of the main array
    */
   index: number;
+  dropElement: DropElement;
+  editElement: EditElement;
 } & (
   | {
-      editElement: EditElement;
-      dropElement: DropElement;
-      appendElementHorizontal: AppendElementHorizontal;
+      appendElement: AppendElement;
     }
   | {
       /**
        * Index of the nested array element
        */
       j: number;
-      dropElementHorizontal: DropElementHorizontal;
-      editElementHorizontal: EditElementHorizontal;
     }
 );
 
 const EditFormItem = (props: EditFormItemProps) => {
-  const { element, index } = props;
+  const { element, index, dropElement, editElement } = props;
   const isNested = 'j' in props;
-  const canAddElementHorizontally =
-    !element.static && 'appendElementHorizontal' in props;
   return (
     <div className="w-full bg-background group">
       <div className="flex-row-between px-2">
@@ -61,10 +53,7 @@ const EditFormItem = (props: EditFormItemProps) => {
           {element.fieldType !== 'Separator' && (
             <FieldCustomizationView
               formElement={element as FormElement}
-              editFormElement={!isNested ? props.editElement : undefined}
-              editElementHorizontal={
-                isNested ? props.editElementHorizontal : undefined
-              }
+              editElement={editElement}
               index={index}
               j={isNested ? props.j : undefined}
             />
@@ -73,18 +62,19 @@ const EditFormItem = (props: EditFormItemProps) => {
             size="icon"
             variant="ghost"
             onClick={() => {
-              if ('dropElement' in props) props.dropElement(index);
-              else {
-                props.dropElementHorizontal(index, props.j as number);
+              if (isNested) {
+                dropElement(index, { j: props.j });
+              } else {
+                dropElement(index);
               }
             }}
             className="rounded-xl h-9"
           >
             <MdDelete />
           </Button>
-          {canAddElementHorizontally && (
+          {'appendElement' in props && (
             <HorizontalFormElements
-              appendElementHorizontal={props.appendElementHorizontal}
+              appendElement={props.appendElement}
               index={index}
             />
           )}
@@ -96,21 +86,13 @@ const EditFormItem = (props: EditFormItemProps) => {
 
 //======================================
 export function FormEdit() {
-  const {
-    formElements,
-    reorder,
-    dropElement,
-    editElement,
-    reorderHorizontal,
-    editElementHorizontal,
-    dropElementHorizontal,
-    appendElementHorizontal,
-  } = useFormBuilder();
+  const { formElements, reorder, dropElement, editElement, appendElement } =
+    useFormBuilder();
   return (
     <Reorder.Group
       axis="y"
       onReorder={(newOrder) => {
-        reorder(newOrder);
+        reorder({ newOrder, i: null });
       }}
       values={formElements}
       className="flex flex-col gap-3"
@@ -128,7 +110,7 @@ export function FormEdit() {
               <div className="flex items-center justify-start gap-2 ">
                 <Button
                   onClick={() => {
-                    reorderHorizontal(element.reverse(), i);
+                    reorder({ newOrder: element.reverse(), i });
                   }}
                   variant="ghost"
                   className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"
@@ -146,8 +128,8 @@ export function FormEdit() {
                         index={i}
                         j={j}
                         element={el}
-                        dropElementHorizontal={dropElementHorizontal!}
-                        editElementHorizontal={editElementHorizontal}
+                        dropElement={dropElement}
+                        editElement={editElement}
                       />
                     </div>
                   ))}
@@ -170,7 +152,7 @@ export function FormEdit() {
               element={element}
               editElement={editElement}
               dropElement={dropElement}
-              appendElementHorizontal={appendElementHorizontal}
+              appendElement={appendElement}
             />
           </Reorder.Item>
         );

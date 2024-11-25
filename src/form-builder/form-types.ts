@@ -184,28 +184,24 @@ export type FormElementList = FormElement[]
 //------------------------------------------------------------Form Element Handlers
 
 
-export type DropElement = (i: number) => void;
+export type DropElement = (i: number, options?: { j?: number, isMS?: boolean }) => void;
 
-export type EditElement = (index: number, props: FormElement) => void;
-
-export type ReorderElement = (newOrder: FormElementOrList[]) => void;
-
-export type AppendElement = (fieldType: FormElement['fieldType']) => void;
-
-export type DropElementHorizontal = (i: number, j: number) => void;
-
-export type ReorderHorizontal = (newOrder: FormElement[], i: number) => void;
-
-export type EditElementHorizontal = (
-    i: number,
-    j: number,
-    props: FormElement,
-) => void;
+export type EditElement = (index: number, props: FormElement, options?: { j?: number | null }) => void;
 
 
-export type AppendElementHorizontal = (
-    fieldType: FormElement['fieldType'],
-    i: number,
-) => void;
+type ReorderParams = { newOrder: FormElementOrList[], i: null } | { newOrder: FormElement[], i: number | null };
+
+export type ReorderElements = (params: ReorderParams) => void;
+
+export type AppendElement = (fieldType: FormElement['fieldType'], options?: {
+    isMS?: boolean;
+    /**
+     * index where a nested element should be appended to the main array
+     */
+    index?: number | null;
+}) => void;
+
+
+
 
 export type SetTemplate = (template: string) => void;

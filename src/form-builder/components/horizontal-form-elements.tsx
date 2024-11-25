@@ -6,19 +6,19 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
-import {
-  AppendElementHorizontal,
-  FormElement,
-} from '@/form-builder/form-types';
+import { AppendElement, FormElement } from '@/form-builder/form-types';
 import { FaPlus } from 'react-icons/fa';
 
 //======================================
 export function HorizontalFormElements({
   index,
-  appendElementHorizontal,
+  appendElement,
 }: {
+  /**
+   * Index of the nested array
+   */
   index: number;
-  appendElementHorizontal: AppendElementHorizontal;
+  appendElement: AppendElement;
 }) {
   return (
     <DropdownMenu>
@@ -34,10 +34,9 @@ export function HorizontalFormElements({
         {formElementsList.map((o) => (
           <DropdownMenuItem
             onSelect={() => {
-              appendElementHorizontal(
-                o.fieldType as FormElement['fieldType'],
-                index,
-              );
+              appendElement(o.fieldType as FormElement['fieldType'], {
+                index: index,
+              });
             }}
             key={o.name}
             disabled={!!o.static}

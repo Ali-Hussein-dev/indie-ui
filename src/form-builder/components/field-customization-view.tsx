@@ -16,11 +16,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { FaEdit } from 'react-icons/fa';
-import {
-  EditElement,
-  EditElementHorizontal,
-  FormElement,
-} from '@/form-builder/form-types';
+import { EditElement, FormElement } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { Form } from '@/components/ui/form';
 import { isStatic } from '@/form-builder/libs/utils';
@@ -39,13 +35,11 @@ function FormElementOptions({
   editFormElement,
   close,
   j,
-  editElementHorizontal,
   ...formElement
 }: FormElement & {
   index: number;
   j?: number;
-  editFormElement?: EditElement;
-  editElementHorizontal?: EditElementHorizontal;
+  editFormElement: EditElement;
   close: () => void;
 }) {
   const form = useForm<FormElement>({
@@ -53,8 +47,7 @@ function FormElementOptions({
   });
   const { handleSubmit, getValues } = form;
   const onSubmit = () => {
-    editFormElement?.(index, getValues());
-    typeof j == 'number' && editElementHorizontal?.(index, j, getValues());
+    editFormElement(index, getValues(), { j: typeof j == 'number' ? j : null });
     close();
   };
   // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
@@ -225,16 +218,14 @@ function FormElementOptions({
 
 export function FieldCustomizationView({
   index,
-  editFormElement,
+  editElement,
   formElement,
-  editElementHorizontal,
   j,
 }: {
   index: number;
   j?: number;
   formElement: FormElement;
-  editFormElement?: EditElement;
-  editElementHorizontal?: EditElementHorizontal;
+  editElement: EditElement;
 }) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -244,8 +235,7 @@ export function FieldCustomizationView({
     <FormElementOptions
       index={index}
       j={j}
-      editFormElement={editFormElement}
-      editElementHorizontal={editElementHorizontal}
+      editFormElement={editElement}
       {...formElement}
       close={close}
     />

@@ -155,6 +155,9 @@ export const RenderFormElement = (
                 <Textarea
                   {...field}
                   placeholder={formElement.placeholder}
+                  required={formElement.required}
+                  disabled={formElement.disabled}
+                  defaultValue={formElement.defaultValue}
                   className="resize-none"
                 />
               </FormControl>
