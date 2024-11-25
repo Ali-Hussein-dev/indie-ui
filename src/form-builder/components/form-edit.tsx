@@ -4,7 +4,6 @@ import {
   EditElement,
   FormElementOrList,
   EditElementHorizontal,
-  DropElementHorizontal,
   AppendElement,
 } from '@/form-builder/form-types';
 import * as React from 'react';
@@ -23,24 +22,23 @@ type EditFormItemProps = {
    * Index of the main array
    */
   index: number;
+  dropElement: DropElement;
 } & (
   | {
       appendElement: AppendElement;
       editElement: EditElement;
-      dropElement: DropElement;
     }
   | {
       /**
        * Index of the nested array element
        */
       j: number;
-      dropElementHorizontal: DropElementHorizontal;
       editElementHorizontal: EditElementHorizontal;
     }
 );
 
 const EditFormItem = (props: EditFormItemProps) => {
-  const { element, index } = props;
+  const { element, index, dropElement } = props;
   const isNested = 'j' in props;
   return (
     <div className="w-full bg-background group">
@@ -69,9 +67,10 @@ const EditFormItem = (props: EditFormItemProps) => {
             size="icon"
             variant="ghost"
             onClick={() => {
-              if ('dropElement' in props) props.dropElement(index);
-              else {
-                props.dropElementHorizontal(index, props.j as number);
+              if (isNested) {
+                dropElement(index, { j: props.j });
+              } else {
+                dropElement(index);
               }
             }}
             className="rounded-xl h-9"
@@ -99,7 +98,6 @@ export function FormEdit() {
     editElement,
     reorderHorizontal,
     editElementHorizontal,
-    dropElementHorizontal,
     appendElement,
   } = useFormBuilder();
   return (
@@ -142,7 +140,7 @@ export function FormEdit() {
                         index={i}
                         j={j}
                         element={el}
-                        dropElementHorizontal={dropElementHorizontal!}
+                        dropElement={dropElement}
                         editElementHorizontal={editElementHorizontal}
                       />
                     </div>

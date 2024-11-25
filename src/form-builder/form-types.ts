@@ -184,7 +184,7 @@ export type FormElementList = FormElement[]
 //------------------------------------------------------------Form Element Handlers
 
 
-export type DropElement = (i: number) => void;
+export type DropElement = (i: number, options?: { j?: number, isMS?: boolean }) => void;
 
 export type EditElement = (index: number, props: FormElement) => void;
 
@@ -197,8 +197,6 @@ export type AppendElement = (fieldType: FormElement['fieldType'], options?: {
      */
     index?: number | null;
 }) => void;
-
-export type DropElementHorizontal = (i: number, j: number) => void;
 
 export type ReorderHorizontal = (newOrder: FormElement[], i: number) => void;
 

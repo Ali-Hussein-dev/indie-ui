@@ -6,7 +6,6 @@ import {
     ReorderElement,
     AppendElement,
     FormElementOrList,
-    DropElementHorizontal,
     ReorderHorizontal,
     EditElementHorizontal,
     SetTemplate,
@@ -21,7 +20,6 @@ interface FormBuilderState {
     editElement: EditElement;
     reorder: ReorderElement;
     reorderHorizontal: ReorderHorizontal;
-    dropElementHorizontal: DropElementHorizontal;
     editElementHorizontal: EditElementHorizontal;
     setTemplate: SetTemplate;
     resestFormElements: () => void;
@@ -64,10 +62,21 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
             }
         });
     },
-    dropElement: (index) => {
-        set((state) => ({
-            formElements: state.formElements.filter((_, i) => i !== index),
-        }));
+    dropElement: (i, options) => {
+        const { j } = options || { j: null };
+        set((state) => {
+            if (typeof j === 'number' && Array.isArray(state.formElements[i])) {
+                // Remove from a nested array
+                const newFormElements = [...state.formElements];
+                newFormElements[i] = (newFormElements[i] as FormElement[]).filter((_, index) => index !== j)[0];
+                return { formElements: newFormElements };
+            } else {
+                // Remove from the main array
+                return {
+                    formElements: state.formElements.filter((_, index) => index !== i),
+                };
+            }
+        });
     },
     editElement: (i, newProps) => {
         set((state) => {
@@ -86,13 +95,6 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
         set((state) => {
             const newFormElements = [...state.formElements];
             newFormElements[j] = newOrder;
-            return { formElements: newFormElements };
-        });
-    },
-    dropElementHorizontal: (index, j) => {
-        set((state) => {
-            const newFormElements = [...state.formElements];
-            newFormElements[index] = (newFormElements[index] as FormElement[]).filter((_: any, i: number) => i !== j)[0];
             return { formElements: newFormElements };
         });
     },
