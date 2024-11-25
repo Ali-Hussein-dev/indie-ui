@@ -8,7 +8,6 @@ import {
     FormElementOrList,
     DropElementHorizontal,
     ReorderHorizontal,
-    AppendElementHorizontal,
     EditElementHorizontal,
     SetTemplate,
 } from '@/form-builder/form-types';
@@ -22,7 +21,6 @@ interface FormBuilderState {
     editElement: EditElement;
     reorder: ReorderElement;
     reorderHorizontal: ReorderHorizontal;
-    appendElementHorizontal: AppendElementHorizontal;
     dropElementHorizontal: DropElementHorizontal;
     editElementHorizontal: EditElementHorizontal;
     setTemplate: SetTemplate;
@@ -33,20 +31,37 @@ const initialFormElements = templates['contactUs'].template;
 
 export const useFormBuilderStore = create<FormBuilderState>((set) => ({
     formElements: initialFormElements,
-    appendElement: (fieldType) => {
+    appendElement: (fieldType, options) => {
+        const { index: i
+        } = options || { index: null };
         set((state) => {
-            const length = state.formElements.length;
-            const generatedName = `${fieldType}-${length + 1}`;
-            return {
-                formElements: [
-                    ...state.formElements,
+            const generatedName = `${fieldType}-${state.formElements.length + 1}`;
+            const newElement = {
+                ...defaultFormElements[fieldType],
+                fieldType: fieldType,
+                name: generatedName,
+            } as FormElementOrList;
+
+            if (typeof i == "number" && !Array.isArray(state.formElements[i])) {
+                // Append to a nested array
+                const newFormElements = [...state.formElements];
+                newFormElements[i] = [
+                    ...(Array.isArray(newFormElements[i])
+                        ? newFormElements[i]
+                        : [newFormElements[i]]),
                     {
                         ...defaultFormElements[fieldType],
-                        fieldType: fieldType,
+                        fieldType,
                         name: generatedName,
-                    } as FormElementOrList,
-                ],
-            };
+                    } as FormElement,
+                ];
+                return { formElements: newFormElements };
+            } else {
+                // Append to the main array
+                return {
+                    formElements: [...state.formElements, newElement],
+                };
+            }
         });
     },
     dropElement: (index) => {
@@ -71,23 +86,6 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
         set((state) => {
             const newFormElements = [...state.formElements];
             newFormElements[j] = newOrder;
-            return { formElements: newFormElements };
-        });
-    },
-    appendElementHorizontal: (fieldType, i) => {
-        set((state) => {
-            const generatedName = `${fieldType}-${i + 1}-2`;
-            const newFormElements = [...state.formElements];
-            newFormElements[i] = [
-                ...(Array.isArray(newFormElements[i])
-                    ? newFormElements[i]
-                    : [newFormElements[i]]),
-                {
-                    ...defaultFormElements[fieldType],
-                    fieldType,
-                    name: generatedName,
-                } as FormElement,
-            ];
             return { formElements: newFormElements };
         });
     },

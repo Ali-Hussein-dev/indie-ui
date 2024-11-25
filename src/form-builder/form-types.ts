@@ -190,7 +190,13 @@ export type EditElement = (index: number, props: FormElement) => void;
 
 export type ReorderElement = (newOrder: FormElementOrList[]) => void;
 
-export type AppendElement = (fieldType: FormElement['fieldType']) => void;
+export type AppendElement = (fieldType: FormElement['fieldType'], options?: {
+    isMS?: boolean;
+    /**
+     * index where a nested element should be appended to the main array
+     */
+    index?: number | null;
+}) => void;
 
 export type DropElementHorizontal = (i: number, j: number) => void;
 
@@ -202,10 +208,5 @@ export type EditElementHorizontal = (
     props: FormElement,
 ) => void;
 
-
-export type AppendElementHorizontal = (
-    fieldType: FormElement['fieldType'],
-    i: number,
-) => void;
 
 export type SetTemplate = (template: string) => void;

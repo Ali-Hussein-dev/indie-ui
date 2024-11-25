@@ -2,12 +2,10 @@ import {
   FormElement,
   DropElement,
   EditElement,
-  ReorderElement,
-  ReorderHorizontal,
   FormElementOrList,
   EditElementHorizontal,
   DropElementHorizontal,
-  AppendElementHorizontal,
+  AppendElement,
 } from '@/form-builder/form-types';
 import * as React from 'react';
 import { Reorder } from 'framer-motion';
@@ -27,9 +25,9 @@ type EditFormItemProps = {
   index: number;
 } & (
   | {
+      appendElement: AppendElement;
       editElement: EditElement;
       dropElement: DropElement;
-      appendElementHorizontal: AppendElementHorizontal;
     }
   | {
       /**
@@ -44,8 +42,6 @@ type EditFormItemProps = {
 const EditFormItem = (props: EditFormItemProps) => {
   const { element, index } = props;
   const isNested = 'j' in props;
-  const canAddElementHorizontally =
-    !element.static && 'appendElementHorizontal' in props;
   return (
     <div className="w-full bg-background group">
       <div className="flex-row-between px-2">
@@ -82,9 +78,9 @@ const EditFormItem = (props: EditFormItemProps) => {
           >
             <MdDelete />
           </Button>
-          {canAddElementHorizontally && (
+          {'appendElement' in props && (
             <HorizontalFormElements
-              appendElementHorizontal={props.appendElementHorizontal}
+              appendElement={props.appendElement}
               index={index}
             />
           )}
@@ -104,7 +100,7 @@ export function FormEdit() {
     reorderHorizontal,
     editElementHorizontal,
     dropElementHorizontal,
-    appendElementHorizontal,
+    appendElement,
   } = useFormBuilder();
   return (
     <Reorder.Group
@@ -170,7 +166,7 @@ export function FormEdit() {
               element={element}
               editElement={editElement}
               dropElement={dropElement}
-              appendElementHorizontal={appendElementHorizontal}
+              appendElement={appendElement}
             />
           </Reorder.Item>
         );
