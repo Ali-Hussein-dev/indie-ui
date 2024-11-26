@@ -34,37 +34,44 @@ export function FormBuilderMain() {
       <CommandProvider>
         <FormElementSelector />
       </CommandProvider>
-      <Tabs
-        defaultValue={tabsList[0].name}
-        className="w-full md:col-span-6 min-w-full grow"
-      >
-        <TabsList className="w-full">
-          {tabsList.map((tab) => (
-            <TabsTrigger key={tab.name} value={tab.name} className="w-full">
-              {tab.name}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        <TabsContent value={tabsList[0].name}>
-          <FormEdit />
-          <div className="flex-row-end pt-2">
-            {formElements.length > 1 && (
-              <Button size="sm" variant={'secondary'} onClick={resetForm}>
-                Reset
-              </Button>
-            )}
-          </div>
-        </TabsContent>
-        <TabsContent value={tabsList[1].name}>
-          <JsxViewer />
-        </TabsContent>
-        <TabsContent value={tabsList[2].name}>
-          <JsonViewer json={formElements} />
-        </TabsContent>
-        <TabsContent value={tabsList[3].name}>
-          <JsonViewer json={submittedData} />
-        </TabsContent>
-      </Tabs>
+      <div className="px-4 sm:px-0">
+        <Tabs
+          defaultValue={tabsList[0].name}
+          className="w-full md:col-span-6 min-w-full grow "
+        >
+          <TabsList className="w-full">
+            {tabsList.map((tab) => (
+              <TabsTrigger key={tab.name} value={tab.name} className="w-full">
+                {tab.name}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          <TabsContent value={tabsList[0].name}>
+            <FormEdit />
+            <div className="flex-row-end pt-2">
+              {formElements.length > 1 && (
+                <Button
+                  size="sm"
+                  variant={'ghost'}
+                  onClick={resetForm}
+                  className="rounded-lg"
+                >
+                  Reset
+                </Button>
+              )}
+            </div>
+          </TabsContent>
+          <TabsContent value={tabsList[1].name}>
+            <JsxViewer />
+          </TabsContent>
+          <TabsContent value={tabsList[2].name}>
+            <JsonViewer json={formElements} />
+          </TabsContent>
+          <TabsContent value={tabsList[3].name}>
+            <JsonViewer json={submittedData} />
+          </TabsContent>
+        </Tabs>
+      </div>
       <div className="md:col-span-4 w-full">
         <FormPreview form={form} />
       </div>

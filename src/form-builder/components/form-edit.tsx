@@ -117,7 +117,7 @@ export function FormEdit() {
                 >
                   <IoIosSwap className="dark:text-muted-foreground text-muted-foreground" />
                 </Button>
-                <div className="flex items-center justify-start grow flex-wrap sm:flex-nowrap w-full gap-2">
+                <div className="flex items-center justify-start grow flex-wrap sm:flex-nowrap w-full gap-3">
                   {element.map((el, j) => (
                     <div
                       key={el.name + j}
