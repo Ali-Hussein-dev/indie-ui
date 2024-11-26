@@ -1,12 +1,9 @@
 import { createSafeContext } from '@/form-builder/libs/create-safe-context';
 import * as React from 'react';
-import { SetTemplate } from '@/form-builder/form-types';
-import { useFormBuilder } from '@/form-builder/hooks//use-form-builder';
 
 type CommandCtx = {
   openCommand: boolean;
   setOpenCommand: React.Dispatch<React.SetStateAction<boolean>>;
-  setTemplate: SetTemplate;
 };
 
 const [CommandProv, useCommand] = createSafeContext<CommandCtx>(
@@ -14,7 +11,6 @@ const [CommandProv, useCommand] = createSafeContext<CommandCtx>(
 );
 
 const CommandProvider = ({ children }: { children: React.ReactNode }) => {
-  const { setTemplate } = useFormBuilder();
   const [openCommand, setOpenCommand] = React.useState(false);
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -36,7 +32,7 @@ const CommandProvider = ({ children }: { children: React.ReactNode }) => {
     return () => document.removeEventListener('keydown', down);
   }, []);
   return (
-    <CommandProv value={{ openCommand, setOpenCommand, setTemplate }}>
+    <CommandProv value={{ openCommand, setOpenCommand }}>
       {children}
     </CommandProv>
   );

@@ -4,8 +4,8 @@ import {
   SelectItem,
   SelectTrigger,
 } from '@/components/ui/select';
-import { useCommand } from '@/form-builder/hooks/use-command-ctx';
 import { templates } from '@/form-builder/constant/templates';
+import { useFormBuilder } from '../hooks/use-form-builder';
 
 const formTemplates = Object.entries(templates).map((template) => ({
   label: template[1].name,
@@ -13,7 +13,7 @@ const formTemplates = Object.entries(templates).map((template) => ({
 }));
 //======================================
 export function TemplatesSelect() {
-  const { setTemplate } = useCommand();
+  const { setTemplate } = useFormBuilder();
   return (
     <div className="pb-2">
       <Select
@@ -24,13 +24,7 @@ export function TemplatesSelect() {
         <SelectTrigger>Templates</SelectTrigger>
         <SelectContent>
           {formTemplates.map(({ label, value }) => (
-            <SelectItem
-              // onSelect={() => {
-              //   setTemplate(value);
-              // }}
-              key={label}
-              value={value}
-            >
+            <SelectItem key={label} value={value}>
               {label}
             </SelectItem>
           ))}
