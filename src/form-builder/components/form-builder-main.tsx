@@ -34,11 +34,8 @@ export function FormBuilderMain() {
       <CommandProvider>
         <FormElementSelector />
       </CommandProvider>
-      <div className="px-4 sm:px-0">
-        <Tabs
-          defaultValue={tabsList[0].name}
-          className="w-full md:col-span-6 min-w-full grow "
-        >
+      <div className="px-4 sm:px-0 w-full md:col-span-6 min-w-full grow ">
+        <Tabs defaultValue={tabsList[0].name} className="">
           <TabsList className="w-full">
             {tabsList.map((tab) => (
               <TabsTrigger key={tab.name} value={tab.name} className="w-full">
