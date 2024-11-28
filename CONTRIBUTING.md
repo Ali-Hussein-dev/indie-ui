@@ -11,7 +11,7 @@ We are grateful for your enthusiasm in wanting to contribute to IndieUI! Your as
 
    ```bash
    git clone https://github.com/<YOUR_USERNAME>/indie-ui.git
-    ```
+   ```
 
 3. Change the directory to the cloned repository:
 
@@ -21,19 +21,19 @@ We are grateful for your enthusiasm in wanting to contribute to IndieUI! Your as
 
 5. Create a new branch for your changes:
 
-    ```bash
+   ```bash
    git checkout -b feat/component-name
    ```
 
 6. Install the dependencies:
 
-    ```bash
+   ```bash
    pnpm install
    ```
 
 7. Run the development server:
 
-    ```bash
+   ```bash
    pnpm dev
    ```
 

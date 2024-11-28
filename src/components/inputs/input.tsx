@@ -2,7 +2,6 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-
 /**
  * USAGE EXAMPLE
  * 
@@ -25,13 +24,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         type={type}
         className={cn(
           'size-full bg-transparent ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium dark:placeholder:text-zinc-600 placeholder:text-zinc-400 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none text-base',
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
     );
-  }
+  },
 );
 
 const rootVariants = cva(
@@ -65,7 +64,7 @@ const rootVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 );
 
 type InputBlockProps = {
@@ -94,4 +93,3 @@ export { Input, InputBlock };
 
 Input.displayName = 'Input';
 InputBlock.displayName = 'InputBlock';
-

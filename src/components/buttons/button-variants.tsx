@@ -20,7 +20,7 @@ export const Button_v1 = ({ children, ...rest }: ButtonProps) => {
         'shadow-[4px_4px_0px_0px_rgba(0,0,0)] active:shadow-none border-zinc-800 hover:bg-zinc-50 text-zinc-800',
         // dark mode
         'dark:border-zinc-600 dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.7)] active:dark:shadow-none dark:text-zinc-50 dark:bg-zinc-950',
-        rest.className
+        rest.className,
       )}
     >
       {children}
@@ -39,7 +39,7 @@ export const Button_v2 = ({ children, ...rest }: ButtonProps) => {
         'text-zinc-50 bg-gradient-to-tr from-zinc-900 to-zinc-700 hover:shadow-zinc-500/30',
         // dark mode
         'dark:text-zinc-900 dark:bg-gradient-to-tr dark:from-zinc-50 dark:to-zinc-100 dark:hover:shadow-zinc-700/30',
-        rest.className
+        rest.className,
       )}
     >
       <span>{children}</span>
@@ -61,7 +61,7 @@ export const Button_v3 = ({ children, ...rest }: ButtonProps) => {
         'bg-zinc-900 hover:from-zinc-800 hover:to-zinc-700 text-zinc-50 hover:ring-zinc-900',
         // dark mode
         'dark:bg-zinc-50 dark:hover:from-zinc-50 dark:hover:to-zinc-100 dark:text-zinc-800 dark:hover:ring-white dark:ring-offset-black',
-        rest.className
+        rest.className,
       )}
     >
       <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white dark:bg-zinc-900 opacity-10 rotate-12 group-hover:-translate-x-60 ease"></span>
@@ -81,7 +81,7 @@ export const Button_v4 = ({ children, ...rest }: ButtonProps) => {
         'active:shadow-none from-zinc-800 to-zinc-700 text-white shadow-[0px_3px_0px_rgba(82,82,91,0.9)]',
         // dark mode
         'dark:active:shadow-none dark:from-zinc-50 dark:to-zinc-100 dark:text-zinc-800 dark:shadow-[0px_3px_0px_rgba(161,161,170,0.9)]',
-        rest.className
+        rest.className,
       )}
     >
       <span className="absolute size-0 rounded-lg bg-white dark:bg-black opacity-10 transition-all duration-300 ease-out group-hover:size-full"></span>
@@ -127,7 +127,7 @@ export const Button_v6 = ({ children, ...rest }: ButtonProps) => {
         {...rest}
         className={cn(
           'scale-y-[.88] scale-x-[0.97] group-hover:scale-100 group-hover:m-0 duration-300 font-semibold rounded-sm transition dark:bg-zinc-50 bg-zinc-950 text-zinc-100 dark:text-zinc-800 w-full',
-          rest.className
+          rest.className,
         )}
       >
         {children}
@@ -145,7 +145,7 @@ export const Button_v7 = ({ children, ...rest }: ButtonProps) => {
       className={cn(
         'hover:no-underline',
         "relative ease-in after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:translate-y-[3px] after:rounded-full after:dark:bg-zinc-50 after:bg-zinc-800 after:opacity-0 after:duration-300 after:content-[''] hover:after:-translate-y-1 hover:after:opacity-100 px-[1px] pb-0",
-        rest.className
+        rest.className,
       )}
     >
       {children}

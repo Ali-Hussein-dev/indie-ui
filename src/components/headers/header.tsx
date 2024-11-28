@@ -46,7 +46,7 @@ export const Header = ({
       className={cn(
         'w-full dark:bg-zinc-950/50 backdrop-blur bg-zinc-50',
         sticky && variant == 'centered' && 'sticky top-0 md:top-3',
-        sticky && variant == 'default' && 'sticky top-0'
+        sticky && variant == 'default' && 'sticky top-0',
       )}
     >
       <div className={cn('hidden md:block', headerVariants({ variant }))}>

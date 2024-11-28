@@ -10,7 +10,7 @@ export const EyeCatchingButton_v1 = ({ ...props }: ButtonProps) => {
         {...props}
         className={cn(
           'h-10 px-8 w-full rounded-full font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900',
-          props.className
+          props.className,
         )}
       />
     </div>
@@ -26,7 +26,7 @@ export const EyeCatchingButton_v2 = ({ ...props }: ButtonProps) => {
         'animate-bg-shine border-[1px] rounded-lg shadow bg-[length:200%_100%] tracking-wide',
         'dark:bg-[linear-gradient(110deg,#09090B,45%,#27272A,55%,#09090B)] dark:text-zinc-200 dark:border-zinc-800',
         'bg-[linear-gradient(110deg,#FFF,45%,#E4E4E7,55%,#FFF)] text-zinc-800 border-zinc-300',
-        props.className
+        props.className,
       )}
     />
   );
@@ -41,7 +41,7 @@ export const EyeCatchingButton_v3 = ({ ...props }: ButtonProps) => {
         'border-[1px] rounded-lg bg-clip-text text-transparent dark:text-transparent animate-bg-shine bg-[length:250%_100%] shadow font-bold tracking-wide',
         'dark:bg-[linear-gradient(110deg,#D4D4D8,45%,#27272A,55%,#D4D4D8)] dark:border-zinc-800',
         'bg-[linear-gradient(110deg,#09090B,45%,#fff,55%,#09090B)] border-zinc-300',
-        props.className
+        props.className,
       )}
     />
   );
@@ -56,7 +56,7 @@ export const EyeCatchingButton_v4 = ({ ...props }: ButtonProps) => {
         {...props}
         className={cn(
           'backdrop-blur-2xl rounded-xl dark:text-zinc-400 dark:bg-zinc-950 bg-white text-zinc-800 font-medium text-lg group-hover:scale-100',
-          props.className
+          props.className,
         )}
       />
     </div>
@@ -73,7 +73,7 @@ export const EyeCatchingButton_v5 = ({ ...props }: ButtonProps) => {
         'bg-gradient-to-l text-transparent dark:text-transparent bg-clip-text animate-text-gradient font-bold dark:bg-zinc-50 bg-[length:300%] text-lg rounded-xl tracking-wide',
         'from-zinc-500 via-zinc-950 to-zinc-600',
         'dark:from-zinc-600 dark:via-zinc-100 dark:to-zinc-600',
-        props.className
+        props.className,
       )}
     />
   );

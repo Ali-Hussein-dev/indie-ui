@@ -50,6 +50,5 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Header', url: '/docs/header' },
     { type: 'page', name: 'Separator', url: '/docs/separator' },
     { type: 'page', name: 'Inputs', url: '/docs/inputs' },
-
   ],
 };

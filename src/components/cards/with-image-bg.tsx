@@ -12,7 +12,7 @@ const CardBody = ({ className = '' }) => (
   <div
     className={cn(
       'px-2 text-gray-100 sm:px-4 py-0 sm:pb-3 text-left',
-      className
+      className,
     )}
   >
     <h3 className="text-lg font-bold tracking-tighter mt-3 mb-1">

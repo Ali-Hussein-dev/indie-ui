@@ -6,7 +6,7 @@ import * as React from 'react';
 //======================================
 const HeaderDemoPage = () => {
   const [variant, setVariant] = React.useState<'default' | 'centered'>(
-    'default'
+    'default',
   );
   const [isSticky, setIsSticky] = React.useState(false);
   return (

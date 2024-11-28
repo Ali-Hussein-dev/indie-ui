@@ -11,9 +11,7 @@ interface FormPreviewProps {
   // formElements: FormElementList;
 }
 
-export function FormPreview({
-  form,
-}: FormPreviewProps) {
+export function FormPreview({ form }: FormPreviewProps) {
   const { onSubmit, formElements } = useFormBuilder();
   const data = Object.keys(form.watch());
   return (

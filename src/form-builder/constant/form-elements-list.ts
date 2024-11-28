@@ -111,7 +111,7 @@ export const formElementsList = [
   {
     name: 'Separator',
     fieldType: 'Separator',
-    static: true
+    static: true,
   },
   {
     name: 'Slider',

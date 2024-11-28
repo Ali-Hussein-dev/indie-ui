@@ -40,7 +40,7 @@ export const Bento_4_v2 = () => {
             className={cn(
               'p-1 rounded-lg h-32',
               i == 0 && 'md:col-span-3',
-              i > 1 && 'md:col-span-2'
+              i > 1 && 'md:col-span-2',
             )}
           >
             <Cell i={i + 1} />
@@ -85,7 +85,7 @@ export const Bento_4_v4 = () => {
             i == 0 && 'md:col-span-4 md:row-span-4 md:h-full',
             i == 1 && 'md:col-span-2',
             i == 2 && 'md:col-span-2 md:row-span-3',
-            i == 3 && 'md:col-span-6'
+            i == 3 && 'md:col-span-6',
           )}
         >
           <Cell i={i + 1} />

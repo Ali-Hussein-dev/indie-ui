@@ -24,7 +24,7 @@ export const MobileHeader = ({
     <div
       className={cn(
         'md:hidden px-4 pt-2',
-        isOpen && 'min-h-screen z-40 dark:bg-zinc-950 bg-zinc-50 size-full'
+        isOpen && 'min-h-screen z-40 dark:bg-zinc-950 bg-zinc-50 size-full',
       )}
     >
       <div className="flex-row-between pb-2">

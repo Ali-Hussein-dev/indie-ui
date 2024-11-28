@@ -6,8 +6,8 @@
     "dev": "next dev",
     "format": "prettier -w .gitignore .prettierignore .",
     "lint": "next lint",
-    "start": "next start",
     "post:merge": "git co main && git pull",
+    "start": "next start",
     "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "prettier": "@vercel/style-guide/prettier",
