@@ -12,8 +12,8 @@ import { IoIosSwap } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
 import { LuGripVertical } from 'react-icons/lu';
 import { FieldCustomizationView } from './field-customization-view';
-import { HorizontalFormElements } from './horizontal-form-elements';
-import { useFormBuilder } from '../hooks/use-form-builder';
+import { FormElementsDropdown } from '@/form-builder/components/form-elements-dropdown';
+import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
 
 type EditFormItemProps = {
   element: FormElement;
@@ -73,7 +73,7 @@ const EditFormItem = (props: EditFormItemProps) => {
             <MdDelete />
           </Button>
           {'appendElement' in props && (
-            <HorizontalFormElements
+            <FormElementsDropdown
               appendElement={props.appendElement}
               index={index}
             />

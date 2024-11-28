@@ -9,8 +9,11 @@ import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { AppendElement, FormElement } from '@/form-builder/form-types';
 import { FaPlus } from 'react-icons/fa';
 
+/**
+ * Use for adding a nested form element
+ */
 //======================================
-export function HorizontalFormElements({
+export function FormElementsDropdown({
   index,
   appendElement,
 }: {
