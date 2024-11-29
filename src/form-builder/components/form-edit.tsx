@@ -6,7 +6,7 @@ import {
   AppendElement,
 } from '@/form-builder/form-types';
 import * as React from 'react';
-import { Reorder } from 'framer-motion';
+import { AnimatePresence, Reorder } from 'framer-motion';
 import { MdDelete } from 'react-icons/md';
 import { IoIosSwap } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
@@ -88,6 +88,11 @@ const EditFormItem = (props: EditFormItemProps) => {
 export function FormEdit() {
   const { formElements, reorder, dropElement, editElement, appendElement } =
     useFormBuilder();
+  const animateVariants = {
+    initial: { opacity: 0, y: -15 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.2 } },
+    exist: { opacity: 0, y: -15 },
+  };
   return (
     <Reorder.Group
       axis="y"
@@ -98,65 +103,71 @@ export function FormEdit() {
       className="flex flex-col gap-3"
       tabIndex={-1}
     >
-      {formElements.map((element: FormElementOrList, i) => {
-        if (Array.isArray(element)) {
+      <AnimatePresence>
+        {formElements.map((element: FormElementOrList, i) => {
+          if (Array.isArray(element)) {
+            return (
+              <Reorder.Item
+                value={element}
+                key={element.map((f) => f.name).join('-')}
+                variants={animateVariants}
+                initial="initial"
+                animate="animate"
+                exit="exist"
+              >
+                <div className="flex items-center justify-start gap-2 ">
+                  <Button
+                    onClick={() => {
+                      reorder({ newOrder: element.reverse(), i });
+                    }}
+                    variant="ghost"
+                    className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"
+                  >
+                    <IoIosSwap className="dark:text-muted-foreground text-muted-foreground" />
+                  </Button>
+                  <div className="flex items-center justify-start grow flex-wrap sm:flex-nowrap w-full gap-3">
+                    {element.map((el, j) => (
+                      <div
+                        key={el.name + j}
+                        className="w-full rounded-xl border border-dashed py-1.5"
+                      >
+                        <EditFormItem
+                          key={el.name + j}
+                          index={i}
+                          j={j}
+                          element={el}
+                          dropElement={dropElement}
+                          editElement={editElement}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reorder.Item>
+            );
+          }
           return (
             <Reorder.Item
+              key={element.name}
               value={element}
-              key={element.map((f) => f.name).join('-')}
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
+              className="rounded-xl border border-dashed py-1.5 w-full"
+              variants={animateVariants}
+              initial="initial"
+              animate="animate"
+              exit="exist"
             >
-              <div className="flex items-center justify-start gap-2 ">
-                <Button
-                  onClick={() => {
-                    reorder({ newOrder: element.reverse(), i });
-                  }}
-                  variant="ghost"
-                  className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"
-                >
-                  <IoIosSwap className="dark:text-muted-foreground text-muted-foreground" />
-                </Button>
-                <div className="flex items-center justify-start grow flex-wrap sm:flex-nowrap w-full gap-3">
-                  {element.map((el, j) => (
-                    <div
-                      key={el.name + j}
-                      className="w-full rounded-xl border border-dashed py-1.5"
-                    >
-                      <EditFormItem
-                        key={el.name + j}
-                        index={i}
-                        j={j}
-                        element={el}
-                        dropElement={dropElement}
-                        editElement={editElement}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <EditFormItem
+                key={element.name + i}
+                index={i}
+                element={element}
+                editElement={editElement}
+                dropElement={dropElement}
+                appendElement={appendElement}
+              />
             </Reorder.Item>
           );
-        }
-        return (
-          <Reorder.Item
-            key={element.name}
-            value={element}
-            className="rounded-xl border border-dashed py-1.5 w-full"
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
-          >
-            <EditFormItem
-              key={element.name + i}
-              index={i}
-              element={element}
-              editElement={editElement}
-              dropElement={dropElement}
-              appendElement={appendElement}
-            />
-          </Reorder.Item>
-        );
-      })}
+        })}
+      </AnimatePresence>
     </Reorder.Group>
   );
 }
