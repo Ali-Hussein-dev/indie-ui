@@ -1,19 +1,14 @@
-import {
-  FormElement,
-  DropElement,
-  EditElement,
-  FormElementOrList,
-  AppendElement,
-} from '@/form-builder/form-types';
+import { FormElement, FormElementOrList } from '@/form-builder/form-types';
 import * as React from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 import { MdDelete } from 'react-icons/md';
 import { IoIosSwap } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
 import { LuGripVertical } from 'react-icons/lu';
-import { FieldCustomizationView } from './field-customization-view';
+import { FieldCustomizationView } from '@/form-builder/components/field-customization-view';
 import { FormElementsDropdown } from '@/form-builder/components/form-elements-dropdown';
 import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 type EditFormItemProps = {
   element: FormElement;
@@ -21,23 +16,16 @@ type EditFormItemProps = {
    * Index of the main array
    */
   index: number;
-  dropElement: DropElement;
-  editElement: EditElement;
-} & (
-  | {
-      appendElement: AppendElement;
-    }
-  | {
-      /**
-       * Index of the nested array element
-       */
-      j: number;
-    }
-);
+  /**
+   * Index of the nested array element
+   */
+  j?: number;
+};
 
 const EditFormItem = (props: EditFormItemProps) => {
-  const { element, index, dropElement, editElement } = props;
-  const isNested = 'j' in props;
+  const { element, index } = props;
+  const { dropElement, appendElement } = useFormBuilderStore();
+  const isNested = typeof props?.j === 'number';
   return (
     <div className="w-full bg-background group">
       <div className="flex-row-between px-2">
@@ -53,30 +41,22 @@ const EditFormItem = (props: EditFormItemProps) => {
           {element.fieldType !== 'Separator' && (
             <FieldCustomizationView
               formElement={element as FormElement}
-              editElement={editElement}
               index={index}
-              j={isNested ? props.j : undefined}
+              j={props?.j}
             />
           )}
           <Button
             size="icon"
             variant="ghost"
             onClick={() => {
-              if (isNested) {
-                dropElement(index, { j: props.j });
-              } else {
-                dropElement(index);
-              }
+              dropElement({ i: index, j: props?.j });
             }}
             className="rounded-xl h-9"
           >
             <MdDelete />
           </Button>
-          {'appendElement' in props && (
-            <FormElementsDropdown
-              appendElement={props.appendElement}
-              index={index}
-            />
+          {!isNested && (
+            <FormElementsDropdown appendElement={appendElement} index={index} />
           )}
         </div>
       </div>
@@ -136,8 +116,6 @@ export function FormEdit() {
                           index={i}
                           j={j}
                           element={el}
-                          dropElement={dropElement}
-                          editElement={editElement}
                         />
                       </div>
                     ))}
@@ -160,9 +138,6 @@ export function FormEdit() {
                 key={element.name + i}
                 index={i}
                 element={element}
-                editElement={editElement}
-                dropElement={dropElement}
-                appendElement={appendElement}
               />
             </Reorder.Item>
           );

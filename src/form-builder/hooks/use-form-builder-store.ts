@@ -58,8 +58,7 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
       }
     });
   },
-  dropElement: (i, options) => {
-    const { j } = options || { j: null };
+  dropElement: ({ j, i }) => {
     set((state) => {
       if (typeof j === 'number' && Array.isArray(state.formElements[i])) {
         // Remove from a nested array

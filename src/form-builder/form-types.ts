@@ -184,11 +184,33 @@ export type FormElementOrList = FormElement | FormElement[];
 export type FormElementList = FormElement[] | FormElementOrList[];
 
 //------------------------------------------------------------Form Element Handlers
-
+/**
+ * @DropElement is a function that is used to drop an element to the form elements array
+ * USE CASES
+ * - Element: i is required
+ * - Nested Element: i, j is required
+ * - Element in MS form: i, stepIndex is required
+ * - Nested Element in MS form: i, j, stepIndex is required
+ */
+type DropElementOptions = {
+  /**
+   * Index where an element should be dropped to the form elements array
+   */
+  i: number;
+  /** 
+   * Index where a nested element should be dropped to the nested array
+   */
+  j?: number;
+  /**
+   * Whether the form is a multi-step form or not
+   */
+  isMS?: boolean;
+  stepIndex?: number;
+}
 export type DropElement = (
-  i: number,
-  options?: { j?: number; isMS?: boolean },
+  options: DropElementOptions,
 ) => void;
+
 
 export type EditElement = (
   index: number,
