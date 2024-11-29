@@ -10,6 +10,7 @@ import {
 } from '@/form-builder/form-types';
 import { defaultFormElements } from '@/form-builder/constant/default-form-element';
 import { templates } from '@/form-builder/constant/templates';
+import { dropAtIndex } from '@/form-builder/libs/form-elements-helpers';
 
 interface FormBuilderState {
   formElements: FormElementOrList[];
@@ -57,20 +58,20 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
       }
     });
   },
-  dropElement: (i, options) => {
-    const { j } = options || { j: null };
+  dropElement: ({ j, i }) => {
     set((state) => {
       if (typeof j === 'number' && Array.isArray(state.formElements[i])) {
         // Remove from a nested array
         const newFormElements = [...state.formElements];
-        newFormElements[i] = (newFormElements[i] as FormElement[]).filter(
-          (_, index) => index !== j,
+        newFormElements[i] = dropAtIndex(
+          newFormElements[i] as FormElement[],
+          j,
         )[0];
         return { formElements: newFormElements };
       } else {
-        // Remove from the main array
+        // Remove from the main array;
         return {
-          formElements: state.formElements.filter((_, index) => index !== i),
+          formElements: dropAtIndex(state.formElements as FormElement[], i),
         };
       }
     });

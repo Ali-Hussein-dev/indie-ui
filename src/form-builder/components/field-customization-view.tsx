@@ -16,11 +16,12 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { FaEdit } from 'react-icons/fa';
-import { EditElement, FormElement } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { Form } from '@/components/ui/form';
 import { isStatic } from '@/form-builder/libs/utils';
 import { RenderFormElement } from '@/form-builder/components/render-form-element';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 const inputTypes = [
   { value: 'text', label: 'Text' },
@@ -32,22 +33,21 @@ const inputTypes = [
 ];
 function FormElementOptions({
   index,
-  editFormElement,
   close,
   j,
   ...formElement
 }: FormElement & {
   index: number;
   j?: number;
-  editFormElement: EditElement;
   close: () => void;
 }) {
   const form = useForm<FormElement>({
     defaultValues: formElement as FormElement,
   });
+  const { editElement } = useFormBuilderStore();
   const { handleSubmit, getValues } = form;
   const onSubmit = () => {
-    editFormElement(index, getValues(), { j: typeof j == 'number' ? j : null });
+    editElement(index, getValues(), { j: typeof j == 'number' ? j : null });
     close();
   };
   // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
@@ -218,27 +218,19 @@ function FormElementOptions({
 
 export function FieldCustomizationView({
   index,
-  editElement,
   formElement,
   j,
 }: {
   index: number;
   j?: number;
   formElement: FormElement;
-  editElement: EditElement;
 }) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const close = () => setOpen(false);
   const title = 'Customize form field attributes';
   const SavedFormElementOptions = () => (
-    <FormElementOptions
-      index={index}
-      j={j}
-      editFormElement={editElement}
-      {...formElement}
-      close={close}
-    />
+    <FormElementOptions index={index} j={j} {...formElement} close={close} />
   );
   if (isDesktop) {
     return (
