@@ -83,7 +83,7 @@ export function FormEdit() {
       className="flex flex-col gap-3"
       tabIndex={-1}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {formElements.map((element: FormElementOrList, i) => {
           if (Array.isArray(element)) {
             return (
