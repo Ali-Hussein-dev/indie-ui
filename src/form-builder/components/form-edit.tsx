@@ -71,7 +71,7 @@ export function FormEdit() {
   const animateVariants = {
     initial: { opacity: 0, y: -15 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.2 } },
-    exist: { opacity: 0, y: -15 },
+    exist: { opacity: 0, y: -15, transition: { duration: 0.2 } },
   };
   return (
     <Reorder.Group
@@ -83,7 +83,7 @@ export function FormEdit() {
       className="flex flex-col gap-3"
       tabIndex={-1}
     >
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {formElements.map((element: FormElementOrList, i) => {
           if (Array.isArray(element)) {
             return (
