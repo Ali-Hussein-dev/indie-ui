@@ -6,23 +6,23 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
-import { AppendElement, FormElement } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import { FaPlus } from 'react-icons/fa';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 /**
  * Use for adding a nested form element
  */
 //======================================
 export function FormElementsDropdown({
-  index,
-  appendElement,
+  fieldIndex,
 }: {
   /**
-   * Index of the nested array
+   * Field Index where a nested element should be appended to the main array
    */
-  index: number;
-  appendElement: AppendElement;
+  fieldIndex: number;
 }) {
+  const { appendElement } = useFormBuilderStore();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -37,8 +37,9 @@ export function FormElementsDropdown({
         {formElementsList.map((o) => (
           <DropdownMenuItem
             onSelect={() => {
-              appendElement(o.fieldType as FormElement['fieldType'], {
-                index: index,
+              appendElement({
+                fieldIndex: fieldIndex,
+                fieldType: o.fieldType as FormElement['fieldType'],
               });
             }}
             key={o.name}

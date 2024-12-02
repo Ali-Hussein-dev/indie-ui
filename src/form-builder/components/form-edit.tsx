@@ -15,7 +15,7 @@ type EditFormItemProps = {
   /**
    * Index of the main array
    */
-  index: number;
+  fieldIndex: number;
   /**
    * Index of the nested array element
    */
@@ -23,8 +23,8 @@ type EditFormItemProps = {
 };
 
 const EditFormItem = (props: EditFormItemProps) => {
-  const { element, index } = props;
-  const { dropElement, appendElement } = useFormBuilderStore();
+  const { element, fieldIndex } = props;
+  const { dropElement } = useFormBuilderStore();
   const isNested = typeof props?.j === 'number';
   return (
     <div className="w-full bg-background group">
@@ -41,7 +41,7 @@ const EditFormItem = (props: EditFormItemProps) => {
           {element.fieldType !== 'Separator' && (
             <FieldCustomizationView
               formElement={element as FormElement}
-              index={index}
+              index={fieldIndex}
               j={props?.j}
             />
           )}
@@ -49,15 +49,13 @@ const EditFormItem = (props: EditFormItemProps) => {
             size="icon"
             variant="ghost"
             onClick={() => {
-              dropElement({ i: index, j: props?.j });
+              dropElement({ fieldIndex, j: props?.j });
             }}
             className="rounded-xl h-9"
           >
             <MdDelete />
           </Button>
-          {!isNested && (
-            <FormElementsDropdown appendElement={appendElement} index={index} />
-          )}
+          {!isNested && <FormElementsDropdown fieldIndex={fieldIndex} />}
         </div>
       </div>
     </div>
@@ -66,24 +64,24 @@ const EditFormItem = (props: EditFormItemProps) => {
 
 //======================================
 export function FormEdit() {
-  const { formElements, reorder, dropElement, editElement, appendElement } =
-    useFormBuilder();
+  const { formElements, reorder } = useFormBuilder();
   const animateVariants = {
     initial: { opacity: 0, y: -15 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.2 } },
-    exist: { opacity: 0, y: -15, transition: { duration: 0.2 } },
+    animate: { opacity: 1, y: 0 },
+    exist: { opacity: 0, y: -15 },
+    transition: { duration: 0.2, type: 'spring' },
   };
   return (
     <Reorder.Group
       axis="y"
       onReorder={(newOrder) => {
-        reorder({ newOrder, i: null });
+        reorder({ newOrder, fieldIndex: null });
       }}
       values={formElements}
       className="flex flex-col gap-3"
       tabIndex={-1}
     >
-      <AnimatePresence>
+      <AnimatePresence mode="popLayout">
         {formElements.map((element: FormElementOrList, i) => {
           if (Array.isArray(element)) {
             return (
@@ -98,7 +96,7 @@ export function FormEdit() {
                 <div className="flex items-center justify-start gap-2 ">
                   <Button
                     onClick={() => {
-                      reorder({ newOrder: element.reverse(), i });
+                      reorder({ newOrder: element.reverse(), fieldIndex: i });
                     }}
                     variant="ghost"
                     className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"
@@ -113,7 +111,7 @@ export function FormEdit() {
                       >
                         <EditFormItem
                           key={el.name + j}
-                          index={i}
+                          fieldIndex={i}
                           j={j}
                           element={el}
                         />
@@ -136,7 +134,7 @@ export function FormEdit() {
             >
               <EditFormItem
                 key={element.name + i}
-                index={i}
+                fieldIndex={i}
                 element={element}
               />
             </Reorder.Item>

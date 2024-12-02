@@ -26,85 +26,76 @@ const initialFormElements = templates['contactUs'].template;
 
 export const useFormBuilderStore = create<FormBuilderState>((set) => ({
   formElements: initialFormElements,
-  appendElement: (fieldType, options) => {
-    const { index: i } = options || { index: null };
+  appendElement: (options) => {
+    const { fieldIndex, fieldType } = options || { fieldIndex: null };
     set((state) => {
-      const generatedName = `${fieldType}-${state.formElements.length + 1}`;
-      const newElement = {
+      const newFormElement = {
         ...defaultFormElements[fieldType],
-        fieldType: fieldType,
-        name: generatedName,
-      } as FormElementOrList;
-
-      if (typeof i == 'number' && !Array.isArray(state.formElements[i])) {
-        // Append to a nested array
-        const newFormElements = [...state.formElements];
-        newFormElements[i] = [
-          ...(Array.isArray(newFormElements[i])
-            ? newFormElements[i]
-            : [newFormElements[i]]),
-          {
-            ...defaultFormElements[fieldType],
-            fieldType,
-            name: generatedName,
-          } as FormElement,
-        ];
-        return { formElements: newFormElements };
+        fieldType,
+        name: `${fieldType}-${state.formElements.length + 1}`,
+      } as FormElement;
+      const clonedFormElements = [...state.formElements];
+      if (typeof fieldIndex == 'number') {
+        // update form element at fieldIndex, with a form element array
+        clonedFormElements[fieldIndex] = [
+          clonedFormElements[fieldIndex] as FormElement,
+          newFormElement,
+        ]
       } else {
         // Append to the main array
-        return {
-          formElements: [...state.formElements, newElement],
-        };
+        clonedFormElements.push(newFormElement)
       }
+      return {
+        formElements: clonedFormElements,
+      };
     });
   },
-  dropElement: ({ j, i }) => {
+  dropElement: ({ j, fieldIndex }) => {
     set((state) => {
-      if (typeof j === 'number' && Array.isArray(state.formElements[i])) {
+      const clonedFormElements = [...state.formElements];
+      if (typeof j === 'number' && Array.isArray(state.formElements[fieldIndex])) {
         // Remove from a nested array
-        const newFormElements = [...state.formElements];
-        newFormElements[i] = dropAtIndex(
-          newFormElements[i] as FormElement[],
+        clonedFormElements[fieldIndex] = dropAtIndex(
+          clonedFormElements[fieldIndex] as FormElement[],
           j,
         )[0];
-        return { formElements: newFormElements };
+        return { formElements: clonedFormElements };
       } else {
         // Remove from the main array;
         return {
-          formElements: dropAtIndex(state.formElements as FormElement[], i),
+          formElements: dropAtIndex(state.formElements as FormElement[], fieldIndex),
         };
       }
     });
   },
-  editElement: (i, newProps, options) => {
-    const { j } = options || { j: null };
+  editElement: (options) => {
+    const { j, fieldIndex, modifiedFormElement, } = options;
     set((state) => {
+      const clonedFormElements = [...state.formElements];
       if (typeof j == 'number') {
         // Edit nested elements
-        const newFormElements = [...state.formElements];
-        const currentFormElement = [...(newFormElements[i] as FormElement[])];
+        const currentFormElement = [...(clonedFormElements[fieldIndex] as FormElement[])];
         currentFormElement[j] = {
           ...currentFormElement[j],
-          ...newProps,
+          ...modifiedFormElement,
         } as FormElement;
-        newFormElements[i] = currentFormElement;
-        return { formElements: newFormElements };
+        clonedFormElements[fieldIndex] = currentFormElement;
+        return { formElements: clonedFormElements };
       }
-      const newFormElements = [...state.formElements];
-      newFormElements[i] = {
-        ...newFormElements[i],
-        ...newProps,
+      clonedFormElements[fieldIndex] = {
+        ...clonedFormElements[fieldIndex],
+        ...modifiedFormElement,
       } as FormElement;
-      return { formElements: newFormElements };
+      return { formElements: clonedFormElements };
     });
   },
-  reorder: ({ newOrder, i }): void => {
+  reorder: ({ newOrder, fieldIndex }): void => {
     set((state) => {
-      if (typeof i === 'number') {
+      if (typeof fieldIndex === 'number') {
         // Reorder nested elements
-        const newFormElements = [...state.formElements];
-        newFormElements[i] = newOrder as FormElementOrList;
-        return { formElements: newFormElements };
+        const clonedFormElements = [...state.formElements];
+        clonedFormElements[fieldIndex] = newOrder as FormElementOrList;
+        return { formElements: clonedFormElements };
       } else {
         // Reorder main elements
         return { formElements: newOrder };
