@@ -12,12 +12,10 @@ import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { Badge } from '@/components/ui/badge';
 import { useCommand } from '@/form-builder/hooks/use-command-ctx';
 import { AppendElement, FormElement } from '@/form-builder/form-types';
+import useFormBuilderStore from '../hooks/use-form-builder-store';
 
-export function FormElementsSelectorCommand({
-  appendElement,
-}: {
-  appendElement: AppendElement;
-}) {
+export function FormElementsSelectorCommand() {
+  const { appendElement } = useFormBuilderStore();
   const { openCommand: open, setOpenCommand: setOpen } = useCommand();
   return (
     <div>
@@ -39,7 +37,9 @@ export function FormElementsSelectorCommand({
               <CommandItem
                 key={o.name}
                 onSelect={() => {
-                  appendElement(o.fieldType as FormElement['fieldType']);
+                  appendElement({
+                    fieldType: o.fieldType as FormElement['fieldType'],
+                  });
                 }}
                 className="gap-3"
               >

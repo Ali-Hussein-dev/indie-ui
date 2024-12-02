@@ -3,10 +3,10 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { MdAdd } from 'react-icons/md';
 import { FormElementsSelectorCommand } from '@/form-builder/components/form-elements-selector-command';
 import { Badge } from '@/components/ui/badge';
-import { AppendElement, FormElement } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { TemplatesSelect } from '@/form-builder/components/templates-select';
-import { useFormBuilder } from '../hooks/use-form-builder';
+import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
 
 //======================================
 export function FormElementSelector() {
@@ -20,7 +20,7 @@ export function FormElementSelector() {
       }}
     >
       <TemplatesSelect />
-      <FormElementsSelectorCommand appendElement={appendElement} />
+      <FormElementsSelectorCommand />
       <div className="flex md:flex-col flex-wrap gap-2 flex-row">
         {formElementsList.map((o) => (
           <Button
@@ -28,7 +28,9 @@ export function FormElementSelector() {
             size="sm"
             variant="secondary"
             onClick={() => {
-              appendElement(o.fieldType as FormElement['fieldType']);
+              appendElement({
+                fieldType: o.fieldType as FormElement['fieldType'],
+              });
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full relative text-sm px-2"
           >
