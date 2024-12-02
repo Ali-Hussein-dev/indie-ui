@@ -17,12 +17,12 @@ export function FormPreview({ form }: FormPreviewProps) {
   const formElements = useFormBuilderStore((s) => s.formElements);
   const data = Object.keys(form.watch());
   return (
-    <div className="w-full animate-in mx-auto rounded-md max-w-3xl gap-2 border">
+    <div className="w-full animate-in rounded-md border">
       {data.length > 0 ? (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col p-2 md:p-5 w-full"
+            className="flex flex-col p-2 md:p-5 w-full gap-2"
           >
             {formElements.map((element: FormElementOrList, i) => {
               if (Array.isArray(element)) {

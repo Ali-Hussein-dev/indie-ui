@@ -57,7 +57,6 @@ export const defaultFormElements: Record<
   },
   MultiSelect: {
     label: 'Select multiple options',
-    description: 'Select multiple options.',
     options: [
       { value: '1', label: 'Option 1' },
       { value: '2', label: 'Option 2' },
