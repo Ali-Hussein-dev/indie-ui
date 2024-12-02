@@ -2,10 +2,10 @@
 import * as React from 'react';
 import { CodeBlock } from 'fumadocs-ui/components/codeblock';
 import { FormElementList } from '@/form-builder/form-types';
-import { generateFormCode } from '../libs/generate-form-code';
-import { codeHighlighter } from '../libs/code-highlighter';
-import { formatCode } from '../libs/utils';
-import { useFormBuilder } from '../hooks/use-form-builder';
+import { generateFormCode } from '@/form-builder/libs/generate-form-code';
+import { codeHighlighter } from '@/form-builder/libs/code-highlighter';
+import { formatCode } from '@/form-builder/libs/utils';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
@@ -50,7 +50,7 @@ export const JsonViewer = ({
 
 //======================================
 export function JsxViewer() {
-  const { formElements } = useFormBuilder();
+  const formElements = useFormBuilderStore((s) => s.formElements);
   const generatedCode = generateFormCode(formElements);
   const formattedCode = formatCode(generatedCode);
   const highlightedCode = useShiki({ code: formattedCode });

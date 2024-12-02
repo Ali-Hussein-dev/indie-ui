@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { LuGripVertical } from 'react-icons/lu';
 import { FieldCustomizationView } from '@/form-builder/components/field-customization-view';
 import { FormElementsDropdown } from '@/form-builder/components/form-elements-dropdown';
-import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 type EditFormItemProps = {
@@ -24,7 +23,7 @@ type EditFormItemProps = {
 
 const EditFormItem = (props: EditFormItemProps) => {
   const { element, fieldIndex } = props;
-  const { dropElement } = useFormBuilderStore();
+  const dropElement = useFormBuilderStore((s) => s.dropElement);
   const isNested = typeof props?.j === 'number';
   return (
     <div className="w-full bg-background group">
@@ -41,7 +40,7 @@ const EditFormItem = (props: EditFormItemProps) => {
           {element.fieldType !== 'Separator' && (
             <FieldCustomizationView
               formElement={element as FormElement}
-              index={fieldIndex}
+              fieldIndex={fieldIndex}
               j={props?.j}
             />
           )}
@@ -64,13 +63,16 @@ const EditFormItem = (props: EditFormItemProps) => {
 
 //======================================
 export function FormEdit() {
-  const { formElements, reorder } = useFormBuilder();
+  const formElements = useFormBuilderStore((s) => s.formElements);
+  const reorder = useFormBuilderStore((s) => s.reorder);
+
   const animateVariants = {
     initial: { opacity: 0, y: -15 },
     animate: { opacity: 1, y: 0 },
     exist: { opacity: 0, y: -15 },
     transition: { duration: 0.2, type: 'spring' },
   };
+
   return (
     <Reorder.Group
       axis="y"

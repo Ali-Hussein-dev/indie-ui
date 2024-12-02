@@ -6,11 +6,11 @@ import { Badge } from '@/components/ui/badge';
 import { FormElement } from '@/form-builder/form-types';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { TemplatesSelect } from '@/form-builder/components/templates-select';
-import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 //======================================
 export function FormElementSelector() {
-  const { appendElement } = useFormBuilder();
+  const appendElement = useFormBuilderStore((s) => s.appendElement);
   return (
     <ScrollArea
       className="border rounded-sm border-dashed overflow-auto p-3 w-full md:col-span-2"

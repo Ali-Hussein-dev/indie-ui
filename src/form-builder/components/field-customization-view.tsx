@@ -32,22 +32,26 @@ const inputTypes = [
   { value: 'tel', label: 'Telephone' },
 ];
 function FormElementOptions({
-  index,
+  fieldIndex,
   close,
   j,
   ...formElement
 }: FormElement & {
-  index: number;
+  fieldIndex: number;
   j?: number;
   close: () => void;
 }) {
   const form = useForm<FormElement>({
     defaultValues: formElement as FormElement,
   });
-  const { editElement } = useFormBuilderStore();
+  const editElement = useFormBuilderStore((s) => s.editElement);
   const { handleSubmit, getValues } = form;
   const onSubmit = () => {
-    editElement(index, getValues(), { j: typeof j == 'number' ? j : null });
+    editElement({
+      fieldIndex: fieldIndex,
+      modifiedFormElement: getValues(),
+      j,
+    });
     close();
   };
   // const hasOptions = ['Select', 'MultiSelect'].includes(formElement.fieldType);
@@ -217,11 +221,11 @@ function FormElementOptions({
 }
 
 export function FieldCustomizationView({
-  index,
+  fieldIndex,
   formElement,
   j,
 }: {
-  index: number;
+  fieldIndex: number;
   j?: number;
   formElement: FormElement;
 }) {
@@ -230,7 +234,12 @@ export function FieldCustomizationView({
   const close = () => setOpen(false);
   const title = 'Customize form field attributes';
   const SavedFormElementOptions = () => (
-    <FormElementOptions index={index} j={j} {...formElement} close={close} />
+    <FormElementOptions
+      fieldIndex={fieldIndex}
+      j={j}
+      {...formElement}
+      close={close}
+    />
   );
   if (isDesktop) {
     return (

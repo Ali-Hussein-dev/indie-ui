@@ -9,6 +9,7 @@ import { FormPreview } from '@/form-builder/components/form-preview';
 import { JsonViewer, JsxViewer } from '@/form-builder/components/code-viewer';
 import * as React from 'react';
 import { CommandProvider } from '@/form-builder/hooks/use-command-ctx';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 const tabsList = [
   {
@@ -27,8 +28,8 @@ const tabsList = [
 
 //======================================
 export function FormBuilderMain() {
-  const { submittedData, formElements, resetForm, form } = useFormBuilder();
-
+  const { submittedData, resetForm, form } = useFormBuilder();
+  const formElements = useFormBuilderStore((s) => s.formElements);
   return (
     <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
       <CommandProvider>
