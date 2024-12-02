@@ -196,7 +196,7 @@ type DropElementOptions = {
   /**
    * Index where an element should be dropped to the form elements array
    */
-  i: number;
+  fieldIndex: number;
   /** 
    * Index where a nested element should be dropped to the nested array
    */
@@ -211,27 +211,29 @@ export type DropElement = (
   options: DropElementOptions,
 ) => void;
 
-
+type EditElementOptions = {
+  fieldIndex: number;
+  modifiedFormElement: FormElement;
+  j?: number;
+  // stepIndex?: number;
+}
 export type EditElement = (
-  index: number,
-  props: FormElement,
-  options?: { j?: number | null },
+  options: EditElementOptions,
 ) => void;
 
 type ReorderParams =
-  | { newOrder: FormElementOrList[]; i: null }
-  | { newOrder: FormElement[]; i: number | null };
+  | { newOrder: FormElementOrList[]; fieldIndex: null }
+  | { newOrder: FormElement[]; fieldIndex: number | null };
 
 export type ReorderElements = (params: ReorderParams) => void;
 
 export type AppendElement = (
-  fieldType: FormElement['fieldType'],
-  options?: {
-    isMS?: boolean;
+  options: {
+    fieldType: FormElement['fieldType'],
     /**
      * index where a nested element should be appended to the main array
      */
-    index?: number | null;
+    fieldIndex?: number | null;
   },
 ) => void;
 

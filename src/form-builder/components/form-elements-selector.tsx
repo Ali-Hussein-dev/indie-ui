@@ -3,14 +3,14 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { MdAdd } from 'react-icons/md';
 import { FormElementsSelectorCommand } from '@/form-builder/components/form-elements-selector-command';
 import { Badge } from '@/components/ui/badge';
-import { AppendElement, FormElement } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { TemplatesSelect } from '@/form-builder/components/templates-select';
-import { useFormBuilder } from '../hooks/use-form-builder';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 //======================================
 export function FormElementSelector() {
-  const { appendElement } = useFormBuilder();
+  const appendElement = useFormBuilderStore((s) => s.appendElement);
   return (
     <ScrollArea
       className="border rounded-sm border-dashed overflow-auto p-3 w-full md:col-span-2"
@@ -20,7 +20,7 @@ export function FormElementSelector() {
       }}
     >
       <TemplatesSelect />
-      <FormElementsSelectorCommand appendElement={appendElement} />
+      <FormElementsSelectorCommand />
       <div className="flex md:flex-col flex-wrap gap-2 flex-row">
         {formElementsList.map((o) => (
           <Button
@@ -28,7 +28,9 @@ export function FormElementSelector() {
             size="sm"
             variant="secondary"
             onClick={() => {
-              appendElement(o.fieldType as FormElement['fieldType']);
+              appendElement({
+                fieldType: o.fieldType as FormElement['fieldType'],
+              });
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full relative text-sm px-2"
           >
@@ -36,7 +38,9 @@ export function FormElementSelector() {
               <MdAdd />
               {o.name}
               {o.isNew && (
-                <Badge className="px-px text-sm py-0 rounded-[2px]">N</Badge>
+                <Badge className="text-sm rounded-full ml-1 size-5 center">
+                  N
+                </Badge>
               )}
             </div>
           </Button>

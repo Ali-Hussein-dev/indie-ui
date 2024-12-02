@@ -5,7 +5,7 @@ import {
   SelectTrigger,
 } from '@/components/ui/select';
 import { templates } from '@/form-builder/constant/templates';
-import { useFormBuilder } from '../hooks/use-form-builder';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 const formTemplates = Object.entries(templates).map((template) => ({
   label: template[1].name,
@@ -13,7 +13,7 @@ const formTemplates = Object.entries(templates).map((template) => ({
 }));
 //======================================
 export function TemplatesSelect() {
-  const { setTemplate } = useFormBuilder();
+  const setTemplate = useFormBuilderStore((s) => s.setTemplate);
   return (
     <div className="pb-2">
       <Select

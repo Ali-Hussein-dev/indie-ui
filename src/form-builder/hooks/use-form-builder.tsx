@@ -1,38 +1,27 @@
 'use client';
 import * as React from 'react';
-import { FormElementOrList } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
 import { templates } from '@/form-builder/constant/templates';
-import useFormBuilderStore from './use-form-builder-store';
+import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 
 //-------------------------------------------
 export const useFormBuilder = () => {
   interface DefaultValues {
     [key: string]: any;
   }
-  const {
-    formElements,
-    appendElement,
-    dropElement,
-    editElement,
-    reorder,
-    setTemplate,
-    resestFormElements,
-  } = useFormBuilderStore();
+  const formElements = useFormBuilderStore((s) => s.formElements);
+  const resestFormElements = useFormBuilderStore((s) => s.resestFormElements);
 
   let initialFormElements =
     formElements.length > 0 ? formElements : templates['contactUs'].template;
-  const defaultValues: DefaultValues = initialFormElements.reduce(
-    (acc: DefaultValues, element: FormElementOrList) => {
-      if (Array.isArray(element)) {
-        element.forEach((el) => {
-          if (el.static) return;
-          acc[el.name] = el.defaultValue || '';
-        });
-        return acc;
-      }
+
+  const flattenFormElements = initialFormElements.flat();
+
+  const defaultValues: DefaultValues = flattenFormElements.reduce(
+    (acc: DefaultValues, element: FormElement) => {
       if (element.static) return acc;
       acc[element.name] = element.defaultValue || '';
       return acc;
@@ -40,7 +29,7 @@ export const useFormBuilder = () => {
     {},
   );
 
-  const zodSchema = generateZodSchema(formElements.flat());
+  const zodSchema = generateZodSchema(flattenFormElements);
   const form = useForm({
     defaultValues,
     resolver: zodResolver(zodSchema),
@@ -68,15 +57,9 @@ export const useFormBuilder = () => {
 
   return {
     form,
-    formElements,
     submittedData,
-    appendElement,
-    dropElement,
-    editElement,
-    reorder,
 
     onSubmit,
     resetForm,
-    setTemplate,
   };
 };
