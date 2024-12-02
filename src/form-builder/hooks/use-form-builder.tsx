@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { FormElementOrList } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
@@ -17,15 +17,11 @@ export const useFormBuilder = () => {
 
   let initialFormElements =
     formElements.length > 0 ? formElements : templates['contactUs'].template;
-  const defaultValues: DefaultValues = initialFormElements.reduce(
-    (acc: DefaultValues, element: FormElementOrList) => {
-      if (Array.isArray(element)) {
-        element.forEach((el) => {
-          if (el.static) return;
-          acc[el.name] = el.defaultValue || '';
-        });
-        return acc;
-      }
+
+  const flattenFormElements = initialFormElements.flat();
+
+  const defaultValues: DefaultValues = flattenFormElements.reduce(
+    (acc: DefaultValues, element: FormElement) => {
       if (element.static) return acc;
       acc[element.name] = element.defaultValue || '';
       return acc;
@@ -33,7 +29,7 @@ export const useFormBuilder = () => {
     {},
   );
 
-  const zodSchema = generateZodSchema(formElements.flat());
+  const zodSchema = generateZodSchema(flattenFormElements);
   const form = useForm({
     defaultValues,
     resolver: zodResolver(zodSchema),

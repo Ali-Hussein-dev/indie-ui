@@ -6,7 +6,7 @@ export const defaultFormElements: Record<
 > = {
   Input: {
     name: 'input-field',
-    label: 'Single line Input Field',
+    label: 'Input Field',
     placeholder: 'Enter your text',
   },
   OTP: {
@@ -17,6 +17,7 @@ export const defaultFormElements: Record<
   Password: {
     name: 'password',
     label: 'Password Field',
+    placeholder: 'Enter your password',
   },
   Checkbox: {
     label: 'Checkbox Label',
@@ -79,6 +80,7 @@ export const defaultFormElements: Record<
   Textarea: {
     label: 'Textarea',
     description: 'A multi-line text input field',
+    placeholder: 'Enter your text',
   },
   H1: {
     label: 'Heading 1',

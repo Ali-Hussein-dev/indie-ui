@@ -38,7 +38,9 @@ export function FormElementSelector() {
               <MdAdd />
               {o.name}
               {o.isNew && (
-                <Badge className="px-px text-sm py-0 rounded-[2px]">N</Badge>
+                <Badge className="text-sm rounded-full ml-1 size-5 center">
+                  N
+                </Badge>
               )}
             </div>
           </Button>
