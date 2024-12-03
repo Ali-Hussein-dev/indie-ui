@@ -49,12 +49,18 @@ export const Hero = () => {
           </p>
           <div className="flex-row-center gap-4 mx-auto max-w-fit py-4">
             <Button asChild rightIcon={<FaArrowRight />}>
-              <Link href="/docs" className="font-semibold w-fit mx-auto">
-                Docs
+              <Link
+                href="/docs/changelog"
+                className="font-semibold w-fit mx-auto"
+                prefetch={false}
+              >
+                What{"'"}s new
               </Link>
             </Button>
             <Button asChild variant={'outline'} leftIcon={<FaGithub />}>
-              <Link href={configs.urls.github}>Star on GitHub</Link>
+              <a href={configs.urls.github} target="_blank">
+                GitHub
+              </a>
             </Button>
           </div>
           {/* <div className="mx-auto pt-10">
