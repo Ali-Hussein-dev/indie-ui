@@ -7,7 +7,7 @@ import { FaGithub } from 'react-icons/fa6';
 import { configs } from '@/configs';
 
 export const metadata = generateSEOTags({
-  title: 'FormFast | Build Forms In Minutes',
+  title: 'Shadcn Form Builder | FormFast',
   description:
     'Build as many forms as you want for free using React, shadcn, tailwindcss, Zod, and React Hook Form',
 });
