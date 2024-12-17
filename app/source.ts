@@ -20,6 +20,10 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Setup', url: '/docs' },
     { type: 'page', name: 'Changelog', url: '/docs/changelog' },
 
+    { type: 'separator', name: 'Form' },
+    { type: 'page', name: 'Input', url: '/docs/inputs' },
+    { type: 'page', name: 'Form Builder', url: '/form-builder', },
+
     { type: 'separator', name: 'Card' },
     { type: 'page', name: 'Simple', url: '/docs/cards-simple' },
     { type: 'page', name: 'Multi layers', url: '/docs/cards-multi-layers' },
@@ -46,9 +50,6 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Text', url: '/docs/text-animation' },
     { type: 'page', name: 'Counter', url: '/docs/counter' },
 
-    { type: 'separator', name: 'Form' },
-    { type: 'page', name: 'Input', url: '/docs/inputs' },
-    { type: 'page', name: 'FormFast', url: '/form-builder' },
 
     { type: 'separator', name: 'Other' },
     { type: 'page', name: 'Header', url: '/docs/header' },
