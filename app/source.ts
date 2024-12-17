@@ -20,14 +20,14 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Setup', url: '/docs' },
     { type: 'page', name: 'Changelog', url: '/docs/changelog' },
 
-    { type: 'separator', name: 'Cards' },
+    { type: 'separator', name: 'Card' },
     { type: 'page', name: 'Simple', url: '/docs/cards-simple' },
     { type: 'page', name: 'Multi layers', url: '/docs/cards-multi-layers' },
     { type: 'page', name: 'With image', url: '/docs/cards-with-image-bg' },
     { type: 'page', name: 'With pattern', url: '/docs/cards-with-pattern' },
     { type: 'page', name: 'Interactive', url: '/docs/cards-interactive' },
 
-    { type: 'separator', name: 'Buttons' },
+    { type: 'separator', name: 'Button' },
     { type: 'page', name: 'Base', url: '/docs/base-button' },
     { type: 'page', name: 'Simple', url: '/docs/buttons' },
     { type: 'page', name: 'Eye catching', url: '/docs/eye-catching-buttons' },
@@ -38,7 +38,7 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Bento Grid (5 cells)', url: '/docs/bento-5' },
     { type: 'page', name: 'Bento Grid (6 cells)', url: '/docs/bento-6' },
 
-    { type: 'separator', name: 'Loaders' },
+    { type: 'separator', name: 'Loader' },
     { type: 'page', name: 'Skeleton', url: '/docs/skeleton' },
     { type: 'page', name: 'Dots', url: '/docs/loader-dots' },
 
@@ -46,9 +46,12 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Text', url: '/docs/text-animation' },
     { type: 'page', name: 'Counter', url: '/docs/counter' },
 
+    { type: 'separator', name: 'Form' },
+    { type: 'page', name: 'Input', url: '/docs/inputs' },
+    { type: 'page', name: 'FormFast', url: '/form-builder' },
+
     { type: 'separator', name: 'Other' },
     { type: 'page', name: 'Header', url: '/docs/header' },
     { type: 'page', name: 'Separator', url: '/docs/separator' },
-    { type: 'page', name: 'Inputs', url: '/docs/inputs' },
   ],
 };
