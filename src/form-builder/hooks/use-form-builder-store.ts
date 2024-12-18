@@ -8,17 +8,23 @@ import {
   FormElementOrList,
   SetTemplate,
   FormStep,
+  FormElementList,
 } from '@/form-builder/form-types';
 import { defaultFormElements } from '@/form-builder/constant/default-form-element';
 import { templates } from '@/form-builder/constant/templates';
-import { dropAtIndex, insertAtIndex } from '@/form-builder/libs/form-elements-helpers';
+import {
+  dropAtIndex,
+  flattenFormSteps,
+  insertAtIndex,
+  transformToStepFormList,
+} from '@/form-builder/libs/form-elements-helpers';
 
 type MSForm = {
   formElements: FormStep[];
   isMS: true;
 };
 type SingleForm = {
-  formElements: FormElementOrList[];
+  formElements: FormElementList;
   isMS: false;
 };
 type FormBuilderState = {
@@ -45,10 +51,10 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
   appendElement: (options) => {
     const { fieldIndex, fieldType } = options || { fieldIndex: null };
     set((state) => {
-      const { isMS } = state
+      const { isMS } = state;
       if (isMS) {
         // TODO: Implementation required
-        return state
+        return state;
       }
       const newFormElement = {
         ...defaultFormElements[fieldType],
@@ -61,10 +67,10 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
         clonedFormElements[fieldIndex] = [
           clonedFormElements[fieldIndex] as FormElement,
           newFormElement,
-        ]
+        ];
       } else {
         // Append to the main array
-        clonedFormElements.push(newFormElement)
+        clonedFormElements.push(newFormElement);
       }
       return {
         formElements: clonedFormElements,
@@ -73,14 +79,17 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
   },
   dropElement: ({ j, fieldIndex }) => {
     set((state) => {
-      const { isMS } = state
+      const { isMS } = state;
       switch (isMS) {
         case true:
           // TODO: Implementation required
-          return state
-        default: 
+          return state;
+        default:
           const clonedFormElements = [...state.formElements];
-          if (typeof j === 'number' && Array.isArray(state.formElements[fieldIndex])) {
+          if (
+            typeof j === 'number' &&
+            Array.isArray(state.formElements[fieldIndex])
+          ) {
             // Remove from a nested array
             clonedFormElements[fieldIndex] = dropAtIndex(
               clonedFormElements[fieldIndex] as FormElement[],
@@ -90,25 +99,30 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
           } else {
             return {
               // Remove from the main array;
-              formElements: dropAtIndex(state.formElements as FormElement[], fieldIndex),
+              formElements: dropAtIndex(
+                state.formElements as FormElement[],
+                fieldIndex,
+              ),
             };
           }
       }
     });
   },
   editElement: (options) => {
-    const { j, fieldIndex, modifiedFormElement, } = options;
+    const { j, fieldIndex, modifiedFormElement } = options;
     set((state) => {
-      const { isMS } = state
+      const { isMS } = state;
       switch (isMS) {
         case true:
           // TODO: Implementation required
-          return state
+          return state;
         default:
           const clonedFormElements = [...state.formElements];
           if (typeof j == 'number') {
             // Edit nested elements
-            const currentFormElement = [...(clonedFormElements[fieldIndex] as FormElement[])];
+            const currentFormElement = [
+              ...(clonedFormElements[fieldIndex] as FormElement[]),
+            ];
             currentFormElement[j] = {
               ...currentFormElement[j],
               ...modifiedFormElement,
@@ -120,18 +134,17 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
             ...clonedFormElements[fieldIndex],
             ...modifiedFormElement,
           } as FormElement;
-          return { formElements: clonedFormElements };   
+          return { formElements: clonedFormElements };
       }
-
     });
   },
   reorder: ({ newOrder, fieldIndex }): void => {
     set((state) => {
-      const { isMS } = state
+      const { isMS } = state;
       switch (isMS) {
         case true:
           // TODO: Implementation required
-          return state
+          return state;
         default:
           if (typeof fieldIndex === 'number') {
             // Reorder nested elements
@@ -142,7 +155,6 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
             // Reorder main elements
             return { formElements: newOrder };
           }
-
       }
     });
   },
@@ -152,15 +164,15 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
     set((state) => {
       return isTemplateMSForm
         ? {
-          ...state,
-          formElements: template as FormStep[],
-          isMS: true,
-        }
+            ...state,
+            formElements: template as FormStep[],
+            isMS: true,
+          }
         : {
-          ...state,
-          formElements: template as FormElementOrList[],
-          isMS: false,
-        };
+            ...state,
+            formElements: template as FormElementOrList[],
+            isMS: false,
+          };
     });
   },
   resestFormElements: () => {
@@ -168,14 +180,21 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
   },
   setIsMS: (isMS) => {
     set((state) => {
+      let formElements = state.formElements;
       if (isMS) {
+        formElements = transformToStepFormList(
+          formElements as FormElementOrList[],
+        );
         return {
           ...state,
           isMS,
-          formElements: [],
+          formElements,
         } as MSForm;
       } else {
-        return { ...state, isMS, formElements: [] } as SingleForm;
+        formElements = flattenFormSteps(
+          formElements as FormStep[],
+        ) as FormElementOrList[];
+        return { ...state, isMS, formElements } as SingleForm;
       }
     });
   },
