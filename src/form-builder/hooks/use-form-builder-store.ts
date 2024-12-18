@@ -52,29 +52,50 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
     const { fieldIndex, fieldType } = options || { fieldIndex: null };
     set((state) => {
       const { isMS } = state;
-      if (isMS) {
-        // TODO: Implementation required
-        return state;
+      switch (isMS) {
+        case true: {
+          const stepIndex = options?.stepIndex as number;
+          const clonedFormElements = [...state.formElements];
+
+          const stepFields = clonedFormElements[stepIndex].stepFields;
+          const newFormElement = {
+            ...defaultFormElements[fieldType],
+            fieldType,
+            name: `${fieldType}-${stepFields.length + 1}`,
+          } as FormElement;
+          if (typeof fieldIndex == 'number') {
+            // Append to a nested array
+            stepFields[fieldIndex] = [
+              (stepFields[fieldIndex] as FormElement),
+              newFormElement,
+            ];
+          } else {
+            stepFields.push(newFormElement);
+          }
+          state.formElements[stepIndex].stepFields = stepFields;
+          return { formElements: clonedFormElements };
+        }
+        default:
+          const newFormElement = {
+            ...defaultFormElements[fieldType],
+            fieldType,
+            name: `${fieldType}-${state.formElements.length + 1}`,
+          } as FormElement;
+          const clonedFormElements = [...state.formElements];
+          if (typeof fieldIndex == 'number') {
+            // update form element at fieldIndex, with a form element array
+            clonedFormElements[fieldIndex] = [
+              clonedFormElements[fieldIndex] as FormElement,
+              newFormElement,
+            ];
+          } else {
+            // Append to the main array
+            clonedFormElements.push(newFormElement);
+          }
+          return {
+            formElements: clonedFormElements,
+          };
       }
-      const newFormElement = {
-        ...defaultFormElements[fieldType],
-        fieldType,
-        name: `${fieldType}-${state.formElements.length + 1}`,
-      } as FormElement;
-      const clonedFormElements = [...state.formElements];
-      if (typeof fieldIndex == 'number') {
-        // update form element at fieldIndex, with a form element array
-        clonedFormElements[fieldIndex] = [
-          clonedFormElements[fieldIndex] as FormElement,
-          newFormElement,
-        ];
-      } else {
-        // Append to the main array
-        clonedFormElements.push(newFormElement);
-      }
-      return {
-        formElements: clonedFormElements,
-      };
     });
   },
   dropElement: (options) => {

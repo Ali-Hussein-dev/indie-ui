@@ -2,16 +2,17 @@ import { Button } from '@/components/ui/button';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 import { motion } from 'framer-motion';
 import { MdAdd, MdDelete } from 'react-icons/md';
-import { FormElementsDropdown } from '@/form-builder/components/form-elements-dropdown';
+import { FormElementsStepDropdown } from '@/form-builder/components/form-elements-dropdown';
+
 //======================================
 export function StepContainer({
   children,
   stepIndex,
-  // fieldIndex,
+  fieldIndex,
 }: {
   children: React.ReactNode;
   stepIndex: number;
-  // fieldIndex: number;
+  fieldIndex?: number;
 }) {
   const { addFormStep, removeFormStep } = useFormBuilderStore();
   return (
@@ -22,9 +23,9 @@ export function StepContainer({
       animate={{ opacity: 1, y: 0, transition: { duration: 0.2, delay: 0.05 } }}
       exit={{ opacity: 0, y: -15, transition: { duration: 0.3 } }}
     >
-      {/* <div className="flex-row-start mb-3">
-        <FormElementsDropdown stepIndex={stepIndex} />
-      </div> */}
+      <div className="flex-row-start mb-3">
+        <FormElementsStepDropdown stepIndex={stepIndex} />
+      </div>
       <div className="space-y-3">{children}</div>
       <div className="flex-row-between px-2 pt-4">
         <div className="py-1 text-muted-foreground center font-medium">
