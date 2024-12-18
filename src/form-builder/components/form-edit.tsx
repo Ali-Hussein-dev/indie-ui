@@ -132,7 +132,7 @@ export function FormEdit() {
                                   <Reorder.Item
                                     value={el}
                                     key={el.name + j}
-                                    className="w-full rounded-xl border border-dashed py-1.5"
+                                    className="w-full rounded-xl border border-dashed py-1.5 bg-background"
                                   >
                                     <EditFormItem
                                       key={el.name + j}
@@ -209,7 +209,7 @@ export function FormEdit() {
                         {element.map((el, j) => (
                           <div
                             key={el.name + j}
-                            className="w-full rounded-xl border border-dashed py-1.5"
+                            className="w-full rounded-xl border border-dashed py-1.5 bg-background"
                           >
                             <EditFormItem
                               key={el.name + j}

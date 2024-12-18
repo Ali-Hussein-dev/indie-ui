@@ -54,6 +54,8 @@ export function Examples() {
 export function FormBuilderMain() {
   const { submittedData, resetForm, form } = useFormBuilder();
   const formElements = useFormBuilderStore((s) => s.formElements);
+  const isMS = useFormBuilderStore((s) => s.isMS);
+  const setIsMS = useFormBuilderStore((s) => s.setIsMS);
   return (
     <>
       <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
@@ -70,12 +72,19 @@ export function FormBuilderMain() {
               ))}
             </TabsList>
             <TabsContent value={tabsList[0].name}>
-              <FormEdit />
-              <div className="flex-row-end pt-2">
+              <div className="pb-4 flex-row-between">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-lg"
+                  onClick={() => setIsMS(!isMS)}
+                >
+                  {isMS ? 'Single-step' : 'Multi-step'} Form
+                </Button>
                 {formElements.length > 1 && (
                   <Button
                     size="sm"
-                    variant={'ghost'}
+                    variant="ghost"
                     onClick={resetForm}
                     className="rounded-lg"
                   >
@@ -83,6 +92,7 @@ export function FormBuilderMain() {
                   </Button>
                 )}
               </div>
+              <FormEdit />
             </TabsContent>
             <TabsContent value={tabsList[1].name}>
               <JsxViewer />
