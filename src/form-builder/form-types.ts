@@ -171,10 +171,10 @@ type FormFieldElement =
   | Slider
   | DatePicker;
 
-/**
- * StaticFormElement is a type that represents a static form element
+  /**
+   * StaticFormElement is a type that represents a static form element
  * that is not editable by the user
- */
+  */
 export type StaticFormElement = H1 | H2 | H3 | Paragraph | Divider;
 
 export type FormElement = FormFieldElement | StaticFormElement;
@@ -183,6 +183,10 @@ export type FormElementOrList = FormElement | FormElement[];
 
 export type FormElementList = FormElement[] | FormElementOrList[];
 
+export type FormStep = {
+  id: string;
+  stepFields: FormElementList;
+};
 //------------------------------------------------------------Form Element Handlers
 /**
  * @DropElement is a function that is used to drop an element to the form elements array
@@ -215,7 +219,7 @@ type EditElementOptions = {
   fieldIndex: number;
   modifiedFormElement: FormElement;
   j?: number;
-  // stepIndex?: number;
+  stepIndex?: number;
 }
 export type EditElement = (
   options: EditElementOptions,
@@ -234,6 +238,7 @@ export type AppendElement = (
      * index where a nested element should be appended to the main array
      */
     fieldIndex?: number | null;
+    stepIndex?: number;
   },
 ) => void;
 
