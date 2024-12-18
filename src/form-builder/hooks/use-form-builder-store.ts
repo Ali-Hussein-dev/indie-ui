@@ -77,13 +77,33 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
       };
     });
   },
-  dropElement: ({ j, fieldIndex }) => {
+  dropElement: (options) => {
     set((state) => {
+      const { j, fieldIndex } = options;
       const { isMS } = state;
       switch (isMS) {
-        case true:
-          // TODO: Implementation required
-          return state;
+        case true: {
+          const stepIndex = options?.stepIndex as number;
+          const clonedFormElements = [...state.formElements];
+          const stepFields = clonedFormElements[stepIndex].stepFields;
+          if (typeof j === 'number') {
+            // Remove from a nested array
+            stepFields[fieldIndex] = dropAtIndex(
+              stepFields[fieldIndex] as FormElement[],
+              j,
+            )[0];
+            state.formElements[stepIndex].stepFields = stepFields;
+          } else {
+            // Remove from the main array;
+            state.formElements[stepIndex].stepFields = dropAtIndex(
+              stepFields as FormElement[],
+              fieldIndex,
+            );
+          }
+          return {
+            formElements: clonedFormElements,
+          };
+        }
         default:
           const clonedFormElements = [...state.formElements];
           if (

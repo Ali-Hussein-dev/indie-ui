@@ -55,13 +55,22 @@ const EditFormItem = (props: EditFormItemProps) => {
             size="icon"
             variant="ghost"
             onClick={() => {
-              dropElement({ fieldIndex, j: props?.j });
+              dropElement({
+                fieldIndex,
+                j: props?.j,
+                stepIndex: props?.stepIndex,
+              });
             }}
             className="rounded-xl h-9"
           >
             <MdDelete />
           </Button>
-          {!isNested && <FormElementsDropdown fieldIndex={fieldIndex} />}
+          {!isNested && (
+            <FormElementsDropdown
+              fieldIndex={fieldIndex}
+              stepIndex={props?.stepIndex}
+            />
+          )}
         </div>
       </div>
     </div>

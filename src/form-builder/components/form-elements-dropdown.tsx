@@ -16,13 +16,15 @@ import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 //======================================
 export function FormElementsDropdown({
   fieldIndex,
+  stepIndex,
 }: {
   /**
    * Field Index where a nested element should be appended to the main array
    */
   fieldIndex: number;
+  stepIndex?: number;
 }) {
-  const { appendElement } = useFormBuilderStore();
+  const appendElement = useFormBuilderStore((s) => s.appendElement);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -40,6 +42,7 @@ export function FormElementsDropdown({
               appendElement({
                 fieldIndex: fieldIndex,
                 fieldType: o.fieldType as FormElement['fieldType'],
+                stepIndex,
               });
             }}
             key={o.name}
