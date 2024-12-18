@@ -1,3 +1,5 @@
+import { FormElementList, FormElementOrList, FormStep } from '@/form-builder/form-types';
+
 /**
  * Removes an element from an array at the specified index.
  *
@@ -36,3 +38,19 @@ export const insertAtIndex = <T>(list: T[], element: T, index: number) => [
 //         stepFields: dropAtIndex(nested.stepFields, nestedIndex),
 //     }));
 // };
+
+
+/**
+ * 
+ * convert FormStep[] to FormElementOrList[]
+ */
+export const flattenFormSteps = (array: FormStep[]): FormElementOrList[] => array.map(step => step.stepFields).flat()
+
+
+/**
+ * Converts an array of FormElementList objects into an array of FormStep objects.
+ *
+ */
+export const transformToStepFormList = (formElementList: FormElementList): FormStep[] => {
+    return [{ id: "1", stepFields: formElementList }]
+}
