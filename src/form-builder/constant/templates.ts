@@ -1,8 +1,8 @@
-import { FormElementOrList } from '@/form-builder/form-types';
+import { FormElementOrList, FormStep } from '@/form-builder/form-types';
 
 type TemplateList = Record<
   string,
-  { template: FormElementOrList[]; name: string }
+  { template: FormElementOrList[] | FormStep[]; name: string }
 >;
 
 export const templates: TemplateList = {
@@ -134,6 +134,103 @@ export const templates: TemplateList = {
         fieldType: 'Checkbox',
         label: 'I agree to the terms and conditions',
         required: true,
+      },
+    ],
+  },
+  multiStepForm: {
+    name: 'Multi Step Form',
+    template: [
+      {
+        id: '1',
+        stepFields: [
+          {
+            name: 'step-1',
+            fieldType: 'H2',
+            static: true,
+            content: 'Personal Details',
+          },
+          {
+            name: 'step-1',
+            fieldType: 'P',
+            static: true,
+            content: 'Please provide your personal details',
+          },
+          {
+            name: 'Name',
+            fieldType: 'Input',
+            placeholder: 'First name',
+            label: 'First name',
+            required: true,
+          },
+          {
+            name: 'last-name',
+            fieldType: 'Input',
+            type: 'email',
+            placeholder: 'Last name',
+            label: 'Last name',
+          },
+        ],
+      },
+      {
+        id: '2',
+        stepFields: [
+          {
+            name: 'step-1',
+            fieldType: 'H2',
+            static: true,
+            content: 'Contact Information',
+          },
+          {
+            name: 'description',
+            fieldType: 'P',
+            static: true,
+            content: 'Please provide your contact information',
+          },
+          {
+            name: 'your-email',
+            fieldType: 'Input',
+            label: 'Your Email',
+            type: 'email',
+            required: true,
+            placeholder: 'Enter your email',
+          },
+          {
+            name: 'phone-number',
+            fieldType: 'Input',
+            label: 'Phone Number',
+            type: 'number',
+            placeholder: 'Enter your phone number',
+          },
+        ],
+      },
+      {
+        id: '3',
+        stepFields: [
+          {
+            name: 'step-2',
+            fieldType: 'H2',
+            static: true,
+            content: 'Your Preferences',
+          },
+          {
+            name: 'preferences',
+            fieldType: 'ToggleGroup',
+            type: 'multiple',
+            label: 'Tell us about your interests and preferences.',
+            options: [
+              { label: 'Technology', value: 'technology' },
+              { label: 'Business', value: 'Business' },
+              { label: 'Health', value: 'Health' },
+              { label: 'Science', value: 'Science' },
+            ],
+          },
+          {
+            name: 'Comment',
+            fieldType: 'Textarea',
+            placeholder: 'Share your feedback',
+            label: 'Feedback Comment',
+          },
+        ],
       },
     ],
   },
