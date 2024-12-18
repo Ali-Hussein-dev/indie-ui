@@ -35,9 +35,11 @@ function FormElementOptions({
   fieldIndex,
   close,
   j,
+  stepIndex,
   ...formElement
 }: FormElement & {
   fieldIndex: number;
+  stepIndex?: number;
   j?: number;
   close: () => void;
 }) {
@@ -51,6 +53,7 @@ function FormElementOptions({
       fieldIndex: fieldIndex,
       modifiedFormElement: getValues(),
       j,
+      stepIndex,
     });
     close();
   };
@@ -224,10 +227,12 @@ export function FieldCustomizationView({
   fieldIndex,
   formElement,
   j,
+  stepIndex,
 }: {
   fieldIndex: number;
   j?: number;
   formElement: FormElement;
+  stepIndex?: number;
 }) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
@@ -236,6 +241,7 @@ export function FieldCustomizationView({
   const SavedFormElementOptions = () => (
     <FormElementOptions
       fieldIndex={fieldIndex}
+      stepIndex={stepIndex}
       j={j}
       {...formElement}
       close={close}

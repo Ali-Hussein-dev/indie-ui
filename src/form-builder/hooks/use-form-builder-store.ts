@@ -113,9 +113,27 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
     set((state) => {
       const { isMS } = state;
       switch (isMS) {
-        case true:
-          // TODO: Implementation required
-          return state;
+        case true: {
+          const stepIndex = options.stepIndex as number;
+          const clonedFormElements = [...state.formElements];
+          const stepFields = clonedFormElements[stepIndex].stepFields;
+          const currentFormElement = stepFields[fieldIndex] as FormElement[];
+          if (typeof j == 'number') {
+            currentFormElement[j] = {
+              ...currentFormElement[j],
+              ...modifiedFormElement,
+            } as FormElement;
+            stepFields[fieldIndex] = currentFormElement;
+            state.formElements[stepIndex].stepFields = stepFields;
+          } else {
+            stepFields[fieldIndex] = {
+              ...currentFormElement,
+              ...modifiedFormElement,
+            } as FormElement;
+            state.formElements[stepIndex].stepFields = stepFields;
+          }
+          return { formElements: clonedFormElements };
+        }
         default:
           const clonedFormElements = [...state.formElements];
           if (typeof j == 'number') {

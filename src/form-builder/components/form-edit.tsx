@@ -48,6 +48,7 @@ const EditFormItem = (props: EditFormItemProps) => {
               formElement={element as FormElement}
               fieldIndex={fieldIndex}
               j={props?.j}
+              stepIndex={props?.stepIndex}
             />
           )}
           <Button
