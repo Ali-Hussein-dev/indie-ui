@@ -55,7 +55,6 @@ export function MultiStepViewer({
                       {RenderFormElement(el, form)}
                     </div>
                   ))}
-                  )
                 </div>
               );
             }
