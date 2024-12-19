@@ -51,11 +51,13 @@ export function FormPreview({ form }: FormPreviewProps) {
                 );
               })
             )}
-            <div className="flex-row-end w-full pt-3">
-              <Button type="submit" className="rounded-lg" size="sm">
-                Submit
-              </Button>
-            </div>
+            {!isMS && (
+              <div className="flex-row-end w-full pt-3">
+                <Button type="submit" className="rounded-lg" size="sm">
+                  Submit
+                </Button>
+              </div>
+            )}
           </form>
         </Form>
       ) : (
