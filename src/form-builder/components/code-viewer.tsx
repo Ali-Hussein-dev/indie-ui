@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 import { CodeBlock } from 'fumadocs-ui/components/codeblock';
-import { FormElementList } from '@/form-builder/form-types';
+import { FormElementList, FormElementOrList } from '@/form-builder/form-types';
 import { generateFormCode } from '@/form-builder/libs/generate-form-code';
 import { codeHighlighter } from '@/form-builder/libs/code-highlighter';
 import { formatCode } from '@/form-builder/libs/utils';
@@ -11,7 +11,7 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
     <div
       style={{ height: '100%', maxHeight: '65vh' }}
-      className="[&>*]:mt-0 [&_pre]:p-2 "
+      className="[&>*]:mt-0 [&_pre]:p-2 w-full"
     >
       {children}
     </div>
@@ -51,12 +51,15 @@ export const JsonViewer = ({
 //======================================
 export function JsxViewer() {
   const formElements = useFormBuilderStore((s) => s.formElements);
-  const generatedCode = generateFormCode(formElements);
+  const isMS = useFormBuilderStore((s) => s.isMS);
+  // generate -> format -> highlight code
+  const generatedCode = generateFormCode({
+    formElements: formElements as FormElementOrList[],
+    isMS,
+  });
   const formattedCode = formatCode(generatedCode);
   const highlightedCode = useShiki({ code: formattedCode });
-  return highlightedCode ? (
-    <Wrapper>{highlightedCode}</Wrapper>
-  ) : (
-    <div className="text-center py-5 w-full">Generating code...</div>
-  );
+  if (!highlightedCode)
+    return <div className="text-center py-5 w-full">Generating code...</div>;
+  return <Wrapper>{highlightedCode}</Wrapper>;
 }
