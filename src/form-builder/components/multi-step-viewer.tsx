@@ -5,7 +5,6 @@ import { useMultiStepForm } from '@/form-builder/hooks/use-multi-step-form';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Progress } from '@/components/ui/progress';
 import { RenderFormElement } from '@/form-builder/components/render-form-element';
-import React from 'react';
 
 /**
  * Used to render a multi-step form in preview mode
@@ -19,13 +18,18 @@ export function MultiStepViewer({
 }) {
   const { currentStep, isLastStep, goToNext, goToPrevious } = useMultiStepForm({
     initialSteps: formElements as FormStep[],
-    onStepValidation: () => true,
+    onStepValidation: () => {
+      /**
+       * TODO: handle step validation
+       */
+      return true;
+    },
   });
   const steps = formElements as FormStep[];
   const current = formElements[currentStep - 1] as FormStep;
-  /**
-   * TODO: handle when form elements is empty
-   */
+  const {
+    formState: { isSubmitting },
+  } = form;
   return (
     <div className="flex flex-col gap-2 pt-3">
       <div className="flex-col-start gap-1">
@@ -59,7 +63,7 @@ export function MultiStepViewer({
               );
             }
             return (
-              <div key={field.name + i} className="w-full">
+              <div key={i} className="w-full">
                 {RenderFormElement(field, form)}
               </div>
             );
@@ -70,9 +74,20 @@ export function MultiStepViewer({
         <Button size="sm" variant="ghost" onClick={goToPrevious} type="button">
           Previous
         </Button>
-        <Button size="sm" type="submit" variant="secondary" onClick={goToNext}>
-          {isLastStep ? 'Submit' : 'Next'}
-        </Button>
+        {isLastStep ? (
+          <Button size="sm" type="submit">
+            {isSubmitting ? 'Submitting...' : 'Submit'}
+          </Button>
+        ) : (
+          <Button
+            size="sm"
+            type="button"
+            variant={'secondary'}
+            onClick={goToNext}
+          >
+            Next
+          </Button>
+        )}
       </div>
     </div>
   );
