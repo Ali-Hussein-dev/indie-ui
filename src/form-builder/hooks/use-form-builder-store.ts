@@ -61,7 +61,7 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
           const newFormElement = {
             ...defaultFormElements[fieldType],
             fieldType,
-            name: `${fieldType}-${stepFields.length + 1}`,
+            name: `${fieldType}-${stepFields.length + 100}`,
           } as FormElement;
           if (typeof fieldIndex == 'number') {
             // Append to a nested array
@@ -270,7 +270,7 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
   addFormStep: (currentPosition) => {
     set((state) => {
       const defaultStep = {
-        id: `${state.formElements.length + 1}`,
+        id: `${state.formElements.length + 10}`,
         stepFields: [],
       };
       if (typeof currentPosition === 'number') {

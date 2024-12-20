@@ -71,7 +71,7 @@ export function FormBuilderMain() {
                 </TabsTrigger>
               ))}
             </TabsList>
-            <TabsContent value={tabsList[0].name}>
+            <TabsContent value={tabsList[0].name} tabIndex={-1}>
               <div className="pb-4 flex-row-between">
                 <Button
                   size="sm"
@@ -94,13 +94,13 @@ export function FormBuilderMain() {
               </div>
               <FormEdit />
             </TabsContent>
-            <TabsContent value={tabsList[1].name}>
+            <TabsContent value={tabsList[1].name} tabIndex={-1}>
               <JsxViewer />
             </TabsContent>
-            <TabsContent value={tabsList[2].name}>
+            <TabsContent value={tabsList[2].name} tabIndex={-1}>
               <JsonViewer json={formElements} />
             </TabsContent>
-            <TabsContent value={tabsList[3].name}>
+            <TabsContent value={tabsList[3].name} tabIndex={-1}>
               <JsonViewer json={submittedData} />
             </TabsContent>
           </Tabs>
