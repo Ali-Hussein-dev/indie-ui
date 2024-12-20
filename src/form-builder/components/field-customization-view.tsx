@@ -176,6 +176,7 @@ function FormElementOptions({
                       { value: 'single', label: 'Single' },
                       { value: 'multiple', label: 'Multiple' },
                     ],
+                    defaultValue: formElement.type,
                     required: true,
                   },
                   form,
