@@ -147,19 +147,17 @@ export function FormEdit() {
                               </Button>
                               <div className="flex items-center justify-start grow flex-wrap sm:flex-nowrap w-full gap-2">
                                 {element.map((el, j) => (
-                                  <Reorder.Item
-                                    value={el}
+                                  <div
                                     key={el.name + j}
                                     className="w-full rounded-xl border border-dashed py-1.5 bg-background"
                                   >
                                     <EditFormItem
-                                      key={el.name + j}
                                       fieldIndex={fieldIndex}
                                       j={j}
                                       element={el}
                                       stepIndex={stepIndex}
                                     />
-                                  </Reorder.Item>
+                                  </div>
                                 ))}
                               </div>
                             </Reorder.Item>
@@ -176,7 +174,6 @@ export function FormEdit() {
                             exit="exit"
                           >
                             <EditFormItem
-                              key={element.name + stepIndex}
                               fieldIndex={fieldIndex}
                               element={element}
                               stepIndex={stepIndex}
