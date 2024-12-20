@@ -61,6 +61,7 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/js-beautify": "^1.14.3",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20.17.6",
