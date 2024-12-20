@@ -4,7 +4,6 @@ import { FormElement, FormStep } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
-import { templates } from '@/form-builder/constant/templates';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 import { flattenFormSteps } from '@/form-builder/libs/form-elements-helpers';
 
@@ -17,12 +16,9 @@ export const useFormBuilder = () => {
   const formElements = useFormBuilderStore((s) => s.formElements);
   const resestFormElements = useFormBuilderStore((s) => s.resestFormElements);
 
-  let initialFormElements =
-    formElements.length > 0 ? formElements : templates['contactUs'].template;
-
   const flattenFormElements = isMS
-    ? flattenFormSteps(initialFormElements as FormStep[]).flat()
-    : (initialFormElements.flat() as FormElement[]);
+    ? flattenFormSteps(formElements as FormStep[]).flat()
+    : (formElements.flat() as FormElement[]);
 
   const defaultValues: DefaultValues = flattenFormElements.reduce(
     (acc: DefaultValues, element) => {

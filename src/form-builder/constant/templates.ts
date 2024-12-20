@@ -144,13 +144,13 @@ export const templates: TemplateList = {
         id: '1',
         stepFields: [
           {
-            name: 'step-1',
+            name: 'heading-2',
             fieldType: 'H2',
             static: true,
             content: 'Personal Details',
           },
           {
-            name: 'step-1',
+            name: 'paragraph',
             fieldType: 'P',
             static: true,
             content: 'Please provide your personal details',
@@ -175,13 +175,13 @@ export const templates: TemplateList = {
         id: '2',
         stepFields: [
           {
-            name: 'step-1',
+            name: 'heading-2',
             fieldType: 'H2',
             static: true,
             content: 'Contact Information',
           },
           {
-            name: 'description',
+            name: 'paragraph',
             fieldType: 'P',
             static: true,
             content: 'Please provide your contact information',
