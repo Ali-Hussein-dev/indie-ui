@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "format": "prettier -w .gitignore .prettierignore .",
+    "format": "npx biome format --write",
     "lint": "next lint",
     "post:merge": "git co main && git pull",
     "start": "next start",
