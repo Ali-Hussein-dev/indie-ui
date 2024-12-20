@@ -197,13 +197,23 @@ export const useFormBuilderStore = create<FormBuilderState>((set) => ({
       }
     });
   },
-  reorder: ({ newOrder, fieldIndex }): void => {
+  reorder: (options): void => {
+    const { newOrder, fieldIndex } = options;
     set((state) => {
       const { isMS } = state;
+
       switch (isMS) {
-        case true:
-          // TODO: Implementation required
-          return state;
+        case true: {
+          const clonedFormElements = [...state.formElements];
+          const stepIndex = options.stepIndex as number;
+          if (typeof fieldIndex === 'number') {
+            // Reorder nested elements
+            clonedFormElements[stepIndex].stepFields[fieldIndex] = newOrder as FormElement[];
+          } else {
+            clonedFormElements[stepIndex].stepFields = newOrder as FormElementList;
+          }
+          return { formElements: clonedFormElements };
+        };
         default:
           if (typeof fieldIndex === 'number') {
             // Reorder nested elements

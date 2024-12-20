@@ -96,7 +96,7 @@ export function FormEdit() {
   const animateVariants = {
     initial: { opacity: 0, y: -15 },
     animate: { opacity: 1, y: 0 },
-    exist: { opacity: 0, y: -15 },
+    exit: { opacity: 0, y: -15 },
     transition: { duration: 0.2, type: 'spring' },
   };
   switch (isMS) {
@@ -106,31 +106,39 @@ export function FormEdit() {
       }
       return (
         <div className="flex flex-col gap-4 ">
-          <AnimatePresence>
-            {(formElements as FormStep[]).map((step, stepIndex) => {
-              return (
-                <div key={step.id}>
-                  <StepContainer key={stepIndex} stepIndex={stepIndex}>
-                    <Reorder.Group
-                      axis="y"
-                      onReorder={(newOrder) => {
-                        console.log({ newOrder });
-                        // reorder(newOrder);
-                      }}
-                      values={step.stepFields}
-                      className="flex flex-col gap-3"
-                      tabIndex={-1}
-                    >
+          {(formElements as FormStep[]).map((step, stepIndex) => {
+            return (
+              <div key={step.id}>
+                <StepContainer key={stepIndex} stepIndex={stepIndex}>
+                  <Reorder.Group
+                    axis="y"
+                    onReorder={(newOrder) => {
+                      reorder({ newOrder, stepIndex });
+                    }}
+                    values={step.stepFields}
+                    className="flex flex-col gap-3"
+                    tabIndex={-1}
+                  >
+                    <AnimatePresence mode="popLayout">
                       {step.stepFields.map((element, fieldIndex) => {
                         if (Array.isArray(element)) {
                           return (
-                            <div
+                            <Reorder.Item
+                              value={element}
                               key={element.map((f) => f.name).join('-')}
                               className="flex items-center justify-start gap-2 "
+                              variants={animateVariants}
+                              initial="initial"
+                              animate="animate"
+                              exit="exit"
                             >
                               <Button
                                 onClick={() => {
-                                  // reorderHorizontal(element.reverse(), i);
+                                  reorder({
+                                    newOrder: element.reverse(),
+                                    fieldIndex,
+                                    stepIndex,
+                                  });
                                 }}
                                 variant="ghost"
                                 className="center shrink h-full py-4 border border-dashed rounded-xl bg-background px-3.5"
@@ -154,13 +162,18 @@ export function FormEdit() {
                                   </Reorder.Item>
                                 ))}
                               </div>
-                            </div>
+                            </Reorder.Item>
                           );
                         }
                         return (
-                          <div
-                            key={element.name + stepIndex + fieldIndex}
+                          <Reorder.Item
+                            key={element.name + stepIndex + 10}
+                            value={element}
                             className="w-full rounded-xl border border-dashed py-1.5 bg-background"
+                            variants={animateVariants}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
                           >
                             <EditFormItem
                               key={element.name + stepIndex}
@@ -168,15 +181,15 @@ export function FormEdit() {
                               element={element}
                               stepIndex={stepIndex}
                             />
-                          </div>
+                          </Reorder.Item>
                         );
                       })}
-                    </Reorder.Group>
-                  </StepContainer>
-                </div>
-              );
-            })}
-          </AnimatePresence>
+                    </AnimatePresence>
+                  </Reorder.Group>
+                </StepContainer>
+              </div>
+            );
+          })}
         </div>
       );
     default:
@@ -200,7 +213,7 @@ export function FormEdit() {
                     variants={animateVariants}
                     initial="initial"
                     animate="animate"
-                    exit="exist"
+                    exit="exit"
                   >
                     <div className="flex items-center justify-start gap-2 ">
                       <Button
@@ -242,7 +255,7 @@ export function FormEdit() {
                   variants={animateVariants}
                   initial="initial"
                   animate="animate"
-                  exit="exist"
+                  exit="exit"
                 >
                   <EditFormItem
                     key={element.name + i}

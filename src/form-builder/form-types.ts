@@ -225,9 +225,11 @@ export type EditElement = (
   options: EditElementOptions,
 ) => void;
 
-type ReorderParams =
-  | { newOrder: FormElementOrList[]; fieldIndex: null }
-  | { newOrder: FormElement[]; fieldIndex: number | null };
+type ReorderParams = {
+  newOrder: FormElementOrList[];
+  fieldIndex?: number | null;
+  stepIndex?: number | null;
+};
 
 export type ReorderElements = (params: ReorderParams) => void;
 
