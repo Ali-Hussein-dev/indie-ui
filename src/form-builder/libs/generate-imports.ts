@@ -7,15 +7,14 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
     'import { zodResolver } from "@hookform/resolvers/zod"',
     'import { Button } from "@/components/ui/button"',
     'import { useForm } from "react-hook-form"',
-    'import { \n Form,\n FormControl,\n FormDescription,\n FormField,\n FormItem,\n FormLabel,\n FormMessage\n } from "@/components/ui/form"',
+    'import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form"',
   ]);
-
   const processField = (field: FormElement) => {
     switch (field.fieldType) {
       case 'DatePicker':
         importSet.add('import { format } from "date-fns"');
         importSet.add(
-          'import { \n Popover,\n PopoverContent,\n PopoverTrigger\n} from "@/components/ui/popover"',
+          'import {  Popover, PopoverContent, PopoverTrigger\n} from "@/components/ui/popover"',
         );
         importSet.add('import { cn } from "@/lib/utils"');
         importSet.add('import { Calendar } from "@/components/ui/calendar"');
@@ -25,12 +24,12 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
         break;
       case 'OTP':
         importSet.add(
-          'import { InputOTP,\n InputOTPGroup,\n InputOTPSeparator,\n InputOTPSlot\n} from "@/components/ui/input-otp"',
+          'import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot\n} from "@/components/ui/input-otp"',
         );
         break;
       case 'Select':
         importSet.add(
-          'import { Select,\n SelectContent,\n SelectItem,\n SelectTrigger,\n SelectValue} from "@/components/ui/select"',
+          'import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"',
         );
         break;
       case 'MultiSelect':
@@ -63,6 +62,7 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
       case 'H1':
       case 'H2':
       case 'H3':
+      case 'P':
         break;
       default:
         importSet.add(

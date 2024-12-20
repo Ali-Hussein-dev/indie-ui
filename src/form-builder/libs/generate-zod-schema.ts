@@ -39,10 +39,16 @@ export const generateZodSchema = (
       case 'Select':
         elementSchema = z.string().min(1, 'Please an item');
         break;
+      case 'ToggleGroup':
+        element.type === "single" ? elementSchema = z.string().min(1, 'Please an item') : elementSchema = z.array(z.string()).nonempty('Please select at least one item');
+        break;
       case 'MultiSelect':
         elementSchema = z
           .array(z.string())
           .nonempty('Please select at least one item');
+        break;
+      case 'RadioGroup':
+        elementSchema = z.string().min(1, 'Please select an item');
         break;
       default:
         elementSchema = z.string();

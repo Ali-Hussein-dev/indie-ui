@@ -12,11 +12,11 @@ export const getFormElementCode = (field: FormElement) => {
                       <FormControl>
                         <Input
                           placeholder="${field.placeholder}"
-                          type={field.type}
+                          type={"${field.type}"}
                           value={field.value}
                           onChange={(e) => {
                             const val = e.target.value;
-                            field.onChange(field.type == 'number' ? +val : val);
+                            field.onChange(${field.type == 'number' ? '+val' : 'val'});
                           }}
                         />
                       </FormControl>

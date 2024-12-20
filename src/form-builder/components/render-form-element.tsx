@@ -251,7 +251,7 @@ export const RenderFormElement = (
                     type="single"
                     variant="outline"
                     onValueChange={field.onChange}
-                    defaultValue={field.value}
+                    defaultValue={formElement.defaultValue}
                     className="flex justify-start items-center gap-2"
                   >
                     {options}

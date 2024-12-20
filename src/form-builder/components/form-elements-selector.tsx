@@ -11,6 +11,8 @@ import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 //======================================
 export function FormElementSelector() {
   const appendElement = useFormBuilderStore((s) => s.appendElement);
+  const formElements = useFormBuilderStore((s) => s.formElements);
+  const isMS = useFormBuilderStore((s) => s.isMS);
   return (
     <ScrollArea
       className="border rounded-sm border-dashed overflow-auto p-3 w-full md:col-span-2"
@@ -30,6 +32,7 @@ export function FormElementSelector() {
             onClick={() => {
               appendElement({
                 fieldType: o.fieldType as FormElement['fieldType'],
+                stepIndex: isMS ? formElements.length - 1 : undefined,
               });
             }}
             className="gap-1 justify-start rounded-lg w-fit md:w-full relative text-sm px-2"

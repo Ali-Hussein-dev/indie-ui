@@ -1,29 +1,29 @@
 'use client';
 import * as React from 'react';
-import { FormElement } from '@/form-builder/form-types';
+import { FormElement, FormStep } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
-import { templates } from '@/form-builder/constant/templates';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
+import { flattenFormSteps } from '@/form-builder/libs/form-elements-helpers';
 
 //-------------------------------------------
 export const useFormBuilder = () => {
   interface DefaultValues {
     [key: string]: any;
   }
+  const isMS = useFormBuilderStore((s) => s.isMS);
   const formElements = useFormBuilderStore((s) => s.formElements);
   const resestFormElements = useFormBuilderStore((s) => s.resestFormElements);
 
-  let initialFormElements =
-    formElements.length > 0 ? formElements : templates['contactUs'].template;
-
-  const flattenFormElements = initialFormElements.flat();
+  const flattenFormElements = isMS
+    ? flattenFormSteps(formElements as FormStep[]).flat()
+    : (formElements.flat() as FormElement[]);
 
   const defaultValues: DefaultValues = flattenFormElements.reduce(
-    (acc: DefaultValues, element: FormElement) => {
-      if (element.static) return acc;
-      acc[element.name] = element.defaultValue || '';
+    (acc: DefaultValues, element) => {
+      if (element?.static) return acc;
+      acc[element.name] = element?.defaultValue ?? '';
       return acc;
     },
     {},
@@ -47,8 +47,11 @@ export const useFormBuilder = () => {
   }, [watch, setSubmittedData]);
 
   const resetForm = () => {
+    // Remove all fields from the form
     resestFormElements();
+    // reset to all default values
     reset();
+    // reset submitted data
     setSubmittedData({});
   };
   const onSubmit = (data: any) => {

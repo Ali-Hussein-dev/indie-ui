@@ -11,11 +11,13 @@ import * as React from 'react';
 import { formElementsList } from '@/form-builder/constant/form-elements-list';
 import { Badge } from '@/components/ui/badge';
 import { useCommand } from '@/form-builder/hooks/use-command-ctx';
-import { AppendElement, FormElement } from '@/form-builder/form-types';
+import { FormElement } from '@/form-builder/form-types';
 import useFormBuilderStore from '../hooks/use-form-builder-store';
 
 export function FormElementsSelectorCommand() {
-  const { appendElement } = useFormBuilderStore();
+  const appendElement = useFormBuilderStore((s) => s.appendElement);
+  const formElements = useFormBuilderStore((s) => s.formElements);
+  const isMS = useFormBuilderStore((s) => s.isMS);
   const { openCommand: open, setOpenCommand: setOpen } = useCommand();
   return (
     <div>
@@ -39,6 +41,7 @@ export function FormElementsSelectorCommand() {
                 onSelect={() => {
                   appendElement({
                     fieldType: o.fieldType as FormElement['fieldType'],
+                    stepIndex: isMS ? formElements.length - 1 : undefined,
                   });
                 }}
                 className="gap-3"

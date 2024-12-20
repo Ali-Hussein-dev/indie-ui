@@ -1,11 +1,13 @@
+import { Button } from '@/components/ui/button';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from '@/components/ui/select';
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { templates } from '@/form-builder/constant/templates';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
+import { ChevronDown } from 'lucide-react';
 
 const formTemplates = Object.entries(templates).map((template) => ({
   label: template[1].name,
@@ -16,20 +18,23 @@ export function TemplatesSelect() {
   const setTemplate = useFormBuilderStore((s) => s.setTemplate);
   return (
     <div className="pb-2">
-      <Select
-        onValueChange={(value) => {
-          setTemplate(value);
-        }}
-      >
-        <SelectTrigger>Templates</SelectTrigger>
-        <SelectContent>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild tabIndex={-1} className="w-full">
+          <Button variant={'outline'}>
+            <div className="flex-row-center gap-2">
+              Templates
+              <ChevronDown className="size-4" />
+            </div>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className='w-full'>
           {formTemplates.map(({ label, value }) => (
-            <SelectItem key={label} value={value}>
+            <DropdownMenuItem key={label} onSelect={() => setTemplate(value)} className='px-3.5 py-2.5'>
               {label}
-            </SelectItem>
+            </DropdownMenuItem>
           ))}
-        </SelectContent>
-      </Select>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 }
