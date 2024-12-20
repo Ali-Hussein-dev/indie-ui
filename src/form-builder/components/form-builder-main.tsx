@@ -10,7 +10,14 @@ import { JsonViewer, JsxViewer } from '@/form-builder/components/code-viewer';
 import * as React from 'react';
 import { CommandProvider } from '@/form-builder/hooks/use-command-ctx';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
-import { ExternalLink } from 'lucide-react';
+import { ChevronDown, ExternalLink } from 'lucide-react';
+import { VscBug } from 'react-icons/vsc';
+import {
+  DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu';
 
 const tabsList = [
   {
@@ -36,18 +43,25 @@ export function Examples() {
     },
   ];
   return (
-    <div className="mx-auto pt-8 pb-4 w-fit">
-      <h3 className="text-lg font-semibold text-center mb-2">Examples</h3>
-      <div className="flex-col-center">
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild tabIndex={-1}>
+        <Button variant={'outline'}>
+          <div className="flex-row-center gap-2">
+            Examples
+            <ChevronDown className="size-4" />
+          </div>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
         {links.map((link, i) => (
-          <Button key={i} asChild variant={'outline'} size="sm">
+          <DropdownMenuItem key={i} asChild>
             <a href={link.href} target="_blank">
               {link.label} <ExternalLink className="size-4 ml-2" />
             </a>
-          </Button>
+          </DropdownMenuItem>
         ))}
-      </div>
-    </div>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
 //======================================
@@ -58,7 +72,7 @@ export function FormBuilderMain() {
   const setIsMS = useFormBuilderStore((s) => s.setIsMS);
   return (
     <>
-      <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3">
+      <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3 py-6">
         <CommandProvider>
           <FormElementSelector />
         </CommandProvider>
@@ -109,7 +123,25 @@ export function FormBuilderMain() {
           <FormPreview form={form} />
         </div>
       </div>
-      <Examples />
+      <div className="flex-row-center gap-4 flex-wrap max-w-[77rem] mx-auto border-t px-2 py-6 border-dashed">
+        <Button variant={'outline'}>
+          <a
+            href={'https://github.com/Ali-Hussein-dev/indie-ui/discussions'}
+            className="flex-row-center gap-2"
+          >
+            Request Feature
+          </a>
+        </Button>
+        <Button variant={'outline'}>
+          <a
+            href={'https://github.com/Ali-Hussein-dev/indie-ui/issues/new'}
+            className="flex-row-center gap-2"
+          >
+            Report bug <VscBug />
+          </a>
+        </Button>
+        <Examples />
+      </div>
     </>
   );
 }
