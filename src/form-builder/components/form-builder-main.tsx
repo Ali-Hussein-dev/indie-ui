@@ -10,14 +10,9 @@ import { JsonViewer, JsxViewer } from '@/form-builder/components/code-viewer';
 import * as React from 'react';
 import { CommandProvider } from '@/form-builder/hooks/use-command-ctx';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
-import { ChevronDown, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { VscBug } from 'react-icons/vsc';
-import {
-  DropdownMenuTrigger,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from '@/components/ui/dropdown-menu';
+import { FaRegLightbulb } from 'react-icons/fa6';
 
 const tabsList = [
   {
@@ -34,36 +29,6 @@ const tabsList = [
   },
 ];
 
-//======================================
-export function Examples() {
-  const links = [
-    {
-      label: 'Create job post form',
-      href: 'https://nextradar.dev/jobs/create',
-    },
-  ];
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild tabIndex={-1}>
-        <Button variant={'outline'}>
-          <div className="flex-row-center gap-2">
-            Examples
-            <ChevronDown className="size-4" />
-          </div>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {links.map((link, i) => (
-          <DropdownMenuItem key={i} asChild>
-            <a href={link.href} target="_blank">
-              {link.label} <ExternalLink className="size-4 ml-2" />
-            </a>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
 //======================================
 export function FormBuilderMain() {
   const { submittedData, resetForm, form } = useFormBuilder();
@@ -128,19 +93,32 @@ export function FormBuilderMain() {
           <a
             href={'https://github.com/Ali-Hussein-dev/indie-ui/discussions'}
             className="flex-row-center gap-2"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Request Feature
+            Request Feature <FaRegLightbulb />
           </a>
         </Button>
         <Button variant={'outline'}>
           <a
             href={'https://github.com/Ali-Hussein-dev/indie-ui/issues/new'}
             className="flex-row-center gap-2"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Report bug <VscBug />
           </a>
         </Button>
-        <Examples />
+        <Button variant={'outline'}>
+          <a
+            href={'https://github.com/Ali-Hussein-dev/indie-ui/discussions/54'}
+            className="flex-row-center gap-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Examples <ExternalLink className="size-4" />
+          </a>
+        </Button>
       </div>
     </>
   );
