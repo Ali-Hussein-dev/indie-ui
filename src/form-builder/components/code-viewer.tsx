@@ -2,10 +2,9 @@
 import * as React from 'react';
 import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
 import type {
-	FormElement,
-	FormElementList,
-	FormElementOrList,
-	FormStep,
+  FormElement,
+  FormElementOrList,
+  FormStep,
 } from '@/form-builder/form-types';
 import { generateFormCode } from '@/form-builder/libs/generate-form-code';
 import { codeHighlighter } from '@/form-builder/libs/code-highlighter';
@@ -60,7 +59,25 @@ export const JsonViewer = ({
     <div className="text-center py-5 w-full">Generating code...</div>
   );
 };
-const noneShadcnComponents = 'multiselect';
+
+const installableShadcnComponents: Partial<
+  Record<FormElement['fieldType'], string>
+> = {
+  Input: 'input',
+  Password: 'input',
+  Textarea: 'textarea',
+  Checkbox: 'checkbox',
+  Select: 'select',
+  Slider: 'slider',
+  Switch: 'switch',
+  OTP: 'otp',
+  RadioGroup: 'radio-group',
+  ToggleGroup: 'toggle-group',
+  DatePicker: 'popover calendar',
+  Separator: 'separator',
+  // none-shadcn components
+  MultiSelect: '',
+};
 //======================================
 export function JsxViewer() {
   const formElements = useFormBuilderStore((s) => s.formElements);
@@ -80,15 +97,14 @@ export function JsxViewer() {
     : formElements;
 
   const formElementTypes = (processedFormElements.flat() as FormElement[])
-    .filter((el) => {
-      return !el.static;
-    })
-    .map((el) => el.fieldType.toLowerCase());
+    .filter((el) => !el.static)
+    .map((el) => el.fieldType)
+    .map((str) => installableShadcnComponents[str])
+    .filter((str) => str && str.length > 0);
 
   const packagesSet = new Set(formElementTypes);
-  const packages = Array.from(packagesSet)
-    .join(' ')
-    .replace(noneShadcnComponents, '');
+  const packages = Array.from(packagesSet).join(' ');
+
   const otherPackages = 'react-hook-form zod @hookform/resolvers framer-motion';
   const tabsData = [
     {
