@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Header } from '@/components/homepage/header';
 import { Footer } from '@/components/footer';
 import { generateSEOTags } from '@/lib/seo';
@@ -6,10 +5,40 @@ import { Button } from '@/components/ui/button';
 import { FaGithub } from 'react-icons/fa6';
 import { configs } from '@/configs';
 
+const title = 'Shadcn Form Builder | FormFast';
+const description =
+  'Build as many forms as you want for free using React, shadcn, tailwindcss, Zod, and React Hook Form';
+
 export const metadata = generateSEOTags({
-  title: 'Shadcn Form Builder | FormFast',
-  description:
-    'Build as many forms as you want for free using React, shadcn, tailwindcss, Zod, and React Hook Form',
+  title,
+  description,
+  openGraph: {
+    description,
+    title,
+    url: `${configs.site}/form-builder`,
+    type: 'website',
+    images: [
+      {
+        url: '/formfast/opengraph-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'FormFast Builder',
+      },
+    ],
+  },
+  twitter: {
+    site: `${configs.site}/form-builder`,
+    title,
+    description,
+    images: [
+      {
+        url: '/formfast/twitter-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'FormFast Builder',
+      },
+    ],
+  },
 });
 //======================================
 export default function FormBuilderLayout({
@@ -22,7 +51,7 @@ export default function FormBuilderLayout({
       <Header />
       <div className="h-full grow w-full px-2 md:px-4 py-3">
         <div className="border border-dashed px-2 mb-5 md:grid-cols-8 grid max-w-[77rem] mx-auto">
-          <div className="md:col-span-1"></div>
+          <div className="md:col-span-1" />
           <div className="md:col-span-6 md:border-x border-dashed py-5 px-3 grow sm:py-6 md:py-8 md:px-6 w-full">
             <h1 className="text-2xl md:text-3xl text-center text-pretty font-bold mb-2">
               Build Forms In{' '}
@@ -53,7 +82,7 @@ export default function FormBuilderLayout({
               </Button>
             </div>
           </div>
-          <div className="md:col-span-1"></div>
+          <div className="md:col-span-1" />
         </div>
         {children}
       </div>

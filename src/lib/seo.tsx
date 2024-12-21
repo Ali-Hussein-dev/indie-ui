@@ -10,6 +10,7 @@ const defaultkeywords = [
   'Tailwindcss',
   'Boilerplate',
   'shadcn/ui',
+  'Shadcn form builder',
 ];
 
 /**
@@ -27,6 +28,7 @@ export const generateSEOTags = ({
   openGraph,
   canonicalUrlRelative,
   extraTags,
+  twitter,
 }: Metadata & {
   canonicalUrlRelative?: string;
   extraTags?: Record<string, string>;
@@ -58,15 +60,16 @@ export const generateSEOTags = ({
       // ],
       locale: 'en_US',
       type: 'website',
+      ...openGraph,
     },
-
     twitter: {
-      title: openGraph?.title ?? site.name,
-      description: openGraph?.description ?? site.description,
+      title: site.name,
+      description: site.description,
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [openGraph?.image || defaults.og.image],
       card: 'summary_large_image',
       creator: '@alihussein_20',
+      ...twitter,
     },
 
     // If a canonical URL is given, we add it. The metadataBase will turn the relative URL into a fully qualified URL
@@ -102,6 +105,8 @@ export const getSchemaTags = () => {
   return (
     <script
       type="application/ld+json"
+      // biome-ignore lint/security/noDangerouslySetInnerHtmlWithChildren: <explanation>
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           '@context': 'http://schema.org',
