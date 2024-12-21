@@ -77,10 +77,10 @@ export function FormBuilderMain() {
               <JsxViewer />
             </TabsContent>
             <TabsContent value={tabsList[2].name} tabIndex={-1}>
-              <JsonViewer json={formElements} />
+              <JsonViewer json={formElements} isMS={isMS} />
             </TabsContent>
             <TabsContent value={tabsList[3].name} tabIndex={-1}>
-              <JsonViewer json={submittedData} />
+              <JsonViewer json={submittedData} isMS={isMS} />
             </TabsContent>
           </Tabs>
         </div>
