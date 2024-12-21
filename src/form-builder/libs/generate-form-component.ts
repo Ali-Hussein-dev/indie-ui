@@ -335,7 +335,7 @@ export const getFormElementCode = (field: FormElement) => {
                       onValueChange={field.onChange}
                       defaultValue={field.defaultValue}
                       type='${field.type}'
-                      className="flex justify-start items-center gap-2"
+                      className="flex justify-start items-center gap-2 flex-wrap"
                     >
                      {options.map(({ label, value }) => (
                         <ToggleGroupItem

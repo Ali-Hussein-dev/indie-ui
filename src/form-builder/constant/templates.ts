@@ -1,4 +1,4 @@
-import { FormElementOrList, FormStep } from '@/form-builder/form-types';
+import type { FormElementOrList, FormStep } from '@/form-builder/form-types';
 
 type TemplateList = Record<
   string,
@@ -165,7 +165,6 @@ export const templates: TemplateList = {
           {
             name: 'last-name',
             fieldType: 'Input',
-            type: 'email',
             placeholder: 'Last name',
             label: 'Last name',
           },
