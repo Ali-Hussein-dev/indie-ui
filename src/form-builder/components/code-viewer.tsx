@@ -113,42 +113,40 @@ export function JsxViewer() {
     },
   ];
   return (
-    <div className="flex-col-center gap-2 relative">
-      <Tabs items={['JSX', 'Install']} className="w-full min-w-full">
-        <Tab value="JSX" className="p-2">
-          <div className="relative max-w-full">
-            <Wrapper>{highlightedCode}</Wrapper>
-          </div>
-        </Tab>
-        <Tab value="Install" className="p-0">
-          <div className="w-full px-4 py-5 max-w-full">
-            <h2 className="font-sembold text-left text-xl">
-              Install Shadcn components
-            </h2>
-            <Tabs items={tabsData.map((o) => o.value)} className="w-full mb-8">
-              {tabsData.map((item) => (
-                <Tab key={item.value} value={item.value}>
-                  <CodeBlock>
-                    <Pre>{item.shadcn}</Pre>
-                  </CodeBlock>
-                </Tab>
-              ))}
-            </Tabs>
-            <h2 className="font-sembold text-left text-xl">
-              Install base packages
-            </h2>
-            <Tabs items={tabsData.map((o) => o.value)} className="w-full">
-              {tabsData.map((item) => (
-                <Tab key={item.value} value={item.value}>
-                  <CodeBlock>
-                    <Pre>{item.base}</Pre>
-                  </CodeBlock>
-                </Tab>
-              ))}
-            </Tabs>
-          </div>
-        </Tab>
-      </Tabs>
-    </div>
+    <Tabs items={['JSX', 'Install']} className="w-full min-w-full mt-0">
+      <Tab value="JSX" className="p-2">
+        <div className="relative max-w-full">
+          <Wrapper>{highlightedCode}</Wrapper>
+        </div>
+      </Tab>
+      <Tab value="Install" className="p-0">
+        <div className="w-full px-4 py-5 max-w-full">
+          <h2 className="font-sembold text-left text-xl">
+            Install Shadcn components
+          </h2>
+          <Tabs items={tabsData.map((o) => o.value)} className="w-full mb-8">
+            {tabsData.map((item) => (
+              <Tab key={item.value} value={item.value}>
+                <CodeBlock>
+                  <Pre>{item.shadcn}</Pre>
+                </CodeBlock>
+              </Tab>
+            ))}
+          </Tabs>
+          <h2 className="font-sembold text-left text-xl">
+            Install base packages
+          </h2>
+          <Tabs items={tabsData.map((o) => o.value)} className="w-full">
+            {tabsData.map((item) => (
+              <Tab key={item.value} value={item.value}>
+                <CodeBlock>
+                  <Pre>{item.base}</Pre>
+                </CodeBlock>
+              </Tab>
+            ))}
+          </Tabs>
+        </div>
+      </Tab>
+    </Tabs>
   );
 }
