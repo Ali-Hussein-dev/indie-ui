@@ -3,6 +3,10 @@ title: Changelog
 description: Latest updates and announcements
 ---
 
+## December 2024 - Support multistep forms
+
+- Supported multi-steps forms in the Shadcn form builder.
+
 ## November 2024 - Introducing Form Builder
 
 - Added [Form Builder](/form-builder) to create forms with shadcn components, Zod and TypeScript.

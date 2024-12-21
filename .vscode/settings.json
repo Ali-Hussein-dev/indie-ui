@@ -12,5 +12,6 @@
     "titleBar.inactiveBackground": "#00000099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#000"
+  "peacock.color": "#000",
+  "editor.defaultFormatter": "biomejs.biome",
 }
