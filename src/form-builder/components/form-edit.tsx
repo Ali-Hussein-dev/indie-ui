@@ -1,4 +1,4 @@
-import {
+import type {
   FormElement,
   FormElementOrList,
   FormStep,
@@ -31,16 +31,29 @@ const EditFormItem = (props: EditFormItemProps) => {
   const { element, fieldIndex } = props;
   const dropElement = useFormBuilderStore((s) => s.dropElement);
   const isNested = typeof props?.j === 'number';
+  let DisplayName =
+    'label' in element
+      ? element?.label
+      : 'content' in element
+        ? element.content
+        : element.name;
+  const slicedDisplayName = DisplayName?.split(' ').slice(0, 5) ?? [];
+
+  DisplayName =
+    slicedDisplayName.length > 4
+      ? `${slicedDisplayName.join(' ')} ...`
+      : slicedDisplayName.join(' ');
+
   return (
     <div className="w-full group">
       <div className="flex-row-between px-2">
         <div className="flex-row-start gap-2 size-full">
           {isNested ? (
-            <span className="w-1"></span>
+            <span className="w-1" />
           ) : (
             <LuGripVertical className="dark:text-muted-foreground text-muted-foreground" />
           )}
-          {element.name}
+          {DisplayName}
         </div>
         <div className="flex-row-end opacity-0 group-hover:opacity-100 duration-100">
           {element.fieldType !== 'Separator' && (
