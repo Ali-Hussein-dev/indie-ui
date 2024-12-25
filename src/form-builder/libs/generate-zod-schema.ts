@@ -68,7 +68,7 @@ export const generateZodSchema = (
       }
     }
 
-    if ('required' in element && element.required !== true) {
+    if (!('required' in element) || element.required !== true) {
       elementSchema = elementSchema.optional();
     }
     // Ensure fieldSchema is of type ZodTypeAny
