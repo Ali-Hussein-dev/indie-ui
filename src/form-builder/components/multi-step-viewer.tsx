@@ -1,10 +1,11 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { FormStep } from '@/form-builder/form-types';
+import type { FormElement, FormStep } from '@/form-builder/form-types';
 import { useMultiStepForm } from '@/form-builder/hooks/use-multi-step-form';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Progress } from '@/components/ui/progress';
 import { RenderFormElement } from '@/form-builder/components/render-form-element';
+import type { UseFormReturn } from 'react-hook-form';
 
 /**
  * Used to render a multi-step form in preview mode
@@ -13,16 +14,18 @@ export function MultiStepViewer({
   form,
   formElements,
 }: {
-  form: any;
+  form: UseFormReturn;
   formElements: FormStep[];
 }) {
   const { currentStep, isLastStep, goToNext, goToPrevious } = useMultiStepForm({
     initialSteps: formElements as FormStep[],
-    onStepValidation: () => {
-      /**
-       * TODO: handle step validation
-       */
-      return true;
+    onStepValidation: async (step) => {
+      const stepFields = (step.stepFields as FormElement[])
+        .flat()
+        .filter((o) => !o.static)
+        .map((o) => o.name);
+      const isValid = await form.trigger(stepFields);
+      return isValid;
     },
   });
   const steps = formElements as FormStep[];

@@ -1,13 +1,14 @@
 import { Form } from '@/components/ui/form';
 import { RenderFormElement } from '@/form-builder/components/render-form-element';
-import { FormElementOrList, FormStep } from '@/form-builder/form-types';
+import type { FormElementOrList, FormStep } from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 import { MultiStepViewer } from '@/form-builder/components/multi-step-viewer';
 import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
+import type { UseFormReturn } from 'react-hook-form';
 
 interface FormPreviewProps {
-  form: any;
+  form: UseFormReturn;
 }
 
 export function FormPreview({ form }: FormPreviewProps) {

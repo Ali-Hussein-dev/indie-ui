@@ -138,7 +138,7 @@ export const templates: TemplateList = {
     ],
   },
   multiStepForm: {
-    name: 'Multi Step Form',
+    name: 'Multistep Form',
     template: [
       {
         id: '1',
