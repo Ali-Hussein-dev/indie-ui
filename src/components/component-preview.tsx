@@ -15,6 +15,12 @@ const filePaths = {
   button_v6: 'buttons/button-v6.tsx',
   button_v7: 'buttons/button-v7.tsx',
   button_v8: 'buttons/button-v8.tsx',
+
+  eye_catching_buttons_v1: 'buttons/eye-catching-button-v1.tsx',
+  eye_catching_buttons_v2: 'buttons/eye-catching-button-v2.tsx',
+  eye_catching_buttons_v3: 'buttons/eye-catching-button-v3.tsx',
+  eye_catching_buttons_v4: 'buttons/eye-catching-button-v4.tsx',
+  eye_catching_buttons_v5: 'buttons/eye-catching-button-v5.tsx',
 };
 
 type ComponentPreviewProps = {
@@ -46,7 +52,7 @@ export function ComponentPreview({
         </WithContributor> */}
       </Tab>
       <Tab value="Code">
-        <CodeSnippet filePath={'/src/components/' + filePaths[filePathsKey]} />
+        <CodeSnippet filePath={`/src/components/${filePaths[filePathsKey]}`} />
       </Tab>
     </Tabs>
   );

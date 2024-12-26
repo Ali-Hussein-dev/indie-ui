@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { Button, ButtonProps } from '@/components/ui/button';
+import { Button, type ButtonProps } from '@/components/ui/button';
 
 //======================================
 export const EyeCatchingButton_v1 = ({ ...props }: ButtonProps) => {
@@ -23,7 +23,7 @@ export const EyeCatchingButton_v2 = ({ ...props }: ButtonProps) => {
     <Button
       {...props}
       className={cn(
-        'animate-bg-shine border-[1px] rounded-lg shadow bg-[length:200%_100%] tracking-wide',
+        'animate-bg-shine border-[1px] rounded-lg shadow bg-[length:200%_100%] tracking-wide duration-[4200ms]',
         'dark:bg-[linear-gradient(110deg,#09090B,45%,#27272A,55%,#09090B)] dark:text-zinc-200 dark:border-zinc-800',
         'bg-[linear-gradient(110deg,#FFF,45%,#E4E4E7,55%,#FFF)] text-zinc-800 border-zinc-300',
         props.className,
@@ -38,7 +38,7 @@ export const EyeCatchingButton_v3 = ({ ...props }: ButtonProps) => {
     <Button
       {...props}
       className={cn(
-        'border-[1px] rounded-lg bg-clip-text text-transparent dark:text-transparent animate-bg-shine bg-[length:250%_100%] shadow font-bold tracking-wide',
+        'border-[1px] rounded-lg bg-clip-text text-transparent dark:text-transparent animate-bg-shine bg-[length:250%_100%] shadow font-bold tracking-wide duration-[4200ms]',
         'dark:bg-[linear-gradient(110deg,#D4D4D8,45%,#27272A,55%,#D4D4D8)] dark:border-zinc-800',
         'bg-[linear-gradient(110deg,#09090B,45%,#fff,55%,#09090B)] border-zinc-300',
         props.className,
@@ -70,7 +70,7 @@ export const EyeCatchingButton_v5 = ({ ...props }: ButtonProps) => {
       {...props}
       variant="outline"
       className={cn(
-        'bg-gradient-to-l text-transparent dark:text-transparent bg-clip-text animate-text-gradient font-bold dark:bg-zinc-50 bg-[length:300%] text-lg rounded-xl tracking-wide',
+        'bg-gradient-to-l text-transparent dark:text-transparent bg-clip-text animate-text-gradient font-bold dark:bg-zinc-50 bg-[length:300%] text-lg rounded-xl tracking-wide duration-[4200ms]',
         'from-zinc-500 via-zinc-950 to-zinc-600',
         'dark:from-zinc-600 dark:via-zinc-100 dark:to-zinc-600',
         props.className,
