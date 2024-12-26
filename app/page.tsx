@@ -65,6 +65,7 @@ import * as React from 'react';
 import { StatefulButton_1 } from '@/components/buttons/stateful/variant-1';
 import { StatefulButton_2 } from '@/components/buttons/stateful/variant-2';
 import { ExpandableCard } from '@/components/cards/expandable-card';
+import { TextLoader } from '@/components/loaders/text-loader';
 
 const CardsWithPattern = [
   CardWithEllipsis,
@@ -229,13 +230,30 @@ export default function HomePage() {
             title={components.loadersDots.title}
             docUrl={components.loadersDots.docUrl}
           >
-            <div className="max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 gap-y-8 md:gap-y-4 pl-8">
+            <div className="max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 gap-y-8 md:gap-y-4 pl-8 mb-8">
               <div className="mx-auto -translate-x-9 md:translate-x-0 md:mx-0">
                 <Dots_v1 />
               </div>
               <Dots_v2 />
               <Dots_v3 />
               <Dots_v4 />
+            </div>
+          </VariantsCard>
+          <VariantsCard
+            id={components.loadersText.id}
+            title={components.loadersText.title}
+            docUrl={components.loadersText.docUrl}
+          >
+            <div className="flex-row-center py-1 w-full">
+              <TextLoader
+                messages={[
+                  'Preparing your experience',
+                  'Loading awesome content',
+                  'Almost there',
+                  'Just a moment',
+                  'Getting things ready',
+                ]}
+              />
             </div>
           </VariantsCard>
           <VariantsCard

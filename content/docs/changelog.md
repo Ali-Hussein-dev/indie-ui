@@ -5,7 +5,8 @@ description: Latest updates and announcements
 
 ## December 2024 - Support multistep forms
 
-- Supported multi-steps forms in the Shadcn form builder.
+- Support [multi-steps forms](/form-builder) in the Shadcn form builder.
+- Added [Text Loader](/docs/loader-text) to show annimated messages.
 
 ## November 2024 - Introducing Form Builder
 

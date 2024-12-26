@@ -1,0 +1,25 @@
+---
+title: Framer Motion Text Loader
+description: Learn how to create smooth, animated loading text transitions using Framer Motion in React.
+---
+
+import { TextLoader } from '@/components/loaders/text-loader';
+import { ComponentPreview } from '@/components/component-preview';
+
+## Variant 1
+
+Use the `TextLoader` component to display a loader with text messages for processes that require a bit more time to complete for better user experience.
+
+
+<ComponentPreview filePathsKey="loader_text">
+  <div className="flex-row-center gap-4">
+    <TextLoader
+      messages={[
+            'Preparing your experience',
+            'Loading awesome content',
+            'Almost there',
+            'Just a moment',
+            'Getting things ready',
+          ]}/>
+  </div>
+</ComponentPreview>

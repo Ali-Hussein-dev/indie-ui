@@ -1,7 +1,5 @@
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { CodeSnippet } from './code-snippet';
-// import { WithContributor } from '@/components/with-contributor';
-import * as React from 'react';
 
 const filePaths = {
   ExpandableCard: 'cards/expandable-card.tsx',
@@ -21,6 +19,8 @@ const filePaths = {
   eye_catching_buttons_v3: 'buttons/eye-catching-button-v3.tsx',
   eye_catching_buttons_v4: 'buttons/eye-catching-button-v4.tsx',
   eye_catching_buttons_v5: 'buttons/eye-catching-button-v5.tsx',
+
+  loader_text: 'loaders/text-loader.tsx',
 };
 
 type ComponentPreviewProps = {
@@ -47,9 +47,6 @@ export function ComponentPreview({
     <Tabs items={['Preview', 'Code']}>
       <Tab value="Preview">
         <div className={className}>{children}</div>
-        {/* <WithContributor contributorKey={contributorKey}>
-          {children}
-        </WithContributor> */}
       </Tab>
       <Tab value="Code">
         <CodeSnippet filePath={`/src/components/${filePaths[filePathsKey]}`} />

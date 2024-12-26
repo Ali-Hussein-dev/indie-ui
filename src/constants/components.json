@@ -54,6 +54,11 @@
     "id": "loaders-dots",
     "docUrl": "/docs/loader-dots"
   },
+  "loadersText": {
+    "title": "Text loader",
+    "id": "loader_text",
+    "docUrl": "/docs/loader-text"
+  },
   "textAnimation": {
     "title": "Text animation",
     "id": "text-animation",
