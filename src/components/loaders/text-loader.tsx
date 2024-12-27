@@ -11,7 +11,7 @@ interface LoadingTextProps {
 
 export function LoadingText({ text, dots }: LoadingTextProps) {
   return (
-    <div className="relative w-full">
+    <div className="relative">
       <AnimatePresence mode="wait">
         <motion.div
           key={text}
@@ -32,12 +32,14 @@ interface LoadingProps {
   messages: string[];
   interval?: number;
   dotCount?: number;
+  direction?: 'horizontal' | 'vertical';
 }
 
 export function TextLoader({
   messages,
   interval = 2000,
   dotCount = 3,
+  direction = 'vertical',
 }: LoadingProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dots, setDots] = useState('');
@@ -56,6 +58,23 @@ export function TextLoader({
       clearInterval(dotInterval);
     };
   }, [messages.length, interval, dotCount]);
+
+  if (direction === 'horizontal') {
+    return (
+      <div className="flex items-center justify-start gap-3 rounded-sm py-2 border w-full px-3">
+        <motion.div
+          className="size-5 md:size-6 border-[3px] text-primary-foreground border-t-transparent rounded-full"
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 1,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: 'linear',
+          }}
+        />
+        <LoadingText text={messages[currentIndex]} dots={dots} />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-1">

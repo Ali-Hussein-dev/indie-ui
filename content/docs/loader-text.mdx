@@ -10,10 +10,22 @@ import { ComponentPreview } from '@/components/component-preview';
 
 Use the `TextLoader` component to display a loader with text messages for processes that require a bit more time to complete for better user experience.
 
+When changing the `direction="horizontal"` the loader will animate the text from right to left, the defautl direction is from top to bottom.
+
 
 <ComponentPreview filePathsKey="loader_text">
-  <div className="flex-row-center gap-4">
+  <div className="flex-col-center gap-8">
     <TextLoader
+      messages={[
+            'Preparing your experience',
+            'Loading awesome content',
+            'Almost there',
+            'Just a moment',
+            'Getting things ready',
+          ]} />
+  
+    <TextLoader
+      direction="horizontal"
       messages={[
             'Preparing your experience',
             'Loading awesome content',
@@ -23,3 +35,4 @@ Use the `TextLoader` component to display a loader with text messages for proces
           ]}/>
   </div>
 </ComponentPreview>
+
