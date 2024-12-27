@@ -45,6 +45,7 @@ export const pageTree: PageTree.Root = {
     { type: 'separator', name: 'Loader' },
     { type: 'page', name: 'Skeleton', url: '/docs/skeleton' },
     { type: 'page', name: 'Dots', url: '/docs/loader-dots' },
+    { type: 'page', name: 'Text', url: '/docs/loader-text', },
 
     { type: 'separator', name: 'Text animation' },
     { type: 'page', name: 'Text', url: '/docs/text-animation' },
