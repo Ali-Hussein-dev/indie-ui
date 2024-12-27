@@ -1,6 +1,6 @@
 import { isStatic } from './utils';
-import { FormElement } from '../form-types';
-import { z, ZodTypeAny } from 'zod';
+import type { FormElement } from '../form-types';
+import { z, type ZodTypeAny } from 'zod';
 
 export const generateZodSchema = (
   formElements: FormElement[],
@@ -17,13 +17,13 @@ export const generateZodSchema = (
         if (element.type === 'email') {
           elementSchema = z.string().email();
           break;
-        } else if (element.type === 'number') {
+        }
+        if (element.type === 'number') {
           elementSchema = z.coerce.number();
           break;
-        } else {
-          elementSchema = z.string();
-          break;
         }
+        elementSchema = z.string();
+        break;
       case 'DatePicker':
         elementSchema = z.coerce.date();
         break;
@@ -40,7 +40,10 @@ export const generateZodSchema = (
         elementSchema = z.string().min(1, 'Please an item');
         break;
       case 'ToggleGroup':
-        element.type === "single" ? elementSchema = z.string().min(1, 'Please an item') : elementSchema = z.array(z.string()).nonempty('Please select at least one item');
+        elementSchema =
+          element.type === 'single'
+            ? z.string().min(1, 'Please an item')
+            : z.array(z.string()).nonempty('Please select at least one item');
         break;
       case 'MultiSelect':
         elementSchema = z
