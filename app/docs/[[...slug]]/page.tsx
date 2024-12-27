@@ -33,18 +33,13 @@ export default async function Page({
                   href={`${configs.urls.github}/blob/main/content${page.url}.mdx`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:font-semibold"
                 >
                   Edit this page
                 </a>
               </span>
             </Button>
             <Button asChild className="w-[88%]" variant="outline">
-              <a
-                href={configs.urls.github}
-                data-umami-event="gh-star"
-                target="_blank"
-              >
+              <a href={configs.urls.github} data-attr-gh="gh-star">
                 <FaRegStar className="inline mr-2 size-4" />
                 Star us
               </a>
@@ -52,7 +47,7 @@ export default async function Page({
             <Button asChild className="w-[88%]" variant="outline">
               <a
                 href={configs.urls.github + '/blob/main/CONTRIBUTING.md'}
-                data-umami-event="gh-star"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Contribute
@@ -80,9 +75,20 @@ export function generateMetadata({ params }: { params: { slug?: string[] } }) {
   const page = getPage(params.slug);
 
   if (page == null) notFound();
-
+  const title = page.data.title;
+  const description = page.data.description;
   return {
-    title: page.data.title,
-    description: page.data.description,
+    title,
+    description,
+    twitter: {
+      title,
+      description,
+      creator: '@AliHussein_20',
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+    },
   } satisfies Metadata;
 }
