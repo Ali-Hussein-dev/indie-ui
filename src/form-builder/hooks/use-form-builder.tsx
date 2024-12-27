@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { FormElement, FormStep } from '@/form-builder/form-types';
+import type { FormElement, FormStep } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { generateZodSchema } from '@/form-builder/libs/generate-zod-schema';
@@ -20,16 +20,18 @@ export const useFormBuilder = () => {
     ? flattenFormSteps(formElements as FormStep[]).flat()
     : (formElements.flat() as FormElement[]);
 
-  const defaultValues: DefaultValues = flattenFormElements.reduce(
+  const filteredFormFields = flattenFormElements.filter((o) => !o.static);
+
+  const defaultValues: DefaultValues = filteredFormFields.reduce(
     (acc: DefaultValues, element) => {
-      if (element?.static) return acc;
       acc[element.name] = element?.defaultValue ?? '';
       return acc;
     },
     {},
   );
 
-  const zodSchema = generateZodSchema(flattenFormElements);
+  const zodSchema = generateZodSchema(filteredFormFields);
+
   const form = useForm({
     defaultValues,
     resolver: zodResolver(zodSchema),
