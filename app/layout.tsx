@@ -4,10 +4,11 @@ import { RootProvider } from 'fumadocs-ui/provider';
 import { Poppins } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Banner } from '@/components/banner';
-import { AnalyticsProv, Scripts } from '@/analytics-prov';
+import { AnalyticsProv } from '@/analytics-prov';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import { Scripts } from '@/scripts';
 
 const font = Poppins({
   subsets: ['latin'],
