@@ -4,7 +4,7 @@ import { RootProvider } from 'fumadocs-ui/provider';
 import { Poppins } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Banner } from '@/components/banner';
-import { AnalyticsProv } from '@/analytics-prov';
+import { AnalyticsProv, Scripts } from '@/analytics-prov';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
@@ -24,6 +24,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       className={`scroll-smooth antialiased ${font.className}`}
       style={{ colorScheme: 'dark' }}
     >
+      <head>
+        <Scripts />
+      </head>
       <body className="selection:bg-zinc-800 selection:text-zinc-100 relative">
         <Banner />
         <RootProvider>
