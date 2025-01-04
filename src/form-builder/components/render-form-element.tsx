@@ -7,11 +7,11 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import * as React from 'react';
+import type * as React from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
-import { ControllerRenderProps } from 'react-hook-form';
-import { FormElement } from '../form-types';
+import type { ControllerRenderProps, UseFormReturn } from 'react-hook-form';
+import type { FormElement } from '@/form-builder/form-types';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Switch } from '@/components/ui/switch';
 import {
@@ -50,10 +50,13 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
-export const RenderFormElement = (
-  formElement: FormElement,
-  form: any,
-): React.ReactElement => {
+export const RenderFormElement = ({
+  formElement,
+  form,
+}: {
+  formElement: FormElement;
+  form: UseFormReturn<any, any, undefined>;
+}): React.ReactElement => {
   switch (formElement.fieldType) {
     case 'Input':
       return (

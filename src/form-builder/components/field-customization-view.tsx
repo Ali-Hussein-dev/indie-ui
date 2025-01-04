@@ -16,7 +16,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { FaEdit } from 'react-icons/fa';
-import { FormElement } from '@/form-builder/form-types';
+import type { FormElement } from '@/form-builder/form-types';
 import { useForm } from 'react-hook-form';
 import { Form } from '@/components/ui/form';
 import { isStatic } from '@/form-builder/libs/utils';
@@ -69,144 +69,146 @@ function FormElementOptions({
         <div>
           {isStatic(formElement.fieldType) ? (
             <div className="mb-4">
-              {RenderFormElement(
-                {
+              <RenderFormElement
+                formElement={{
                   name: 'content',
                   label: `Customize ${formElement.fieldType}`,
                   fieldType: 'Input',
                   defaultValue: formElement.content,
                   required: true,
-                },
-                form,
-              )}
+                }}
+                form={form}
+              />
             </div>
           ) : (
             <div className="flex-col-start w-full gap-3 mb-2">
               <div className="flex-row-between gap-2 w-full">
-                {RenderFormElement(
-                  {
+                <RenderFormElement
+                  formElement={{
                     name: 'name',
-                    label: `Customize ${formElement.name}`,
+                    label: 'Name attribute',
                     fieldType: 'Input',
                     defaultValue: formElement.name,
                     required: true,
-                  },
-                  form,
-                )}
-                {RenderFormElement(
-                  {
+                  }}
+                  form={form}
+                />
+                <RenderFormElement
+                  formElement={{
                     name: 'placeholder',
-                    label: `Customize placeholder`,
+                    label: 'Placeholder attribute',
                     fieldType: 'Input',
                     type: 'text',
                     required: true,
-                  } as FormElement,
-                  form,
-                )}
+                  }}
+                  form={form}
+                />
               </div>
               <div className="flex-row-between gap-2 w-full">
-                {RenderFormElement(
-                  {
+                <RenderFormElement
+                  formElement={{
                     name: 'label',
-                    label: 'Customize label',
+                    label: 'Label attribute',
                     fieldType: 'Input',
                     type: 'text',
                     required: true,
-                  },
-                  form,
-                )}
-                {formElement.fieldType === 'Input' &&
-                  RenderFormElement(
-                    {
+                  }}
+                  form={form}
+                />
+                {formElement.fieldType === 'Input' && (
+                  <RenderFormElement
+                    formElement={{
                       name: 'type',
                       label: 'Select input type',
                       fieldType: 'Select',
                       options: inputTypes,
                       required: true,
                       placeholder: 'Select input type',
-                    },
-                    form,
-                  )}
+                    }}
+                    form={form}
+                  />
+                )}
               </div>
               {formElement.fieldType === 'Slider' && (
                 <div className="flex-row-between gap-3">
-                  {RenderFormElement(
-                    {
+                  <RenderFormElement
+                    formElement={{
                       name: 'min',
                       label: 'Customize min value',
                       fieldType: 'Input',
                       type: 'number',
                       defaultValue: formElement.min,
                       required: true,
-                    },
-                    form,
-                  )}
-                  {RenderFormElement(
-                    {
+                    }}
+                    form={form}
+                  />
+                  <RenderFormElement
+                    formElement={{
                       name: 'max',
                       label: 'Customize max value',
                       fieldType: 'Input',
                       type: 'number',
                       defaultValue: formElement.max,
                       required: true,
-                    },
-                    form,
-                  )}
-                  {RenderFormElement(
-                    {
+                    }}
+                    form={form}
+                  />
+                  <RenderFormElement
+                    formElement={{
                       name: 'step',
                       label: 'Customize step value',
                       fieldType: 'Input',
                       type: 'number',
                       defaultValue: formElement.step,
                       required: true,
-                    },
-                    form,
-                  )}
+                    }}
+                    form={form}
+                  />
                 </div>
               )}
-              {formElement.fieldType === 'ToggleGroup' &&
-                RenderFormElement(
-                  {
-                    name: formElement.name,
-                    label: 'Select type for ToggleGroup',
+              {formElement.fieldType === 'ToggleGroup' && (
+                <RenderFormElement
+                  formElement={{
+                    name: 'type',
+                    label: 'Choose between single and multiple choices',
                     fieldType: 'ToggleGroup',
-                    type: 'single',
                     options: [
                       { value: 'single', label: 'Single' },
                       { value: 'multiple', label: 'Multiple' },
                     ],
                     defaultValue: formElement.type,
                     required: true,
-                  },
-                  form,
-                )}
-              {RenderFormElement(
-                {
-                  name: 'description',
-                  label: 'Select type for ToggleGroup',
-                  fieldType: 'Input',
-                  placeholder: 'Describe the field',
-                },
-                form,
+                    type: 'single',
+                  }}
+                  form={form}
+                />
               )}
+              <RenderFormElement
+                formElement={{
+                  name: 'description',
+                  label: 'Describe the field',
+                  fieldType: 'Input',
+                  placeholder: 'Add a description',
+                }}
+                form={form}
+              />
               <div className="flex-row-start gap-4 pl-1">
-                {RenderFormElement(
-                  {
+                <RenderFormElement
+                  formElement={{
                     name: 'required',
                     label: 'Required',
                     fieldType: 'Checkbox',
-                  },
-                  form,
-                )}
-                {RenderFormElement(
-                  {
+                  }}
+                  form={form}
+                />
+                <RenderFormElement
+                  formElement={{
                     name: 'disabled',
                     label: 'Disabled',
                     fieldType: 'Checkbox',
-                  },
-                  form,
-                )}
+                  }}
+                  form={form}
+                />
               </div>
             </div>
           )}

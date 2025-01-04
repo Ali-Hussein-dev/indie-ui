@@ -14,7 +14,7 @@ export function MultiStepViewer({
   form,
   formElements,
 }: {
-  form: UseFormReturn;
+  form: UseFormReturn<any, any, undefined>;
   formElements: FormStep[];
 }) {
   const { currentStep, isLastStep, goToNext, goToPrevious } = useMultiStepForm({
@@ -57,9 +57,9 @@ export function MultiStepViewer({
                   key={i}
                   className="flex items-center justify-between flex-wrap sm:flex-nowrap w-full gap-2"
                 >
-                  {field.map((el: any, ii: number) => (
+                  {field.map((el: FormElement, ii: number) => (
                     <div key={el.name + ii} className="w-full">
-                      {RenderFormElement(el, form)}
+                      <RenderFormElement formElement={el} form={form} />
                     </div>
                   ))}
                 </div>
@@ -67,7 +67,7 @@ export function MultiStepViewer({
             }
             return (
               <div key={i} className="w-full">
-                {RenderFormElement(field, form)}
+                <RenderFormElement formElement={field} form={form} />
               </div>
             );
           })}

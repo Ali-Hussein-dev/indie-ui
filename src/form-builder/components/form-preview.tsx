@@ -1,6 +1,6 @@
 import { Form } from '@/components/ui/form';
 import { RenderFormElement } from '@/form-builder/components/render-form-element';
-import type { FormElementOrList, FormStep } from '@/form-builder/form-types';
+import type { FormElement, FormElementOrList, FormStep } from '@/form-builder/form-types';
 import { Button } from '@/components/ui/button';
 import { MultiStepViewer } from '@/form-builder/components/multi-step-viewer';
 import { useFormBuilder } from '@/form-builder/hooks/use-form-builder';
@@ -8,7 +8,7 @@ import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 import type { UseFormReturn } from 'react-hook-form';
 
 interface FormPreviewProps {
-  form: UseFormReturn;
+  form: UseFormReturn<any, any, undefined>;
 }
 
 export function FormPreview({ form }: FormPreviewProps) {
@@ -39,7 +39,7 @@ export function FormPreview({ form }: FormPreviewProps) {
                     >
                       {element.map((el, ii) => (
                         <div key={el.name + ii} className="w-full">
-                          {RenderFormElement(el, form)}
+                          <RenderFormElement formElement={el} form={form} />
                         </div>
                       ))}
                     </div>
@@ -47,7 +47,7 @@ export function FormPreview({ form }: FormPreviewProps) {
                 }
                 return (
                   <div key={element.name + i} className="w-full">
-                    {RenderFormElement(element, form)}
+                    <RenderFormElement formElement={element} form={form} />
                   </div>
                 );
               })
