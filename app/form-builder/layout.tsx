@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import { FaGithub } from 'react-icons/fa6';
 import { configs } from '@/configs';
 
-const title = 'Shadcn Form Builder | FormFast';
+const title = 'Shadcn Form Builder';
 const description =
-  'Build as many forms as you want for free using React, shadcn, tailwindcss, Zod, and React Hook Form';
+  'Build forms in minutes not hours for free using shadcn, tailwindcss, React, Zod, and React Hook Form';
 
 export const metadata = generateSEOTags({
   title,
@@ -92,3 +92,4 @@ export default function FormBuilderLayout({
     </div>
   );
 }
+
