@@ -129,12 +129,21 @@ function FormElementOptions({
                   />
                 )}
               </div>
+              <RenderFormElement
+                formElement={{
+                  name: 'description',
+                  label: 'Describe the field',
+                  fieldType: 'Input',
+                  placeholder: 'Add a description',
+                }}
+                form={form}
+              />
               {formElement.fieldType === 'Slider' && (
                 <div className="flex-row-between gap-3">
                   <RenderFormElement
                     formElement={{
                       name: 'min',
-                      label: 'Customize min value',
+                      label: 'Min value',
                       fieldType: 'Input',
                       type: 'number',
                       defaultValue: formElement.min,
@@ -145,7 +154,7 @@ function FormElementOptions({
                   <RenderFormElement
                     formElement={{
                       name: 'max',
-                      label: 'Customize max value',
+                      label: 'Max value',
                       fieldType: 'Input',
                       type: 'number',
                       defaultValue: formElement.max,
@@ -156,7 +165,7 @@ function FormElementOptions({
                   <RenderFormElement
                     formElement={{
                       name: 'step',
-                      label: 'Customize step value',
+                      label: 'Step value',
                       fieldType: 'Input',
                       type: 'number',
                       defaultValue: formElement.step,
@@ -170,7 +179,7 @@ function FormElementOptions({
                 <RenderFormElement
                   formElement={{
                     name: 'type',
-                    label: 'Choose between single and multiple choices',
+                    label: 'Choose single or multiple choices',
                     fieldType: 'ToggleGroup',
                     options: [
                       { value: 'single', label: 'Single' },
@@ -183,15 +192,6 @@ function FormElementOptions({
                   form={form}
                 />
               )}
-              <RenderFormElement
-                formElement={{
-                  name: 'description',
-                  label: 'Describe the field',
-                  fieldType: 'Input',
-                  placeholder: 'Add a description',
-                }}
-                form={form}
-              />
               <div className="flex-row-start gap-4 pl-1">
                 <RenderFormElement
                   formElement={{
