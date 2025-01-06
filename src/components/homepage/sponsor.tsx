@@ -1,4 +1,4 @@
-import { EyeCatchingButton_v3 } from '@/components/buttons/eye-catching-buttons';
+import { EyeCatchingButton_v3 } from '@/components/buttons/eye-catching-button-v3';
 
 const SponsorCard = ({ children }: { children: React.ReactNode }) => (
   <div className="size-28 rounded-lg border border-dashed center text-sm p-2 shadow-inner border-zinc-300 dark:border-zinc-700 dark:text-zinc-500 text-zinc-600">
@@ -29,7 +29,7 @@ export function Sponsor() {
           <SponsorCard>Your logo here</SponsorCard>
           <SponsorCard>Your logo here</SponsorCard>
         </div>
-        <div className={`py-6 w-full`}>
+        <div className="py-6 w-full">
           <EyeCatchingButton_v3 asChild>
             <a
               href="https://github.com/sponsors/Ali-Hussein-dev"
