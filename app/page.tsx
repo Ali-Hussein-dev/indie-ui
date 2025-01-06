@@ -8,11 +8,9 @@ import {
   Button_v6,
   Button_v7,
 } from '@/components/buttons/button-variants';
-import {
-  EyeCatchingButton_v1,
-  EyeCatchingButton_v2,
-  EyeCatchingButton_v3,
-} from '@/components/buttons/eye-catching-buttons';
+import { EyeCatchingButton_v1 } from '@/components/buttons/eye-catching-button-v1';
+import { EyeCatchingButton_v2 } from '@/components/buttons/eye-catching-button-v2';
+import { EyeCatchingButton_v3 } from '@/components/buttons/eye-catching-button-v3';
 import {
   SimpleCard_V1,
   SimpleCard_V2,
@@ -110,7 +108,9 @@ export default function HomePage() {
             docUrl={components.eyeCatchingButton.docUrl}
           >
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 max-w-2xl">
-              <EyeCatchingButton_v1>Shimmer effect</EyeCatchingButton_v1>
+              <EyeCatchingButton_v1 className="w-full">
+                Shimmer effect
+              </EyeCatchingButton_v1>
               <EyeCatchingButton_v2>Shiny background</EyeCatchingButton_v2>
               <EyeCatchingButton_v3>Shiny text</EyeCatchingButton_v3>
             </div>
