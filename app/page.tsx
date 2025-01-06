@@ -1,13 +1,11 @@
 import { Button } from '@/components/ui/button';
-import {
-  Button_v1,
-  Button_v2,
-  Button_v3,
-  Button_v4,
-  Button_v5,
-  Button_v6,
-  Button_v7,
-} from '@/components/buttons/button-variants';
+import { Button_v1 } from '@/components/buttons/button-v1';
+import { Button_v2 } from '@/components/buttons/button-v2';
+import { Button_v3 } from '@/components/buttons/button-v3';
+import { Button_v4 } from '@/components/buttons/button-v4';
+import { Button_v5 } from '@/components/buttons/button-v5';
+import { Button_v6 } from '@/components/buttons/button-v6';
+import { Button_v7 } from '@/components/buttons/button-v7';
 import { EyeCatchingButton_v1 } from '@/components/buttons/eye-catching-button-v1';
 import { EyeCatchingButton_v2 } from '@/components/buttons/eye-catching-button-v2';
 import { EyeCatchingButton_v3 } from '@/components/buttons/eye-catching-button-v3';

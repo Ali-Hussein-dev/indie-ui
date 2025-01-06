@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { configs } from '@/configs';
-import { Button_v6 } from '@/components/buttons/button-variants';
+import { Button_v6 } from '@/components/buttons/button-v6';
 import { MultilayerCardV_2 } from './cards/multi-layers';
 
 //======================================
