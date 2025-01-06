@@ -5,6 +5,9 @@ const filePaths = {
   ExpandableCard: 'cards/expandable-card.tsx',
   Separator: 'separators/separator.tsx',
   input: 'inputs/input.tsx',
+
+  extended_shadcn_button: 'buttons/extended-shadcn-button.tsx',
+
   button_v1: 'buttons/button-v1.tsx',
   button_v2: 'buttons/button-v2.tsx',
   button_v3: 'buttons/button-v3.tsx',

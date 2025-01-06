@@ -32,7 +32,7 @@ export const pageTree: PageTree.Root = {
     { type: 'page', name: 'Interactive', url: '/docs/cards-interactive' },
 
     { type: 'separator', name: 'Button' },
-    { type: 'page', name: 'Base', url: '/docs/base-button' },
+    { type: 'page', name: 'Shadcn button', url: '/docs/base-button' },
     { type: 'page', name: 'Simple', url: '/docs/buttons' },
     { type: 'page', name: 'Eye catching', url: '/docs/eye-catching-buttons' },
     { type: 'page', name: 'Stateful', url: '/docs/stateful-buttons' },
