@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaCircleCheck, FaCircleXmark } from 'react-icons/fa6';
 import { cn } from '@/lib/utils';
 import { ImSpinner2 } from 'react-icons/im';
-import { LuSend } from 'react-icons/lu';
+
 
 // mock async code
 const useStatus = ({ resloveTo }: { resloveTo: 'success' | 'error' }) => {
@@ -53,7 +53,7 @@ export function StatefulButton_1({ ...rest }: ButtonProps) {
         {status === 'loading' && (
           <motion.span
             key={status}
-            initial={{ opacity: 0, y: 15 }}
+            // initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 100, y: 0, transition: { delay: 0 } }}
             exit={{ opacity: 0, y: -15, transition: { duration: 0.3 } }}
           >
@@ -65,7 +65,7 @@ export function StatefulButton_1({ ...rest }: ButtonProps) {
         {['success', 'error'].includes(status) && (
           <motion.span
             key={status}
-            initial={{ opacity: 0, y: 15, scale: 0 }}
+            // initial={{ opacity: 0, y: 15, scale: 0 }}
             animate={{
               opacity: 100,
               y: 0,

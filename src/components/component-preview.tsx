@@ -22,6 +22,9 @@ const filePaths = {
   eye_catching_buttons_v3: 'buttons/eye-catching-button-v3.tsx',
   eye_catching_buttons_v4: 'buttons/eye-catching-button-v4.tsx',
   eye_catching_buttons_v5: 'buttons/eye-catching-button-v5.tsx',
+  
+  stateful_button_1: 'buttons/stateful/variant-1.tsx',
+  stateful_button_2: 'buttons/stateful/variant-2.tsx',
 
   loader_text: 'loaders/text-loader.tsx',
 };

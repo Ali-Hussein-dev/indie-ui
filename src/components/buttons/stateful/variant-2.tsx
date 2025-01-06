@@ -28,7 +28,7 @@ const useStatus = ({ resloveTo }: { resloveTo: 'success' | 'error' }) => {
 export function StatefulButton_2({ ...rest }: ButtonProps) {
   const { status, onSubmit } = useStatus({ resloveTo: 'success' });
   const variants = {
-    initial: { opacity: 0, y: 15 },
+    // initial: { opacity: 0, y: 15 },
     show: { opacity: 100, y: 0, transition: { delay: 0.1, duration: 0.4 } },
     hidden: { opacity: 0, y: -15, transition: { duration: 0.3 } },
   };
