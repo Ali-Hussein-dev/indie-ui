@@ -31,7 +31,7 @@ export function MultiStepViewer({
   const steps = formElements as FormStep[];
   const current = formElements[currentStep - 1] as FormStep;
   const {
-    formState: { isSubmitting },
+    formState: { isSubmitting, isSubmitted },
   } = form;
   return (
     <div className="flex flex-col gap-2 pt-3">
@@ -79,7 +79,11 @@ export function MultiStepViewer({
         </Button>
         {isLastStep ? (
           <Button size="sm" type="submit">
-            {isSubmitting ? 'Submitting...' : 'Submit'}
+            {isSubmitting
+              ? 'Submitting...'
+              : isSubmitted
+                ? 'Submitted ✅'
+                : 'Submit'}
           </Button>
         ) : (
           <Button

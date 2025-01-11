@@ -56,8 +56,9 @@ export const useFormBuilder = () => {
     // reset submitted data
     setSubmittedData({});
   };
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     setSubmittedData(data);
+    return new Promise((resolve) => setTimeout(resolve, 2000));
   };
 
   return {
