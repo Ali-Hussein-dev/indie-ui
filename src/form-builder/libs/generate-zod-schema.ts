@@ -1,5 +1,5 @@
-import { isStatic } from './utils';
-import type { FormElement } from '../form-types';
+import { isStatic } from '@/form-builder/libs/utils';
+import type { FormElement } from '@/form-builder/form-types';
 import { z, type ZodTypeAny } from 'zod';
 
 export const generateZodSchema = (
@@ -88,19 +88,19 @@ export const zodSchemaToString = (schema: z.ZodTypeAny): string => {
   }
 
   if (schema instanceof z.ZodBoolean) {
-    return `z.boolean()`;
+    return 'z.boolean()';
   }
 
   if (schema instanceof z.ZodNumber) {
     let result = 'z.number()';
     if ('checks' in schema._def) {
-      schema._def.checks.forEach((check: any) => {
+      for (const check of schema._def.checks) {
         if (check.kind === 'min') {
           result += `.min(${check.value})`;
         } else if (check.kind === 'max') {
           result += `.max(${check.value})`;
         }
-      });
+      }
     }
     return result;
   }
@@ -108,19 +108,19 @@ export const zodSchemaToString = (schema: z.ZodTypeAny): string => {
   if (schema instanceof z.ZodString) {
     let result = 'z.string()';
     if ('checks' in schema._def) {
-      schema._def.checks.forEach((check: any) => {
+      for (const check of schema._def.checks) {
         if (check.kind === 'min') {
           result += `.min(${check.value})`;
         } else if (check.kind === 'max') {
           result += `.max(${check.value})`;
         }
-      });
+      }
     }
     return result;
   }
 
   if (schema instanceof z.ZodDate) {
-    return `z.coerce.date()`;
+    return 'z.coerce.date()';
   }
 
   if (schema instanceof z.ZodArray) {

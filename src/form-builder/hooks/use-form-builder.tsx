@@ -46,7 +46,7 @@ export const useFormBuilder = () => {
     });
 
     return unsubscribe;
-  }, [watch, setSubmittedData]);
+  }, [watch]);
 
   const resetForm = () => {
     // Remove all fields from the form
