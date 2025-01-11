@@ -156,5 +156,16 @@ export const getZodSchemaString = (formElements: FormElement[]): string => {
     })
     .join(',\n');
 
-  return `export const formSchema = z.object({\n${schemaEntries}\n});`;
+  return `
+  import * as z from "zod"
+
+  export interface ActionResponse<T = any> {
+      success: boolean
+      message: string
+      errors?: {
+          [K in keyof T]?: string[]
+      }
+      inputs?: T
+  }
+  export const formSchema = z.object({\n${schemaEntries}\n});`;
 };

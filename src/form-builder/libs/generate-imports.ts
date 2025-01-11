@@ -5,6 +5,7 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
     '"use client"',
     'import * as z from "zod"',
     "import { formSchema } from '../form-schema'",
+    "import { serverAction } from '../actions/server-action'",
     'import { zodResolver } from "@hookform/resolvers/zod"',
     'import { Button } from "@/components/ui/button"',
     'import { useForm } from "react-hook-form"',

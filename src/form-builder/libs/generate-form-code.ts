@@ -44,18 +44,18 @@ export const generateFormCode = ({
     defaultValues: ${defaultValues},
   })
 
-  function onSubmit(fields: z.infer<typeof formSchema>) {
-    console.log(fields);
-  }
-
+  const [state, action, isPending] = React.useActionState(
+    serverAction,
+    initialState
+  )
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border">
+        <form action={action} className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border">
           ${renderFields(formElements as FormElementOrList[])}
           <div className="flex justify-end items-center w-full pt-3">
             <Button className="rounded-lg" size="sm">
-              Submit
+              {isPending ? 'Submitting...' : 'Submit'}
             </Button>
           </div>
         </form>
@@ -86,26 +86,23 @@ export const generateFormCode = ({
   import { useState, useCallback } from 'react'
   import { Progress } from '@/components/ui/progress'
   import { motion, AnimatePresence } from 'framer-motion'
-  
-    export function DraftForm() {
+  export function DraftForm() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: ${defaultValues},
-  })
+    })
 
-  function onSubmit(fields: z.infer<typeof formSchema>) {
-    console.log(fields);
-  }
+    const [state, action, isPending] = React.useActionState(serverAction ,initialState)
 
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border">
+        <form action={action} className="flex flex-col p-2 md:p-5 w-full mx-auto rounded-md max-w-3xl gap-2 border">
           <MultiStepViewer form={form} />
           <div className="flex justify-end items-center w-full pt-3">
             <Button className="rounded-lg" size="sm">
-              Submit
+              {isPending ? 'Submitting...' : 'Submit'}
             </Button>
           </div>
         </form>

@@ -13,6 +13,7 @@ import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { flattenFormSteps } from '@/form-builder/libs/form-elements-helpers';
 import { getZodSchemaString } from '@/form-builder/libs/generate-zod-schema';
+import { generateServerActionCode } from '@/form-builder/libs/generate-server-action-code';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
@@ -177,7 +178,20 @@ const ZodSchemaCode = () => {
     : formElements.flat();
   const generatedCode = getZodSchemaString(parsedFormElements as FormElement[]);
   const formattedCode = formatCode(generatedCode);
-  const highlightedCode = useShiki({ code: formattedCode });
+  const highlightedCode = useShiki({ code: formattedCode, lang: 'typescript' });
+  if (!highlightedCode)
+    return <div className="text-center py-5 w-full">Generating code...</div>;
+  return (
+    <div className="relative max-w-full">
+      <Wrapper>{highlightedCode}</Wrapper>
+    </div>
+  );
+};
+
+const ServerActionCode = () => {
+  const generatedCode = generateServerActionCode();
+  const formattedCode = formatCode(generatedCode);
+  const highlightedCode = useShiki({ code: formattedCode, lang: 'typescript' });
   if (!highlightedCode)
     return <div className="text-center py-5 w-full">Generating code...</div>;
   return (
@@ -189,18 +203,21 @@ const ZodSchemaCode = () => {
 //======================================
 export function GeneratedFormCodeViewer() {
   return (
-    <Tabs items={['JSX', 'Schema']} className="w-full min-w-full mt-0">
-      <Tab value="JSX" className="p-4">
+    <Tabs
+      items={['JSX', 'Schema', 'Server action']}
+      className="w-full min-w-full mt-0"
+    >
+      <Tab value="JSX" className="p-4" tabIndex={-1}>
         <JSXCode />
         <div className="border-t border-dashed w-full mt-6" />
         <InstallPackagesCode />
       </Tab>
-      <Tab value="Schema" className="p-4">
+      <Tab value="Schema" className="p-4" tabIndex={-1}>
         <ZodSchemaCode />
       </Tab>
-      {/* <Tab value="Server action" className="p-4">
-        <div className="text-center py-5 w-full">Coming soon...</div>
-      </Tab> */}
+      <Tab value="Server action" className="p-4" tabIndex={-1}>
+        <ServerActionCode />
+      </Tab>
     </Tabs>
   );
 }
