@@ -11,7 +11,8 @@ import { codeHighlighter } from '@/form-builder/libs/code-highlighter';
 import { formatCode } from '@/form-builder/libs/utils';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
-import { flattenFormSteps } from '../libs/form-elements-helpers';
+import { flattenFormSteps } from '@/form-builder/libs/form-elements-helpers';
+import { getZodSchemaString } from '@/form-builder/libs/generate-zod-schema';
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
   <CodeBlock className="my-0 w-full">
@@ -79,23 +80,12 @@ const installableShadcnComponents: Partial<
   MultiSelect: '',
 };
 //======================================
-export function JsxViewer() {
+export function InstallPackagesCode() {
   const formElements = useFormBuilderStore((s) => s.formElements);
   const isMS = useFormBuilderStore((s) => s.isMS);
-  // generate -> format -> highlight code
-  const generatedCode = generateFormCode({
-    formElements: formElements as FormElementOrList[],
-    isMS,
-  });
-  const formattedCode = formatCode(generatedCode);
-  const highlightedCode = useShiki({ code: formattedCode });
-  if (!highlightedCode)
-    return <div className="text-center py-5 w-full">Generating code...</div>;
-
   const processedFormElements = isMS
     ? flattenFormSteps(formElements as FormStep[])
     : formElements;
-
   const formElementTypes = (processedFormElements.flat() as FormElement[])
     .filter((el) => !el.static)
     .map((el) => el.fieldType)
@@ -104,7 +94,6 @@ export function JsxViewer() {
 
   const packagesSet = new Set(formElementTypes);
   const packages = Array.from(packagesSet).join(' ');
-
   const otherPackages = 'react-hook-form zod @hookform/resolvers framer-motion';
   const tabsData = [
     {
@@ -128,41 +117,90 @@ export function JsxViewer() {
       base: `bunx --bun add ${otherPackages}`,
     },
   ];
+
   return (
-    <Tabs items={['JSX', 'Install']} className="w-full min-w-full mt-0">
-      <Tab value="JSX" className="p-2">
-        <div className="relative max-w-full">
-          <Wrapper>{highlightedCode}</Wrapper>
-        </div>
+    <div className="w-full py-5 max-w-full">
+      <h2 className="font-sembold text-left">Install base packages</h2>
+      <Tabs
+        items={tabsData.map((o) => o.value)}
+        className="w-full mt-2 rounded-md"
+      >
+        {tabsData.map((item) => (
+          <Tab key={item.value} value={item.value}>
+            <CodeBlock>
+              <Pre>{item.base}</Pre>
+            </CodeBlock>
+          </Tab>
+        ))}
+      </Tabs>
+      <h2 className="font-sembold text-left mt-4">
+        Install required shadcn components
+      </h2>
+      <Tabs
+        items={tabsData.map((o) => o.value)}
+        className="w-full mt-2 rounded-md"
+      >
+        {tabsData.map((item) => (
+          <Tab key={item.value} value={item.value}>
+            <CodeBlock>
+              <Pre>{item.shadcn}</Pre>
+            </CodeBlock>
+          </Tab>
+        ))}
+      </Tabs>
+    </div>
+  );
+}
+const JSXCode = () => {
+  const formElements = useFormBuilderStore((s) => s.formElements);
+  const isMS = useFormBuilderStore((s) => s.isMS);
+  // generate -> format -> highlight code
+  const generatedCode = generateFormCode({
+    formElements: formElements as FormElementOrList[],
+    isMS,
+  });
+  const formattedCode = formatCode(generatedCode);
+  const highlightedCode = useShiki({ code: formattedCode });
+  if (!highlightedCode)
+    return <div className="text-center py-5 w-full">Generating code...</div>;
+  return (
+    <div className="relative max-w-full">
+      <Wrapper>{highlightedCode}</Wrapper>
+    </div>
+  );
+};
+const ZodSchemaCode = () => {
+  const formElements = useFormBuilderStore((s) => s.formElements);
+  const isMS = useFormBuilderStore((s) => s.isMS);
+  const parsedFormElements = isMS
+    ? flattenFormSteps(formElements as FormStep[])
+    : formElements.flat();
+  const generatedCode = getZodSchemaString(parsedFormElements as FormElement[]);
+  const formattedCode = formatCode(generatedCode);
+  const highlightedCode = useShiki({ code: formattedCode });
+  if (!highlightedCode)
+    return <div className="text-center py-5 w-full">Generating code...</div>;
+  return (
+    <div className="relative max-w-full">
+      <Wrapper>{highlightedCode}</Wrapper>
+    </div>
+  );
+};
+//======================================
+export function GeneratedFormCodeViewer() {
+  return (
+    <Tabs items={['JSX', 'Schema']} className="w-full min-w-full mt-0">
+      <Tab value="JSX" className="p-4">
+        <JSXCode />
+        <div className="border-t border-dashed w-full mt-6" />
+        <InstallPackagesCode />
       </Tab>
-      <Tab value="Install" className="p-0">
-        <div className="w-full px-4 py-5 max-w-full">
-          <h2 className="font-sembold text-left text-xl">
-            Install Shadcn components
-          </h2>
-          <Tabs items={tabsData.map((o) => o.value)} className="w-full mb-8">
-            {tabsData.map((item) => (
-              <Tab key={item.value} value={item.value}>
-                <CodeBlock>
-                  <Pre>{item.shadcn}</Pre>
-                </CodeBlock>
-              </Tab>
-            ))}
-          </Tabs>
-          <h2 className="font-sembold text-left text-xl">
-            Install base packages
-          </h2>
-          <Tabs items={tabsData.map((o) => o.value)} className="w-full">
-            {tabsData.map((item) => (
-              <Tab key={item.value} value={item.value}>
-                <CodeBlock>
-                  <Pre>{item.base}</Pre>
-                </CodeBlock>
-              </Tab>
-            ))}
-          </Tabs>
-        </div>
+      <Tab value="Schema" className="p-4">
+        <ZodSchemaCode />
       </Tab>
+      {/* <Tab value="Server action" className="p-4">
+        <div className="text-center py-5 w-full">Coming soon...</div>
+      </Tab> */}
     </Tabs>
   );
 }

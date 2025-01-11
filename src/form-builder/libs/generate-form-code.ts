@@ -1,6 +1,5 @@
 import { FormElement, FormElementOrList, FormStep } from '@/form-builder/form-types';
 import { generateImports } from '@/form-builder/libs/generate-imports';
-import { getZodSchemaString } from '@/form-builder/libs/generate-zod-schema';
 import { flattenFormSteps } from '@/form-builder/libs/form-elements-helpers';
 import { getFormElementCode } from '@/form-builder/libs/generate-form-component';
 
@@ -12,9 +11,8 @@ const renderFields = (fields: FormElementOrList[]) => {
           <div className="flex items-center justify-between flex-wrap sm:flex-nowrap w-full gap-2">
         ${FormElement.map((field) => getFormElementCode(field)).join('')}
       </div>`;
-      } else {
-        return getFormElementCode(FormElement);
       }
+      return getFormElementCode(FormElement);
     })
     .join('\n');
 };
@@ -33,15 +31,12 @@ export const generateFormCode = ({
 
   const imports = Array.from(generateImports(flattenedFormElements as FormElement[])).join('\n');
 
-  const schema = getZodSchemaString(flattenedFormElements as FormElement[]);
 
   const defaultValues = '{}';
 
   const formCode = `
   ${imports}
-  
-  ${schema}
-  
+
   export function DraftForm() {
   
   const form = useForm<z.infer<typeof formSchema>>({
@@ -91,7 +86,6 @@ export const generateFormCode = ({
   import { useState, useCallback } from 'react'
   import { Progress } from '@/components/ui/progress'
   import { motion, AnimatePresence } from 'framer-motion'
-  ${schema}
   
     export function DraftForm() {
 

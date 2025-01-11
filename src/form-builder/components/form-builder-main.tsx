@@ -6,7 +6,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FormElementSelector } from '@/form-builder/components/form-elements-selector';
 import { FormEdit } from '@/form-builder/components/form-edit';
 import { FormPreview } from '@/form-builder/components/form-preview';
-import { JsonViewer, JsxViewer } from '@/form-builder/components/code-viewer';
+import {
+  JsonViewer,
+  GeneratedFormCodeViewer,
+} from '@/form-builder/components/code-viewer';
 import * as React from 'react';
 import { CommandProvider } from '@/form-builder/hooks/use-command-ctx';
 import useFormBuilderStore from '@/form-builder/hooks/use-form-builder-store';
@@ -74,7 +77,7 @@ export function FormBuilderMain() {
               <FormEdit />
             </TabsContent>
             <TabsContent value={tabsList[1].name} tabIndex={-1}>
-              <JsxViewer />
+              <GeneratedFormCodeViewer />
             </TabsContent>
             <TabsContent value={tabsList[2].name} tabIndex={-1}>
               <JsonViewer json={formElements} isMS={isMS} />

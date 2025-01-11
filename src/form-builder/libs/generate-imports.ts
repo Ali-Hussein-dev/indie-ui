@@ -4,6 +4,7 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
   const importSet = new Set([
     '"use client"',
     'import * as z from "zod"',
+    "import { formSchema } from '../form-schema'",
     'import { zodResolver } from "@hookform/resolvers/zod"',
     'import { Button } from "@/components/ui/button"',
     'import { useForm } from "react-hook-form"',
@@ -35,15 +36,15 @@ export const generateImports = (formElements: FormElement[]): Set<string> => {
       case 'MultiSelect':
         importSet.add(
           `import {
-                        MultiSelect,
-                        MultiSelectContent,
-                        MultiSelectItem,
-                        MultiSelectList,
-                        MultiSelectTrigger,
-                        MultiSelectValue,} from '@/components/ui/multi-select'`,
+              MultiSelect,
+              MultiSelectContent,
+              MultiSelectItem,
+              MultiSelectList,
+              MultiSelectTrigger,
+              MultiSelectValue,} from '@/components/ui/multi-select'`,
         );
         importSet.add(
-          `\n // IMPORTANT: multi-select is not a shadcn component, so you need to copy it from the souce code and install dependencies. GitHub: https://github.com/Ali-Hussein-dev/indie-ui/blob/main/src/components/ui/multi-select.tsx`,
+          "\n // IMPORTANT: multi-select is not a shadcn component, so you need to copy it from the souce code and install dependencies. GitHub: https://github.com/Ali-Hussein-dev/indie-ui/blob/main/src/components/ui/multi-select.tsx",
         );
         break;
       case 'Password':

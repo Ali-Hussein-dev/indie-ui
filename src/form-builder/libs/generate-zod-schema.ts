@@ -156,5 +156,5 @@ export const getZodSchemaString = (formElements: FormElement[]): string => {
     })
     .join(',\n');
 
-  return `const formSchema = z.object({\n${schemaEntries}\n});`;
+  return `export const formSchema = z.object({\n${schemaEntries}\n});`;
 };
