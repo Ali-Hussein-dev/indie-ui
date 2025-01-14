@@ -16,7 +16,7 @@ export const generateServerActionCode = () => {
         }
         
         // validate inputs data with zod schema
-        const validatedData = sponsorFormSchema.safeParse(rawData)
+        const validatedData = formSchema.safeParse(rawData)
         
         if(!validatedData.success) {
             return { 
