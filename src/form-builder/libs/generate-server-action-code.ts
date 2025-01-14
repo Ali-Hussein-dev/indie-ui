@@ -3,7 +3,7 @@ export const generateServerActionCode = () => {
     "use server"
     import { ActionResponse, formSchema } from '../form-schema';
 
-    export const serverAction = async (prevState: ActionResponse | null, data: FormData) => {
+    export const serverAction = async (prevState: ActionResponse | null, data: FormData): Promise<ActionResponse> => {
 
         const entries = formData.entries()
         const rawData = Object.fromEntries(entries) as Record<string, any>
@@ -27,6 +27,6 @@ export const generateServerActionCode = () => {
             }
         }
         // do something with the data
-        return { success: true, data: validatedData.data }
+        return { success: true, message: 'Data saved' }
     }`
 }
