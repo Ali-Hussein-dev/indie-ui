@@ -37,6 +37,11 @@ export const generateFormCode = ({
   const formCode = `
   ${imports}
 
+  const initialState = {
+    success: false,
+    message: "",
+  }
+
   export function DraftForm() {
   
   const form = useForm<z.infer<typeof formSchema>>({
