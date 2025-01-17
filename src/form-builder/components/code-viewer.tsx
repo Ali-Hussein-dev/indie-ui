@@ -121,7 +121,7 @@ export function InstallPackagesCode() {
 
   return (
     <div className="w-full py-5 max-w-full">
-      <h2 className="font-sembold text-left">Install base packages</h2>
+      <h2 className="font-sembold text-start">Install base packages</h2>
       <Tabs
         items={tabsData.map((o) => o.value)}
         className="w-full mt-2 rounded-md"
@@ -134,7 +134,7 @@ export function InstallPackagesCode() {
           </Tab>
         ))}
       </Tabs>
-      <h2 className="font-sembold text-left mt-4">
+      <h2 className="font-sembold text-start mt-4">
         Install required shadcn components
       </h2>
       <Tabs

@@ -6,7 +6,7 @@ const cardContent = {
     'Lorem ipsum dolor, sit amet elit consectetur adipisicing. Nostrum, hic ipsum! dolor, sit amet elit consectetur amete elite!',
 };
 export const CardBody = ({ className = '' }) => (
-  <div className={cn('text-left p-4 md:p-6', className)}>
+  <div className={cn('text-start p-4 md:p-6', className)}>
     <h3 className="text-lg font-bold mb-1 text-zinc-200">
       {cardContent.title}
     </h3>
