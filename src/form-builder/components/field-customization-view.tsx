@@ -286,7 +286,7 @@ export function FieldCustomizationView({
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left">
+        <DrawerHeader className="text-start">
           <DrawerTitle>{title}</DrawerTitle>
         </DrawerHeader>
         <SavedFormElementOptions />

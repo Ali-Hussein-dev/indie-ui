@@ -11,7 +11,7 @@ const cardContent = {
 const CardBody = ({ className = '' }) => (
   <div
     className={cn(
-      'px-2 text-gray-100 sm:px-4 py-0 sm:pb-3 text-left',
+      'px-2 text-gray-100 sm:px-4 py-0 sm:pb-3 text-start',
       className,
     )}
   >
