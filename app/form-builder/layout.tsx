@@ -49,8 +49,8 @@ export default function FormBuilderLayout({
   return (
     <div className="flex-col-center w-full min-h-screen">
       <Header />
-      <div className="h-full grow w-full px-2 md:px-4 py-3">
-        <div className="border border-dashed px-2 mb-5 md:grid-cols-8 grid max-w-[77rem] mx-auto">
+      <div className="h-full grow w-full px-2 pb-3 pt-10 container">
+        <div className="border border-dashed mb-5 md:grid-cols-8 grid mx-auto">
           <div className="md:col-span-1" />
           <div className="md:col-span-6 md:border-x border-dashed py-5 px-3 grow sm:py-6 md:py-8 md:px-6 w-full">
             <h1 className="text-2xl md:text-3xl text-center text-pretty font-bold mb-2">
@@ -92,4 +92,3 @@ export default function FormBuilderLayout({
     </div>
   );
 }
-

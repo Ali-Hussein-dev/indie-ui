@@ -40,7 +40,7 @@ export function FormBuilderMain() {
   const setIsMS = useFormBuilderStore((s) => s.setIsMS);
   return (
     <>
-      <div className="w-full grid mx-auto md:grid-cols-12 max-w-[77rem] gap-3 py-6">
+      <div className="w-full grid md:grid-cols-12 gap-3 lg:gap-5 py-6 pt-10">
         <CommandProvider>
           <FormElementSelector />
         </CommandProvider>
@@ -91,7 +91,7 @@ export function FormBuilderMain() {
           <FormPreview form={form} />
         </div>
       </div>
-      <div className="flex-row-center gap-4 flex-wrap max-w-[77rem] mx-auto border-t px-2 py-6 border-dashed">
+      <div className="flex-row-center gap-4 flex-wrap max-w-container mx-auto border-t px-2 py-6 border-dashed">
         <Button variant={'outline'}>
           <a
             href={'https://github.com/Ali-Hussein-dev/indie-ui/discussions'}
