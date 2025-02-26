@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Header } from '@/components/homepage/header';
 import { configs } from '@/configs';
 import { FaArrowRight, FaGithub } from 'react-icons/fa';
+import { StargazerSection } from './stargazer/stargazer-section';
 // import components from '@/constants/components.json';
 // import { cn } from '@/lib/utils';
 
@@ -57,12 +58,13 @@ export const Hero = () => {
                 What{"'"}s new
               </Link>
             </Button>
-            <Button asChild variant={'outline'} leftIcon={<FaGithub />}>
+            {/* <Button asChild variant={'outline'} leftIcon={<FaGithub />}>
               <a href={configs.urls.github} target="_blank">
                 GitHub
               </a>
-            </Button>
+            </Button> */}
           </div>
+          <StargazerSection />
           {/* <div className="mx-auto pt-10">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 lg:gap-3">
               {Object.values(components).map((o, i) => (
