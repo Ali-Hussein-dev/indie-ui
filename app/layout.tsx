@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Scripts } from '@/scripts';
+import QueryProvider from '@/components/providers/query-provider';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -31,7 +32,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body className="selection:bg-zinc-800 selection:text-zinc-100 relative">
         <Banner />
         <RootProvider>
-          <AnalyticsProv>{children}</AnalyticsProv>
+          <QueryProvider>
+            <AnalyticsProv>{children}</AnalyticsProv>
+          </QueryProvider>
         </RootProvider>
       </body>
     </html>

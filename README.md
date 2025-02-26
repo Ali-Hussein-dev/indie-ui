@@ -25,6 +25,12 @@ You're totally welcome to use these components for your personal or commercial p
 
 Join the [Discord Community](https://discord.gg/gZMBUAvpBU) to get help and contribute to the project.
 
+
+## Repo Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/949ffcbeb2f4eb6a63542901f50542ff1c34c09e.svg "Repobeats analytics image")
+
+
 ## Other Projects
 
 - Next.js starter for indie hackers [Indie Starter](https://indie-starter.dev?ref=github-iui)
