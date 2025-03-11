@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse} from 'next/server'
 import { getStargazers } from '@/lib/get-stargazer';
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 10 // revalidate every 10 seconds
 
 export const GET = async (req: NextRequest) => {
 
