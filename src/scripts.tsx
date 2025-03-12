@@ -9,11 +9,19 @@ export const Scripts = () => {
   if (isDev) return null;
 
   return (
-    <Script
-      async
-      strategy="afterInteractive"
-      src={ALIYTICS_SRC}
-      data-website-id={ALIYTICS_ID}
-    />
+    <>
+      <Script
+        async
+        strategy="afterInteractive"
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="kEhWimpYIkxQOFwhW2VxNg"
+      />
+      <Script
+        async
+        strategy="afterInteractive"
+        src={ALIYTICS_SRC}
+        data-website-id={ALIYTICS_ID}
+      />
+    </>
   );
 };
