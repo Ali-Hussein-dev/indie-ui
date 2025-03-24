@@ -17,5 +17,7 @@ export const configs = {
     prostarter: 'https://pro.indie-starter.dev',
     newsletter: 'https://indiestarter.substack.com/',
     formBuilder: '/form-builder',
+    nextradar: 'https://nextradar.dev',
+    chatgptAlternatives: 'https://chatgptalternatives.app'
   },
 };

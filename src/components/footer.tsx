@@ -4,39 +4,77 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { LogoLink } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 
+const links = {
+  social: [
+    {
+      label: 'Twitter',
+      href: configs.urls.x,
+      icon: <FaXTwitter />,
+    },
+    {
+      label: 'Discord',
+      href: configs.urls.discord,
+      icon: <FaDiscord />,
+    },
+    {
+      label: 'Github',
+      href: configs.urls.github,
+      icon: <FaGithub />,
+    },
+  ],
+  otherProjects: [
+    { label: 'Nextradar.dev', href: configs.urls.nextradar },
+    { label: 'Chatgpt Alternatives', href: configs.urls.chatgptAlternatives },
+  ],
+};
 //======================================
 export const Footer = () => {
   return (
-    <footer className="h-16">
-      <div className="border-t max-w-container w-full mx-auto flex-row-end pt-4 px-2 gap-3">
-        <LogoLink />
-        <Button asChild variant="ghost" size="sm">
-          <a
-            href={configs.urls.newsletter}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Subscribe
-          </a>
-        </Button>
-        <div className="flex flex-1 flex-row items-center gap-2 md:gap-3 justify-end">
-          <a href={configs.urls.x} target="_blank" rel="noopener noreferrer">
-            <FaXTwitter />
-          </a>
-          <a
-            href={configs.urls.discord}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaDiscord />
-          </a>
-          <a
-            href={configs.urls.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
-          </a>
+    <footer className="pt-1 pb-6 border-dashed border-t">
+      <div className="max-w-container w-full mx-auto flex justify-between flex-wrap pt-4 px-2 gap-3">
+        <div className="flex flex-col gap-1 items-start">
+          <LogoLink />
+          <Button asChild variant="ghost" size="sm" className="pl-0">
+            <a
+              href={configs.urls.newsletter}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Subscribe
+            </a>
+          </Button>
+        </div>
+        <div className="flex flex-col items-start justify-start gap-1">
+          <h3 className="text-sm font-semibold dark:text-zinc-400 text-zinc-700 mb-1 pl-2.5">
+            Other Projects
+          </h3>
+          {links.otherProjects.map((link) => (
+            <Button key={link.label} asChild variant="link" size="sm">
+              <a href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </Button>
+          ))}
+        </div>
+        <div className="flex flex-row items-start gap-2 md:gap-3 justify-end">
+          {links.social.map((link) => (
+            <Button
+              key={link.label}
+              asChild
+              size="icon"
+              variant={'ghost'}
+              className="rounded-full size-9"
+            >
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.icon}
+              </a>
+            </Button>
+          ))}
         </div>
       </div>
     </footer>
