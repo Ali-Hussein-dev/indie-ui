@@ -36,6 +36,11 @@ export default function Layout({ children }: { children: ReactNode }) {
             <AnalyticsProv>{children}</AnalyticsProv>
           </QueryProvider>
         </RootProvider>
+        <script
+          src="https://app.tinyadz.com/scripts/ads.js"
+          site-id="68596e7a41f5d92653b860cd"
+          async
+        />
       </body>
     </html>
   );
