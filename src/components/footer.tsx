@@ -34,7 +34,7 @@ export const Footer = () => {
       <div className="max-w-container w-full mx-auto flex justify-between flex-wrap pt-4 px-2 gap-3">
         <div className="flex flex-col gap-1 items-start">
           <LogoLink />
-          <Button asChild variant="ghost" size="sm" className="pl-0">
+          <Button asChild variant="link" size="sm" className="pl-0">
             <a
               href={configs.urls.newsletter}
               target="_blank"
