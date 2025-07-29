@@ -4,7 +4,7 @@ import { DocsPage, DocsBody } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { CiEdit } from 'react-icons/ci';
 import { Button } from '@/components/ui/button';
-import { FaRegStar } from 'react-icons/fa';
+import { HiOutlineExternalLink } from 'react-icons/hi';
 import { configs } from '@/configs';
 
 export default async function Page({
@@ -38,21 +38,17 @@ export default async function Page({
                 </a>
               </span>
             </Button>
-            <Button asChild className="w-[88%]" variant="outline">
-              <a href={configs.urls.github} data-attr-gh="gh-star">
-                <FaRegStar className="inline mr-2 size-4" />
-                Star us
-              </a>
-            </Button>
-            <Button asChild className="w-[88%]" variant="outline">
+            <div className="w-[88%] border rounded-sm dark:text-green-300 text-green-600 border-dashed p-2.5 dark:border-green-300/40 border-green-600/40">
               <a
-                href={configs.urls.github + '/blob/main/CONTRIBUTING.md'}
-                rel="noopener noreferrer"
+                href={
+                  'https://scrimba.com/build-reusable-react-components-c0f?via=nextradardotdev'
+                }
                 target="_blank"
               >
-                Contribute
+                Build Reusable React Components
+                <HiOutlineExternalLink className="inline ml-2 size-4" />
               </a>
-            </Button>
+            </div>
           </div>
         ),
       }}
