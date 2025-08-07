@@ -25,6 +25,7 @@ const links = {
   otherProjects: [
     { label: 'Nextradar.dev', href: configs.urls.nextradar },
     { label: 'Chatgpt Alternatives', href: configs.urls.chatgptAlternatives },
+    { label: 'Formcn', href: configs.urls.formBuilder },
   ],
 };
 //======================================
@@ -46,7 +47,7 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col items-start justify-start gap-1">
           <h3 className="text-sm font-semibold dark:text-zinc-400 text-zinc-700 mb-1 pl-2.5">
-            Other Projects
+            Resources
           </h3>
           {links.otherProjects.map((link) => (
             <Button key={link.label} asChild variant="link" size="sm">

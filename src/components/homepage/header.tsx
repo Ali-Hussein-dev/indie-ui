@@ -14,7 +14,7 @@ const headerVariants = cva('mx-auto', {
     variant: {
       default: 'max-w-container',
       centered:
-        'max-w-5xl rounded-full mt-2 border dark:bg-zinc-950/50 backdrop-blur shadow-lg bg-zinc-50 dark:border-zinc-900',
+        'max-w-5xl rounded-full mt-2 border dark:bg-zinc-950/50 backdrop-blur-sm shadow-lg bg-zinc-50 dark:border-zinc-900',
     },
   },
   defaultVariants: {
@@ -51,7 +51,7 @@ const iconsList = [
 const linksList = [
   {
     href: configs.urls.formBuilder,
-    label: 'FormFast',
+    label: 'Formcn',
   },
   {
     href: configs.urls.indiestarter,
