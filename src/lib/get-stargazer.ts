@@ -50,7 +50,7 @@ export const getStargazers = async ({
         login: o.login,
         avatar_url: o.avatar_url,
         id: o.id,
-      }));
+      })).reverse(); // Reverse to show most recent stargazers first
 
       return { stargazers, stargazerCount: stargazers_count };
     }
