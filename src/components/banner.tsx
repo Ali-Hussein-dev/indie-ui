@@ -42,11 +42,11 @@ export const Banner = () => {
           <div className="flex items-center justify-center font-semibold leading-6 tracking-wide dark:text-green-300 text-green-600 text-lg gap-4">
             <Button asChild variant="ghost" size="sm" className="rounded-xl">
               <a
-                href={'https://shipped.club?aff=pWOZY'}
+                href={'https://pro.aceternity.com/?ref=iui'}
                 className="inline-block flex-row-start gap-2"
                 target="_blank"
               >
-                <span>Ship your SaaS and Start Selling</span>
+                <span>Build world class websites at wrap speed</span>
                 <FaArrowRight />
               </a>
             </Button>
