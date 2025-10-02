@@ -42,12 +42,15 @@ export const Banner = () => {
           <div className="flex items-center justify-center font-semibold leading-6 tracking-wide dark:text-green-300 text-green-600 text-lg gap-4">
             <Button asChild variant="ghost" size="sm" className="rounded-xl">
               <a
-                href={'https://pro.aceternity.com/?ref=iui'}
-                className="inline-block flex-row-start gap-2"
+                href="https://makerkit.dev?atp=a5B3Wj"
+                className="inline-block flex-row-start gap-2 lg:px-5"
                 target="_blank"
+                rel="noopener noreferrer nofollow"
               >
-                <span>Build world class websites at wrap speed</span>
-                <FaArrowRight />
+                <span>
+                  The full-stack React SaaS Starter Kits for Production
+                </span>
+                <FaArrowRight className="group-hover:translate-x-1 transition-all" />
               </a>
             </Button>
           </div>
