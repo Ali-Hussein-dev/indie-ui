@@ -53,11 +53,12 @@ const linksList = [
     href: configs.urls.formBuilder,
     label: 'Formcn',
   },
+  { href: configs.urls.cardcn, label: 'Cardcn' },
   {
     href: configs.urls.indiestarter,
     label: 'Indie Starter',
   },
-  { href: '/docs/changelog', label: 'Changelog' },
+  // { href: '/docs/changelog', label: 'Changelog' },
 ];
 
 //======================================
