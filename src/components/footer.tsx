@@ -23,9 +23,10 @@ const links = {
     },
   ],
   otherProjects: [
-    { label: 'Nextradar.dev', href: configs.urls.nextradar },
-    { label: 'Chatgpt Alternatives', href: configs.urls.chatgptAlternatives },
+    { label: 'Shoogle', href: configs.urls.shoogle },
     { label: 'Formcn', href: configs.urls.formBuilder },
+    { label: 'Cardcn', href: configs.urls.cardcn },
+    { label: 'Nextradar.dev', href: configs.urls.nextradar },
   ],
 };
 //======================================

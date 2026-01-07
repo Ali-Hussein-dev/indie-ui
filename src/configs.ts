@@ -19,6 +19,6 @@ export const configs = {
     formBuilder: 'https://formcn.dev',
     cardcn: 'https://cardcn.dev',
     nextradar: 'https://nextradar.dev',
-    chatgptAlternatives: 'https://chatgptalternatives.app'
+    shoogle: 'https://shoogle.dev'
   },
 };
